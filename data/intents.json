@@ -1,0 +1,102 @@
+[
+  {
+    "intent": "greeting",
+    "examples": [
+      "Hi",
+      "Hello",
+      "Can you help me?",
+      "Good morning",
+      "I need help with my lesson"
+    ]
+  },
+  {
+    "intent": "concept_explanation",
+    "examples": [
+      "Explain photosynthesis",
+      "Can you explain simple interest?",
+      "Explain the water cycle",
+      "What is a fraction?",
+      "Explain states of matter"
+    ]
+  },
+  {
+    "intent": "definition",
+    "examples": [
+      "What is a numerator?",
+      "Define evaporation",
+      "What is the denominator?",
+      "What does condensation mean?",
+      "Define a solid"
+    ]
+  },
+  {
+    "intent": "example_request",
+    "examples": [
+      "Give me an example of simple interest",
+      "Can you give me an example of a fraction?",
+      "Show me an example problem",
+      "Give me an example for this topic",
+      "Can you show a real life example?"
+    ]
+  },
+  {
+    "intent": "formula_help",
+    "examples": [
+      "What is the simple interest formula?",
+      "Which formula should I use?",
+      "How do I calculate interest?",
+      "Tell me the formula for this problem",
+      "Help me remember the formula"
+    ]
+  },
+  {
+    "intent": "homework_help",
+    "examples": [
+      "Help me solve my homework",
+      "How do I solve this question?",
+      "Can you help with this maths problem?",
+      "I am stuck on my homework",
+      "Help me answer this quiz question"
+    ]
+  },
+  {
+    "intent": "clarification",
+    "examples": [
+      "I don't understand",
+      "Explain that again",
+      "Can you explain it more simply?",
+      "I am confused about this topic",
+      "Please explain this in an easier way"
+    ]
+  },
+  {
+    "intent": "quiz_help",
+    "examples": [
+      "Give me a quiz",
+      "I want to practice questions",
+      "Start a quiz for me",
+      "Can I test myself?",
+      "Show me practice questions"
+    ]
+  },
+  {
+    "intent": "progress_help",
+    "examples": [
+      "Show my progress",
+      "How many quizzes have I completed?",
+      "What is my score?",
+      "How many points do I have?",
+      "Show my learning progress"
+    ]
+  },
+  {
+    "intent": "out_of_scope",
+    "examples": [
+      "What is today's weather?",
+      "Order food for me",
+      "Who won the cricket match?",
+      "Tell me a movie review",
+      "Book a hotel"
+    ]
+  }
+]

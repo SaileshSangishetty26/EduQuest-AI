@@ -1,0 +1,782 @@
+[
+  {
+    "id": "q-g6-eng-1",
+    "lesson_id": "g6-eng-1",
+    "grade": 6,
+    "subject": "English",
+    "language": "en",
+    "title": "A Bottle of Dew — Chapter Quiz",
+    "questions": [
+      {
+        "text": "What does Rama Natha believe the magic potion can do?",
+        "options": [
+          "Turn things into gold",
+          "Make plants disappear",
+          "Create rain",
+          "Make people fly"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What does Rama Natha have to collect?",
+        "options": [
+          "Morning dew from banana leaves",
+          "Gold coins",
+          "River water",
+          "Flowers"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "How does the family actually become successful?",
+        "options": [
+          "By growing and selling bananas",
+          "By finding a treasure",
+          "By receiving gold",
+          "By buying a potion"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is the main lesson of the story?",
+        "options": [
+          "Hard work and perseverance matter more than shortcuts",
+          "Magic solves every problem",
+          "Wealth comes without effort",
+          "Never grow plants"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Who helps sell the bananas?",
+        "options": [
+          "Madhumati",
+          "The king",
+          "A farmer",
+          "A merchant"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g6-eng-2",
+    "lesson_id": "g6-eng-2",
+    "grade": 6,
+    "subject": "English",
+    "language": "en",
+    "title": "The Unlikely Best Friends — Chapter Quiz",
+    "questions": [
+      {
+        "text": "Why is Gajaraj unhappy despite being well cared for?",
+        "options": [
+          "He has no friend to play with",
+          "He has no food",
+          "He dislikes the stable",
+          "He wants to leave the kingdom"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Who enters the stable one evening?",
+        "options": [
+          "A stray dog",
+          "A horse",
+          "A cat",
+          "A farmer"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What does Gajaraj notice about the dog?",
+        "options": [
+          "It is tired and hungry",
+          "It is injured by a hunter",
+          "It is carrying food",
+          "It is looking for the king"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is the main idea of the chapter?",
+        "options": [
+          "Friendship can grow despite differences",
+          "Only similar animals can be friends",
+          "Comfort is more important than friendship",
+          "Animals cannot understand each other"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which quality is most important in the friendship?",
+        "options": [
+          "Kindness",
+          "Pride",
+          "Competition",
+          "Jealousy"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g6-math-1",
+    "lesson_id": "g6-math-1",
+    "grade": 6,
+    "subject": "Mathematics",
+    "language": "en",
+    "title": "Patterns in Mathematics — Chapter Quiz",
+    "questions": [
+      {
+        "text": "What comes next in 1, 3, 5, 7, ...?",
+        "options": [
+          "9",
+          "8",
+          "10",
+          "11"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which sequence contains square numbers?",
+        "options": [
+          "1, 4, 9, 16, ...",
+          "2, 4, 6, 8, ...",
+          "1, 3, 5, 7, ...",
+          "1, 2, 3, 4, ..."
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is important when studying a number sequence?",
+        "options": [
+          "Finding and explaining its rule",
+          "Memorising only the last number",
+          "Ignoring earlier terms",
+          "Changing the sequence randomly"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Why can pictures help with patterns?",
+        "options": [
+          "They can make mathematical relationships easier to see",
+          "They remove the need for rules",
+          "They always give the answer instantly",
+          "They turn numbers into words"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g6-math-2",
+    "lesson_id": "g6-math-2",
+    "grade": 6,
+    "subject": "Mathematics",
+    "language": "en",
+    "title": "Lines and Angles — Chapter Quiz",
+    "questions": [
+      {
+        "text": "What is the common endpoint of the two rays forming an angle called?",
+        "options": [
+          "Vertex",
+          "Diameter",
+          "Centre",
+          "Side"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which object extends endlessly in both directions?",
+        "options": [
+          "A line",
+          "A ray",
+          "A line segment",
+          "A point"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "How many endpoints does a line segment have?",
+        "options": [
+          "Two",
+          "One",
+          "None",
+          "Three"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Why is careful naming important in geometry?",
+        "options": [
+          "Different names can refer to different points or angles",
+          "Names do not matter",
+          "Only pictures matter",
+          "Angles cannot be named"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g6-sci-1",
+    "lesson_id": "g6-sci-1",
+    "grade": 6,
+    "subject": "Science",
+    "language": "en",
+    "title": "The Wonderful World of Science — Chapter Quiz",
+    "questions": [
+      {
+        "text": "What often starts a scientific investigation?",
+        "options": [
+          "An observation or question",
+          "A guess without evidence",
+          "A final answer",
+          "A textbook title"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What can a hypothesis be?",
+        "options": [
+          "A possible answer that can be tested",
+          "A guaranteed fact",
+          "A random drawing",
+          "A final result"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What do scientists do after an experiment?",
+        "options": [
+          "Analyse the results",
+          "Ignore the results",
+          "Change the question without reason",
+          "Stop observing"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which quality does the chapter strongly encourage?",
+        "options": [
+          "Curiosity",
+          "Carelessness",
+          "Guessing without testing",
+          "Avoiding questions"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g6-sci-2",
+    "lesson_id": "g6-sci-2",
+    "grade": 6,
+    "subject": "Science",
+    "language": "en",
+    "title": "Diversity in the Living World — Chapter Quiz",
+    "questions": [
+      {
+        "text": "Why do living things have different features?",
+        "options": [
+          "Their features can help them survive in different environments",
+          "All environments are identical",
+          "Features never matter",
+          "Only humans need adaptations"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which body part helps fish move through water?",
+        "options": [
+          "Fins",
+          "Wings",
+          "Horns",
+          "Feathers"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Why is grouping living things useful?",
+        "options": [
+          "It helps us understand their diversity",
+          "It makes animals identical",
+          "It removes differences",
+          "It prevents observation"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which environment is especially associated with camel adaptations?",
+        "options": [
+          "Desert",
+          "Deep ocean",
+          "Rainforest canopy",
+          "Glacier"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g7-eng-1",
+    "lesson_id": "g7-eng-1",
+    "grade": 7,
+    "subject": "English",
+    "language": "en",
+    "title": "The Day the River Spoke — Chapter Quiz",
+    "questions": [
+      {
+        "text": "What unusual idea drives the chapter?",
+        "options": [
+          "A river speaking to people",
+          "A river turning into gold",
+          "A river disappearing overnight",
+          "A river becoming a road"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What does the chapter encourage students to notice?",
+        "options": [
+          "The connection between people and nature",
+          "Only the grammar of the story",
+          "Only geographical names",
+          "Only the weather"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is one important theme?",
+        "options": [
+          "Responsibility toward the natural world",
+          "Winning competitions",
+          "Finding treasure",
+          "Avoiding nature"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g7-eng-2",
+    "lesson_id": "g7-eng-2",
+    "grade": 7,
+    "subject": "English",
+    "language": "en",
+    "title": "Animals, Birds, and Dr. Dolittle — Chapter Quiz",
+    "questions": [
+      {
+        "text": "What unusual ability is central to Dr. Dolittle's character?",
+        "options": [
+          "Communicating with animals",
+          "Turning animals into humans",
+          "Flying with birds",
+          "Reading minds"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What does understanding animals encourage?",
+        "options": [
+          "Curiosity and empathy",
+          "Fear of animals",
+          "Ignoring animal needs",
+          "Competition"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Why is communication with animals interesting?",
+        "options": [
+          "It gives us a different way to understand living beings",
+          "Animals become human",
+          "It removes the need for observation",
+          "It proves animals cannot communicate"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g7-math-1",
+    "lesson_id": "g7-math-1",
+    "grade": 7,
+    "subject": "Mathematics",
+    "language": "en",
+    "title": "Large Numbers Around Us — Chapter Quiz",
+    "questions": [
+      {
+        "text": "What helps us understand a large number?",
+        "options": [
+          "Place value and representation",
+          "Ignoring its digits",
+          "Only its last digit",
+          "Guessing"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Why are large numbers useful?",
+        "options": [
+          "They describe real-world quantities",
+          "They are only used in exams",
+          "They have no practical use",
+          "They cannot represent data"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What is a useful skill when working with large numbers?",
+        "options": [
+          "Reading and comparing them accurately",
+          "Changing digits randomly",
+          "Ignoring place value",
+          "Avoiding estimation"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g7-math-2",
+    "lesson_id": "g7-math-2",
+    "grade": 7,
+    "subject": "Mathematics",
+    "language": "en",
+    "title": "Arithmetic Expressions — Chapter Quiz",
+    "questions": [
+      {
+        "text": "Why does order of operations matter?",
+        "options": [
+          "Different operation orders can produce different results",
+          "Operations always give the same result",
+          "Only addition matters",
+          "Multiplication is never used"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Which operations can appear in an arithmetic expression?",
+        "options": [
+          "Addition, subtraction, multiplication and division",
+          "Only addition",
+          "Only multiplication",
+          "Only subtraction"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What should you do when evaluating a complex expression?",
+        "options": [
+          "Follow the correct order of operations",
+          "Calculate randomly",
+          "Ignore symbols",
+          "Change the numbers"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g7-sci-1",
+    "lesson_id": "g7-sci-1",
+    "grade": 7,
+    "subject": "Science",
+    "language": "en",
+    "title": "The Ever-Evolving World of Science — Chapter Quiz",
+    "questions": [
+      {
+        "text": "How does the chapter describe science?",
+        "options": [
+          "An ongoing process of discovery",
+          "A fixed list of facts",
+          "Only laboratory work",
+          "A subject without questions"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What kind of questions should students begin asking?",
+        "options": [
+          "Deeper how and why questions",
+          "Only yes/no questions",
+          "Questions with no evidence",
+          "No questions"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "Why are activities and experiments important?",
+        "options": [
+          "They help build deeper understanding through experience",
+          "They replace thinking",
+          "They make every answer automatic",
+          "They remove curiosity"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "How are scientific fields related?",
+        "options": [
+          "Ideas in different fields can be interconnected",
+          "They never overlap",
+          "Only biology matters",
+          "They cannot influence each other"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g7-sci-2",
+    "lesson_id": "g7-sci-2",
+    "grade": 7,
+    "subject": "Science",
+    "language": "en",
+    "title": "Exploring Substances — Chapter Quiz",
+    "questions": [
+      {
+        "text": "What sparked the students' curiosity at the science fair?",
+        "options": [
+          "A liquid revealed hidden writing",
+          "A plant suddenly grew",
+          "A magnet disappeared",
+          "A balloon floated away"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What three broad categories are introduced?",
+        "options": [
+          "Acidic, basic and neutral",
+          "Hot, cold and warm",
+          "Solid, liquid and gas only",
+          "Metal, wood and plastic"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What can an indicator help us observe?",
+        "options": [
+          "Whether a substance shows acidic or basic properties",
+          "The mass of an object",
+          "The age of a plant",
+          "The distance to a star"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "What should students do when testing substances?",
+        "options": [
+          "Observe carefully and use safe testing methods",
+          "Taste every substance",
+          "Mix unknown chemicals freely",
+          "Ignore observations"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g6-tel-1",
+    "lesson_id": "g6-tel-1",
+    "grade": 6,
+    "subject": "Telugu",
+    "language": "en",
+    "title": "అభినందన — పాఠ్య క్విజ్",
+    "questions": [
+      {
+        "text": "ఈ పాఠంలో ప్రధానంగా ఎవరి శ్రమను గౌరవిస్తారు?",
+        "options": [
+          "రైతులు మరియు కష్టజీవులు",
+          "కేవలం వ్యాపారులు",
+          "కేవలం క్రీడాకారులు",
+          "కేవలం కళాకారులు"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "రైతు ప్రధానంగా ఏ పని చేస్తాడు?",
+        "options": [
+          "పంటలను పండిస్తాడు",
+          "విమానాలు నడుపుతాడు",
+          "పుస్తకాలు ముద్రిస్తాడు",
+          "సంగీతం నేర్పుతాడు"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "సైనికుల ప్రధాన బాధ్యత ఏమిటి?",
+        "options": [
+          "దేశాన్ని రక్షించడం",
+          "పంటలు పండించడం",
+          "వ్యాపారం చేయడం",
+          "పాఠశాల నడపడం"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "పాఠం మనకు ఏమి నేర్పుతుంది?",
+        "options": [
+          "కష్టపడి పనిచేసే వారిని గౌరవించాలి",
+          "శ్రమ అవసరం లేదు",
+          "అందరూ ఒకే పని చేయాలి",
+          "దేశసేవకు విలువ లేదు"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g6-tel-2",
+    "lesson_id": "g6-tel-2",
+    "grade": 6,
+    "subject": "Telugu",
+    "language": "en",
+    "title": "స్నేహబంధం — పాఠ్య క్విజ్",
+    "questions": [
+      {
+        "text": "కథలోని స్నేహితులు ఏమి చేస్తారు?",
+        "options": [
+          "పరస్పరం సహాయం చేసుకుంటారు",
+          "ఒకరితో ఒకరు పోటీ పడతారు",
+          "ఒంటరిగా ఉంటారు",
+          "ఎవరినీ నమ్మరు"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "స్నేహం యొక్క ముఖ్య లక్షణం ఏది?",
+        "options": [
+          "కష్టసమయంలో తోడుగా ఉండటం",
+          "ఇతరులను మోసం చేయడం",
+          "పోటీ పడటం",
+          "సహాయం చేయకపోవడం"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "భిన్నమైన జంతువులు ఎందుకు కలిసి పనిచేస్తాయి?",
+        "options": [
+          "ప్రతి ఒక్కరి సామర్థ్యం ఉపయోగపడుతుంది",
+          "వాటికి వేరే పని లేదు",
+          "అవి ఒకేలా ఉంటాయి",
+          "అవి పోటీ పడాలి"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "ఈ పాఠం ప్రధానంగా ఏ విలువను నేర్పుతుంది?",
+        "options": [
+          "స్నేహం మరియు సహకారం",
+          "అహంకారం",
+          "స్వార్థం",
+          "భయం"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g7-tel-1",
+    "lesson_id": "g7-tel-1",
+    "grade": 7,
+    "subject": "Telugu",
+    "language": "en",
+    "title": "చదువు — పాఠ్య క్విజ్",
+    "questions": [
+      {
+        "text": "చదువు మనిషిలో ఏమి పెంచుతుంది?",
+        "options": [
+          "జ్ఞానం మరియు వివేకం",
+          "కేవలం ధనం",
+          "కేవలం శారీరక బలం",
+          "కేవలం వినోదం"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "చదివిన విషయాలను ఎలా ఉపయోగించాలి?",
+        "options": [
+          "అర్థం చేసుకుని జీవితంలో ఉపయోగించాలి",
+          "కేవలం కంఠస్థం చేయాలి",
+          "మర్చిపోవాలి",
+          "ఇతరులకు చెప్పకూడదు"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "విద్య వల్ల ఏ సామర్థ్యం పెరుగుతుంది?",
+        "options": [
+          "సరైన నిర్ణయాలు తీసుకునే సామర్థ్యం",
+          "పని చేయకుండా ఉండే అలవాటు",
+          "స్వార్థం",
+          "అజ్ఞానం"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "పాఠం ప్రకారం జ్ఞానం ఎందుకు విలువైనది?",
+        "options": [
+          "అది జీవితాంతం ఉపయోగపడే సంపద",
+          "అది వెంటనే అమ్ముకోవచ్చు",
+          "అది కేవలం పరీక్షలో అవసరం",
+          "అది ఎప్పుడూ మారదు"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  {
+    "id": "q-g7-tel-2",
+    "lesson_id": "g7-tel-2",
+    "grade": 7,
+    "subject": "Telugu",
+    "language": "en",
+    "title": "నాయనమ్మ — పాఠ్య క్విజ్",
+    "questions": [
+      {
+        "text": "‘నాయనమ్మ’ పాఠం ప్రధానంగా దేనిపై దృష్టి పెడుతుంది?",
+        "options": [
+          "కుటుంబ అనుబంధం మరియు పెద్దల అనుభవాలు",
+          "క్రీడా పోటీలు",
+          "వ్యాపారం",
+          "ప్రకృతి శాస్త్రం"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "పెద్దల అనుభవం ఎందుకు విలువైనది?",
+        "options": [
+          "వారు జీవితంలో ఎన్నో పరిస్థితులను చూశారు",
+          "వారు ఎప్పుడూ తప్పు చేయరు",
+          "వారు పాఠశాలలో చదవరు",
+          "వారు కథలు చెప్పరు"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "కుటుంబంలో ఏ విలువను పాఠం ప్రోత్సహిస్తుంది?",
+        "options": [
+          "ప్రేమ మరియు గౌరవం",
+          "అసూయ",
+          "పోటీ",
+          "స్వార్థం"
+        ],
+        "correct": 0
+      },
+      {
+        "text": "పెద్దలతో మాట్లాడటం వల్ల ఏమి నేర్చుకోవచ్చు?",
+        "options": [
+          "జీవిత అనుభవాలు మరియు జ్ఞాపకాలు",
+          "కేవలం ఆటలు",
+          "కేవలం సంఖ్యలు",
+          "ఏమీ కాదు"
+        ],
+        "correct": 0
+      }
+    ]
+  }
+]
