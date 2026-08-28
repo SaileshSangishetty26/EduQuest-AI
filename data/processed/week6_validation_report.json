@@ -1,0 +1,30 @@
+{
+  "preprocessing": {
+    "total_queries": 50,
+    "empty_outputs": 0,
+    "duplicate_rows": 0,
+    "tokens_before": 236,
+    "tokens_after": 172,
+    "reduction_percent": 27.12,
+    "vocabulary_size": 83,
+    "intent_classes": 10,
+    "question_word_retention_percent": 100.0,
+    "status": "PASS"
+  },
+  "embeddings": {
+    "model": "distilbert-base-uncased",
+    "shape": [
+      50,
+      768
+    ],
+    "dtype": "float32",
+    "all_finite": true,
+    "unit_norm": true,
+    "intra_intent_similarity": 0.7813,
+    "inter_intent_similarity": 0.7021,
+    "separation_margin": 0.0792,
+    "loo_1nn_accuracy_percent": 50.0,
+    "random_baseline_percent": 10.0,
+    "status": "PASS"
+  }
+}

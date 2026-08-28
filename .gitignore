@@ -3,3 +3,8 @@ node_modules/
 __pycache__/
 *.pyc
 .vscode/
+.venv/
+
+# Week 6: local model caches (large, re-downloadable)
+.cache/
+nltk_data/

@@ -1,6 +1,6 @@
-# EduQuest — Weeks 2–5
+# EduQuest — Weeks 2–6
 
-This is the actual implementation for the first five implementation weeks of the EduQuest project.
+This is the actual implementation for the first six implementation weeks of the EduQuest project.
 
 The original `eduquest.html` was treated as a prototype/reference. The final application is rebuilt with:
 
@@ -11,6 +11,7 @@ The original `eduquest.html` was treated as a prototype/reference. The final app
 - Week 3 requirements/design/API documentation
 - Week 4 basic UI/backend/database setup
 - Week 5 learning content + quiz submission/storage
+- Week 6 NLP preprocessing pipeline (spaCy + NLTK) and DistilBERT embeddings
 
 ## Run
 
@@ -55,5 +56,23 @@ npm run dev
 
 Open the Vite URL shown in the terminal (normally `http://localhost:5173`).
 
+### 4. Week 6 NLP pipeline
+Run these from the **project root**, not from `backend/`:
+
+```bash
+python -m backend.nlp.setup_nlp        # spaCy model + NLTK corpora + DistilBERT weights
+python -m backend.nlp.build_dataset    # writes data/processed/
+python -m backend.nlp.validate         # prints the validation report
+```
+
+To skip the 265 MB DistilBERT download and run preprocessing only:
+
+```bash
+python -m backend.nlp.setup_nlp --skip-model
+python -m backend.nlp.build_dataset --skip-embeddings
+```
+
+The pipeline is also exposed for live demonstration at `/api/nlp/status`, `/api/nlp/preprocess` and `/api/nlp/embed`. See `docs/week6-nlp-preprocessing.md` for the full design notes and validation report.
+
 ## Important
-The app is intentionally scoped to Week 5. Advanced NLP processing and intent detection are not implemented yet because those are assigned to later weeks in the official plan.
+The app is intentionally scoped to Week 6. Intent detection and the chatbot core are Week 7 and are not implemented yet.

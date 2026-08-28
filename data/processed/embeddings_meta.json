@@ -1,0 +1,312 @@
+{
+  "model": "distilbert-base-uncased",
+  "embedding_dim": 768,
+  "max_seq_length": 64,
+  "pooling": "mean_pooling_attention_masked",
+  "normalized": true,
+  "embedded_field": "normalized_text",
+  "num_queries": 50,
+  "generated_at": "2026-08-28T17:12:42.821547+00:00",
+  "rows": [
+    {
+      "index": 0,
+      "id": "q1",
+      "intent": "greeting",
+      "text": "hi"
+    },
+    {
+      "index": 1,
+      "id": "q2",
+      "intent": "greeting",
+      "text": "hello"
+    },
+    {
+      "index": 2,
+      "id": "q3",
+      "intent": "greeting",
+      "text": "can you help me"
+    },
+    {
+      "index": 3,
+      "id": "q4",
+      "intent": "greeting",
+      "text": "good morning"
+    },
+    {
+      "index": 4,
+      "id": "q5",
+      "intent": "greeting",
+      "text": "i need help with my lesson"
+    },
+    {
+      "index": 5,
+      "id": "q6",
+      "intent": "concept_explanation",
+      "text": "explain photosynthesis"
+    },
+    {
+      "index": 6,
+      "id": "q7",
+      "intent": "concept_explanation",
+      "text": "can you explain simple interest"
+    },
+    {
+      "index": 7,
+      "id": "q8",
+      "intent": "concept_explanation",
+      "text": "explain the water cycle"
+    },
+    {
+      "index": 8,
+      "id": "q9",
+      "intent": "concept_explanation",
+      "text": "what is a fraction"
+    },
+    {
+      "index": 9,
+      "id": "q10",
+      "intent": "concept_explanation",
+      "text": "explain states of matter"
+    },
+    {
+      "index": 10,
+      "id": "q11",
+      "intent": "definition",
+      "text": "what is a numerator"
+    },
+    {
+      "index": 11,
+      "id": "q12",
+      "intent": "definition",
+      "text": "define evaporation"
+    },
+    {
+      "index": 12,
+      "id": "q13",
+      "intent": "definition",
+      "text": "what is the denominator"
+    },
+    {
+      "index": 13,
+      "id": "q14",
+      "intent": "definition",
+      "text": "what does condensation mean"
+    },
+    {
+      "index": 14,
+      "id": "q15",
+      "intent": "definition",
+      "text": "define a solid"
+    },
+    {
+      "index": 15,
+      "id": "q16",
+      "intent": "example_request",
+      "text": "give me an example of simple interest"
+    },
+    {
+      "index": 16,
+      "id": "q17",
+      "intent": "example_request",
+      "text": "can you give me an example of a fraction"
+    },
+    {
+      "index": 17,
+      "id": "q18",
+      "intent": "example_request",
+      "text": "show me an example problem"
+    },
+    {
+      "index": 18,
+      "id": "q19",
+      "intent": "example_request",
+      "text": "give me an example for this topic"
+    },
+    {
+      "index": 19,
+      "id": "q20",
+      "intent": "example_request",
+      "text": "can you show a real life example"
+    },
+    {
+      "index": 20,
+      "id": "q21",
+      "intent": "formula_help",
+      "text": "what is the simple interest formula"
+    },
+    {
+      "index": 21,
+      "id": "q22",
+      "intent": "formula_help",
+      "text": "which formula should i use"
+    },
+    {
+      "index": 22,
+      "id": "q23",
+      "intent": "formula_help",
+      "text": "how do i calculate interest"
+    },
+    {
+      "index": 23,
+      "id": "q24",
+      "intent": "formula_help",
+      "text": "tell me the formula for this problem"
+    },
+    {
+      "index": 24,
+      "id": "q25",
+      "intent": "formula_help",
+      "text": "help me remember the formula"
+    },
+    {
+      "index": 25,
+      "id": "q26",
+      "intent": "homework_help",
+      "text": "help me solve my homework"
+    },
+    {
+      "index": 26,
+      "id": "q27",
+      "intent": "homework_help",
+      "text": "how do i solve this question"
+    },
+    {
+      "index": 27,
+      "id": "q28",
+      "intent": "homework_help",
+      "text": "can you help with this math problem"
+    },
+    {
+      "index": 28,
+      "id": "q29",
+      "intent": "homework_help",
+      "text": "i am stuck on my homework"
+    },
+    {
+      "index": 29,
+      "id": "q30",
+      "intent": "homework_help",
+      "text": "help me answer this quiz question"
+    },
+    {
+      "index": 30,
+      "id": "q31",
+      "intent": "clarification",
+      "text": "i don't understand"
+    },
+    {
+      "index": 31,
+      "id": "q32",
+      "intent": "clarification",
+      "text": "explain that again"
+    },
+    {
+      "index": 32,
+      "id": "q33",
+      "intent": "clarification",
+      "text": "can you explain it more simply"
+    },
+    {
+      "index": 33,
+      "id": "q34",
+      "intent": "clarification",
+      "text": "i am confused about this topic"
+    },
+    {
+      "index": 34,
+      "id": "q35",
+      "intent": "clarification",
+      "text": "please explain this in an easier way"
+    },
+    {
+      "index": 35,
+      "id": "q36",
+      "intent": "quiz_help",
+      "text": "give me a quiz"
+    },
+    {
+      "index": 36,
+      "id": "q37",
+      "intent": "quiz_help",
+      "text": "i want to practice questions"
+    },
+    {
+      "index": 37,
+      "id": "q38",
+      "intent": "quiz_help",
+      "text": "start a quiz for me"
+    },
+    {
+      "index": 38,
+      "id": "q39",
+      "intent": "quiz_help",
+      "text": "can i test myself"
+    },
+    {
+      "index": 39,
+      "id": "q40",
+      "intent": "quiz_help",
+      "text": "show me practice questions"
+    },
+    {
+      "index": 40,
+      "id": "q41",
+      "intent": "progress_help",
+      "text": "show my progress"
+    },
+    {
+      "index": 41,
+      "id": "q42",
+      "intent": "progress_help",
+      "text": "how many quizzes have i completed"
+    },
+    {
+      "index": 42,
+      "id": "q43",
+      "intent": "progress_help",
+      "text": "what is my score"
+    },
+    {
+      "index": 43,
+      "id": "q44",
+      "intent": "progress_help",
+      "text": "how many points do i have"
+    },
+    {
+      "index": 44,
+      "id": "q45",
+      "intent": "progress_help",
+      "text": "show my learning progress"
+    },
+    {
+      "index": 45,
+      "id": "q46",
+      "intent": "out_of_scope",
+      "text": "what is today's weather"
+    },
+    {
+      "index": 46,
+      "id": "q47",
+      "intent": "out_of_scope",
+      "text": "order food for me"
+    },
+    {
+      "index": 47,
+      "id": "q48",
+      "intent": "out_of_scope",
+      "text": "who won the cricket match"
+    },
+    {
+      "index": 48,
+      "id": "q49",
+      "intent": "out_of_scope",
+      "text": "tell me a movie review"
+    },
+    {
+      "index": 49,
+      "id": "q50",
+      "intent": "out_of_scope",
+      "text": "book a hotel"
+    }
+  ]
+}

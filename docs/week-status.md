@@ -1,4 +1,4 @@
-# Week 2–5 Implementation Status
+# Week 2–6 Implementation Status
 
 | Week | Requirement area | Status |
 |---|---|---|
@@ -21,6 +21,16 @@
 | 5 | Lesson browsing/viewing | COMPLETE |
 | 5 | Quiz attempt interface | COMPLETE |
 | 5 | Store quiz responses/results | COMPLETE |
+| 6 | Text cleaning and normalisation | COMPLETE |
+| 6 | Tokenization (NLTK) | COMPLETE |
+| 6 | Stop-word removal with intent keep-list | COMPLETE |
+| 6 | Lemmatization + POS tagging (spaCy) | COMPLETE |
+| 6 | DistilBERT contextual embeddings | COMPLETE |
+| 6 | Pipeline validation on sample queries | COMPLETE |
+
+See `docs/week6-nlp-preprocessing.md` for the Week 6 design and validation report.
 
 ## Intentionally postponed
-Week 6 NLP preprocessing with spaCy/NLTK and DistilBERT embeddings; Week 7 intent detection/chatbot core; later recommendation/gamification/integration/deployment work.
+Week 7 intent detection and chatbot core; later recommendation/gamification/integration/deployment work.
+
+Carried into Week 7 from Week 6: the query dataset has only 5 examples per intent, and it is English-only — the regional-language requirement from Week 2 still needs multilingual query data and a multilingual embedding model.
