@@ -123,6 +123,8 @@ button:disabled{opacity:.65;cursor:not-allowed}
 .chapter-number{font-size:12px;color:var(--muted);font-weight:800}
 .quest-card .primary,.quiz-card .secondary{align-self:flex-start}
 .empty-state{text-align:center;padding:40px;color:var(--muted)}
+.language-notice{margin-top:18px;padding:14px 18px;border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0}
+.language-notice p{margin:0;color:var(--muted);line-height:1.5}
 
 .quest-path{margin-top:22px}
 .path-track{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}

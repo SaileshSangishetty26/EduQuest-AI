@@ -9,29 +9,54 @@ const SUBJECT_ICONS = {
   Telugu: '📝'
 };
 
+const LANGUAGE_NAMES = {
+  en: 'English',
+  te: 'Telugu',
+  hi: 'Hindi'
+};
+
 export default function Lessons({ user, level, streak, onBack, onOpenLesson, onOpenQuiz, onLogout }) {
   const [lessons, setLessons] = useState([]);
   const [quizzes, setQuizzes] = useState([]);
   const [subject, setSubject] = useState('');
+  const [usingFallback, setUsingFallback] = useState(false);
 
   const subjects = ['English', 'Mathematics', 'Science', 'Telugu'];
 
   const load = () => {
     api.lessons({ grade: user.grade, language: user.language, subject })
-      .then(setLessons).catch(() => setLessons([]));
+      .then(data => {
+        if (data.length === 0 && user.language !== 'en') {
+          return api.lessons({ grade: user.grade, language: 'en', subject })
+            .then(englishData => {
+              setUsingFallback(englishData.length > 0);
+              setLessons(englishData);
+            });
+        }
+        setUsingFallback(false);
+        setLessons(data);
+      })
+      .catch(() => {
+        setUsingFallback(false);
+        setLessons([]);
+      });
+
     api.quizzes({ grade: user.grade, subject })
       .then(setQuizzes).catch(() => setQuizzes([]));
   };
 
   useEffect(() => { load(); }, [user.grade, user.language, subject]);
 
+  const languageName = LANGUAGE_NAMES[user.language] || user.language;
+
   return (
     <>
       <Header user={user} onHome={onBack} onLessons={() => {}} onLogout={onLogout} level={level} streak={streak} />
 
       <main className="container">
+        <button className="link" onClick={onBack}>← Dashboard</button>
+
         <div className="page-head">
-          <button className="link" onClick={onBack}>← Dashboard</button>
           <span className="eyebrow">QUEST MAP</span>
           <h1>Explore Your Lessons 📚</h1>
           <p>Choose a subject, explore a chapter and test what you have learned with its chapter quiz.</p>
@@ -51,6 +76,15 @@ export default function Lessons({ user, level, streak, onBack, onOpenLesson, onO
             </button>
           ))}
         </div>
+
+        {usingFallback && (
+          <div className="card language-notice">
+            <p>
+              🌐 These chapters are not available in {languageName} yet, so we are
+              showing the English versions.
+            </p>
+          </div>
+        )}
 
         <div className="section-heading">
           <div>
