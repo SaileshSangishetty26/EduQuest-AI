@@ -32,6 +32,7 @@ from .config import (
     EMBEDDING_DIM,
     EMBEDDING_MODEL_NAME,
     MAX_SEQ_LENGTH,
+    RETRIEVAL_MODEL_NAME,
 )
 
 
@@ -126,10 +127,16 @@ class DistilBertEmbedder:
         return self.tokenizer.tokenize(text)
 
 
-@lru_cache(maxsize=1)
-def get_embedder() -> DistilBertEmbedder:
-    """Shared singleton, so the model is loaded into memory only once."""
-    return DistilBertEmbedder()
+@lru_cache(maxsize=4)
+def get_embedder(model_name: str = EMBEDDING_MODEL_NAME) -> DistilBertEmbedder:
+    """
+    Shared instance per model name, so each checkpoint loads only once.
+
+    Cached by argument, so get_embedder() and
+    get_embedder(RETRIEVAL_MODEL_NAME) return two independent embedders that
+    each stay in memory after first use.
+    """
+    return DistilBertEmbedder(model_name=model_name)
 
 
 def cosine_similarity_matrix(vectors: np.ndarray) -> np.ndarray:
@@ -143,6 +150,11 @@ def cosine_similarity_matrix(vectors: np.ndarray) -> np.ndarray:
     norms = np.clip(norms, 1e-9, None)
     unit = vectors / norms
     return unit @ unit.T
+
+
+def get_retrieval_embedder() -> DistilBertEmbedder:
+    """The checkpoint used for lesson search."""
+    return get_embedder(RETRIEVAL_MODEL_NAME)
 
 
 if __name__ == "__main__":

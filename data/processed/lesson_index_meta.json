@@ -1,0 +1,151 @@
+{
+  "model": "sentence-transformers/multi-qa-distilbert-cos-v1",
+  "num_lessons": 16,
+  "generated_at": "2026-08-31T11:29:33.459970+00:00",
+  "lessons": [
+    {
+      "id": "g6-eng-1",
+      "title": "A Bottle of Dew",
+      "subject": "English",
+      "grade": 6,
+      "language": "en",
+      "summary": "🪙 What if a few drops of dew could make you rich? Rama Natha is determined to find a magical shortcut—but his search leads to a surprising discovery about where real wealth comes from.",
+      "indexed_text": "English. A Bottle of Dew. 🪙 What if a few drops of dew could make you rich? Rama Natha is determined to find a magical shortcut—but his search leads to a surprising discovery about where real wealth comes from."
+    },
+    {
+      "id": "g6-eng-2",
+      "title": "The Unlikely Best Friends",
+      "subject": "English",
+      "grade": 6,
+      "language": "en",
+      "summary": "🐘 Can a lonely elephant and a tiny dog really become best friends? Meet Gajaraj and discover how an unexpected friendship shows that kindness can cross every difference.",
+      "indexed_text": "English. The Unlikely Best Friends. 🐘 Can a lonely elephant and a tiny dog really become best friends? Meet Gajaraj and discover how an unexpected friendship shows that kindness can cross every difference."
+    },
+    {
+      "id": "g6-math-1",
+      "title": "Patterns in Mathematics",
+      "subject": "Mathematics",
+      "grade": 6,
+      "language": "en",
+      "summary": "🔢 Ready to crack a number code? Explore sequences, shapes and visual patterns and discover how mathematicians use rules to predict what comes next.",
+      "indexed_text": "Mathematics. Patterns in Mathematics. 🔢 Ready to crack a number code? Explore sequences, shapes and visual patterns and discover how mathematicians use rules to predict what comes next."
+    },
+    {
+      "id": "g6-math-2",
+      "title": "Lines and Angles",
+      "subject": "Mathematics",
+      "grade": 6,
+      "language": "en",
+      "summary": "📐 Grab your imaginary ruler and protractor! Learn how lines, rays and angles behave, then use diagrams to name and understand them.",
+      "indexed_text": "Mathematics. Lines and Angles. 📐 Grab your imaginary ruler and protractor! Learn how lines, rays and angles behave, then use diagrams to name and understand them."
+    },
+    {
+      "id": "g6-sci-1",
+      "title": "The Wonderful World of Science",
+      "subject": "Science",
+      "grade": 6,
+      "language": "en",
+      "summary": "🔬 What makes a bicycle tyre go flat? Why does dal spill from a cooker? Science begins with questions like these. Become a curious explorer and learn how scientists investigate the world.",
+      "indexed_text": "Science. The Wonderful World of Science. 🔬 What makes a bicycle tyre go flat? Why does dal spill from a cooker? Science begins with questions like these. Become a curious explorer and learn how scientists investigate the world."
+    },
+    {
+      "id": "g6-sci-2",
+      "title": "Diversity in the Living World",
+      "subject": "Science",
+      "grade": 6,
+      "language": "en",
+      "summary": "🌿 Why does a camel survive in a desert while a fish thrives in water? Explore the amazing variety of living things and the features that help them survive in different environments.",
+      "indexed_text": "Science. Diversity in the Living World. 🌿 Why does a camel survive in a desert while a fish thrives in water? Explore the amazing variety of living things and the features that help them survive in different environments."
+    },
+    {
+      "id": "g7-eng-1",
+      "title": "The Day the River Spoke",
+      "subject": "English",
+      "grade": 7,
+      "language": "en",
+      "summary": "🌊 What if a river could talk? Step into a story where nature becomes a voice, and discover what the river's message can teach us about people, choices and the world around us.",
+      "indexed_text": "English. The Day the River Spoke. 🌊 What if a river could talk? Step into a story where nature becomes a voice, and discover what the river's message can teach us about people, choices and the world around us."
+    },
+    {
+      "id": "g7-eng-2",
+      "title": "Animals, Birds, and Dr. Dolittle",
+      "subject": "English",
+      "grade": 7,
+      "language": "en",
+      "summary": "🐦 Imagine being able to understand animals! Meet Dr. Dolittle and explore a world where communicating with animals becomes a doorway to curiosity, care and a different way of seeing the world.",
+      "indexed_text": "English. Animals, Birds, and Dr. Dolittle. 🐦 Imagine being able to understand animals! Meet Dr. Dolittle and explore a world where communicating with animals becomes a doorway to curiosity, care and a different way of seeing the world."
+    },
+    {
+      "id": "g7-math-1",
+      "title": "Large Numbers Around Us",
+      "subject": "Mathematics",
+      "grade": 7,
+      "language": "en",
+      "summary": "🌍 How big is a country's population? How much money moves through a city? Explore large numbers and learn to read, compare, estimate and work confidently with numbers far bigger than your classroom.",
+      "indexed_text": "Mathematics. Large Numbers Around Us. 🌍 How big is a country's population? How much money moves through a city? Explore large numbers and learn to read, compare, estimate and work confidently with numbers far bigger than your classroom."
+    },
+    {
+      "id": "g7-math-2",
+      "title": "Arithmetic Expressions",
+      "subject": "Mathematics",
+      "grade": 7,
+      "language": "en",
+      "summary": "🧮 Ready to make numbers obey the rules? Build and simplify arithmetic expressions and learn why the order of operations matters when several operations appear together.",
+      "indexed_text": "Mathematics. Arithmetic Expressions. 🧮 Ready to make numbers obey the rules? Build and simplify arithmetic expressions and learn why the order of operations matters when several operations appear together."
+    },
+    {
+      "id": "g7-sci-1",
+      "title": "The Ever-Evolving World of Science",
+      "subject": "Science",
+      "grade": 7,
+      "language": "en",
+      "summary": "🔭 Science never stands still. Step into the world of deeper questions, experiments and discovery, where curiosity leads to new ideas and today's questions can become tomorrow's breakthroughs.",
+      "indexed_text": "Science. The Ever-Evolving World of Science. 🔭 Science never stands still. Step into the world of deeper questions, experiments and discovery, where curiosity leads to new ideas and today's questions can become tomorrow's breakthroughs."
+    },
+    {
+      "id": "g7-sci-2",
+      "title": "Exploring Substances: Acidic, Basic, and Neutral",
+      "subject": "Science",
+      "grade": 7,
+      "language": "en",
+      "summary": "🧪 A mysterious liquid makes hidden words appear! Follow a science-fair adventure and discover how substances can be tested and grouped as acidic, basic or neutral.",
+      "indexed_text": "Science. Exploring Substances: Acidic, Basic, and Neutral. 🧪 A mysterious liquid makes hidden words appear! Follow a science-fair adventure and discover how substances can be tested and grouped as acidic, basic or neutral."
+    },
+    {
+      "id": "g6-tel-1",
+      "title": "అభినందన",
+      "subject": "Telugu",
+      "grade": 6,
+      "language": "en",
+      "summary": "🌾 రైతుల శ్రమకు ఒక అందమైన వందనం! ఈ పాఠంలో దేశానికి ఆహారం అందించే రైతులు, సైనికులు మరియు అభివృద్ధికి తోడ్పడే కష్టజీవుల గొప్పతనాన్ని తెలుసుకుందాం.",
+      "indexed_text": "Telugu. అభినందన. 🌾 రైతుల శ్రమకు ఒక అందమైన వందనం! ఈ పాఠంలో దేశానికి ఆహారం అందించే రైతులు, సైనికులు మరియు అభివృద్ధికి తోడ్పడే కష్టజీవుల గొప్పతనాన్ని తెలుసుకుందాం."
+    },
+    {
+      "id": "g6-tel-2",
+      "title": "స్నేహబంధం",
+      "subject": "Telugu",
+      "grade": 6,
+      "language": "en",
+      "summary": "🐦 ఒక కాకి, ఎలుక, తాబేలు, జింక—ఇంత భిన్నమైన జంతువులు మంచి స్నేహితులవుతాయా? ఈ కథలో స్నేహం, సహాయం మరియు కలిసి సమస్యలను పరిష్కరించే శక్తిని తెలుసుకుందాం.",
+      "indexed_text": "Telugu. స్నేహబంధం. 🐦 ఒక కాకి, ఎలుక, తాబేలు, జింక—ఇంత భిన్నమైన జంతువులు మంచి స్నేహితులవుతాయా? ఈ కథలో స్నేహం, సహాయం మరియు కలిసి సమస్యలను పరిష్కరించే శక్తిని తెలుసుకుందాం."
+    },
+    {
+      "id": "g7-tel-1",
+      "title": "చదువు",
+      "subject": "Telugu",
+      "grade": 7,
+      "language": "en",
+      "summary": "📚 చదువు కేవలం పరీక్షల కోసం కాదు! ఈ పాఠం జ్ఞానం మనిషిలో వివేకం, మంచి ఆలోచన, బాధ్యత మరియు మంచి జీవన విలువలను ఎలా పెంచుతుందో ఆసక్తికరంగా చూపిస్తుంది.",
+      "indexed_text": "Telugu. చదువు. 📚 చదువు కేవలం పరీక్షల కోసం కాదు! ఈ పాఠం జ్ఞానం మనిషిలో వివేకం, మంచి ఆలోచన, బాధ్యత మరియు మంచి జీవన విలువలను ఎలా పెంచుతుందో ఆసక్తికరంగా చూపిస్తుంది."
+    },
+    {
+      "id": "g7-tel-2",
+      "title": "నాయనమ్మ",
+      "subject": "Telugu",
+      "grade": 7,
+      "language": "en",
+      "summary": "👵 ఒక ఇంట్లోని పెద్దవారి మాటల్లో కథలు, అనుభవాలు, ప్రేమ దాగి ఉంటాయి. ‘నాయనమ్మ’ పాఠంతో కుటుంబ బంధాలు, జ్ఞాపకాలు మరియు పెద్దల అనుభవాల విలువను తెలుసుకుందాం.",
+      "indexed_text": "Telugu. నాయనమ్మ. 👵 ఒక ఇంట్లోని పెద్దవారి మాటల్లో కథలు, అనుభవాలు, ప్రేమ దాగి ఉంటాయి. ‘నాయనమ్మ’ పాఠంతో కుటుంబ బంధాలు, జ్ఞాపకాలు మరియు పెద్దల అనుభవాల విలువను తెలుసుకుందాం."
+    }
+  ]
+}

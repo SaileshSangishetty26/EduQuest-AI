@@ -2,7 +2,7 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .database import client, ensure_indexes
-from .routes import auth, content, quiz, nlp
+from .routes import auth, content, quiz, nlp, chat
 
 app = FastAPI(title="EduQuest API", version="1.0.0")
 
@@ -14,6 +14,7 @@ app.include_router(auth.router, prefix="/api")
 app.include_router(content.router, prefix="/api")
 app.include_router(quiz.router, prefix="/api")
 app.include_router(nlp.router, prefix="/api")
+app.include_router(chat.router, prefix="/api")
 
 @app.on_event("startup")
 def startup():

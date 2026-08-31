@@ -1,0 +1,98 @@
+{
+  "num_queries": 150,
+  "num_intents": 10,
+  "intents": [
+    "clarification",
+    "concept_explanation",
+    "definition",
+    "example_request",
+    "formula_help",
+    "greeting",
+    "homework_help",
+    "out_of_scope",
+    "progress_help",
+    "quiz_help"
+  ],
+  "epochs": 400,
+  "cross_validation": {
+    "folds": 5,
+    "scores": [
+      0.9,
+      0.8667,
+      0.9667,
+      0.8,
+      0.9333
+    ],
+    "mean_accuracy": 0.8933,
+    "std": 0.0573
+  },
+  "held_out": {
+    "test_size": 30,
+    "accuracy": 1.0,
+    "mean_confidence": 0.9145,
+    "per_class": {
+      "clarification": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "concept_explanation": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "definition": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "example_request": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "formula_help": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "greeting": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "homework_help": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "out_of_scope": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "progress_help": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      },
+      "quiz_help": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 3
+      }
+    }
+  },
+  "confidence_threshold": 0.65,
+  "random_baseline": 0.1
+}

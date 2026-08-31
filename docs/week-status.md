@@ -1,4 +1,4 @@
-# Week 2–6 Implementation Status
+# Week 2–7 Implementation Status
 
 | Week | Requirement area | Status |
 |---|---|---|
@@ -27,10 +27,19 @@
 | 6 | Lemmatization + POS tagging (spaCy) | COMPLETE |
 | 6 | DistilBERT contextual embeddings | COMPLETE |
 | 6 | Pipeline validation on sample queries | COMPLETE |
+| 7 | Query dataset relabelled and expanded (150 queries) | COMPLETE |
+| 7 | Intent classifier trained on DistilBERT embeddings | COMPLETE |
+| 7 | Held-out evaluation, cross-validation, confusion matrix | COMPLETE |
+| 7 | Semantic lesson retrieval | COMPLETE |
+| 7 | FastAPI chatbot endpoint | COMPLETE |
 
-See `docs/week6-nlp-preprocessing.md` for the Week 6 design and validation report.
+See `docs/week6-nlp-preprocessing.md` and `docs/week7-intent-detection.md` for
+the design notes and measured results.
+
+Week 7 headline numbers: intent classification 89.3% (5-fold CV, 10% baseline),
+lesson retrieval 10/10 top-1 with on-topic and off-topic scores cleanly separated.
 
 ## Intentionally postponed
-Week 7 intent detection and chatbot core; later recommendation/gamification/integration/deployment work.
+Week 8 chatbot UI integration and the recommendation engine; Week 9 gamification and teacher dashboard; Week 10 integration, testing and deployment.
 
-Carried into Week 7 from Week 6: the query dataset has only 5 examples per intent, and it is English-only — the regional-language requirement from Week 2 still needs multilingual query data and a multilingual embedding model.
+Carried into Week 8: still English-only, so the regional-language requirement from Week 2 is outstanding. Note that four Telugu chapters are tagged `"language": "en"` in lessons.json, which looks like a data error. The chat endpoint is stateless, so `clarification` cannot yet refer back to the previous turn.

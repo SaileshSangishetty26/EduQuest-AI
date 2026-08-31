@@ -16,7 +16,7 @@ import argparse
 import subprocess
 import sys
 
-from .config import EMBEDDING_MODEL_NAME, SPACY_MODEL
+from .config import EMBEDDING_MODEL_NAME, RETRIEVAL_MODEL_NAME, SPACY_MODEL
 
 NLTK_PACKAGES = ["stopwords", "punkt", "punkt_tab", "wordnet", "omw-1.4"]
 
@@ -62,7 +62,7 @@ def setup_nltk() -> bool:
 
 
 def setup_transformer(skip: bool = False) -> bool:
-    print(f"\n[3/3] Hugging Face model '{EMBEDDING_MODEL_NAME}'")
+    print("\n[3/3] Hugging Face models")
     if skip:
         print("      skipped (--skip-model)")
         return True
@@ -74,16 +74,22 @@ def setup_transformer(skip: bool = False) -> bool:
         print("      Run: pip install -r requirements.txt")
         return False
 
-    print("      downloading weights (~265 MB, cached after the first run) ...")
-    try:
-        AutoTokenizer.from_pretrained(EMBEDDING_MODEL_NAME)
-        AutoModel.from_pretrained(EMBEDDING_MODEL_NAME)
-        print("      done")
-        return True
-    except Exception as exc:  # noqa: BLE001 - report any download/network failure
-        print(f"      FAILED: {exc}")
-        print("      This step needs internet access on the first run.")
-        return False
+    ok = True
+    for purpose, name in [
+        ("intent classification", EMBEDDING_MODEL_NAME),
+        ("lesson retrieval", RETRIEVAL_MODEL_NAME),
+    ]:
+        print(f"      {purpose}: {name}")
+        print("        downloading (~265 MB, cached after the first run) ...")
+        try:
+            AutoTokenizer.from_pretrained(name)
+            AutoModel.from_pretrained(name)
+            print("        done")
+        except Exception as exc:  # noqa: BLE001 - report any download failure
+            print(f"        FAILED: {exc}")
+            print("        This step needs internet access on the first run.")
+            ok = False
+    return ok
 
 
 def main() -> None:

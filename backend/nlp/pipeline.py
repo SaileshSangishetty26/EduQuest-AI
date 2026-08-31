@@ -30,6 +30,7 @@ class NLPPipeline:
     def __init__(self, load_embedder: bool = False) -> None:
         self.preprocessor = get_preprocessor()
         self._embedder = None
+        self._retrieval_embedder = None
         if load_embedder:
             self._load_embedder()
 
@@ -42,8 +43,29 @@ class NLPPipeline:
 
     @property
     def embedder(self):
-        """Loads DistilBERT on first access."""
+        """Classification embedder. Loads DistilBERT on first access."""
         return self._load_embedder()
+
+    @property
+    def retrieval_embedder(self):
+        """
+        Retrieval embedder, a separate DistilBERT checkpoint.
+
+        See config.py for why lesson search and intent classification use
+        different models. Loaded lazily and independently, so a deployment that
+        only classifies never pays for the retrieval model.
+        """
+        if self._retrieval_embedder is None:
+            from .embeddings import get_retrieval_embedder
+
+            self._retrieval_embedder = get_retrieval_embedder()
+        return self._retrieval_embedder
+
+    def embed_for_retrieval(self, texts):
+        """Embed text in the retrieval model's space."""
+        if isinstance(texts, str):
+            texts = [texts]
+        return self.retrieval_embedder.encode(list(texts))
 
     # -- Preprocessing only -------------------------------------------------
     def preprocess(self, text: str) -> ProcessedQuery:

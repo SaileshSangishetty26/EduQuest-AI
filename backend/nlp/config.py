@@ -29,7 +29,31 @@ VALIDATION_REPORT_FILE = PROCESSED_DIR / "week6_validation_report.json"
 # --- Models ----------------------------------------------------------------
 SPACY_MODEL = "en_core_web_sm"
 
+# Two DistilBERT checkpoints, because intent classification and lesson
+# retrieval want opposite things from an embedding.
+#
+# Measured on this project's data:
+#
+#                                    intent acc.   retrieval top-1
+#   distilbert-base-uncased              92.7%           50%
+#   multi-qa-distilbert-cos-v1           81.3%          100%
+#
+# `multi-qa` is trained so that a question and its answer land in the same
+# region of the space. That is exactly right for finding the chapter a student
+# is asking about, and exactly wrong for telling "explain the order of
+# operations" apart from "I don't understand the order of operations" - same
+# topic, different intent. The base masked language model keeps that
+# distinction but has no useful notion of topical similarity.
+#
+# So each model does the job it is good at. Both are DistilBERT, both use mean
+# pooling, both are loaded lazily.
+
+# Intent classification (Week 7 classifier, Week 6 query embeddings)
 EMBEDDING_MODEL_NAME = "distilbert-base-uncased"
+
+# Lesson retrieval (Week 7 semantic search over the content bank)
+RETRIEVAL_MODEL_NAME = "sentence-transformers/multi-qa-distilbert-cos-v1"
+
 EMBEDDING_DIM = 768          # DistilBERT hidden size
 MAX_SEQ_LENGTH = 64          # student queries are short; 64 tokens is plenty
 EMBEDDING_BATCH_SIZE = 16

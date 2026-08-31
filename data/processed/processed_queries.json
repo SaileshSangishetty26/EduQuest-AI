@@ -1,1140 +1,5 @@
 [
   {
-    "raw_text": "Hi",
-    "normalized_text": "hi",
-    "tokens": [
-      "hi"
-    ],
-    "lemmas": [
-      "hi"
-    ],
-    "pos_tags": [
-      "INTJ"
-    ],
-    "filtered_tokens": [
-      "hi"
-    ],
-    "processed_text": "hi",
-    "removed_stopwords": [],
-    "id": "q1",
-    "intent": "greeting",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Hello",
-    "normalized_text": "hello",
-    "tokens": [
-      "hello"
-    ],
-    "lemmas": [
-      "hello"
-    ],
-    "pos_tags": [
-      "INTJ"
-    ],
-    "filtered_tokens": [
-      "hello"
-    ],
-    "processed_text": "hello",
-    "removed_stopwords": [],
-    "id": "q2",
-    "intent": "greeting",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Can you help me?",
-    "normalized_text": "can you help me",
-    "tokens": [
-      "can",
-      "you",
-      "help",
-      "me"
-    ],
-    "lemmas": [
-      "can",
-      "you",
-      "help",
-      "i"
-    ],
-    "pos_tags": [
-      "AUX",
-      "PRON",
-      "VERB",
-      "PRON"
-    ],
-    "filtered_tokens": [
-      "can",
-      "help",
-      "i"
-    ],
-    "processed_text": "can help i",
-    "removed_stopwords": [
-      "you"
-    ],
-    "id": "q3",
-    "intent": "greeting",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Good morning",
-    "normalized_text": "good morning",
-    "tokens": [
-      "good",
-      "morning"
-    ],
-    "lemmas": [
-      "good",
-      "morning"
-    ],
-    "pos_tags": [
-      "ADJ",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "good",
-      "morning"
-    ],
-    "processed_text": "good morning",
-    "removed_stopwords": [],
-    "id": "q4",
-    "intent": "greeting",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "I need help with my lesson",
-    "normalized_text": "i need help with my lesson",
-    "tokens": [
-      "i",
-      "need",
-      "help",
-      "with",
-      "my",
-      "lesson"
-    ],
-    "lemmas": [
-      "i",
-      "need",
-      "help",
-      "with",
-      "my",
-      "lesson"
-    ],
-    "pos_tags": [
-      "PRON",
-      "VERB",
-      "NOUN",
-      "ADP",
-      "PRON",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "need",
-      "help",
-      "my",
-      "lesson"
-    ],
-    "processed_text": "need help my lesson",
-    "removed_stopwords": [
-      "i",
-      "with"
-    ],
-    "id": "q5",
-    "intent": "greeting",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Explain photosynthesis",
-    "normalized_text": "explain photosynthesis",
-    "tokens": [
-      "explain",
-      "photosynthesis"
-    ],
-    "lemmas": [
-      "explain",
-      "photosynthesis"
-    ],
-    "pos_tags": [
-      "VERB",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "explain",
-      "photosynthesis"
-    ],
-    "processed_text": "explain photosynthesis",
-    "removed_stopwords": [],
-    "id": "q6",
-    "intent": "concept_explanation",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Can you explain simple interest?",
-    "normalized_text": "can you explain simple interest",
-    "tokens": [
-      "can",
-      "you",
-      "explain",
-      "simple",
-      "interest"
-    ],
-    "lemmas": [
-      "can",
-      "you",
-      "explain",
-      "simple",
-      "interest"
-    ],
-    "pos_tags": [
-      "AUX",
-      "PRON",
-      "VERB",
-      "ADJ",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "can",
-      "explain",
-      "simple",
-      "interest"
-    ],
-    "processed_text": "can explain simple interest",
-    "removed_stopwords": [
-      "you"
-    ],
-    "id": "q7",
-    "intent": "concept_explanation",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Explain the water cycle",
-    "normalized_text": "explain the water cycle",
-    "tokens": [
-      "explain",
-      "the",
-      "water",
-      "cycle"
-    ],
-    "lemmas": [
-      "explain",
-      "the",
-      "water",
-      "cycle"
-    ],
-    "pos_tags": [
-      "VERB",
-      "DET",
-      "NOUN",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "explain",
-      "water",
-      "cycle"
-    ],
-    "processed_text": "explain water cycle",
-    "removed_stopwords": [
-      "the"
-    ],
-    "id": "q8",
-    "intent": "concept_explanation",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "What is a fraction?",
-    "normalized_text": "what is a fraction",
-    "tokens": [
-      "what",
-      "is",
-      "a",
-      "fraction"
-    ],
-    "lemmas": [
-      "what",
-      "be",
-      "a",
-      "fraction"
-    ],
-    "pos_tags": [
-      "PRON",
-      "AUX",
-      "DET",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "what",
-      "be",
-      "fraction"
-    ],
-    "processed_text": "what be fraction",
-    "removed_stopwords": [
-      "a"
-    ],
-    "id": "q9",
-    "intent": "concept_explanation",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Explain states of matter",
-    "normalized_text": "explain states of matter",
-    "tokens": [
-      "explain",
-      "states",
-      "of",
-      "matter"
-    ],
-    "lemmas": [
-      "explain",
-      "state",
-      "of",
-      "matter"
-    ],
-    "pos_tags": [
-      "VERB",
-      "NOUN",
-      "ADP",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "explain",
-      "state",
-      "matter"
-    ],
-    "processed_text": "explain state matter",
-    "removed_stopwords": [
-      "of"
-    ],
-    "id": "q10",
-    "intent": "concept_explanation",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "What is a numerator?",
-    "normalized_text": "what is a numerator",
-    "tokens": [
-      "what",
-      "is",
-      "a",
-      "numerator"
-    ],
-    "lemmas": [
-      "what",
-      "be",
-      "a",
-      "numerator"
-    ],
-    "pos_tags": [
-      "PRON",
-      "AUX",
-      "DET",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "what",
-      "be",
-      "numerator"
-    ],
-    "processed_text": "what be numerator",
-    "removed_stopwords": [
-      "a"
-    ],
-    "id": "q11",
-    "intent": "definition",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Define evaporation",
-    "normalized_text": "define evaporation",
-    "tokens": [
-      "define",
-      "evaporation"
-    ],
-    "lemmas": [
-      "define",
-      "evaporation"
-    ],
-    "pos_tags": [
-      "VERB",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "define",
-      "evaporation"
-    ],
-    "processed_text": "define evaporation",
-    "removed_stopwords": [],
-    "id": "q12",
-    "intent": "definition",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "What is the denominator?",
-    "normalized_text": "what is the denominator",
-    "tokens": [
-      "what",
-      "is",
-      "the",
-      "denominator"
-    ],
-    "lemmas": [
-      "what",
-      "be",
-      "the",
-      "denominator"
-    ],
-    "pos_tags": [
-      "PRON",
-      "AUX",
-      "DET",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "what",
-      "be",
-      "denominator"
-    ],
-    "processed_text": "what be denominator",
-    "removed_stopwords": [
-      "the"
-    ],
-    "id": "q13",
-    "intent": "definition",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "What does condensation mean?",
-    "normalized_text": "what does condensation mean",
-    "tokens": [
-      "what",
-      "does",
-      "condensation",
-      "mean"
-    ],
-    "lemmas": [
-      "what",
-      "do",
-      "condensation",
-      "mean"
-    ],
-    "pos_tags": [
-      "PRON",
-      "AUX",
-      "NOUN",
-      "VERB"
-    ],
-    "filtered_tokens": [
-      "what",
-      "do",
-      "condensation",
-      "mean"
-    ],
-    "processed_text": "what do condensation mean",
-    "removed_stopwords": [],
-    "id": "q14",
-    "intent": "definition",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Define a solid",
-    "normalized_text": "define a solid",
-    "tokens": [
-      "define",
-      "a",
-      "solid"
-    ],
-    "lemmas": [
-      "define",
-      "a",
-      "solid"
-    ],
-    "pos_tags": [
-      "VERB",
-      "DET",
-      "ADJ"
-    ],
-    "filtered_tokens": [
-      "define",
-      "solid"
-    ],
-    "processed_text": "define solid",
-    "removed_stopwords": [
-      "a"
-    ],
-    "id": "q15",
-    "intent": "definition",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Give me an example of simple interest",
-    "normalized_text": "give me an example of simple interest",
-    "tokens": [
-      "give",
-      "me",
-      "an",
-      "example",
-      "of",
-      "simple",
-      "interest"
-    ],
-    "lemmas": [
-      "give",
-      "i",
-      "an",
-      "example",
-      "of",
-      "simple",
-      "interest"
-    ],
-    "pos_tags": [
-      "VERB",
-      "PRON",
-      "DET",
-      "NOUN",
-      "ADP",
-      "ADJ",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "give",
-      "i",
-      "example",
-      "simple",
-      "interest"
-    ],
-    "processed_text": "give i example simple interest",
-    "removed_stopwords": [
-      "an",
-      "of"
-    ],
-    "id": "q16",
-    "intent": "example_request",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Can you give me an example of a fraction?",
-    "normalized_text": "can you give me an example of a fraction",
-    "tokens": [
-      "can",
-      "you",
-      "give",
-      "me",
-      "an",
-      "example",
-      "of",
-      "a",
-      "fraction"
-    ],
-    "lemmas": [
-      "can",
-      "you",
-      "give",
-      "i",
-      "an",
-      "example",
-      "of",
-      "a",
-      "fraction"
-    ],
-    "pos_tags": [
-      "AUX",
-      "PRON",
-      "VERB",
-      "PRON",
-      "DET",
-      "NOUN",
-      "ADP",
-      "DET",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "can",
-      "give",
-      "i",
-      "example",
-      "fraction"
-    ],
-    "processed_text": "can give i example fraction",
-    "removed_stopwords": [
-      "you",
-      "an",
-      "of",
-      "a"
-    ],
-    "id": "q17",
-    "intent": "example_request",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Show me an example problem",
-    "normalized_text": "show me an example problem",
-    "tokens": [
-      "show",
-      "me",
-      "an",
-      "example",
-      "problem"
-    ],
-    "lemmas": [
-      "show",
-      "i",
-      "an",
-      "example",
-      "problem"
-    ],
-    "pos_tags": [
-      "VERB",
-      "PRON",
-      "DET",
-      "NOUN",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "show",
-      "i",
-      "example",
-      "problem"
-    ],
-    "processed_text": "show i example problem",
-    "removed_stopwords": [
-      "an"
-    ],
-    "id": "q18",
-    "intent": "example_request",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Give me an example for this topic",
-    "normalized_text": "give me an example for this topic",
-    "tokens": [
-      "give",
-      "me",
-      "an",
-      "example",
-      "for",
-      "this",
-      "topic"
-    ],
-    "lemmas": [
-      "give",
-      "i",
-      "an",
-      "example",
-      "for",
-      "this",
-      "topic"
-    ],
-    "pos_tags": [
-      "VERB",
-      "PRON",
-      "DET",
-      "NOUN",
-      "ADP",
-      "DET",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "give",
-      "i",
-      "example",
-      "topic"
-    ],
-    "processed_text": "give i example topic",
-    "removed_stopwords": [
-      "an",
-      "for",
-      "this"
-    ],
-    "id": "q19",
-    "intent": "example_request",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Can you show a real life example?",
-    "normalized_text": "can you show a real life example",
-    "tokens": [
-      "can",
-      "you",
-      "show",
-      "a",
-      "real",
-      "life",
-      "example"
-    ],
-    "lemmas": [
-      "can",
-      "you",
-      "show",
-      "a",
-      "real",
-      "life",
-      "example"
-    ],
-    "pos_tags": [
-      "AUX",
-      "PRON",
-      "VERB",
-      "DET",
-      "ADJ",
-      "NOUN",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "can",
-      "show",
-      "real",
-      "life",
-      "example"
-    ],
-    "processed_text": "can show real life example",
-    "removed_stopwords": [
-      "you",
-      "a"
-    ],
-    "id": "q20",
-    "intent": "example_request",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "What is the simple interest formula?",
-    "normalized_text": "what is the simple interest formula",
-    "tokens": [
-      "what",
-      "is",
-      "the",
-      "simple",
-      "interest",
-      "formula"
-    ],
-    "lemmas": [
-      "what",
-      "be",
-      "the",
-      "simple",
-      "interest",
-      "formula"
-    ],
-    "pos_tags": [
-      "PRON",
-      "AUX",
-      "DET",
-      "ADJ",
-      "NOUN",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "what",
-      "be",
-      "simple",
-      "interest",
-      "formula"
-    ],
-    "processed_text": "what be simple interest formula",
-    "removed_stopwords": [
-      "the"
-    ],
-    "id": "q21",
-    "intent": "formula_help",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Which formula should I use?",
-    "normalized_text": "which formula should i use",
-    "tokens": [
-      "which",
-      "formula",
-      "should",
-      "i",
-      "use"
-    ],
-    "lemmas": [
-      "which",
-      "formula",
-      "should",
-      "i",
-      "use"
-    ],
-    "pos_tags": [
-      "DET",
-      "NOUN",
-      "AUX",
-      "PRON",
-      "VERB"
-    ],
-    "filtered_tokens": [
-      "which",
-      "formula",
-      "should",
-      "use"
-    ],
-    "processed_text": "which formula should use",
-    "removed_stopwords": [
-      "i"
-    ],
-    "id": "q22",
-    "intent": "formula_help",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "How do I calculate interest?",
-    "normalized_text": "how do i calculate interest",
-    "tokens": [
-      "how",
-      "do",
-      "i",
-      "calculate",
-      "interest"
-    ],
-    "lemmas": [
-      "how",
-      "do",
-      "i",
-      "calculate",
-      "interest"
-    ],
-    "pos_tags": [
-      "SCONJ",
-      "AUX",
-      "PRON",
-      "VERB",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "how",
-      "do",
-      "calculate",
-      "interest"
-    ],
-    "processed_text": "how do calculate interest",
-    "removed_stopwords": [
-      "i"
-    ],
-    "id": "q23",
-    "intent": "formula_help",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Tell me the formula for this problem",
-    "normalized_text": "tell me the formula for this problem",
-    "tokens": [
-      "tell",
-      "me",
-      "the",
-      "formula",
-      "for",
-      "this",
-      "problem"
-    ],
-    "lemmas": [
-      "tell",
-      "i",
-      "the",
-      "formula",
-      "for",
-      "this",
-      "problem"
-    ],
-    "pos_tags": [
-      "VERB",
-      "PRON",
-      "DET",
-      "NOUN",
-      "ADP",
-      "DET",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "tell",
-      "i",
-      "formula",
-      "problem"
-    ],
-    "processed_text": "tell i formula problem",
-    "removed_stopwords": [
-      "the",
-      "for",
-      "this"
-    ],
-    "id": "q24",
-    "intent": "formula_help",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Help me remember the formula",
-    "normalized_text": "help me remember the formula",
-    "tokens": [
-      "help",
-      "me",
-      "remember",
-      "the",
-      "formula"
-    ],
-    "lemmas": [
-      "help",
-      "i",
-      "remember",
-      "the",
-      "formula"
-    ],
-    "pos_tags": [
-      "VERB",
-      "PRON",
-      "VERB",
-      "DET",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "help",
-      "i",
-      "remember",
-      "formula"
-    ],
-    "processed_text": "help i remember formula",
-    "removed_stopwords": [
-      "the"
-    ],
-    "id": "q25",
-    "intent": "formula_help",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Help me solve my homework",
-    "normalized_text": "help me solve my homework",
-    "tokens": [
-      "help",
-      "me",
-      "solve",
-      "my",
-      "homework"
-    ],
-    "lemmas": [
-      "help",
-      "i",
-      "solve",
-      "my",
-      "homework"
-    ],
-    "pos_tags": [
-      "VERB",
-      "PRON",
-      "VERB",
-      "PRON",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "help",
-      "i",
-      "solve",
-      "my",
-      "homework"
-    ],
-    "processed_text": "help i solve my homework",
-    "removed_stopwords": [],
-    "id": "q26",
-    "intent": "homework_help",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "How do I solve this question?",
-    "normalized_text": "how do i solve this question",
-    "tokens": [
-      "how",
-      "do",
-      "i",
-      "solve",
-      "this",
-      "question"
-    ],
-    "lemmas": [
-      "how",
-      "do",
-      "i",
-      "solve",
-      "this",
-      "question"
-    ],
-    "pos_tags": [
-      "SCONJ",
-      "AUX",
-      "PRON",
-      "VERB",
-      "DET",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "how",
-      "do",
-      "solve",
-      "question"
-    ],
-    "processed_text": "how do solve question",
-    "removed_stopwords": [
-      "i",
-      "this"
-    ],
-    "id": "q27",
-    "intent": "homework_help",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Can you help with this maths problem?",
-    "normalized_text": "can you help with this math problem",
-    "tokens": [
-      "can",
-      "you",
-      "help",
-      "with",
-      "this",
-      "math",
-      "problem"
-    ],
-    "lemmas": [
-      "can",
-      "you",
-      "help",
-      "with",
-      "this",
-      "math",
-      "problem"
-    ],
-    "pos_tags": [
-      "AUX",
-      "PRON",
-      "VERB",
-      "ADP",
-      "DET",
-      "NOUN",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "can",
-      "help",
-      "math",
-      "problem"
-    ],
-    "processed_text": "can help math problem",
-    "removed_stopwords": [
-      "you",
-      "with",
-      "this"
-    ],
-    "id": "q28",
-    "intent": "homework_help",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "I am stuck on my homework",
-    "normalized_text": "i am stuck on my homework",
-    "tokens": [
-      "i",
-      "am",
-      "stuck",
-      "on",
-      "my",
-      "homework"
-    ],
-    "lemmas": [
-      "i",
-      "be",
-      "stuck",
-      "on",
-      "my",
-      "homework"
-    ],
-    "pos_tags": [
-      "PRON",
-      "AUX",
-      "ADJ",
-      "ADP",
-      "PRON",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "stuck",
-      "my",
-      "homework"
-    ],
-    "processed_text": "stuck my homework",
-    "removed_stopwords": [
-      "i",
-      "be",
-      "on"
-    ],
-    "id": "q29",
-    "intent": "homework_help",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Help me answer this quiz question",
-    "normalized_text": "help me answer this quiz question",
-    "tokens": [
-      "help",
-      "me",
-      "answer",
-      "this",
-      "quiz",
-      "question"
-    ],
-    "lemmas": [
-      "help",
-      "i",
-      "answer",
-      "this",
-      "quiz",
-      "question"
-    ],
-    "pos_tags": [
-      "VERB",
-      "PRON",
-      "VERB",
-      "DET",
-      "NOUN",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "help",
-      "i",
-      "answer",
-      "quiz",
-      "question"
-    ],
-    "processed_text": "help i answer quiz question",
-    "removed_stopwords": [
-      "this"
-    ],
-    "id": "q30",
-    "intent": "homework_help",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
     "raw_text": "I don't understand",
     "normalized_text": "i don't understand",
     "tokens": [
@@ -1164,7 +29,7 @@
     "removed_stopwords": [
       "i"
     ],
-    "id": "q31",
+    "id": "q001",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -1195,7 +60,7 @@
     "removed_stopwords": [
       "that"
     ],
-    "id": "q32",
+    "id": "q002",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -1238,7 +103,7 @@
       "you",
       "it"
     ],
-    "id": "q33",
+    "id": "q003",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -1281,7 +146,7 @@
       "about",
       "this"
     ],
-    "id": "q34",
+    "id": "q004",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -1328,138 +193,3591 @@
       "in",
       "an"
     ],
-    "id": "q35",
+    "id": "q005",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "Give me a quiz",
-    "normalized_text": "give me a quiz",
+    "raw_text": "Say that again please",
+    "normalized_text": "say that again please",
     "tokens": [
-      "give",
-      "me",
-      "a",
-      "quiz"
+      "say",
+      "that",
+      "again",
+      "please"
     ],
     "lemmas": [
-      "give",
+      "say",
+      "that",
+      "again",
+      "please"
+    ],
+    "pos_tags": [
+      "VERB",
+      "DET",
+      "ADV",
+      "INTJ"
+    ],
+    "filtered_tokens": [
+      "say",
+      "again",
+      "please"
+    ],
+    "processed_text": "say again please",
+    "removed_stopwords": [
+      "that"
+    ],
+    "id": "q006",
+    "intent": "clarification",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "That was too difficult to follow",
+    "normalized_text": "that was too difficult to follow",
+    "tokens": [
+      "that",
+      "was",
+      "too",
+      "difficult",
+      "to",
+      "follow"
+    ],
+    "lemmas": [
+      "that",
+      "be",
+      "too",
+      "difficult",
+      "to",
+      "follow"
+    ],
+    "pos_tags": [
+      "DET",
+      "AUX",
+      "ADV",
+      "ADJ",
+      "PART",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "too",
+      "difficult",
+      "follow"
+    ],
+    "processed_text": "too difficult follow",
+    "removed_stopwords": [
+      "that",
+      "be",
+      "to"
+    ],
+    "id": "q007",
+    "intent": "clarification",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Can you repeat that?",
+    "normalized_text": "can you repeat that",
+    "tokens": [
+      "can",
+      "you",
+      "repeat",
+      "that"
+    ],
+    "lemmas": [
+      "can",
+      "you",
+      "repeat",
+      "that"
+    ],
+    "pos_tags": [
+      "AUX",
+      "PRON",
+      "VERB",
+      "DET"
+    ],
+    "filtered_tokens": [
+      "can",
+      "repeat"
+    ],
+    "processed_text": "can repeat",
+    "removed_stopwords": [
+      "you",
+      "that"
+    ],
+    "id": "q008",
+    "intent": "clarification",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "I still do not get it",
+    "normalized_text": "i still do not get it",
+    "tokens": [
       "i",
-      "a",
-      "quiz"
+      "still",
+      "do",
+      "not",
+      "get",
+      "it"
+    ],
+    "lemmas": [
+      "i",
+      "still",
+      "do",
+      "not",
+      "get",
+      "it"
+    ],
+    "pos_tags": [
+      "PRON",
+      "ADV",
+      "AUX",
+      "PART",
+      "VERB",
+      "PRON"
+    ],
+    "filtered_tokens": [
+      "still",
+      "do",
+      "not",
+      "get"
+    ],
+    "processed_text": "still do not get",
+    "removed_stopwords": [
+      "i",
+      "it"
+    ],
+    "id": "q009",
+    "intent": "clarification",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Explain in simple words",
+    "normalized_text": "explain in simple words",
+    "tokens": [
+      "explain",
+      "in",
+      "simple",
+      "words"
+    ],
+    "lemmas": [
+      "explain",
+      "in",
+      "simple",
+      "word"
+    ],
+    "pos_tags": [
+      "VERB",
+      "ADP",
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "explain",
+      "simple",
+      "word"
+    ],
+    "processed_text": "explain simple word",
+    "removed_stopwords": [
+      "in"
+    ],
+    "id": "q010",
+    "intent": "clarification",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "This is confusing",
+    "normalized_text": "this is confusing",
+    "tokens": [
+      "this",
+      "is",
+      "confusing"
+    ],
+    "lemmas": [
+      "this",
+      "be",
+      "confuse"
+    ],
+    "pos_tags": [
+      "DET",
+      "AUX",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "be",
+      "confuse"
+    ],
+    "processed_text": "be confuse",
+    "removed_stopwords": [
+      "this"
+    ],
+    "id": "q011",
+    "intent": "clarification",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Can you say it differently?",
+    "normalized_text": "can you say it differently",
+    "tokens": [
+      "can",
+      "you",
+      "say",
+      "it",
+      "differently"
+    ],
+    "lemmas": [
+      "can",
+      "you",
+      "say",
+      "it",
+      "differently"
+    ],
+    "pos_tags": [
+      "AUX",
+      "PRON",
+      "VERB",
+      "PRON",
+      "ADV"
+    ],
+    "filtered_tokens": [
+      "can",
+      "say",
+      "differently"
+    ],
+    "processed_text": "can say differently",
+    "removed_stopwords": [
+      "you",
+      "it"
+    ],
+    "id": "q012",
+    "intent": "clarification",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "I did not understand your answer",
+    "normalized_text": "i did not understand your answer",
+    "tokens": [
+      "i",
+      "did",
+      "not",
+      "understand",
+      "your",
+      "answer"
+    ],
+    "lemmas": [
+      "i",
+      "do",
+      "not",
+      "understand",
+      "your",
+      "answer"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "PART",
+      "VERB",
+      "PRON",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "do",
+      "not",
+      "understand",
+      "answer"
+    ],
+    "processed_text": "do not understand answer",
+    "removed_stopwords": [
+      "i",
+      "your"
+    ],
+    "id": "q013",
+    "intent": "clarification",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Make it easier to understand",
+    "normalized_text": "make it easier to understand",
+    "tokens": [
+      "make",
+      "it",
+      "easier",
+      "to",
+      "understand"
+    ],
+    "lemmas": [
+      "make",
+      "it",
+      "easy",
+      "to",
+      "understand"
     ],
     "pos_tags": [
       "VERB",
       "PRON",
+      "ADJ",
+      "PART",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "make",
+      "easy",
+      "understand"
+    ],
+    "processed_text": "make easy understand",
+    "removed_stopwords": [
+      "it",
+      "to"
+    ],
+    "id": "q014",
+    "intent": "clarification",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Explain once more slowly",
+    "normalized_text": "explain once more slowly",
+    "tokens": [
+      "explain",
+      "once",
+      "more",
+      "slowly"
+    ],
+    "lemmas": [
+      "explain",
+      "once",
+      "more",
+      "slowly"
+    ],
+    "pos_tags": [
+      "VERB",
+      "ADV",
+      "ADV",
+      "ADV"
+    ],
+    "filtered_tokens": [
+      "explain",
+      "more",
+      "slowly"
+    ],
+    "processed_text": "explain more slowly",
+    "removed_stopwords": [
+      "once"
+    ],
+    "id": "q015",
+    "intent": "clarification",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Explain how camels survive in the desert",
+    "normalized_text": "explain how camels survive in the desert",
+    "tokens": [
+      "explain",
+      "how",
+      "camels",
+      "survive",
+      "in",
+      "the",
+      "desert"
+    ],
+    "lemmas": [
+      "explain",
+      "how",
+      "camel",
+      "survive",
+      "in",
+      "the",
+      "desert"
+    ],
+    "pos_tags": [
+      "VERB",
+      "SCONJ",
+      "NOUN",
+      "VERB",
+      "ADP",
       "DET",
       "NOUN"
     ],
     "filtered_tokens": [
-      "give",
-      "i",
-      "quiz"
+      "explain",
+      "how",
+      "camel",
+      "survive",
+      "desert"
     ],
-    "processed_text": "give i quiz",
+    "processed_text": "explain how camel survive desert",
     "removed_stopwords": [
-      "a"
+      "in",
+      "the"
     ],
-    "id": "q36",
-    "intent": "quiz_help",
+    "id": "q016",
+    "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "I want to practice questions",
-    "normalized_text": "i want to practice questions",
+    "raw_text": "Explain how lines and angles work",
+    "normalized_text": "explain how lines and angles work",
     "tokens": [
-      "i",
-      "want",
-      "to",
-      "practice",
-      "questions"
+      "explain",
+      "how",
+      "lines",
+      "and",
+      "angles",
+      "work"
     ],
     "lemmas": [
-      "i",
-      "want",
-      "to",
-      "practice",
-      "question"
+      "explain",
+      "how",
+      "line",
+      "and",
+      "angle",
+      "work"
     ],
     "pos_tags": [
-      "PRON",
       "VERB",
-      "PART",
+      "SCONJ",
+      "NOUN",
+      "CCONJ",
       "VERB",
       "NOUN"
     ],
     "filtered_tokens": [
-      "want",
-      "practice",
-      "question"
+      "explain",
+      "how",
+      "line",
+      "angle",
+      "work"
     ],
-    "processed_text": "want practice question",
+    "processed_text": "explain how line angle work",
     "removed_stopwords": [
-      "i",
-      "to"
+      "and"
     ],
-    "id": "q37",
-    "intent": "quiz_help",
+    "id": "q017",
+    "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "Start a quiz for me",
-    "normalized_text": "start a quiz for me",
+    "raw_text": "How do scientists investigate a question?",
+    "normalized_text": "how do scientists investigate a question",
     "tokens": [
-      "start",
+      "how",
+      "do",
+      "scientists",
+      "investigate",
       "a",
-      "quiz",
-      "for",
-      "me"
+      "question"
     ],
     "lemmas": [
-      "start",
+      "how",
+      "do",
+      "scientist",
+      "investigate",
       "a",
-      "quiz",
-      "for",
-      "i"
+      "question"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "NOUN",
+      "VERB",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "how",
+      "do",
+      "scientist",
+      "investigate",
+      "question"
+    ],
+    "processed_text": "how do scientist investigate question",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q018",
+    "intent": "concept_explanation",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Explain the order of operations",
+    "normalized_text": "explain the order of operations",
+    "tokens": [
+      "explain",
+      "the",
+      "order",
+      "of",
+      "operations"
+    ],
+    "lemmas": [
+      "explain",
+      "the",
+      "order",
+      "of",
+      "operation"
     ],
     "pos_tags": [
       "VERB",
       "DET",
       "NOUN",
       "ADP",
-      "PRON"
+      "NOUN"
     ],
     "filtered_tokens": [
-      "start",
-      "quiz",
-      "i"
+      "explain",
+      "order",
+      "operation"
     ],
-    "processed_text": "start quiz i",
+    "processed_text": "explain order operation",
     "removed_stopwords": [
-      "a",
-      "for"
+      "the",
+      "of"
     ],
-    "id": "q38",
-    "intent": "quiz_help",
+    "id": "q019",
+    "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "Can I test myself?",
-    "normalized_text": "can i test myself",
+    "raw_text": "How do number patterns work?",
+    "normalized_text": "how do number patterns work",
+    "tokens": [
+      "how",
+      "do",
+      "number",
+      "patterns",
+      "work"
+    ],
+    "lemmas": [
+      "how",
+      "do",
+      "number",
+      "pattern",
+      "work"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "NOUN",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "how",
+      "do",
+      "number",
+      "pattern",
+      "work"
+    ],
+    "processed_text": "how do number pattern work",
+    "removed_stopwords": [],
+    "id": "q020",
+    "intent": "concept_explanation",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Explain how litmus paper tests a substance",
+    "normalized_text": "explain how litmus paper tests a substance",
+    "tokens": [
+      "explain",
+      "how",
+      "litmus",
+      "paper",
+      "tests",
+      "a",
+      "substance"
+    ],
+    "lemmas": [
+      "explain",
+      "how",
+      "litmus",
+      "paper",
+      "test",
+      "a",
+      "substance"
+    ],
+    "pos_tags": [
+      "VERB",
+      "SCONJ",
+      "NOUN",
+      "NOUN",
+      "VERB",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "explain",
+      "how",
+      "litmus",
+      "paper",
+      "test",
+      "substance"
+    ],
+    "processed_text": "explain how litmus paper test substance",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q021",
+    "intent": "concept_explanation",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Explain why animals adapt to their surroundings",
+    "normalized_text": "explain why animals adapt to their surroundings",
+    "tokens": [
+      "explain",
+      "why",
+      "animals",
+      "adapt",
+      "to",
+      "their",
+      "surroundings"
+    ],
+    "lemmas": [
+      "explain",
+      "why",
+      "animal",
+      "adapt",
+      "to",
+      "their",
+      "surrounding"
+    ],
+    "pos_tags": [
+      "VERB",
+      "SCONJ",
+      "NOUN",
+      "VERB",
+      "ADP",
+      "PRON",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "explain",
+      "why",
+      "animal",
+      "adapt",
+      "surrounding"
+    ],
+    "processed_text": "explain why animal adapt surrounding",
+    "removed_stopwords": [
+      "to",
+      "their"
+    ],
+    "id": "q022",
+    "intent": "concept_explanation",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How do you compare very large numbers?",
+    "normalized_text": "how do you compare very large numbers",
+    "tokens": [
+      "how",
+      "do",
+      "you",
+      "compare",
+      "very",
+      "large",
+      "numbers"
+    ],
+    "lemmas": [
+      "how",
+      "do",
+      "you",
+      "compare",
+      "very",
+      "large",
+      "number"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "PRON",
+      "VERB",
+      "ADV",
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "how",
+      "do",
+      "compare",
+      "very",
+      "large",
+      "number"
+    ],
+    "processed_text": "how do compare very large number",
+    "removed_stopwords": [
+      "you"
+    ],
+    "id": "q023",
+    "intent": "concept_explanation",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Explain what Rama Natha learned about wealth",
+    "normalized_text": "explain what rama natha learned about wealth",
+    "tokens": [
+      "explain",
+      "what",
+      "rama",
+      "natha",
+      "learned",
+      "about",
+      "wealth"
+    ],
+    "lemmas": [
+      "explain",
+      "what",
+      "rama",
+      "natha",
+      "learn",
+      "about",
+      "wealth"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "PROPN",
+      "PROPN",
+      "VERB",
+      "ADP",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "explain",
+      "what",
+      "rama",
+      "natha",
+      "learn",
+      "wealth"
+    ],
+    "processed_text": "explain what rama natha learn wealth",
+    "removed_stopwords": [
+      "about"
+    ],
+    "id": "q024",
+    "intent": "concept_explanation",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How did Gajaraj and the dog become friends?",
+    "normalized_text": "how did gajaraj and the dog become friends",
+    "tokens": [
+      "how",
+      "did",
+      "gajaraj",
+      "and",
+      "the",
+      "dog",
+      "become",
+      "friends"
+    ],
+    "lemmas": [
+      "how",
+      "do",
+      "gajaraj",
+      "and",
+      "the",
+      "dog",
+      "become",
+      "friend"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "ADJ",
+      "CCONJ",
+      "DET",
+      "NOUN",
+      "VERB",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "how",
+      "do",
+      "gajaraj",
+      "dog",
+      "become",
+      "friend"
+    ],
+    "processed_text": "how do gajaraj dog become friend",
+    "removed_stopwords": [
+      "and",
+      "the"
+    ],
+    "id": "q025",
+    "intent": "concept_explanation",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Explain how substances are grouped as acidic or basic",
+    "normalized_text": "explain how substances are grouped as acidic or basic",
+    "tokens": [
+      "explain",
+      "how",
+      "substances",
+      "are",
+      "grouped",
+      "as",
+      "acidic",
+      "or",
+      "basic"
+    ],
+    "lemmas": [
+      "explain",
+      "how",
+      "substance",
+      "be",
+      "group",
+      "as",
+      "acidic",
+      "or",
+      "basic"
+    ],
+    "pos_tags": [
+      "VERB",
+      "SCONJ",
+      "NOUN",
+      "AUX",
+      "VERB",
+      "ADP",
+      "ADJ",
+      "CCONJ",
+      "ADJ"
+    ],
+    "filtered_tokens": [
+      "explain",
+      "how",
+      "substance",
+      "be",
+      "group",
+      "acidic",
+      "basic"
+    ],
+    "processed_text": "explain how substance be group acidic basic",
+    "removed_stopwords": [
+      "as",
+      "or"
+    ],
+    "id": "q026",
+    "intent": "concept_explanation",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How do you read large numbers correctly?",
+    "normalized_text": "how do you read large numbers correctly",
+    "tokens": [
+      "how",
+      "do",
+      "you",
+      "read",
+      "large",
+      "numbers",
+      "correctly"
+    ],
+    "lemmas": [
+      "how",
+      "do",
+      "you",
+      "read",
+      "large",
+      "number",
+      "correctly"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "PRON",
+      "VERB",
+      "ADJ",
+      "NOUN",
+      "ADV"
+    ],
+    "filtered_tokens": [
+      "how",
+      "do",
+      "read",
+      "large",
+      "number",
+      "correctly"
+    ],
+    "processed_text": "how do read large number correctly",
+    "removed_stopwords": [
+      "you"
+    ],
+    "id": "q027",
+    "intent": "concept_explanation",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Explain what the river was trying to say",
+    "normalized_text": "explain what the river was trying to say",
+    "tokens": [
+      "explain",
+      "what",
+      "the",
+      "river",
+      "was",
+      "trying",
+      "to",
+      "say"
+    ],
+    "lemmas": [
+      "explain",
+      "what",
+      "the",
+      "river",
+      "be",
+      "try",
+      "to",
+      "say"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "AUX",
+      "VERB",
+      "PART",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "explain",
+      "what",
+      "river",
+      "try",
+      "say"
+    ],
+    "processed_text": "explain what river try say",
+    "removed_stopwords": [
+      "the",
+      "be",
+      "to"
+    ],
+    "id": "q028",
+    "intent": "concept_explanation",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Explain why education matters in the lesson",
+    "normalized_text": "explain why education matters in the lesson",
+    "tokens": [
+      "explain",
+      "why",
+      "education",
+      "matters",
+      "in",
+      "the",
+      "lesson"
+    ],
+    "lemmas": [
+      "explain",
+      "why",
+      "education",
+      "matter",
+      "in",
+      "the",
+      "lesson"
+    ],
+    "pos_tags": [
+      "VERB",
+      "SCONJ",
+      "NOUN",
+      "VERB",
+      "ADP",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "explain",
+      "why",
+      "education",
+      "matter",
+      "lesson"
+    ],
+    "processed_text": "explain why education matter lesson",
+    "removed_stopwords": [
+      "in",
+      "the"
+    ],
+    "id": "q029",
+    "intent": "concept_explanation",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How are angles measured with a protractor?",
+    "normalized_text": "how are angles measured with a protractor",
+    "tokens": [
+      "how",
+      "are",
+      "angles",
+      "measured",
+      "with",
+      "a",
+      "protractor"
+    ],
+    "lemmas": [
+      "how",
+      "be",
+      "angle",
+      "measure",
+      "with",
+      "a",
+      "protractor"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "NOUN",
+      "VERB",
+      "ADP",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "how",
+      "be",
+      "angle",
+      "measure",
+      "protractor"
+    ],
+    "processed_text": "how be angle measure protractor",
+    "removed_stopwords": [
+      "with",
+      "a"
+    ],
+    "id": "q030",
+    "intent": "concept_explanation",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is an angle?",
+    "normalized_text": "what is an angle",
+    "tokens": [
+      "what",
+      "is",
+      "an",
+      "angle"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "an",
+      "angle"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "angle"
+    ],
+    "processed_text": "what be angle",
+    "removed_stopwords": [
+      "an"
+    ],
+    "id": "q031",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Define a ray",
+    "normalized_text": "define a ray",
+    "tokens": [
+      "define",
+      "a",
+      "ray"
+    ],
+    "lemmas": [
+      "define",
+      "a",
+      "ray"
+    ],
+    "pos_tags": [
+      "VERB",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "define",
+      "ray"
+    ],
+    "processed_text": "define ray",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q032",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What does adaptation mean?",
+    "normalized_text": "what does adaptation mean",
+    "tokens": [
+      "what",
+      "does",
+      "adaptation",
+      "mean"
+    ],
+    "lemmas": [
+      "what",
+      "do",
+      "adaptation",
+      "mean"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "NOUN",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "what",
+      "do",
+      "adaptation",
+      "mean"
+    ],
+    "processed_text": "what do adaptation mean",
+    "removed_stopwords": [],
+    "id": "q033",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is an acid?",
+    "normalized_text": "what is an acid",
+    "tokens": [
+      "what",
+      "is",
+      "an",
+      "acid"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "an",
+      "acid"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "acid"
+    ],
+    "processed_text": "what be acid",
+    "removed_stopwords": [
+      "an"
+    ],
+    "id": "q034",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is a pattern?",
+    "normalized_text": "what is a pattern",
+    "tokens": [
+      "what",
+      "is",
+      "a",
+      "pattern"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "a",
+      "pattern"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "pattern"
+    ],
+    "processed_text": "what be pattern",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q035",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Define an arithmetic expression",
+    "normalized_text": "define an arithmetic expression",
+    "tokens": [
+      "define",
+      "an",
+      "arithmetic",
+      "expression"
+    ],
+    "lemmas": [
+      "define",
+      "an",
+      "arithmetic",
+      "expression"
+    ],
+    "pos_tags": [
+      "VERB",
+      "DET",
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "define",
+      "arithmetic",
+      "expression"
+    ],
+    "processed_text": "define arithmetic expression",
+    "removed_stopwords": [
+      "an"
+    ],
+    "id": "q036",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is a base?",
+    "normalized_text": "what is a base",
+    "tokens": [
+      "what",
+      "is",
+      "a",
+      "base"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "a",
+      "base"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "base"
+    ],
+    "processed_text": "what be base",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q037",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What does neutral mean?",
+    "normalized_text": "what does neutral mean",
+    "tokens": [
+      "what",
+      "does",
+      "neutral",
+      "mean"
+    ],
+    "lemmas": [
+      "what",
+      "do",
+      "neutral",
+      "mean"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "ADJ",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "what",
+      "do",
+      "neutral",
+      "mean"
+    ],
+    "processed_text": "what do neutral mean",
+    "removed_stopwords": [],
+    "id": "q038",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is place value?",
+    "normalized_text": "what is place value",
+    "tokens": [
+      "what",
+      "is",
+      "place",
+      "value"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "place",
+      "value"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "place",
+      "value"
+    ],
+    "processed_text": "what be place value",
+    "removed_stopwords": [],
+    "id": "q039",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Define a line segment",
+    "normalized_text": "define a line segment",
+    "tokens": [
+      "define",
+      "a",
+      "line",
+      "segment"
+    ],
+    "lemmas": [
+      "define",
+      "a",
+      "line",
+      "segment"
+    ],
+    "pos_tags": [
+      "VERB",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "define",
+      "line",
+      "segment"
+    ],
+    "processed_text": "define line segment",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q040",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is an indicator?",
+    "normalized_text": "what is an indicator",
+    "tokens": [
+      "what",
+      "is",
+      "an",
+      "indicator"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "an",
+      "indicator"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "indicator"
+    ],
+    "processed_text": "what be indicator",
+    "removed_stopwords": [
+      "an"
+    ],
+    "id": "q041",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is a sequence?",
+    "normalized_text": "what is a sequence",
+    "tokens": [
+      "what",
+      "is",
+      "a",
+      "sequence"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "a",
+      "sequence"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "sequence"
+    ],
+    "processed_text": "what be sequence",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q042",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What does habitat mean?",
+    "normalized_text": "what does habitat mean",
+    "tokens": [
+      "what",
+      "does",
+      "habitat",
+      "mean"
+    ],
+    "lemmas": [
+      "what",
+      "do",
+      "habitat",
+      "mean"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "PROPN",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "what",
+      "do",
+      "habitat",
+      "mean"
+    ],
+    "processed_text": "what do habitat mean",
+    "removed_stopwords": [],
+    "id": "q043",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is a protractor?",
+    "normalized_text": "what is a protractor",
+    "tokens": [
+      "what",
+      "is",
+      "a",
+      "protractor"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "a",
+      "protractor"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "protractor"
+    ],
+    "processed_text": "what be protractor",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q044",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Define estimation",
+    "normalized_text": "define estimation",
+    "tokens": [
+      "define",
+      "estimation"
+    ],
+    "lemmas": [
+      "define",
+      "estimation"
+    ],
+    "pos_tags": [
+      "VERB",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "define",
+      "estimation"
+    ],
+    "processed_text": "define estimation",
+    "removed_stopwords": [],
+    "id": "q045",
+    "intent": "definition",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Give me an example of a number pattern",
+    "normalized_text": "give me an example of a number pattern",
+    "tokens": [
+      "give",
+      "me",
+      "an",
+      "example",
+      "of",
+      "a",
+      "number",
+      "pattern"
+    ],
+    "lemmas": [
+      "give",
+      "i",
+      "an",
+      "example",
+      "of",
+      "a",
+      "number",
+      "pattern"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "ADP",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "give",
+      "i",
+      "example",
+      "number",
+      "pattern"
+    ],
+    "processed_text": "give i example number pattern",
+    "removed_stopwords": [
+      "an",
+      "of",
+      "a"
+    ],
+    "id": "q046",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Can you give me an example of an acid?",
+    "normalized_text": "can you give me an example of an acid",
+    "tokens": [
+      "can",
+      "you",
+      "give",
+      "me",
+      "an",
+      "example",
+      "of",
+      "an",
+      "acid"
+    ],
+    "lemmas": [
+      "can",
+      "you",
+      "give",
+      "i",
+      "an",
+      "example",
+      "of",
+      "an",
+      "acid"
+    ],
+    "pos_tags": [
+      "AUX",
+      "PRON",
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "ADP",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "can",
+      "give",
+      "i",
+      "example",
+      "acid"
+    ],
+    "processed_text": "can give i example acid",
+    "removed_stopwords": [
+      "you",
+      "an",
+      "of",
+      "an"
+    ],
+    "id": "q047",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show me an example problem on angles",
+    "normalized_text": "show me an example problem on angles",
+    "tokens": [
+      "show",
+      "me",
+      "an",
+      "example",
+      "problem",
+      "on",
+      "angles"
+    ],
+    "lemmas": [
+      "show",
+      "i",
+      "an",
+      "example",
+      "problem",
+      "on",
+      "angle"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "NOUN",
+      "ADP",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "show",
+      "i",
+      "example",
+      "problem",
+      "angle"
+    ],
+    "processed_text": "show i example problem angle",
+    "removed_stopwords": [
+      "an",
+      "on"
+    ],
+    "id": "q048",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Give me an example for this topic",
+    "normalized_text": "give me an example for this topic",
+    "tokens": [
+      "give",
+      "me",
+      "an",
+      "example",
+      "for",
+      "this",
+      "topic"
+    ],
+    "lemmas": [
+      "give",
+      "i",
+      "an",
+      "example",
+      "for",
+      "this",
+      "topic"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "ADP",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "give",
+      "i",
+      "example",
+      "topic"
+    ],
+    "processed_text": "give i example topic",
+    "removed_stopwords": [
+      "an",
+      "for",
+      "this"
+    ],
+    "id": "q049",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Can you show a real life example?",
+    "normalized_text": "can you show a real life example",
+    "tokens": [
+      "can",
+      "you",
+      "show",
+      "a",
+      "real",
+      "life",
+      "example"
+    ],
+    "lemmas": [
+      "can",
+      "you",
+      "show",
+      "a",
+      "real",
+      "life",
+      "example"
+    ],
+    "pos_tags": [
+      "AUX",
+      "PRON",
+      "VERB",
+      "DET",
+      "ADJ",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "can",
+      "show",
+      "real",
+      "life",
+      "example"
+    ],
+    "processed_text": "can show real life example",
+    "removed_stopwords": [
+      "you",
+      "a"
+    ],
+    "id": "q050",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show me a sample question",
+    "normalized_text": "show me a sample question",
+    "tokens": [
+      "show",
+      "me",
+      "a",
+      "sample",
+      "question"
+    ],
+    "lemmas": [
+      "show",
+      "i",
+      "a",
+      "sample",
+      "question"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "show",
+      "i",
+      "sample",
+      "question"
+    ],
+    "processed_text": "show i sample question",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q051",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Give an example of a large number",
+    "normalized_text": "give an example of a large number",
+    "tokens": [
+      "give",
+      "an",
+      "example",
+      "of",
+      "a",
+      "large",
+      "number"
+    ],
+    "lemmas": [
+      "give",
+      "an",
+      "example",
+      "of",
+      "a",
+      "large",
+      "number"
+    ],
+    "pos_tags": [
+      "VERB",
+      "DET",
+      "NOUN",
+      "ADP",
+      "DET",
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "give",
+      "example",
+      "large",
+      "number"
+    ],
+    "processed_text": "give example large number",
+    "removed_stopwords": [
+      "an",
+      "of",
+      "a"
+    ],
+    "id": "q052",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Can I see a worked example?",
+    "normalized_text": "can i see a worked example",
     "tokens": [
       "can",
       "i",
-      "test",
-      "myself"
+      "see",
+      "a",
+      "worked",
+      "example"
     ],
     "lemmas": [
       "can",
       "i",
-      "test",
-      "myself"
+      "see",
+      "a",
+      "work",
+      "example"
+    ],
+    "pos_tags": [
+      "AUX",
+      "PRON",
+      "VERB",
+      "DET",
+      "VERB",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "can",
+      "see",
+      "work",
+      "example"
+    ],
+    "processed_text": "can see work example",
+    "removed_stopwords": [
+      "i",
+      "a"
+    ],
+    "id": "q053",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show me one more example",
+    "normalized_text": "show me one more example",
+    "tokens": [
+      "show",
+      "me",
+      "one",
+      "more",
+      "example"
+    ],
+    "lemmas": [
+      "show",
+      "i",
+      "one",
+      "more",
+      "example"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "NUM",
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "show",
+      "i",
+      "one",
+      "more",
+      "example"
+    ],
+    "processed_text": "show i one more example",
+    "removed_stopwords": [],
+    "id": "q054",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Give me a practical example of adaptation",
+    "normalized_text": "give me a practical example of adaptation",
+    "tokens": [
+      "give",
+      "me",
+      "a",
+      "practical",
+      "example",
+      "of",
+      "adaptation"
+    ],
+    "lemmas": [
+      "give",
+      "i",
+      "a",
+      "practical",
+      "example",
+      "of",
+      "adaptation"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "ADJ",
+      "NOUN",
+      "ADP",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "give",
+      "i",
+      "practical",
+      "example",
+      "adaptation"
+    ],
+    "processed_text": "give i practical example adaptation",
+    "removed_stopwords": [
+      "a",
+      "of"
+    ],
+    "id": "q055",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Can you show an example with brackets?",
+    "normalized_text": "can you show an example with brackets",
+    "tokens": [
+      "can",
+      "you",
+      "show",
+      "an",
+      "example",
+      "with",
+      "brackets"
+    ],
+    "lemmas": [
+      "can",
+      "you",
+      "show",
+      "an",
+      "example",
+      "with",
+      "bracket"
+    ],
+    "pos_tags": [
+      "AUX",
+      "PRON",
+      "VERB",
+      "DET",
+      "NOUN",
+      "ADP",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "can",
+      "show",
+      "example",
+      "bracket"
+    ],
+    "processed_text": "can show example bracket",
+    "removed_stopwords": [
+      "you",
+      "an",
+      "with"
+    ],
+    "id": "q056",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "I want to see an example",
+    "normalized_text": "i want to see an example",
+    "tokens": [
+      "i",
+      "want",
+      "to",
+      "see",
+      "an",
+      "example"
+    ],
+    "lemmas": [
+      "i",
+      "want",
+      "to",
+      "see",
+      "an",
+      "example"
+    ],
+    "pos_tags": [
+      "PRON",
+      "VERB",
+      "PART",
+      "VERB",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "want",
+      "see",
+      "example"
+    ],
+    "processed_text": "want see example",
+    "removed_stopwords": [
+      "i",
+      "to",
+      "an"
+    ],
+    "id": "q057",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show an example of a basic substance",
+    "normalized_text": "show an example of a basic substance",
+    "tokens": [
+      "show",
+      "an",
+      "example",
+      "of",
+      "a",
+      "basic",
+      "substance"
+    ],
+    "lemmas": [
+      "show",
+      "an",
+      "example",
+      "of",
+      "a",
+      "basic",
+      "substance"
+    ],
+    "pos_tags": [
+      "VERB",
+      "DET",
+      "NOUN",
+      "ADP",
+      "DET",
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "show",
+      "example",
+      "basic",
+      "substance"
+    ],
+    "processed_text": "show example basic substance",
+    "removed_stopwords": [
+      "an",
+      "of",
+      "a"
+    ],
+    "id": "q058",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Give me a simple example",
+    "normalized_text": "give me a simple example",
+    "tokens": [
+      "give",
+      "me",
+      "a",
+      "simple",
+      "example"
+    ],
+    "lemmas": [
+      "give",
+      "i",
+      "a",
+      "simple",
+      "example"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "give",
+      "i",
+      "simple",
+      "example"
+    ],
+    "processed_text": "give i simple example",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q059",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show me how it looks with an example",
+    "normalized_text": "show me how it looks with an example",
+    "tokens": [
+      "show",
+      "me",
+      "how",
+      "it",
+      "looks",
+      "with",
+      "an",
+      "example"
+    ],
+    "lemmas": [
+      "show",
+      "i",
+      "how",
+      "it",
+      "look",
+      "with",
+      "an",
+      "example"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "SCONJ",
+      "PRON",
+      "VERB",
+      "ADP",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "show",
+      "i",
+      "how",
+      "look",
+      "example"
+    ],
+    "processed_text": "show i how look example",
+    "removed_stopwords": [
+      "it",
+      "with",
+      "an"
+    ],
+    "id": "q060",
+    "intent": "example_request",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is the rule for the order of operations?",
+    "normalized_text": "what is the rule for the order of operations",
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "rule",
+      "for",
+      "the",
+      "order",
+      "of",
+      "operations"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "the",
+      "rule",
+      "for",
+      "the",
+      "order",
+      "of",
+      "operation"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "DET",
+      "NOUN",
+      "ADP",
+      "DET",
+      "NOUN",
+      "ADP",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "rule",
+      "order",
+      "operation"
+    ],
+    "processed_text": "what be rule order operation",
+    "removed_stopwords": [
+      "the",
+      "for",
+      "the",
+      "of"
+    ],
+    "id": "q061",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Which rule should I use here?",
+    "normalized_text": "which rule should i use here",
+    "tokens": [
+      "which",
+      "rule",
+      "should",
+      "i",
+      "use",
+      "here"
+    ],
+    "lemmas": [
+      "which",
+      "rule",
+      "should",
+      "i",
+      "use",
+      "here"
+    ],
+    "pos_tags": [
+      "DET",
+      "NOUN",
+      "AUX",
+      "PRON",
+      "VERB",
+      "ADV"
+    ],
+    "filtered_tokens": [
+      "which",
+      "rule",
+      "should",
+      "use"
+    ],
+    "processed_text": "which rule should use",
+    "removed_stopwords": [
+      "i",
+      "here"
+    ],
+    "id": "q062",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How do I simplify this expression?",
+    "normalized_text": "how do i simplify this expression",
+    "tokens": [
+      "how",
+      "do",
+      "i",
+      "simplify",
+      "this",
+      "expression"
+    ],
+    "lemmas": [
+      "how",
+      "do",
+      "i",
+      "simplify",
+      "this",
+      "expression"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "PRON",
+      "VERB",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "how",
+      "do",
+      "simplify",
+      "expression"
+    ],
+    "processed_text": "how do simplify expression",
+    "removed_stopwords": [
+      "i",
+      "this"
+    ],
+    "id": "q063",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Tell me the rule for this problem",
+    "normalized_text": "tell me the rule for this problem",
+    "tokens": [
+      "tell",
+      "me",
+      "the",
+      "rule",
+      "for",
+      "this",
+      "problem"
+    ],
+    "lemmas": [
+      "tell",
+      "i",
+      "the",
+      "rule",
+      "for",
+      "this",
+      "problem"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "ADP",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "tell",
+      "i",
+      "rule",
+      "problem"
+    ],
+    "processed_text": "tell i rule problem",
+    "removed_stopwords": [
+      "the",
+      "for",
+      "this"
+    ],
+    "id": "q064",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Help me remember the steps",
+    "normalized_text": "help me remember the steps",
+    "tokens": [
+      "help",
+      "me",
+      "remember",
+      "the",
+      "steps"
+    ],
+    "lemmas": [
+      "help",
+      "i",
+      "remember",
+      "the",
+      "step"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "VERB",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "help",
+      "i",
+      "remember",
+      "step"
+    ],
+    "processed_text": "help i remember step",
+    "removed_stopwords": [
+      "the"
+    ],
+    "id": "q065",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is the rule for naming angles?",
+    "normalized_text": "what is the rule for naming angles",
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "rule",
+      "for",
+      "naming",
+      "angles"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "the",
+      "rule",
+      "for",
+      "name",
+      "angle"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "DET",
+      "NOUN",
+      "ADP",
+      "VERB",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "rule",
+      "name",
+      "angle"
+    ],
+    "processed_text": "what be rule name angle",
+    "removed_stopwords": [
+      "the",
+      "for"
+    ],
+    "id": "q066",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How do I estimate a large number?",
+    "normalized_text": "how do i estimate a large number",
+    "tokens": [
+      "how",
+      "do",
+      "i",
+      "estimate",
+      "a",
+      "large",
+      "number"
+    ],
+    "lemmas": [
+      "how",
+      "do",
+      "i",
+      "estimate",
+      "a",
+      "large",
+      "number"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "PRON",
+      "VERB",
+      "DET",
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "how",
+      "do",
+      "estimate",
+      "large",
+      "number"
+    ],
+    "processed_text": "how do estimate large number",
+    "removed_stopwords": [
+      "i",
+      "a"
+    ],
+    "id": "q067",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Which method applies to this sum?",
+    "normalized_text": "which method applies to this sum",
+    "tokens": [
+      "which",
+      "method",
+      "applies",
+      "to",
+      "this",
+      "sum"
+    ],
+    "lemmas": [
+      "which",
+      "method",
+      "apply",
+      "to",
+      "this",
+      "sum"
+    ],
+    "pos_tags": [
+      "DET",
+      "NOUN",
+      "VERB",
+      "ADP",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "which",
+      "method",
+      "apply",
+      "sum"
+    ],
+    "processed_text": "which method apply sum",
+    "removed_stopwords": [
+      "to",
+      "this"
+    ],
+    "id": "q068",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What steps do I follow for brackets?",
+    "normalized_text": "what steps do i follow for brackets",
+    "tokens": [
+      "what",
+      "steps",
+      "do",
+      "i",
+      "follow",
+      "for",
+      "brackets"
+    ],
+    "lemmas": [
+      "what",
+      "step",
+      "do",
+      "i",
+      "follow",
+      "for",
+      "bracket"
+    ],
+    "pos_tags": [
+      "DET",
+      "NOUN",
+      "AUX",
+      "PRON",
+      "VERB",
+      "ADP",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "step",
+      "do",
+      "follow",
+      "bracket"
+    ],
+    "processed_text": "what step do follow bracket",
+    "removed_stopwords": [
+      "i",
+      "for"
+    ],
+    "id": "q069",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How do I find the value of an expression?",
+    "normalized_text": "how do i find the value of an expression",
+    "tokens": [
+      "how",
+      "do",
+      "i",
+      "find",
+      "the",
+      "value",
+      "of",
+      "an",
+      "expression"
+    ],
+    "lemmas": [
+      "how",
+      "do",
+      "i",
+      "find",
+      "the",
+      "value",
+      "of",
+      "an",
+      "expression"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "PRON",
+      "VERB",
+      "DET",
+      "NOUN",
+      "ADP",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "how",
+      "do",
+      "find",
+      "value",
+      "expression"
+    ],
+    "processed_text": "how do find value expression",
+    "removed_stopwords": [
+      "i",
+      "the",
+      "of",
+      "an"
+    ],
+    "id": "q070",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Give me the rule for place value",
+    "normalized_text": "give me the rule for place value",
+    "tokens": [
+      "give",
+      "me",
+      "the",
+      "rule",
+      "for",
+      "place",
+      "value"
+    ],
+    "lemmas": [
+      "give",
+      "i",
+      "the",
+      "rule",
+      "for",
+      "place",
+      "value"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "ADP",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "give",
+      "i",
+      "rule",
+      "place",
+      "value"
+    ],
+    "processed_text": "give i rule place value",
+    "removed_stopwords": [
+      "the",
+      "for"
+    ],
+    "id": "q071",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is the method to compare numbers?",
+    "normalized_text": "what is the method to compare numbers",
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "method",
+      "to",
+      "compare",
+      "numbers"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "the",
+      "method",
+      "to",
+      "compare",
+      "number"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "DET",
+      "NOUN",
+      "PART",
+      "VERB",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "method",
+      "compare",
+      "number"
+    ],
+    "processed_text": "what be method compare number",
+    "removed_stopwords": [
+      "the",
+      "to"
+    ],
+    "id": "q072",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How is an angle measured?",
+    "normalized_text": "how is an angle measured",
+    "tokens": [
+      "how",
+      "is",
+      "an",
+      "angle",
+      "measured"
+    ],
+    "lemmas": [
+      "how",
+      "be",
+      "an",
+      "angle",
+      "measure"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "DET",
+      "NOUN",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "how",
+      "be",
+      "angle",
+      "measure"
+    ],
+    "processed_text": "how be angle measure",
+    "removed_stopwords": [
+      "an"
+    ],
+    "id": "q073",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Tell me the steps to solve this",
+    "normalized_text": "tell me the steps to solve this",
+    "tokens": [
+      "tell",
+      "me",
+      "the",
+      "steps",
+      "to",
+      "solve",
+      "this"
+    ],
+    "lemmas": [
+      "tell",
+      "i",
+      "the",
+      "step",
+      "to",
+      "solve",
+      "this"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "PART",
+      "VERB",
+      "DET"
+    ],
+    "filtered_tokens": [
+      "tell",
+      "i",
+      "step",
+      "solve"
+    ],
+    "processed_text": "tell i step solve",
+    "removed_stopwords": [
+      "the",
+      "to",
+      "this"
+    ],
+    "id": "q074",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What rule gives the correct answer here?",
+    "normalized_text": "what rule gives the correct answer here",
+    "tokens": [
+      "what",
+      "rule",
+      "gives",
+      "the",
+      "correct",
+      "answer",
+      "here"
+    ],
+    "lemmas": [
+      "what",
+      "rule",
+      "give",
+      "the",
+      "correct",
+      "answer",
+      "here"
+    ],
+    "pos_tags": [
+      "DET",
+      "NOUN",
+      "VERB",
+      "DET",
+      "ADJ",
+      "NOUN",
+      "ADV"
+    ],
+    "filtered_tokens": [
+      "what",
+      "rule",
+      "give",
+      "correct",
+      "answer"
+    ],
+    "processed_text": "what rule give correct answer",
+    "removed_stopwords": [
+      "the",
+      "here"
+    ],
+    "id": "q075",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Hi",
+    "normalized_text": "hi",
+    "tokens": [
+      "hi"
+    ],
+    "lemmas": [
+      "hi"
+    ],
+    "pos_tags": [
+      "INTJ"
+    ],
+    "filtered_tokens": [
+      "hi"
+    ],
+    "processed_text": "hi",
+    "removed_stopwords": [],
+    "id": "q076",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Hello",
+    "normalized_text": "hello",
+    "tokens": [
+      "hello"
+    ],
+    "lemmas": [
+      "hello"
+    ],
+    "pos_tags": [
+      "INTJ"
+    ],
+    "filtered_tokens": [
+      "hello"
+    ],
+    "processed_text": "hello",
+    "removed_stopwords": [],
+    "id": "q077",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Good morning",
+    "normalized_text": "good morning",
+    "tokens": [
+      "good",
+      "morning"
+    ],
+    "lemmas": [
+      "good",
+      "morning"
+    ],
+    "pos_tags": [
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "good",
+      "morning"
+    ],
+    "processed_text": "good morning",
+    "removed_stopwords": [],
+    "id": "q078",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Good evening",
+    "normalized_text": "good evening",
+    "tokens": [
+      "good",
+      "evening"
+    ],
+    "lemmas": [
+      "good",
+      "evening"
+    ],
+    "pos_tags": [
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "good",
+      "evening"
+    ],
+    "processed_text": "good evening",
+    "removed_stopwords": [],
+    "id": "q079",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Hey there",
+    "normalized_text": "hey there",
+    "tokens": [
+      "hey",
+      "there"
+    ],
+    "lemmas": [
+      "hey",
+      "there"
+    ],
+    "pos_tags": [
+      "INTJ",
+      "ADV"
+    ],
+    "filtered_tokens": [
+      "hey"
+    ],
+    "processed_text": "hey",
+    "removed_stopwords": [
+      "there"
+    ],
+    "id": "q080",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Namaste",
+    "normalized_text": "namaste",
+    "tokens": [
+      "namaste"
+    ],
+    "lemmas": [
+      "namaste"
+    ],
+    "pos_tags": [
+      "PROPN"
+    ],
+    "filtered_tokens": [
+      "namaste"
+    ],
+    "processed_text": "namaste",
+    "removed_stopwords": [],
+    "id": "q081",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Hello sir",
+    "normalized_text": "hello sir",
+    "tokens": [
+      "hello",
+      "sir"
+    ],
+    "lemmas": [
+      "hello",
+      "sir"
+    ],
+    "pos_tags": [
+      "INTJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "hello",
+      "sir"
+    ],
+    "processed_text": "hello sir",
+    "removed_stopwords": [],
+    "id": "q082",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Hi teacher",
+    "normalized_text": "hi teacher",
+    "tokens": [
+      "hi",
+      "teacher"
+    ],
+    "lemmas": [
+      "hi",
+      "teacher"
+    ],
+    "pos_tags": [
+      "INTJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "hi",
+      "teacher"
+    ],
+    "processed_text": "hi teacher",
+    "removed_stopwords": [],
+    "id": "q083",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Good afternoon",
+    "normalized_text": "good afternoon",
+    "tokens": [
+      "good",
+      "afternoon"
+    ],
+    "lemmas": [
+      "good",
+      "afternoon"
+    ],
+    "pos_tags": [
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "good",
+      "afternoon"
+    ],
+    "processed_text": "good afternoon",
+    "removed_stopwords": [],
+    "id": "q084",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Hey",
+    "normalized_text": "hey",
+    "tokens": [
+      "hey"
+    ],
+    "lemmas": [
+      "hey"
+    ],
+    "pos_tags": [
+      "INTJ"
+    ],
+    "filtered_tokens": [
+      "hey"
+    ],
+    "processed_text": "hey",
+    "removed_stopwords": [],
+    "id": "q085",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Hello there",
+    "normalized_text": "hello there",
+    "tokens": [
+      "hello",
+      "there"
+    ],
+    "lemmas": [
+      "hello",
+      "there"
+    ],
+    "pos_tags": [
+      "INTJ",
+      "ADV"
+    ],
+    "filtered_tokens": [
+      "hello"
+    ],
+    "processed_text": "hello",
+    "removed_stopwords": [
+      "there"
+    ],
+    "id": "q086",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Hi again",
+    "normalized_text": "hi again",
+    "tokens": [
+      "hi",
+      "again"
+    ],
+    "lemmas": [
+      "hi",
+      "again"
+    ],
+    "pos_tags": [
+      "INTJ",
+      "ADV"
+    ],
+    "filtered_tokens": [
+      "hi",
+      "again"
+    ],
+    "processed_text": "hi again",
+    "removed_stopwords": [],
+    "id": "q087",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Good morning teacher",
+    "normalized_text": "good morning teacher",
+    "tokens": [
+      "good",
+      "morning",
+      "teacher"
+    ],
+    "lemmas": [
+      "good",
+      "morning",
+      "teacher"
+    ],
+    "pos_tags": [
+      "ADJ",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "good",
+      "morning",
+      "teacher"
+    ],
+    "processed_text": "good morning teacher",
+    "removed_stopwords": [],
+    "id": "q088",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Hello friend",
+    "normalized_text": "hello friend",
+    "tokens": [
+      "hello",
+      "friend"
+    ],
+    "lemmas": [
+      "hello",
+      "friend"
+    ],
+    "pos_tags": [
+      "INTJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "hello",
+      "friend"
+    ],
+    "processed_text": "hello friend",
+    "removed_stopwords": [],
+    "id": "q089",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Hi, I am back",
+    "normalized_text": "hi i am back",
+    "tokens": [
+      "hi",
+      "i",
+      "am",
+      "back"
+    ],
+    "lemmas": [
+      "hi",
+      "i",
+      "be",
+      "back"
+    ],
+    "pos_tags": [
+      "INTJ",
+      "PRON",
+      "AUX",
+      "ADV"
+    ],
+    "filtered_tokens": [
+      "hi",
+      "back"
+    ],
+    "processed_text": "hi back",
+    "removed_stopwords": [
+      "i",
+      "be"
+    ],
+    "id": "q090",
+    "intent": "greeting",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Help me solve my homework",
+    "normalized_text": "help me solve my homework",
+    "tokens": [
+      "help",
+      "me",
+      "solve",
+      "my",
+      "homework"
+    ],
+    "lemmas": [
+      "help",
+      "i",
+      "solve",
+      "my",
+      "homework"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "VERB",
+      "PRON",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "help",
+      "i",
+      "solve",
+      "my",
+      "homework"
+    ],
+    "processed_text": "help i solve my homework",
+    "removed_stopwords": [],
+    "id": "q091",
+    "intent": "homework_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How do I solve this question?",
+    "normalized_text": "how do i solve this question",
+    "tokens": [
+      "how",
+      "do",
+      "i",
+      "solve",
+      "this",
+      "question"
+    ],
+    "lemmas": [
+      "how",
+      "do",
+      "i",
+      "solve",
+      "this",
+      "question"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "PRON",
+      "VERB",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "how",
+      "do",
+      "solve",
+      "question"
+    ],
+    "processed_text": "how do solve question",
+    "removed_stopwords": [
+      "i",
+      "this"
+    ],
+    "id": "q092",
+    "intent": "homework_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Can you help with this maths problem?",
+    "normalized_text": "can you help with this math problem",
+    "tokens": [
+      "can",
+      "you",
+      "help",
+      "with",
+      "this",
+      "math",
+      "problem"
+    ],
+    "lemmas": [
+      "can",
+      "you",
+      "help",
+      "with",
+      "this",
+      "math",
+      "problem"
+    ],
+    "pos_tags": [
+      "AUX",
+      "PRON",
+      "VERB",
+      "ADP",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "can",
+      "help",
+      "math",
+      "problem"
+    ],
+    "processed_text": "can help math problem",
+    "removed_stopwords": [
+      "you",
+      "with",
+      "this"
+    ],
+    "id": "q093",
+    "intent": "homework_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "I am stuck on my homework",
+    "normalized_text": "i am stuck on my homework",
+    "tokens": [
+      "i",
+      "am",
+      "stuck",
+      "on",
+      "my",
+      "homework"
+    ],
+    "lemmas": [
+      "i",
+      "be",
+      "stuck",
+      "on",
+      "my",
+      "homework"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "ADJ",
+      "ADP",
+      "PRON",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "stuck",
+      "my",
+      "homework"
+    ],
+    "processed_text": "stuck my homework",
+    "removed_stopwords": [
+      "i",
+      "be",
+      "on"
+    ],
+    "id": "q094",
+    "intent": "homework_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Help me answer this quiz question",
+    "normalized_text": "help me answer this quiz question",
+    "tokens": [
+      "help",
+      "me",
+      "answer",
+      "this",
+      "quiz",
+      "question"
+    ],
+    "lemmas": [
+      "help",
+      "i",
+      "answer",
+      "this",
+      "quiz",
+      "question"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "VERB",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "help",
+      "i",
+      "answer",
+      "quiz",
+      "question"
+    ],
+    "processed_text": "help i answer quiz question",
+    "removed_stopwords": [
+      "this"
+    ],
+    "id": "q095",
+    "intent": "homework_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Can you help me?",
+    "normalized_text": "can you help me",
+    "tokens": [
+      "can",
+      "you",
+      "help",
+      "me"
+    ],
+    "lemmas": [
+      "can",
+      "you",
+      "help",
+      "i"
     ],
     "pos_tags": [
       "AUX",
@@ -1469,49 +3787,956 @@
     ],
     "filtered_tokens": [
       "can",
-      "test"
+      "help",
+      "i"
     ],
-    "processed_text": "can test",
+    "processed_text": "can help i",
     "removed_stopwords": [
-      "i",
-      "myself"
+      "you"
     ],
-    "id": "q39",
-    "intent": "quiz_help",
+    "id": "q096",
+    "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "Show me practice questions",
-    "normalized_text": "show me practice questions",
+    "raw_text": "I need help with my lesson",
+    "normalized_text": "i need help with my lesson",
     "tokens": [
-      "show",
-      "me",
-      "practice",
-      "questions"
+      "i",
+      "need",
+      "help",
+      "with",
+      "my",
+      "lesson"
     ],
     "lemmas": [
-      "show",
       "i",
-      "practice",
-      "question"
+      "need",
+      "help",
+      "with",
+      "my",
+      "lesson"
+    ],
+    "pos_tags": [
+      "PRON",
+      "VERB",
+      "NOUN",
+      "ADP",
+      "PRON",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "need",
+      "help",
+      "my",
+      "lesson"
+    ],
+    "processed_text": "need help my lesson",
+    "removed_stopwords": [
+      "i",
+      "with"
+    ],
+    "id": "q097",
+    "intent": "homework_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "I cannot solve this angles sum",
+    "normalized_text": "i cannot solve this angles sum",
+    "tokens": [
+      "i",
+      "can",
+      "not",
+      "solve",
+      "this",
+      "angles",
+      "sum"
+    ],
+    "lemmas": [
+      "i",
+      "can",
+      "not",
+      "solve",
+      "this",
+      "angle",
+      "sum"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "PART",
+      "VERB",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "can",
+      "not",
+      "solve",
+      "angle",
+      "sum"
+    ],
+    "processed_text": "can not solve angle sum",
+    "removed_stopwords": [
+      "i",
+      "this"
+    ],
+    "id": "q098",
+    "intent": "homework_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Help me with this exercise",
+    "normalized_text": "help me with this exercise",
+    "tokens": [
+      "help",
+      "me",
+      "with",
+      "this",
+      "exercise"
+    ],
+    "lemmas": [
+      "help",
+      "i",
+      "with",
+      "this",
+      "exercise"
     ],
     "pos_tags": [
       "VERB",
       "PRON",
+      "ADP",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "help",
+      "i",
+      "exercise"
+    ],
+    "processed_text": "help i exercise",
+    "removed_stopwords": [
+      "with",
+      "this"
+    ],
+    "id": "q099",
+    "intent": "homework_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How do I work out this expression?",
+    "normalized_text": "how do i work out this expression",
+    "tokens": [
+      "how",
+      "do",
+      "i",
+      "work",
+      "out",
+      "this",
+      "expression"
+    ],
+    "lemmas": [
+      "how",
+      "do",
+      "i",
+      "work",
+      "out",
+      "this",
+      "expression"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "PRON",
+      "VERB",
+      "ADP",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "how",
+      "do",
+      "work",
+      "expression"
+    ],
+    "processed_text": "how do work expression",
+    "removed_stopwords": [
+      "i",
+      "out",
+      "this"
+    ],
+    "id": "q100",
+    "intent": "homework_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "I am stuck on question three",
+    "normalized_text": "i am stuck on question three",
+    "tokens": [
+      "i",
+      "am",
+      "stuck",
+      "on",
+      "question",
+      "three"
+    ],
+    "lemmas": [
+      "i",
+      "be",
+      "stick",
+      "on",
+      "question",
+      "three"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "VERB",
+      "ADP",
+      "NOUN",
+      "NUM"
+    ],
+    "filtered_tokens": [
+      "stick",
+      "question",
+      "three"
+    ],
+    "processed_text": "stick question three",
+    "removed_stopwords": [
+      "i",
+      "be",
+      "on"
+    ],
+    "id": "q101",
+    "intent": "homework_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Can you help me finish this?",
+    "normalized_text": "can you help me finish this",
+    "tokens": [
+      "can",
+      "you",
+      "help",
+      "me",
+      "finish",
+      "this"
+    ],
+    "lemmas": [
+      "can",
+      "you",
+      "help",
+      "i",
+      "finish",
+      "this"
+    ],
+    "pos_tags": [
+      "AUX",
+      "PRON",
+      "VERB",
+      "PRON",
+      "VERB",
+      "DET"
+    ],
+    "filtered_tokens": [
+      "can",
+      "help",
+      "i",
+      "finish"
+    ],
+    "processed_text": "can help i finish",
+    "removed_stopwords": [
+      "you",
+      "this"
+    ],
+    "id": "q102",
+    "intent": "homework_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Help me with my assignment",
+    "normalized_text": "help me with my assignment",
+    "tokens": [
+      "help",
+      "me",
+      "with",
+      "my",
+      "assignment"
+    ],
+    "lemmas": [
+      "help",
+      "i",
+      "with",
+      "my",
+      "assignment"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "ADP",
+      "PRON",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "help",
+      "i",
+      "my",
+      "assignment"
+    ],
+    "processed_text": "help i my assignment",
+    "removed_stopwords": [
+      "with"
+    ],
+    "id": "q103",
+    "intent": "homework_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "I do not know how to start this problem",
+    "normalized_text": "i do not know how to start this problem",
+    "tokens": [
+      "i",
+      "do",
+      "not",
+      "know",
+      "how",
+      "to",
+      "start",
+      "this",
+      "problem"
+    ],
+    "lemmas": [
+      "i",
+      "do",
+      "not",
+      "know",
+      "how",
+      "to",
+      "start",
+      "this",
+      "problem"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "PART",
+      "VERB",
+      "SCONJ",
+      "PART",
+      "VERB",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "do",
+      "not",
+      "know",
+      "how",
+      "start",
+      "problem"
+    ],
+    "processed_text": "do not know how start problem",
+    "removed_stopwords": [
+      "i",
+      "to",
+      "this"
+    ],
+    "id": "q104",
+    "intent": "homework_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Please help me solve this",
+    "normalized_text": "please help me solve this",
+    "tokens": [
+      "please",
+      "help",
+      "me",
+      "solve",
+      "this"
+    ],
+    "lemmas": [
+      "please",
+      "help",
+      "i",
+      "solve",
+      "this"
+    ],
+    "pos_tags": [
+      "INTJ",
+      "VERB",
+      "PRON",
+      "VERB",
+      "DET"
+    ],
+    "filtered_tokens": [
+      "please",
+      "help",
+      "i",
+      "solve"
+    ],
+    "processed_text": "please help i solve",
+    "removed_stopwords": [
+      "this"
+    ],
+    "id": "q105",
+    "intent": "homework_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is today's weather?",
+    "normalized_text": "what is today's weather",
+    "tokens": [
+      "what",
+      "is",
+      "today",
+      "'s",
+      "weather"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "today",
+      "'s",
+      "weather"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "NOUN",
+      "PART",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "today",
+      "'s",
+      "weather"
+    ],
+    "processed_text": "what be today 's weather",
+    "removed_stopwords": [],
+    "id": "q106",
+    "intent": "out_of_scope",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Order food for me",
+    "normalized_text": "order food for me",
+    "tokens": [
+      "order",
+      "food",
+      "for",
+      "me"
+    ],
+    "lemmas": [
+      "order",
+      "food",
+      "for",
+      "i"
+    ],
+    "pos_tags": [
+      "NOUN",
+      "NOUN",
+      "ADP",
+      "PRON"
+    ],
+    "filtered_tokens": [
+      "order",
+      "food",
+      "i"
+    ],
+    "processed_text": "order food i",
+    "removed_stopwords": [
+      "for"
+    ],
+    "id": "q107",
+    "intent": "out_of_scope",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Who won the cricket match?",
+    "normalized_text": "who won the cricket match",
+    "tokens": [
+      "who",
+      "won",
+      "the",
+      "cricket",
+      "match"
+    ],
+    "lemmas": [
+      "who",
+      "win",
+      "the",
+      "cricket",
+      "match"
+    ],
+    "pos_tags": [
+      "PRON",
+      "VERB",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "who",
+      "win",
+      "cricket",
+      "match"
+    ],
+    "processed_text": "who win cricket match",
+    "removed_stopwords": [
+      "the"
+    ],
+    "id": "q108",
+    "intent": "out_of_scope",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Tell me a movie review",
+    "normalized_text": "tell me a movie review",
+    "tokens": [
+      "tell",
+      "me",
+      "a",
+      "movie",
+      "review"
+    ],
+    "lemmas": [
+      "tell",
+      "i",
+      "a",
+      "movie",
+      "review"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "tell",
+      "i",
+      "movie",
+      "review"
+    ],
+    "processed_text": "tell i movie review",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q109",
+    "intent": "out_of_scope",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Book a hotel",
+    "normalized_text": "book a hotel",
+    "tokens": [
+      "book",
+      "a",
+      "hotel"
+    ],
+    "lemmas": [
+      "book",
+      "a",
+      "hotel"
+    ],
+    "pos_tags": [
+      "PROPN",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "book",
+      "hotel"
+    ],
+    "processed_text": "book hotel",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q110",
+    "intent": "out_of_scope",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Play a song",
+    "normalized_text": "play a song",
+    "tokens": [
+      "play",
+      "a",
+      "song"
+    ],
+    "lemmas": [
+      "play",
+      "a",
+      "song"
+    ],
+    "pos_tags": [
+      "VERB",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "play",
+      "song"
+    ],
+    "processed_text": "play song",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q111",
+    "intent": "out_of_scope",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show me funny videos",
+    "normalized_text": "show me funny videos",
+    "tokens": [
+      "show",
+      "me",
+      "funny",
+      "videos"
+    ],
+    "lemmas": [
+      "show",
+      "i",
+      "funny",
+      "video"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "show",
+      "i",
+      "funny",
+      "video"
+    ],
+    "processed_text": "show i funny video",
+    "removed_stopwords": [],
+    "id": "q112",
+    "intent": "out_of_scope",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show me the cricket score",
+    "normalized_text": "show me the cricket score",
+    "tokens": [
+      "show",
+      "me",
+      "the",
+      "cricket",
+      "score"
+    ],
+    "lemmas": [
+      "show",
+      "i",
+      "the",
+      "cricket",
+      "score"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
       "NOUN",
       "NOUN"
     ],
     "filtered_tokens": [
       "show",
       "i",
-      "practice",
-      "question"
+      "cricket",
+      "score"
     ],
-    "processed_text": "show i practice question",
+    "processed_text": "show i cricket score",
+    "removed_stopwords": [
+      "the"
+    ],
+    "id": "q113",
+    "intent": "out_of_scope",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show me a movie trailer",
+    "normalized_text": "show me a movie trailer",
+    "tokens": [
+      "show",
+      "me",
+      "a",
+      "movie",
+      "trailer"
+    ],
+    "lemmas": [
+      "show",
+      "i",
+      "a",
+      "movie",
+      "trailer"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "show",
+      "i",
+      "movie",
+      "trailer"
+    ],
+    "processed_text": "show i movie trailer",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q114",
+    "intent": "out_of_scope",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is the news today?",
+    "normalized_text": "what is the news today",
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "news",
+      "today"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "the",
+      "news",
+      "today"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "news",
+      "today"
+    ],
+    "processed_text": "what be news today",
+    "removed_stopwords": [
+      "the"
+    ],
+    "id": "q115",
+    "intent": "out_of_scope",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Who is the prime minister?",
+    "normalized_text": "who is the prime minister",
+    "tokens": [
+      "who",
+      "is",
+      "the",
+      "prime",
+      "minister"
+    ],
+    "lemmas": [
+      "who",
+      "be",
+      "the",
+      "prime",
+      "minister"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "DET",
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "who",
+      "be",
+      "prime",
+      "minister"
+    ],
+    "processed_text": "who be prime minister",
+    "removed_stopwords": [
+      "the"
+    ],
+    "id": "q116",
+    "intent": "out_of_scope",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Send a message to my friend",
+    "normalized_text": "send a message to my friend",
+    "tokens": [
+      "send",
+      "a",
+      "message",
+      "to",
+      "my",
+      "friend"
+    ],
+    "lemmas": [
+      "send",
+      "a",
+      "message",
+      "to",
+      "my",
+      "friend"
+    ],
+    "pos_tags": [
+      "VERB",
+      "DET",
+      "NOUN",
+      "ADP",
+      "PRON",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "send",
+      "message",
+      "my",
+      "friend"
+    ],
+    "processed_text": "send message my friend",
+    "removed_stopwords": [
+      "a",
+      "to"
+    ],
+    "id": "q117",
+    "intent": "out_of_scope",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show me shopping offers",
+    "normalized_text": "show me shopping offers",
+    "tokens": [
+      "show",
+      "me",
+      "shopping",
+      "offers"
+    ],
+    "lemmas": [
+      "show",
+      "i",
+      "shopping",
+      "offer"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "NOUN",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "show",
+      "i",
+      "shopping",
+      "offer"
+    ],
+    "processed_text": "show i shopping offer",
     "removed_stopwords": [],
-    "id": "q40",
-    "intent": "quiz_help",
+    "id": "q118",
+    "intent": "out_of_scope",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Recommend a restaurant",
+    "normalized_text": "recommend a restaurant",
+    "tokens": [
+      "recommend",
+      "a",
+      "restaurant"
+    ],
+    "lemmas": [
+      "recommend",
+      "a",
+      "restaurant"
+    ],
+    "pos_tags": [
+      "VERB",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "recommend",
+      "restaurant"
+    ],
+    "processed_text": "recommend restaurant",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q119",
+    "intent": "out_of_scope",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Book a train ticket",
+    "normalized_text": "book a train ticket",
+    "tokens": [
+      "book",
+      "a",
+      "train",
+      "ticket"
+    ],
+    "lemmas": [
+      "book",
+      "a",
+      "train",
+      "ticket"
+    ],
+    "pos_tags": [
+      "PROPN",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "book",
+      "train",
+      "ticket"
+    ],
+    "processed_text": "book train ticket",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q120",
+    "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
   },
@@ -1540,7 +4765,7 @@
     ],
     "processed_text": "show my progress",
     "removed_stopwords": [],
-    "id": "q41",
+    "id": "q121",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -1583,7 +4808,7 @@
       "have",
       "i"
     ],
-    "id": "q42",
+    "id": "q122",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -1617,7 +4842,7 @@
     ],
     "processed_text": "what be my score",
     "removed_stopwords": [],
-    "id": "q43",
+    "id": "q123",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -1660,7 +4885,7 @@
       "i",
       "have"
     ],
-    "id": "q44",
+    "id": "q124",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -1694,190 +4919,953 @@
     ],
     "processed_text": "show my learning progress",
     "removed_stopwords": [],
-    "id": "q45",
+    "id": "q125",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "What is today's weather?",
-    "normalized_text": "what is today's weather",
+    "raw_text": "What is my current level?",
+    "normalized_text": "what is my current level",
     "tokens": [
       "what",
       "is",
-      "today",
-      "'s",
-      "weather"
+      "my",
+      "current",
+      "level"
     ],
     "lemmas": [
       "what",
       "be",
-      "today",
-      "'s",
-      "weather"
+      "my",
+      "current",
+      "level"
     ],
     "pos_tags": [
       "PRON",
       "AUX",
-      "NOUN",
-      "PART",
+      "PRON",
+      "ADJ",
       "NOUN"
     ],
     "filtered_tokens": [
       "what",
       "be",
-      "today",
-      "'s",
-      "weather"
+      "my",
+      "current",
+      "level"
     ],
-    "processed_text": "what be today 's weather",
+    "processed_text": "what be my current level",
     "removed_stopwords": [],
-    "id": "q46",
-    "intent": "out_of_scope",
+    "id": "q126",
+    "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "Order food for me",
-    "normalized_text": "order food for me",
+    "raw_text": "How many badges have I earned?",
+    "normalized_text": "how many badges have i earned",
     "tokens": [
-      "order",
-      "food",
+      "how",
+      "many",
+      "badges",
+      "have",
+      "i",
+      "earned"
+    ],
+    "lemmas": [
+      "how",
+      "many",
+      "badge",
+      "have",
+      "i",
+      "earn"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "ADJ",
+      "NOUN",
+      "AUX",
+      "PRON",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "how",
+      "many",
+      "badge",
+      "earn"
+    ],
+    "processed_text": "how many badge earn",
+    "removed_stopwords": [
+      "have",
+      "i"
+    ],
+    "id": "q127",
+    "intent": "progress_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is my streak?",
+    "normalized_text": "what is my streak",
+    "tokens": [
+      "what",
+      "is",
+      "my",
+      "streak"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "my",
+      "streak"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "PRON",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "my",
+      "streak"
+    ],
+    "processed_text": "what be my streak",
+    "removed_stopwords": [],
+    "id": "q128",
+    "intent": "progress_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How am I performing?",
+    "normalized_text": "how am i performing",
+    "tokens": [
+      "how",
+      "am",
+      "i",
+      "performing"
+    ],
+    "lemmas": [
+      "how",
+      "be",
+      "i",
+      "perform"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "PRON",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "how",
+      "perform"
+    ],
+    "processed_text": "how perform",
+    "removed_stopwords": [
+      "be",
+      "i"
+    ],
+    "id": "q129",
+    "intent": "progress_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show my quiz results",
+    "normalized_text": "show my quiz results",
+    "tokens": [
+      "show",
+      "my",
+      "quiz",
+      "results"
+    ],
+    "lemmas": [
+      "show",
+      "my",
+      "quiz",
+      "result"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "NOUN",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "show",
+      "my",
+      "quiz",
+      "result"
+    ],
+    "processed_text": "show my quiz result",
+    "removed_stopwords": [],
+    "id": "q130",
+    "intent": "progress_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How much XP do I have?",
+    "normalized_text": "how much xp do i have",
+    "tokens": [
+      "how",
+      "much",
+      "xp",
+      "do",
+      "i",
+      "have"
+    ],
+    "lemmas": [
+      "how",
+      "much",
+      "xp",
+      "do",
+      "i",
+      "have"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "ADJ",
+      "ADP",
+      "AUX",
+      "PRON",
+      "AUX"
+    ],
+    "filtered_tokens": [
+      "how",
+      "much",
+      "xp",
+      "do"
+    ],
+    "processed_text": "how much xp do",
+    "removed_stopwords": [
+      "i",
+      "have"
+    ],
+    "id": "q131",
+    "intent": "progress_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What was my last quiz score?",
+    "normalized_text": "what was my last quiz score",
+    "tokens": [
+      "what",
+      "was",
+      "my",
+      "last",
+      "quiz",
+      "score"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "my",
+      "last",
+      "quiz",
+      "score"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "PRON",
+      "ADJ",
+      "NOUN",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "what",
+      "my",
+      "last",
+      "quiz",
+      "score"
+    ],
+    "processed_text": "what my last quiz score",
+    "removed_stopwords": [
+      "be"
+    ],
+    "id": "q132",
+    "intent": "progress_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show my report",
+    "normalized_text": "show my report",
+    "tokens": [
+      "show",
+      "my",
+      "report"
+    ],
+    "lemmas": [
+      "show",
+      "my",
+      "report"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "show",
+      "my",
+      "report"
+    ],
+    "processed_text": "show my report",
+    "removed_stopwords": [],
+    "id": "q133",
+    "intent": "progress_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How many lessons have I finished?",
+    "normalized_text": "how many lessons have i finished",
+    "tokens": [
+      "how",
+      "many",
+      "lessons",
+      "have",
+      "i",
+      "finished"
+    ],
+    "lemmas": [
+      "how",
+      "many",
+      "lesson",
+      "have",
+      "i",
+      "finish"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "ADJ",
+      "NOUN",
+      "AUX",
+      "PRON",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "how",
+      "many",
+      "lesson",
+      "finish"
+    ],
+    "processed_text": "how many lesson finish",
+    "removed_stopwords": [
+      "have",
+      "i"
+    ],
+    "id": "q134",
+    "intent": "progress_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Am I improving?",
+    "normalized_text": "am i improving",
+    "tokens": [
+      "am",
+      "i",
+      "improving"
+    ],
+    "lemmas": [
+      "be",
+      "i",
+      "improve"
+    ],
+    "pos_tags": [
+      "AUX",
+      "PRON",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "improve"
+    ],
+    "processed_text": "improve",
+    "removed_stopwords": [
+      "be",
+      "i"
+    ],
+    "id": "q135",
+    "intent": "progress_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Give me a quiz",
+    "normalized_text": "give me a quiz",
+    "tokens": [
+      "give",
+      "me",
+      "a",
+      "quiz"
+    ],
+    "lemmas": [
+      "give",
+      "i",
+      "a",
+      "quiz"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "give",
+      "i",
+      "quiz"
+    ],
+    "processed_text": "give i quiz",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q136",
+    "intent": "quiz_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "I want to practice questions",
+    "normalized_text": "i want to practice questions",
+    "tokens": [
+      "i",
+      "want",
+      "to",
+      "practice",
+      "questions"
+    ],
+    "lemmas": [
+      "i",
+      "want",
+      "to",
+      "practice",
+      "question"
+    ],
+    "pos_tags": [
+      "PRON",
+      "VERB",
+      "PART",
+      "VERB",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "want",
+      "practice",
+      "question"
+    ],
+    "processed_text": "want practice question",
+    "removed_stopwords": [
+      "i",
+      "to"
+    ],
+    "id": "q137",
+    "intent": "quiz_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Start a quiz for me",
+    "normalized_text": "start a quiz for me",
+    "tokens": [
+      "start",
+      "a",
+      "quiz",
       "for",
       "me"
     ],
     "lemmas": [
-      "order",
-      "food",
+      "start",
+      "a",
+      "quiz",
       "for",
       "i"
     ],
     "pos_tags": [
-      "NOUN",
+      "VERB",
+      "DET",
       "NOUN",
       "ADP",
       "PRON"
     ],
     "filtered_tokens": [
-      "order",
-      "food",
+      "start",
+      "quiz",
       "i"
     ],
-    "processed_text": "order food i",
+    "processed_text": "start quiz i",
     "removed_stopwords": [
+      "a",
       "for"
     ],
-    "id": "q47",
-    "intent": "out_of_scope",
+    "id": "q138",
+    "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "Who won the cricket match?",
-    "normalized_text": "who won the cricket match",
+    "raw_text": "Can I test myself?",
+    "normalized_text": "can i test myself",
     "tokens": [
-      "who",
-      "won",
-      "the",
-      "cricket",
-      "match"
+      "can",
+      "i",
+      "test",
+      "myself"
     ],
     "lemmas": [
-      "who",
-      "win",
-      "the",
-      "cricket",
-      "match"
+      "can",
+      "i",
+      "test",
+      "myself"
+    ],
+    "pos_tags": [
+      "AUX",
+      "PRON",
+      "VERB",
+      "PRON"
+    ],
+    "filtered_tokens": [
+      "can",
+      "test"
+    ],
+    "processed_text": "can test",
+    "removed_stopwords": [
+      "i",
+      "myself"
+    ],
+    "id": "q139",
+    "intent": "quiz_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show me practice questions",
+    "normalized_text": "show me practice questions",
+    "tokens": [
+      "show",
+      "me",
+      "practice",
+      "questions"
+    ],
+    "lemmas": [
+      "show",
+      "i",
+      "practice",
+      "question"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "show",
+      "i",
+      "practice",
+      "question"
+    ],
+    "processed_text": "show i practice question",
+    "removed_stopwords": [],
+    "id": "q140",
+    "intent": "quiz_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "I want to attempt a quiz",
+    "normalized_text": "i want to attempt a quiz",
+    "tokens": [
+      "i",
+      "want",
+      "to",
+      "attempt",
+      "a",
+      "quiz"
+    ],
+    "lemmas": [
+      "i",
+      "want",
+      "to",
+      "attempt",
+      "a",
+      "quiz"
     ],
     "pos_tags": [
       "PRON",
+      "VERB",
+      "PART",
+      "VERB",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "want",
+      "attempt",
+      "quiz"
+    ],
+    "processed_text": "want attempt quiz",
+    "removed_stopwords": [
+      "i",
+      "to",
+      "a"
+    ],
+    "id": "q141",
+    "intent": "quiz_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Give me some practice problems",
+    "normalized_text": "give me some practice problems",
+    "tokens": [
+      "give",
+      "me",
+      "some",
+      "practice",
+      "problems"
+    ],
+    "lemmas": [
+      "give",
+      "i",
+      "some",
+      "practice",
+      "problem"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "give",
+      "i",
+      "practice",
+      "problem"
+    ],
+    "processed_text": "give i practice problem",
+    "removed_stopwords": [
+      "some"
+    ],
+    "id": "q142",
+    "intent": "quiz_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Can we do a quiz now?",
+    "normalized_text": "can we do a quiz now",
+    "tokens": [
+      "can",
+      "we",
+      "do",
+      "a",
+      "quiz",
+      "now"
+    ],
+    "lemmas": [
+      "can",
+      "we",
+      "do",
+      "a",
+      "quiz",
+      "now"
+    ],
+    "pos_tags": [
+      "AUX",
+      "PRON",
+      "AUX",
+      "DET",
+      "NOUN",
+      "ADV"
+    ],
+    "filtered_tokens": [
+      "can",
+      "do",
+      "quiz"
+    ],
+    "processed_text": "can do quiz",
+    "removed_stopwords": [
+      "we",
+      "a",
+      "now"
+    ],
+    "id": "q143",
+    "intent": "quiz_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Test my knowledge",
+    "normalized_text": "test my knowledge",
+    "tokens": [
+      "test",
+      "my",
+      "knowledge"
+    ],
+    "lemmas": [
+      "test",
+      "my",
+      "knowledge"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "test",
+      "my",
+      "knowledge"
+    ],
+    "processed_text": "test my knowledge",
+    "removed_stopwords": [],
+    "id": "q144",
+    "intent": "quiz_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "I want to revise with questions",
+    "normalized_text": "i want to revise with questions",
+    "tokens": [
+      "i",
+      "want",
+      "to",
+      "revise",
+      "with",
+      "questions"
+    ],
+    "lemmas": [
+      "i",
+      "want",
+      "to",
+      "revise",
+      "with",
+      "question"
+    ],
+    "pos_tags": [
+      "PRON",
+      "VERB",
+      "PART",
+      "VERB",
+      "ADP",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "want",
+      "revise",
+      "question"
+    ],
+    "processed_text": "want revise question",
+    "removed_stopwords": [
+      "i",
+      "to",
+      "with"
+    ],
+    "id": "q145",
+    "intent": "quiz_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Start the chapter quiz",
+    "normalized_text": "start the chapter quiz",
+    "tokens": [
+      "start",
+      "the",
+      "chapter",
+      "quiz"
+    ],
+    "lemmas": [
+      "start",
+      "the",
+      "chapter",
+      "quiz"
+    ],
+    "pos_tags": [
       "VERB",
       "DET",
       "NOUN",
       "NOUN"
     ],
     "filtered_tokens": [
-      "who",
-      "win",
-      "cricket",
-      "match"
+      "start",
+      "chapter",
+      "quiz"
     ],
-    "processed_text": "who win cricket match",
+    "processed_text": "start chapter quiz",
     "removed_stopwords": [
       "the"
     ],
-    "id": "q48",
-    "intent": "out_of_scope",
+    "id": "q146",
+    "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "Tell me a movie review",
-    "normalized_text": "tell me a movie review",
+    "raw_text": "Give me more questions to practice",
+    "normalized_text": "give me more questions to practice",
     "tokens": [
-      "tell",
+      "give",
       "me",
-      "a",
-      "movie",
-      "review"
+      "more",
+      "questions",
+      "to",
+      "practice"
     ],
     "lemmas": [
-      "tell",
+      "give",
       "i",
-      "a",
-      "movie",
-      "review"
+      "more",
+      "question",
+      "to",
+      "practice"
     ],
     "pos_tags": [
       "VERB",
       "PRON",
-      "DET",
+      "ADJ",
       "NOUN",
-      "NOUN"
+      "PART",
+      "VERB"
     ],
     "filtered_tokens": [
-      "tell",
+      "give",
       "i",
-      "movie",
-      "review"
+      "more",
+      "question",
+      "practice"
     ],
-    "processed_text": "tell i movie review",
+    "processed_text": "give i more question practice",
     "removed_stopwords": [
-      "a"
+      "to"
     ],
-    "id": "q49",
-    "intent": "out_of_scope",
+    "id": "q147",
+    "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "Book a hotel",
-    "normalized_text": "book a hotel",
+    "raw_text": "Can I take a test?",
+    "normalized_text": "can i take a test",
     "tokens": [
-      "book",
+      "can",
+      "i",
+      "take",
       "a",
-      "hotel"
+      "test"
     ],
     "lemmas": [
-      "book",
+      "can",
+      "i",
+      "take",
       "a",
-      "hotel"
+      "test"
     ],
     "pos_tags": [
-      "PROPN",
+      "AUX",
+      "PRON",
+      "VERB",
       "DET",
       "NOUN"
     ],
     "filtered_tokens": [
-      "book",
-      "hotel"
+      "can",
+      "take",
+      "test"
     ],
-    "processed_text": "book hotel",
+    "processed_text": "can take test",
     "removed_stopwords": [
+      "i",
       "a"
     ],
-    "id": "q50",
-    "intent": "out_of_scope",
+    "id": "q148",
+    "intent": "quiz_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Quiz me on this chapter",
+    "normalized_text": "quiz me on this chapter",
+    "tokens": [
+      "quiz",
+      "me",
+      "on",
+      "this",
+      "chapter"
+    ],
+    "lemmas": [
+      "quiz",
+      "i",
+      "on",
+      "this",
+      "chapter"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "ADP",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "quiz",
+      "i",
+      "chapter"
+    ],
+    "processed_text": "quiz i chapter",
+    "removed_stopwords": [
+      "on",
+      "this"
+    ],
+    "id": "q149",
+    "intent": "quiz_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "I want practice exercises",
+    "normalized_text": "i want practice exercises",
+    "tokens": [
+      "i",
+      "want",
+      "practice",
+      "exercises"
+    ],
+    "lemmas": [
+      "i",
+      "want",
+      "practice",
+      "exercise"
+    ],
+    "pos_tags": [
+      "PRON",
+      "VERB",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "want",
+      "practice",
+      "exercise"
+    ],
+    "processed_text": "want practice exercise",
+    "removed_stopwords": [
+      "i"
+    ],
+    "id": "q150",
+    "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
   }
