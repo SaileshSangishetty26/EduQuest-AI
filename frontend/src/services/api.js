@@ -71,6 +71,15 @@ export const api = {
   progress: (userId) =>
     request(`/progress/${userId}`),
 
+  chat: (payload) =>
+    request('/chat', {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    }),
+
+  recommendations: (userId, params = {}) =>
+    request(`/recommendations/${userId}?` + new URLSearchParams(params)),
+
   health: () =>
     request('/health')
 };

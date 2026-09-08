@@ -17,6 +17,8 @@ Everything is lazy-loaded, so importing this router does not slow server
 startup. The first chat request pays the model-loading cost.
 """
 
+from datetime import datetime, timezone
+
 from fastapi import APIRouter, HTTPException
 
 from ..chatbot.responder import ChatResponder
@@ -103,6 +105,26 @@ def chat(payload: ChatRequest):
         user_id=payload.user_id,
         query_text=payload.message,
     )
+
+    # Log the interaction. The Week 8 recommender reads this to work out which
+    # chapters a student keeps asking about, which is a signal of struggle that
+    # quiz scores alone do not capture.
+    if payload.user_id:
+        try:
+            db["chat_history"].insert_one(
+                {
+                    "user_id": payload.user_id,
+                    "message": payload.message,
+                    "intent": intent,
+                    "confidence": round(confidence, 4),
+                    "understood": result["understood"],
+                    "lesson_id": (result["lesson"] or {}).get("id"),
+                    "asked_at": datetime.now(timezone.utc),
+                }
+            )
+        except Exception:
+            # Logging must never break the reply the student is waiting for.
+            pass
 
     return ChatResponse(
         reply=result["reply"],

@@ -2,7 +2,7 @@ import React from 'react';
 import XPBar from './XPBar';
 import { avatarForUser } from '../utils/gamify';
 
-export default function Header({ user, onHome, onLessons, onLogout, level, streak }) {
+export default function Header({ user, onHome, onLessons, onChat, onLogout, level, streak }) {
   const avatar = avatarForUser(user);
   return (
     <header className="topbar">
@@ -14,6 +14,7 @@ export default function Header({ user, onHome, onLessons, onLogout, level, strea
       <nav className="topbar-nav">
         <button onClick={onHome}>Dashboard</button>
         <button onClick={onLessons}>Quest Map</button>
+        {onChat && <button onClick={onChat}>Ask AI 🤖</button>}
       </nav>
 
       <div className="topbar-right">

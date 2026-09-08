@@ -1,4 +1,4 @@
-# Week 2–7 Implementation Status
+# Week 2–8 Implementation Status
 
 | Week | Requirement area | Status |
 |---|---|---|
@@ -32,14 +32,22 @@
 | 7 | Held-out evaluation, cross-validation, confusion matrix | COMPLETE |
 | 7 | Semantic lesson retrieval | COMPLETE |
 | 7 | FastAPI chatbot endpoint | COMPLETE |
+| 8 | React chat interface wired to the NLP engine | COMPLETE |
+| 8 | Rule-based recommendation engine (5 rules) | COMPLETE |
+| 8 | Recommendations panel on the dashboard | COMPLETE |
+| 8 | Chat history logged for NLP-driven recommendations | COMPLETE |
+| 8 | Section-level retrieval (95 sections) | COMPLETE |
+| 8 | Chapter PDF ingestion pipeline | COMPLETE (not yet run on real textbooks) |
 
-See `docs/week6-nlp-preprocessing.md` and `docs/week7-intent-detection.md` for
-the design notes and measured results.
+See `docs/week6-nlp-preprocessing.md`, `docs/week7-intent-detection.md` and
+`docs/week8-chatbot-recommendations.md` for the design notes and measured
+results.
 
-Week 7 headline numbers: intent classification 89.3% (5-fold CV, 10% baseline),
-lesson retrieval 10/10 top-1 with on-topic and off-topic scores cleanly separated.
+Headline numbers after Week 8: intent classification 89.1% across 12 intents
+(5-fold CV averaged over 5 seeds, 8.3% baseline), lesson retrieval 10/10 top-1
+with on-topic and off-topic scores cleanly separated.
 
 ## Intentionally postponed
-Week 8 chatbot UI integration and the recommendation engine; Week 9 gamification and teacher dashboard; Week 10 integration, testing and deployment.
+Week 9 gamification and teacher dashboard; Week 10 integration, testing and deployment.
 
-Carried into Week 8: still English-only, so the regional-language requirement from Week 2 is outstanding. Note that four Telugu chapters are tagged `"language": "en"` in lessons.json, which looks like a data error. The chat endpoint is stateless, so `clarification` cannot yet refer back to the previous turn.
+Carried into Week 9: adaptive quizzing needs a larger, concept-tagged question pool — the 16 quizzes hold only 62 questions between them with no tags. The content bank is still 16 chapters; the PDF expansion tooling is written but the NCERT portal was unreachable. Still English-only, and the four Telugu chapters remain tagged `"language": "en"` in lessons.json, which looks like a data error. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.

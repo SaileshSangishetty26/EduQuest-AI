@@ -1,5 +1,572 @@
 [
   {
+    "raw_text": "List the chapters",
+    "normalized_text": "list the chapters",
+    "tokens": [
+      "list",
+      "the",
+      "chapters"
+    ],
+    "lemmas": [
+      "list",
+      "the",
+      "chapter"
+    ],
+    "pos_tags": [
+      "VERB",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "list",
+      "chapter"
+    ],
+    "processed_text": "list chapter",
+    "removed_stopwords": [
+      "the"
+    ],
+    "id": "q001",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What chapters are there?",
+    "normalized_text": "what chapters are there",
+    "tokens": [
+      "what",
+      "chapters",
+      "are",
+      "there"
+    ],
+    "lemmas": [
+      "what",
+      "chapter",
+      "be",
+      "there"
+    ],
+    "pos_tags": [
+      "DET",
+      "NOUN",
+      "AUX",
+      "ADV"
+    ],
+    "filtered_tokens": [
+      "what",
+      "chapter",
+      "be"
+    ],
+    "processed_text": "what chapter be",
+    "removed_stopwords": [
+      "there"
+    ],
+    "id": "q002",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show me all the chapters",
+    "normalized_text": "show me all the chapters",
+    "tokens": [
+      "show",
+      "me",
+      "all",
+      "the",
+      "chapters"
+    ],
+    "lemmas": [
+      "show",
+      "i",
+      "all",
+      "the",
+      "chapter"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "show",
+      "i",
+      "chapter"
+    ],
+    "processed_text": "show i chapter",
+    "removed_stopwords": [
+      "all",
+      "the"
+    ],
+    "id": "q003",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What subjects can I study?",
+    "normalized_text": "what subjects can i study",
+    "tokens": [
+      "what",
+      "subjects",
+      "can",
+      "i",
+      "study"
+    ],
+    "lemmas": [
+      "what",
+      "subject",
+      "can",
+      "i",
+      "study"
+    ],
+    "pos_tags": [
+      "DET",
+      "NOUN",
+      "AUX",
+      "PRON",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "what",
+      "subject",
+      "can",
+      "study"
+    ],
+    "processed_text": "what subject can study",
+    "removed_stopwords": [
+      "i"
+    ],
+    "id": "q004",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Which chapters are in Science?",
+    "normalized_text": "which chapters are in science",
+    "tokens": [
+      "which",
+      "chapters",
+      "are",
+      "in",
+      "science"
+    ],
+    "lemmas": [
+      "which",
+      "chapter",
+      "be",
+      "in",
+      "science"
+    ],
+    "pos_tags": [
+      "DET",
+      "NOUN",
+      "AUX",
+      "ADP",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "which",
+      "chapter",
+      "be",
+      "science"
+    ],
+    "processed_text": "which chapter be science",
+    "removed_stopwords": [
+      "in"
+    ],
+    "id": "q005",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What topics are covered?",
+    "normalized_text": "what topics are covered",
+    "tokens": [
+      "what",
+      "topics",
+      "are",
+      "covered"
+    ],
+    "lemmas": [
+      "what",
+      "topic",
+      "be",
+      "cover"
+    ],
+    "pos_tags": [
+      "DET",
+      "NOUN",
+      "AUX",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "what",
+      "topic",
+      "be",
+      "cover"
+    ],
+    "processed_text": "what topic be cover",
+    "removed_stopwords": [],
+    "id": "q006",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show me the Mathematics chapters",
+    "normalized_text": "show me the mathematics chapters",
+    "tokens": [
+      "show",
+      "me",
+      "the",
+      "mathematics",
+      "chapters"
+    ],
+    "lemmas": [
+      "show",
+      "i",
+      "the",
+      "mathematics",
+      "chapter"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "show",
+      "i",
+      "mathematics",
+      "chapter"
+    ],
+    "processed_text": "show i mathematics chapter",
+    "removed_stopwords": [
+      "the"
+    ],
+    "id": "q007",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Which topics does this app cover?",
+    "normalized_text": "which topics does this app cover",
+    "tokens": [
+      "which",
+      "topics",
+      "does",
+      "this",
+      "app",
+      "cover"
+    ],
+    "lemmas": [
+      "which",
+      "topic",
+      "do",
+      "this",
+      "app",
+      "cover"
+    ],
+    "pos_tags": [
+      "DET",
+      "NOUN",
+      "AUX",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "which",
+      "topic",
+      "do",
+      "app",
+      "cover"
+    ],
+    "processed_text": "which topic do app cover",
+    "removed_stopwords": [
+      "this"
+    ],
+    "id": "q008",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What can I learn here?",
+    "normalized_text": "what can i learn here",
+    "tokens": [
+      "what",
+      "can",
+      "i",
+      "learn",
+      "here"
+    ],
+    "lemmas": [
+      "what",
+      "can",
+      "i",
+      "learn",
+      "here"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "PRON",
+      "VERB",
+      "ADV"
+    ],
+    "filtered_tokens": [
+      "what",
+      "can",
+      "learn"
+    ],
+    "processed_text": "what can learn",
+    "removed_stopwords": [
+      "i",
+      "here"
+    ],
+    "id": "q009",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "List the available subjects",
+    "normalized_text": "list the available subjects",
+    "tokens": [
+      "list",
+      "the",
+      "available",
+      "subjects"
+    ],
+    "lemmas": [
+      "list",
+      "the",
+      "available",
+      "subject"
+    ],
+    "pos_tags": [
+      "VERB",
+      "DET",
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "list",
+      "available",
+      "subject"
+    ],
+    "processed_text": "list available subject",
+    "removed_stopwords": [
+      "the"
+    ],
+    "id": "q010",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What lessons are available?",
+    "normalized_text": "what lessons are available",
+    "tokens": [
+      "what",
+      "lessons",
+      "are",
+      "available"
+    ],
+    "lemmas": [
+      "what",
+      "lesson",
+      "be",
+      "available"
+    ],
+    "pos_tags": [
+      "DET",
+      "NOUN",
+      "AUX",
+      "ADJ"
+    ],
+    "filtered_tokens": [
+      "what",
+      "lesson",
+      "be",
+      "available"
+    ],
+    "processed_text": "what lesson be available",
+    "removed_stopwords": [],
+    "id": "q011",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Show me the English chapters",
+    "normalized_text": "show me the english chapters",
+    "tokens": [
+      "show",
+      "me",
+      "the",
+      "english",
+      "chapters"
+    ],
+    "lemmas": [
+      "show",
+      "i",
+      "the",
+      "english",
+      "chapter"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "show",
+      "i",
+      "english",
+      "chapter"
+    ],
+    "processed_text": "show i english chapter",
+    "removed_stopwords": [
+      "the"
+    ],
+    "id": "q012",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is in the syllabus?",
+    "normalized_text": "what is in the syllabus",
+    "tokens": [
+      "what",
+      "is",
+      "in",
+      "the",
+      "syllabus"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "in",
+      "the",
+      "syllabus"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "ADP",
+      "DET",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "syllabus"
+    ],
+    "processed_text": "what be syllabus",
+    "removed_stopwords": [
+      "in",
+      "the"
+    ],
+    "id": "q013",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Give me the chapter list",
+    "normalized_text": "give me the chapter list",
+    "tokens": [
+      "give",
+      "me",
+      "the",
+      "chapter",
+      "list"
+    ],
+    "lemmas": [
+      "give",
+      "i",
+      "the",
+      "chapter",
+      "list"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "give",
+      "i",
+      "chapter",
+      "list"
+    ],
+    "processed_text": "give i chapter list",
+    "removed_stopwords": [
+      "the"
+    ],
+    "id": "q014",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What lessons does this app have?",
+    "normalized_text": "what lessons does this app have",
+    "tokens": [
+      "what",
+      "lessons",
+      "does",
+      "this",
+      "app",
+      "have"
+    ],
+    "lemmas": [
+      "what",
+      "lesson",
+      "do",
+      "this",
+      "app",
+      "have"
+    ],
+    "pos_tags": [
+      "DET",
+      "NOUN",
+      "AUX",
+      "DET",
+      "NOUN",
+      "AUX"
+    ],
+    "filtered_tokens": [
+      "what",
+      "lesson",
+      "do",
+      "app"
+    ],
+    "processed_text": "what lesson do app",
+    "removed_stopwords": [
+      "this",
+      "have"
+    ],
+    "id": "q015",
+    "intent": "browse_content",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
     "raw_text": "I don't understand",
     "normalized_text": "i don't understand",
     "tokens": [
@@ -29,7 +596,7 @@
     "removed_stopwords": [
       "i"
     ],
-    "id": "q001",
+    "id": "q016",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -60,7 +627,7 @@
     "removed_stopwords": [
       "that"
     ],
-    "id": "q002",
+    "id": "q017",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -103,7 +670,7 @@
       "you",
       "it"
     ],
-    "id": "q003",
+    "id": "q018",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -146,7 +713,7 @@
       "about",
       "this"
     ],
-    "id": "q004",
+    "id": "q019",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -193,7 +760,7 @@
       "in",
       "an"
     ],
-    "id": "q005",
+    "id": "q020",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -228,7 +795,7 @@
     "removed_stopwords": [
       "that"
     ],
-    "id": "q006",
+    "id": "q021",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -271,7 +838,7 @@
       "be",
       "to"
     ],
-    "id": "q007",
+    "id": "q022",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -306,7 +873,7 @@
       "you",
       "that"
     ],
-    "id": "q008",
+    "id": "q023",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -349,7 +916,7 @@
       "i",
       "it"
     ],
-    "id": "q009",
+    "id": "q024",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -384,7 +951,7 @@
     "removed_stopwords": [
       "in"
     ],
-    "id": "q010",
+    "id": "q025",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -415,7 +982,7 @@
     "removed_stopwords": [
       "this"
     ],
-    "id": "q011",
+    "id": "q026",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -454,21 +1021,21 @@
       "you",
       "it"
     ],
-    "id": "q012",
+    "id": "q027",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "I did not understand your answer",
-    "normalized_text": "i did not understand your answer",
+    "raw_text": "I did not understand your explanation",
+    "normalized_text": "i did not understand your explanation",
     "tokens": [
       "i",
       "did",
       "not",
       "understand",
       "your",
-      "answer"
+      "explanation"
     ],
     "lemmas": [
       "i",
@@ -476,7 +1043,7 @@
       "not",
       "understand",
       "your",
-      "answer"
+      "explanation"
     ],
     "pos_tags": [
       "PRON",
@@ -490,14 +1057,14 @@
       "do",
       "not",
       "understand",
-      "answer"
+      "explanation"
     ],
-    "processed_text": "do not understand answer",
+    "processed_text": "do not understand explanation",
     "removed_stopwords": [
       "i",
       "your"
     ],
-    "id": "q013",
+    "id": "q028",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -536,7 +1103,7 @@
       "it",
       "to"
     ],
-    "id": "q014",
+    "id": "q029",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -571,7 +1138,7 @@
     "removed_stopwords": [
       "once"
     ],
-    "id": "q015",
+    "id": "q030",
     "intent": "clarification",
     "language": "en",
     "source": "student_queries.json"
@@ -618,7 +1185,7 @@
       "in",
       "the"
     ],
-    "id": "q016",
+    "id": "q031",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -661,7 +1228,7 @@
     "removed_stopwords": [
       "and"
     ],
-    "id": "q017",
+    "id": "q032",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -704,7 +1271,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q018",
+    "id": "q033",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -743,7 +1310,7 @@
       "the",
       "of"
     ],
-    "id": "q019",
+    "id": "q034",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -781,7 +1348,7 @@
     ],
     "processed_text": "how do number pattern work",
     "removed_stopwords": [],
-    "id": "q020",
+    "id": "q035",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -828,7 +1395,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q021",
+    "id": "q036",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -875,7 +1442,7 @@
       "to",
       "their"
     ],
-    "id": "q022",
+    "id": "q037",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -922,7 +1489,7 @@
     "removed_stopwords": [
       "you"
     ],
-    "id": "q023",
+    "id": "q038",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -969,7 +1536,7 @@
     "removed_stopwords": [
       "about"
     ],
-    "id": "q024",
+    "id": "q039",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -1020,7 +1587,7 @@
       "and",
       "the"
     ],
-    "id": "q025",
+    "id": "q040",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -1075,7 +1642,7 @@
       "as",
       "or"
     ],
-    "id": "q026",
+    "id": "q041",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -1122,7 +1689,7 @@
     "removed_stopwords": [
       "you"
     ],
-    "id": "q027",
+    "id": "q042",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -1173,7 +1740,7 @@
       "be",
       "to"
     ],
-    "id": "q028",
+    "id": "q043",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -1220,7 +1787,7 @@
       "in",
       "the"
     ],
-    "id": "q029",
+    "id": "q044",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -1267,7 +1834,7 @@
       "with",
       "a"
     ],
-    "id": "q030",
+    "id": "q045",
     "intent": "concept_explanation",
     "language": "en",
     "source": "student_queries.json"
@@ -1302,7 +1869,7 @@
     "removed_stopwords": [
       "an"
     ],
-    "id": "q031",
+    "id": "q046",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1333,7 +1900,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q032",
+    "id": "q047",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1367,7 +1934,7 @@
     ],
     "processed_text": "what do adaptation mean",
     "removed_stopwords": [],
-    "id": "q033",
+    "id": "q048",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1402,7 +1969,7 @@
     "removed_stopwords": [
       "an"
     ],
-    "id": "q034",
+    "id": "q049",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1437,7 +2004,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q035",
+    "id": "q050",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1472,7 +2039,7 @@
     "removed_stopwords": [
       "an"
     ],
-    "id": "q036",
+    "id": "q051",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1507,7 +2074,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q037",
+    "id": "q052",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1541,7 +2108,7 @@
     ],
     "processed_text": "what do neutral mean",
     "removed_stopwords": [],
-    "id": "q038",
+    "id": "q053",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1575,7 +2142,7 @@
     ],
     "processed_text": "what be place value",
     "removed_stopwords": [],
-    "id": "q039",
+    "id": "q054",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1610,7 +2177,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q040",
+    "id": "q055",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1645,7 +2212,7 @@
     "removed_stopwords": [
       "an"
     ],
-    "id": "q041",
+    "id": "q056",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1680,7 +2247,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q042",
+    "id": "q057",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1714,7 +2281,7 @@
     ],
     "processed_text": "what do habitat mean",
     "removed_stopwords": [],
-    "id": "q043",
+    "id": "q058",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1749,7 +2316,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q044",
+    "id": "q059",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1775,7 +2342,7 @@
     ],
     "processed_text": "define estimation",
     "removed_stopwords": [],
-    "id": "q045",
+    "id": "q060",
     "intent": "definition",
     "language": "en",
     "source": "student_queries.json"
@@ -1826,7 +2393,7 @@
       "of",
       "a"
     ],
-    "id": "q046",
+    "id": "q061",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -1881,7 +2448,7 @@
       "of",
       "an"
     ],
-    "id": "q047",
+    "id": "q062",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -1928,7 +2495,7 @@
       "an",
       "on"
     ],
-    "id": "q048",
+    "id": "q063",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -1975,7 +2542,7 @@
       "for",
       "this"
     ],
-    "id": "q049",
+    "id": "q064",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -2022,7 +2589,7 @@
       "you",
       "a"
     ],
-    "id": "q050",
+    "id": "q065",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -2061,7 +2628,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q051",
+    "id": "q066",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -2108,7 +2675,7 @@
       "of",
       "a"
     ],
-    "id": "q052",
+    "id": "q067",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -2151,7 +2718,7 @@
       "i",
       "a"
     ],
-    "id": "q053",
+    "id": "q068",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -2189,7 +2756,7 @@
     ],
     "processed_text": "show i one more example",
     "removed_stopwords": [],
-    "id": "q054",
+    "id": "q069",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -2236,7 +2803,7 @@
       "a",
       "of"
     ],
-    "id": "q055",
+    "id": "q070",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -2283,7 +2850,7 @@
       "an",
       "with"
     ],
-    "id": "q056",
+    "id": "q071",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -2326,7 +2893,7 @@
       "to",
       "an"
     ],
-    "id": "q057",
+    "id": "q072",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -2373,7 +2940,7 @@
       "of",
       "a"
     ],
-    "id": "q058",
+    "id": "q073",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -2412,7 +2979,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q059",
+    "id": "q074",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -2463,7 +3030,7 @@
       "with",
       "an"
     ],
-    "id": "q060",
+    "id": "q075",
     "intent": "example_request",
     "language": "en",
     "source": "student_queries.json"
@@ -2518,50 +3085,58 @@
       "the",
       "of"
     ],
-    "id": "q061",
+    "id": "q076",
     "intent": "formula_help",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "Which rule should I use here?",
-    "normalized_text": "which rule should i use here",
+    "raw_text": "Which rule applies to this kind of sum?",
+    "normalized_text": "which rule applies to this kind of sum",
     "tokens": [
       "which",
       "rule",
-      "should",
-      "i",
-      "use",
-      "here"
+      "applies",
+      "to",
+      "this",
+      "kind",
+      "of",
+      "sum"
     ],
     "lemmas": [
       "which",
       "rule",
-      "should",
-      "i",
-      "use",
-      "here"
+      "apply",
+      "to",
+      "this",
+      "kind",
+      "of",
+      "sum"
     ],
     "pos_tags": [
       "DET",
-      "NOUN",
-      "AUX",
-      "PRON",
       "VERB",
-      "ADV"
+      "VERB",
+      "ADP",
+      "DET",
+      "NOUN",
+      "ADP",
+      "NOUN"
     ],
     "filtered_tokens": [
       "which",
       "rule",
-      "should",
-      "use"
+      "apply",
+      "kind",
+      "sum"
     ],
-    "processed_text": "which rule should use",
+    "processed_text": "which rule apply kind sum",
     "removed_stopwords": [
-      "i",
-      "here"
+      "to",
+      "this",
+      "of"
     ],
-    "id": "q062",
+    "id": "q077",
     "intent": "formula_help",
     "language": "en",
     "source": "student_queries.json"
@@ -2604,93 +3179,105 @@
       "i",
       "this"
     ],
-    "id": "q063",
+    "id": "q078",
     "intent": "formula_help",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "Tell me the rule for this problem",
-    "normalized_text": "tell me the rule for this problem",
+    "raw_text": "What is the rule for simplifying expressions?",
+    "normalized_text": "what is the rule for simplifying expressions",
     "tokens": [
-      "tell",
-      "me",
+      "what",
+      "is",
       "the",
       "rule",
       "for",
-      "this",
-      "problem"
+      "simplifying",
+      "expressions"
     ],
     "lemmas": [
-      "tell",
-      "i",
+      "what",
+      "be",
       "the",
       "rule",
       "for",
-      "this",
-      "problem"
+      "simplify",
+      "expression"
     ],
     "pos_tags": [
-      "VERB",
       "PRON",
+      "AUX",
+      "DET",
+      "NOUN",
+      "ADP",
+      "VERB",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "rule",
+      "simplify",
+      "expression"
+    ],
+    "processed_text": "what be rule simplify expression",
+    "removed_stopwords": [
+      "the",
+      "for"
+    ],
+    "id": "q079",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What are the steps in the correct order?",
+    "normalized_text": "what are the steps in the correct order",
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "steps",
+      "in",
+      "the",
+      "correct",
+      "order"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "the",
+      "step",
+      "in",
+      "the",
+      "correct",
+      "order"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
       "DET",
       "NOUN",
       "ADP",
       "DET",
+      "ADJ",
       "NOUN"
     ],
     "filtered_tokens": [
-      "tell",
-      "i",
-      "rule",
-      "problem"
+      "what",
+      "be",
+      "step",
+      "correct",
+      "order"
     ],
-    "processed_text": "tell i rule problem",
+    "processed_text": "what be step correct order",
     "removed_stopwords": [
       "the",
-      "for",
-      "this"
-    ],
-    "id": "q064",
-    "intent": "formula_help",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Help me remember the steps",
-    "normalized_text": "help me remember the steps",
-    "tokens": [
-      "help",
-      "me",
-      "remember",
-      "the",
-      "steps"
-    ],
-    "lemmas": [
-      "help",
-      "i",
-      "remember",
-      "the",
-      "step"
-    ],
-    "pos_tags": [
-      "VERB",
-      "PRON",
-      "VERB",
-      "DET",
-      "NOUN"
-    ],
-    "filtered_tokens": [
-      "help",
-      "i",
-      "remember",
-      "step"
-    ],
-    "processed_text": "help i remember step",
-    "removed_stopwords": [
+      "in",
       "the"
     ],
-    "id": "q065",
+    "id": "q080",
     "intent": "formula_help",
     "language": "en",
     "source": "student_queries.json"
@@ -2737,7 +3324,7 @@
       "the",
       "for"
     ],
-    "id": "q066",
+    "id": "q081",
     "intent": "formula_help",
     "language": "en",
     "source": "student_queries.json"
@@ -2784,7 +3371,7 @@
       "i",
       "a"
     ],
-    "id": "q067",
+    "id": "q082",
     "intent": "formula_help",
     "language": "en",
     "source": "student_queries.json"
@@ -2827,7 +3414,7 @@
       "to",
       "this"
     ],
-    "id": "q068",
+    "id": "q083",
     "intent": "formula_help",
     "language": "en",
     "source": "student_queries.json"
@@ -2874,7 +3461,7 @@
       "i",
       "for"
     ],
-    "id": "q069",
+    "id": "q084",
     "intent": "formula_help",
     "language": "en",
     "source": "student_queries.json"
@@ -2929,7 +3516,7 @@
       "of",
       "an"
     ],
-    "id": "q070",
+    "id": "q085",
     "intent": "formula_help",
     "language": "en",
     "source": "student_queries.json"
@@ -2976,7 +3563,7 @@
       "the",
       "for"
     ],
-    "id": "q071",
+    "id": "q086",
     "intent": "formula_help",
     "language": "en",
     "source": "student_queries.json"
@@ -3023,93 +3610,105 @@
       "the",
       "to"
     ],
-    "id": "q072",
+    "id": "q087",
     "intent": "formula_help",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "How is an angle measured?",
-    "normalized_text": "how is an angle measured",
+    "raw_text": "Which method is used to measure an angle?",
+    "normalized_text": "which method is used to measure an angle",
     "tokens": [
-      "how",
+      "which",
+      "method",
       "is",
+      "used",
+      "to",
+      "measure",
       "an",
-      "angle",
-      "measured"
+      "angle"
     ],
     "lemmas": [
-      "how",
+      "which",
+      "method",
       "be",
+      "use",
+      "to",
+      "measure",
       "an",
-      "angle",
-      "measure"
+      "angle"
     ],
     "pos_tags": [
-      "SCONJ",
+      "DET",
+      "NOUN",
       "AUX",
-      "DET",
-      "NOUN",
-      "VERB"
-    ],
-    "filtered_tokens": [
-      "how",
-      "be",
-      "angle",
-      "measure"
-    ],
-    "processed_text": "how be angle measure",
-    "removed_stopwords": [
-      "an"
-    ],
-    "id": "q073",
-    "intent": "formula_help",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "Tell me the steps to solve this",
-    "normalized_text": "tell me the steps to solve this",
-    "tokens": [
-      "tell",
-      "me",
-      "the",
-      "steps",
-      "to",
-      "solve",
-      "this"
-    ],
-    "lemmas": [
-      "tell",
-      "i",
-      "the",
-      "step",
-      "to",
-      "solve",
-      "this"
-    ],
-    "pos_tags": [
       "VERB",
-      "PRON",
-      "DET",
-      "NOUN",
       "PART",
       "VERB",
-      "DET"
+      "DET",
+      "NOUN"
     ],
     "filtered_tokens": [
-      "tell",
-      "i",
-      "step",
-      "solve"
+      "which",
+      "method",
+      "be",
+      "use",
+      "measure",
+      "angle"
     ],
-    "processed_text": "tell i step solve",
+    "processed_text": "which method be use measure angle",
+    "removed_stopwords": [
+      "to",
+      "an"
+    ],
+    "id": "q088",
+    "intent": "formula_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is the correct sequence of steps?",
+    "normalized_text": "what is the correct sequence of steps",
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "correct",
+      "sequence",
+      "of",
+      "steps"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "the",
+      "correct",
+      "sequence",
+      "of",
+      "step"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "DET",
+      "ADJ",
+      "NOUN",
+      "ADP",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "correct",
+      "sequence",
+      "step"
+    ],
+    "processed_text": "what be correct sequence step",
     "removed_stopwords": [
       "the",
-      "to",
-      "this"
+      "of"
     ],
-    "id": "q074",
+    "id": "q089",
     "intent": "formula_help",
     "language": "en",
     "source": "student_queries.json"
@@ -3156,7 +3755,7 @@
       "the",
       "here"
     ],
-    "id": "q075",
+    "id": "q090",
     "intent": "formula_help",
     "language": "en",
     "source": "student_queries.json"
@@ -3178,7 +3777,7 @@
     ],
     "processed_text": "hi",
     "removed_stopwords": [],
-    "id": "q076",
+    "id": "q091",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3200,7 +3799,7 @@
     ],
     "processed_text": "hello",
     "removed_stopwords": [],
-    "id": "q077",
+    "id": "q092",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3226,7 +3825,7 @@
     ],
     "processed_text": "good morning",
     "removed_stopwords": [],
-    "id": "q078",
+    "id": "q093",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3252,7 +3851,7 @@
     ],
     "processed_text": "good evening",
     "removed_stopwords": [],
-    "id": "q079",
+    "id": "q094",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3279,7 +3878,7 @@
     "removed_stopwords": [
       "there"
     ],
-    "id": "q080",
+    "id": "q095",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3301,7 +3900,7 @@
     ],
     "processed_text": "namaste",
     "removed_stopwords": [],
-    "id": "q081",
+    "id": "q096",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3327,7 +3926,7 @@
     ],
     "processed_text": "hello sir",
     "removed_stopwords": [],
-    "id": "q082",
+    "id": "q097",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3353,7 +3952,7 @@
     ],
     "processed_text": "hi teacher",
     "removed_stopwords": [],
-    "id": "q083",
+    "id": "q098",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3379,7 +3978,7 @@
     ],
     "processed_text": "good afternoon",
     "removed_stopwords": [],
-    "id": "q084",
+    "id": "q099",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3401,7 +4000,7 @@
     ],
     "processed_text": "hey",
     "removed_stopwords": [],
-    "id": "q085",
+    "id": "q100",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3428,7 +4027,7 @@
     "removed_stopwords": [
       "there"
     ],
-    "id": "q086",
+    "id": "q101",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3454,7 +4053,7 @@
     ],
     "processed_text": "hi again",
     "removed_stopwords": [],
-    "id": "q087",
+    "id": "q102",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3484,7 +4083,7 @@
     ],
     "processed_text": "good morning teacher",
     "removed_stopwords": [],
-    "id": "q088",
+    "id": "q103",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3510,7 +4109,7 @@
     ],
     "processed_text": "hello friend",
     "removed_stopwords": [],
-    "id": "q089",
+    "id": "q104",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3545,7 +4144,7 @@
       "i",
       "be"
     ],
-    "id": "q090",
+    "id": "q105",
     "intent": "greeting",
     "language": "en",
     "source": "student_queries.json"
@@ -3583,7 +4182,7 @@
     ],
     "processed_text": "help i solve my homework",
     "removed_stopwords": [],
-    "id": "q091",
+    "id": "q106",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -3626,7 +4225,7 @@
       "i",
       "this"
     ],
-    "id": "q092",
+    "id": "q107",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -3673,7 +4272,7 @@
       "with",
       "this"
     ],
-    "id": "q093",
+    "id": "q108",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -3716,7 +4315,7 @@
       "be",
       "on"
     ],
-    "id": "q094",
+    "id": "q109",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -3759,7 +4358,7 @@
     "removed_stopwords": [
       "this"
     ],
-    "id": "q095",
+    "id": "q110",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -3794,7 +4393,7 @@
     "removed_stopwords": [
       "you"
     ],
-    "id": "q096",
+    "id": "q111",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -3837,7 +4436,7 @@
       "i",
       "with"
     ],
-    "id": "q097",
+    "id": "q112",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -3884,7 +4483,7 @@
       "i",
       "this"
     ],
-    "id": "q098",
+    "id": "q113",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -3923,7 +4522,7 @@
       "with",
       "this"
     ],
-    "id": "q099",
+    "id": "q114",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -3970,7 +4569,7 @@
       "out",
       "this"
     ],
-    "id": "q100",
+    "id": "q115",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -4013,7 +4612,7 @@
       "be",
       "on"
     ],
-    "id": "q101",
+    "id": "q116",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -4056,7 +4655,7 @@
       "you",
       "this"
     ],
-    "id": "q102",
+    "id": "q117",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -4095,7 +4694,7 @@
     "removed_stopwords": [
       "with"
     ],
-    "id": "q103",
+    "id": "q118",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -4150,7 +4749,7 @@
       "to",
       "this"
     ],
-    "id": "q104",
+    "id": "q119",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -4189,7 +4788,7 @@
     "removed_stopwords": [
       "this"
     ],
-    "id": "q105",
+    "id": "q120",
     "intent": "homework_help",
     "language": "en",
     "source": "student_queries.json"
@@ -4227,7 +4826,7 @@
     ],
     "processed_text": "what be today 's weather",
     "removed_stopwords": [],
-    "id": "q106",
+    "id": "q121",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4262,7 +4861,7 @@
     "removed_stopwords": [
       "for"
     ],
-    "id": "q107",
+    "id": "q122",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4301,7 +4900,7 @@
     "removed_stopwords": [
       "the"
     ],
-    "id": "q108",
+    "id": "q123",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4340,7 +4939,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q109",
+    "id": "q124",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4371,7 +4970,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q110",
+    "id": "q125",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4402,7 +5001,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q111",
+    "id": "q126",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4436,7 +5035,7 @@
     ],
     "processed_text": "show i funny video",
     "removed_stopwords": [],
-    "id": "q112",
+    "id": "q127",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4475,7 +5074,7 @@
     "removed_stopwords": [
       "the"
     ],
-    "id": "q113",
+    "id": "q128",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4514,7 +5113,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q114",
+    "id": "q129",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4553,7 +5152,7 @@
     "removed_stopwords": [
       "the"
     ],
-    "id": "q115",
+    "id": "q130",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4592,7 +5191,7 @@
     "removed_stopwords": [
       "the"
     ],
-    "id": "q116",
+    "id": "q131",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4635,7 +5234,7 @@
       "a",
       "to"
     ],
-    "id": "q117",
+    "id": "q132",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4669,7 +5268,7 @@
     ],
     "processed_text": "show i shopping offer",
     "removed_stopwords": [],
-    "id": "q118",
+    "id": "q133",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4700,7 +5299,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q119",
+    "id": "q134",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4735,7 +5334,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q120",
+    "id": "q135",
     "intent": "out_of_scope",
     "language": "en",
     "source": "student_queries.json"
@@ -4765,7 +5364,7 @@
     ],
     "processed_text": "show my progress",
     "removed_stopwords": [],
-    "id": "q121",
+    "id": "q136",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -4808,7 +5407,7 @@
       "have",
       "i"
     ],
-    "id": "q122",
+    "id": "q137",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -4842,7 +5441,7 @@
     ],
     "processed_text": "what be my score",
     "removed_stopwords": [],
-    "id": "q123",
+    "id": "q138",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -4885,7 +5484,7 @@
       "i",
       "have"
     ],
-    "id": "q124",
+    "id": "q139",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -4919,7 +5518,7 @@
     ],
     "processed_text": "show my learning progress",
     "removed_stopwords": [],
-    "id": "q125",
+    "id": "q140",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -4957,7 +5556,7 @@
     ],
     "processed_text": "what be my current level",
     "removed_stopwords": [],
-    "id": "q126",
+    "id": "q141",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5000,7 +5599,7 @@
       "have",
       "i"
     ],
-    "id": "q127",
+    "id": "q142",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5034,7 +5633,7 @@
     ],
     "processed_text": "what be my streak",
     "removed_stopwords": [],
-    "id": "q128",
+    "id": "q143",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5069,7 +5668,7 @@
       "be",
       "i"
     ],
-    "id": "q129",
+    "id": "q144",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5103,93 +5702,131 @@
     ],
     "processed_text": "show my quiz result",
     "removed_stopwords": [],
-    "id": "q130",
+    "id": "q145",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "How much XP do I have?",
-    "normalized_text": "how much xp do i have",
-    "tokens": [
-      "how",
-      "much",
-      "xp",
-      "do",
-      "i",
-      "have"
-    ],
-    "lemmas": [
-      "how",
-      "much",
-      "xp",
-      "do",
-      "i",
-      "have"
-    ],
-    "pos_tags": [
-      "SCONJ",
-      "ADJ",
-      "ADP",
-      "AUX",
-      "PRON",
-      "AUX"
-    ],
-    "filtered_tokens": [
-      "how",
-      "much",
-      "xp",
-      "do"
-    ],
-    "processed_text": "how much xp do",
-    "removed_stopwords": [
-      "i",
-      "have"
-    ],
-    "id": "q131",
-    "intent": "progress_help",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "What was my last quiz score?",
-    "normalized_text": "what was my last quiz score",
+    "raw_text": "What is my score in English?",
+    "normalized_text": "what is my score in english",
     "tokens": [
       "what",
-      "was",
+      "is",
       "my",
-      "last",
-      "quiz",
-      "score"
+      "score",
+      "in",
+      "english"
     ],
     "lemmas": [
       "what",
       "be",
       "my",
-      "last",
-      "quiz",
-      "score"
+      "score",
+      "in",
+      "english"
     ],
     "pos_tags": [
       "PRON",
       "AUX",
       "PRON",
-      "ADJ",
       "NOUN",
-      "VERB"
+      "ADP",
+      "PROPN"
     ],
     "filtered_tokens": [
       "what",
+      "be",
       "my",
-      "last",
-      "quiz",
-      "score"
+      "score",
+      "english"
     ],
-    "processed_text": "what my last quiz score",
+    "processed_text": "what be my score english",
     "removed_stopwords": [
-      "be"
+      "in"
     ],
-    "id": "q132",
+    "id": "q146",
+    "intent": "progress_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How am I doing in Mathematics?",
+    "normalized_text": "how am i doing in mathematics",
+    "tokens": [
+      "how",
+      "am",
+      "i",
+      "doing",
+      "in",
+      "mathematics"
+    ],
+    "lemmas": [
+      "how",
+      "be",
+      "i",
+      "do",
+      "in",
+      "mathematic"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "PRON",
+      "VERB",
+      "ADP",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "how",
+      "do",
+      "mathematic"
+    ],
+    "processed_text": "how do mathematic",
+    "removed_stopwords": [
+      "be",
+      "i",
+      "in"
+    ],
+    "id": "q147",
+    "intent": "progress_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is my Science average?",
+    "normalized_text": "what is my science average",
+    "tokens": [
+      "what",
+      "is",
+      "my",
+      "science",
+      "average"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "my",
+      "science",
+      "average"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "PRON",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "my",
+      "science",
+      "average"
+    ],
+    "processed_text": "what be my science average",
+    "removed_stopwords": [],
+    "id": "q148",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5219,50 +5856,7 @@
     ],
     "processed_text": "show my report",
     "removed_stopwords": [],
-    "id": "q133",
-    "intent": "progress_help",
-    "language": "en",
-    "source": "student_queries.json"
-  },
-  {
-    "raw_text": "How many lessons have I finished?",
-    "normalized_text": "how many lessons have i finished",
-    "tokens": [
-      "how",
-      "many",
-      "lessons",
-      "have",
-      "i",
-      "finished"
-    ],
-    "lemmas": [
-      "how",
-      "many",
-      "lesson",
-      "have",
-      "i",
-      "finish"
-    ],
-    "pos_tags": [
-      "SCONJ",
-      "ADJ",
-      "NOUN",
-      "AUX",
-      "PRON",
-      "VERB"
-    ],
-    "filtered_tokens": [
-      "how",
-      "many",
-      "lesson",
-      "finish"
-    ],
-    "processed_text": "how many lesson finish",
-    "removed_stopwords": [
-      "have",
-      "i"
-    ],
-    "id": "q134",
+    "id": "q149",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5293,7 +5887,7 @@
       "be",
       "i"
     ],
-    "id": "q135",
+    "id": "q150",
     "intent": "progress_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5328,7 +5922,7 @@
     "removed_stopwords": [
       "a"
     ],
-    "id": "q136",
+    "id": "q151",
     "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5367,7 +5961,7 @@
       "i",
       "to"
     ],
-    "id": "q137",
+    "id": "q152",
     "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5406,7 +6000,7 @@
       "a",
       "for"
     ],
-    "id": "q138",
+    "id": "q153",
     "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5441,7 +6035,7 @@
       "i",
       "myself"
     ],
-    "id": "q139",
+    "id": "q154",
     "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5475,7 +6069,7 @@
     ],
     "processed_text": "show i practice question",
     "removed_stopwords": [],
-    "id": "q140",
+    "id": "q155",
     "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5518,7 +6112,7 @@
       "to",
       "a"
     ],
-    "id": "q141",
+    "id": "q156",
     "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5557,7 +6151,7 @@
     "removed_stopwords": [
       "some"
     ],
-    "id": "q142",
+    "id": "q157",
     "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5600,37 +6194,46 @@
       "a",
       "now"
     ],
-    "id": "q143",
+    "id": "q158",
     "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
   },
   {
-    "raw_text": "Test my knowledge",
-    "normalized_text": "test my knowledge",
+    "raw_text": "Test me with some questions",
+    "normalized_text": "test me with some questions",
     "tokens": [
       "test",
-      "my",
-      "knowledge"
+      "me",
+      "with",
+      "some",
+      "questions"
     ],
     "lemmas": [
       "test",
-      "my",
-      "knowledge"
+      "i",
+      "with",
+      "some",
+      "question"
     ],
     "pos_tags": [
       "VERB",
       "PRON",
+      "ADP",
+      "DET",
       "NOUN"
     ],
     "filtered_tokens": [
       "test",
-      "my",
-      "knowledge"
+      "i",
+      "question"
     ],
-    "processed_text": "test my knowledge",
-    "removed_stopwords": [],
-    "id": "q144",
+    "processed_text": "test i question",
+    "removed_stopwords": [
+      "with",
+      "some"
+    ],
+    "id": "q159",
     "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5673,7 +6276,7 @@
       "to",
       "with"
     ],
-    "id": "q145",
+    "id": "q160",
     "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5708,7 +6311,7 @@
     "removed_stopwords": [
       "the"
     ],
-    "id": "q146",
+    "id": "q161",
     "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5751,7 +6354,7 @@
     "removed_stopwords": [
       "to"
     ],
-    "id": "q147",
+    "id": "q162",
     "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5790,7 +6393,7 @@
       "i",
       "a"
     ],
-    "id": "q148",
+    "id": "q163",
     "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5829,7 +6432,7 @@
       "on",
       "this"
     ],
-    "id": "q149",
+    "id": "q164",
     "intent": "quiz_help",
     "language": "en",
     "source": "student_queries.json"
@@ -5864,8 +6467,620 @@
     "removed_stopwords": [
       "i"
     ],
-    "id": "q150",
+    "id": "q165",
     "intent": "quiz_help",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What should I study next?",
+    "normalized_text": "what should i study next",
+    "tokens": [
+      "what",
+      "should",
+      "i",
+      "study",
+      "next"
+    ],
+    "lemmas": [
+      "what",
+      "should",
+      "i",
+      "study",
+      "next"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "PRON",
+      "VERB",
+      "ADV"
+    ],
+    "filtered_tokens": [
+      "what",
+      "should",
+      "study",
+      "next"
+    ],
+    "processed_text": "what should study next",
+    "removed_stopwords": [
+      "i"
+    ],
+    "id": "q166",
+    "intent": "study_advice",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "How can I improve?",
+    "normalized_text": "how can i improve",
+    "tokens": [
+      "how",
+      "can",
+      "i",
+      "improve"
+    ],
+    "lemmas": [
+      "how",
+      "can",
+      "i",
+      "improve"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "PRON",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "how",
+      "can",
+      "improve"
+    ],
+    "processed_text": "how can improve",
+    "removed_stopwords": [
+      "i"
+    ],
+    "id": "q167",
+    "intent": "study_advice",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Where am I weak?",
+    "normalized_text": "where am i weak",
+    "tokens": [
+      "where",
+      "am",
+      "i",
+      "weak"
+    ],
+    "lemmas": [
+      "where",
+      "be",
+      "i",
+      "weak"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "PRON",
+      "ADJ"
+    ],
+    "filtered_tokens": [
+      "where",
+      "weak"
+    ],
+    "processed_text": "where weak",
+    "removed_stopwords": [
+      "be",
+      "i"
+    ],
+    "id": "q168",
+    "intent": "study_advice",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What should I focus on?",
+    "normalized_text": "what should i focus on",
+    "tokens": [
+      "what",
+      "should",
+      "i",
+      "focus",
+      "on"
+    ],
+    "lemmas": [
+      "what",
+      "should",
+      "i",
+      "focus",
+      "on"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "PRON",
+      "VERB",
+      "ADP"
+    ],
+    "filtered_tokens": [
+      "what",
+      "should",
+      "focus"
+    ],
+    "processed_text": "what should focus",
+    "removed_stopwords": [
+      "i",
+      "on"
+    ],
+    "id": "q169",
+    "intent": "study_advice",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Which subject do I need to work on?",
+    "normalized_text": "which subject do i need to work on",
+    "tokens": [
+      "which",
+      "subject",
+      "do",
+      "i",
+      "need",
+      "to",
+      "work",
+      "on"
+    ],
+    "lemmas": [
+      "which",
+      "subject",
+      "do",
+      "i",
+      "need",
+      "to",
+      "work",
+      "on"
+    ],
+    "pos_tags": [
+      "DET",
+      "NOUN",
+      "AUX",
+      "PRON",
+      "VERB",
+      "PART",
+      "VERB",
+      "ADP"
+    ],
+    "filtered_tokens": [
+      "which",
+      "subject",
+      "do",
+      "need",
+      "work"
+    ],
+    "processed_text": "which subject do need work",
+    "removed_stopwords": [
+      "i",
+      "to",
+      "on"
+    ],
+    "id": "q170",
+    "intent": "study_advice",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Help me plan what to study",
+    "normalized_text": "help me plan what to study",
+    "tokens": [
+      "help",
+      "me",
+      "plan",
+      "what",
+      "to",
+      "study"
+    ],
+    "lemmas": [
+      "help",
+      "i",
+      "plan",
+      "what",
+      "to",
+      "study"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "VERB",
+      "PRON",
+      "PART",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "help",
+      "i",
+      "plan",
+      "what",
+      "study"
+    ],
+    "processed_text": "help i plan what study",
+    "removed_stopwords": [
+      "to"
+    ],
+    "id": "q171",
+    "intent": "study_advice",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What do you suggest I learn?",
+    "normalized_text": "what do you suggest i learn",
+    "tokens": [
+      "what",
+      "do",
+      "you",
+      "suggest",
+      "i",
+      "learn"
+    ],
+    "lemmas": [
+      "what",
+      "do",
+      "you",
+      "suggest",
+      "i",
+      "learn"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "PRON",
+      "VERB",
+      "PRON",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "what",
+      "do",
+      "suggest",
+      "learn"
+    ],
+    "processed_text": "what do suggest learn",
+    "removed_stopwords": [
+      "you",
+      "i"
+    ],
+    "id": "q172",
+    "intent": "study_advice",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Where should I start?",
+    "normalized_text": "where should i start",
+    "tokens": [
+      "where",
+      "should",
+      "i",
+      "start"
+    ],
+    "lemmas": [
+      "where",
+      "should",
+      "i",
+      "start"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "PRON",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "where",
+      "should",
+      "start"
+    ],
+    "processed_text": "where should start",
+    "removed_stopwords": [
+      "i"
+    ],
+    "id": "q173",
+    "intent": "study_advice",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Which chapter should I do next?",
+    "normalized_text": "which chapter should i do next",
+    "tokens": [
+      "which",
+      "chapter",
+      "should",
+      "i",
+      "do",
+      "next"
+    ],
+    "lemmas": [
+      "which",
+      "chapter",
+      "should",
+      "i",
+      "do",
+      "next"
+    ],
+    "pos_tags": [
+      "DET",
+      "NOUN",
+      "AUX",
+      "PRON",
+      "AUX",
+      "ADJ"
+    ],
+    "filtered_tokens": [
+      "which",
+      "chapter",
+      "should",
+      "do",
+      "next"
+    ],
+    "processed_text": "which chapter should do next",
+    "removed_stopwords": [
+      "i"
+    ],
+    "id": "q174",
+    "intent": "study_advice",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Tell me what to revise",
+    "normalized_text": "tell me what to revise",
+    "tokens": [
+      "tell",
+      "me",
+      "what",
+      "to",
+      "revise"
+    ],
+    "lemmas": [
+      "tell",
+      "i",
+      "what",
+      "to",
+      "revise"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "PRON",
+      "PART",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "tell",
+      "i",
+      "what",
+      "revise"
+    ],
+    "processed_text": "tell i what revise",
+    "removed_stopwords": [
+      "to"
+    ],
+    "id": "q175",
+    "intent": "study_advice",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What needs more practice?",
+    "normalized_text": "what needs more practice",
+    "tokens": [
+      "what",
+      "needs",
+      "more",
+      "practice"
+    ],
+    "lemmas": [
+      "what",
+      "need",
+      "more",
+      "practice"
+    ],
+    "pos_tags": [
+      "PRON",
+      "VERB",
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "what",
+      "need",
+      "more",
+      "practice"
+    ],
+    "processed_text": "what need more practice",
+    "removed_stopwords": [],
+    "id": "q176",
+    "intent": "study_advice",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Suggest something for me to study",
+    "normalized_text": "suggest something for me to study",
+    "tokens": [
+      "suggest",
+      "something",
+      "for",
+      "me",
+      "to",
+      "study"
+    ],
+    "lemmas": [
+      "suggest",
+      "something",
+      "for",
+      "i",
+      "to",
+      "study"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "ADP",
+      "PRON",
+      "PART",
+      "VERB"
+    ],
+    "filtered_tokens": [
+      "suggest",
+      "something",
+      "i",
+      "study"
+    ],
+    "processed_text": "suggest something i study",
+    "removed_stopwords": [
+      "for",
+      "to"
+    ],
+    "id": "q177",
+    "intent": "study_advice",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Where do I need more work?",
+    "normalized_text": "where do i need more work",
+    "tokens": [
+      "where",
+      "do",
+      "i",
+      "need",
+      "more",
+      "work"
+    ],
+    "lemmas": [
+      "where",
+      "do",
+      "i",
+      "need",
+      "more",
+      "work"
+    ],
+    "pos_tags": [
+      "SCONJ",
+      "AUX",
+      "PRON",
+      "VERB",
+      "ADJ",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "where",
+      "do",
+      "need",
+      "more",
+      "work"
+    ],
+    "processed_text": "where do need more work",
+    "removed_stopwords": [
+      "i"
+    ],
+    "id": "q178",
+    "intent": "study_advice",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "What is the best thing to learn now?",
+    "normalized_text": "what is the best thing to learn now",
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "best",
+      "thing",
+      "to",
+      "learn",
+      "now"
+    ],
+    "lemmas": [
+      "what",
+      "be",
+      "the",
+      "good",
+      "thing",
+      "to",
+      "learn",
+      "now"
+    ],
+    "pos_tags": [
+      "PRON",
+      "AUX",
+      "DET",
+      "ADJ",
+      "NOUN",
+      "PART",
+      "VERB",
+      "ADV"
+    ],
+    "filtered_tokens": [
+      "what",
+      "be",
+      "good",
+      "thing",
+      "learn"
+    ],
+    "processed_text": "what be good thing learn",
+    "removed_stopwords": [
+      "the",
+      "to",
+      "now"
+    ],
+    "id": "q179",
+    "intent": "study_advice",
+    "language": "en",
+    "source": "student_queries.json"
+  },
+  {
+    "raw_text": "Give me a study plan",
+    "normalized_text": "give me a study plan",
+    "tokens": [
+      "give",
+      "me",
+      "a",
+      "study",
+      "plan"
+    ],
+    "lemmas": [
+      "give",
+      "i",
+      "a",
+      "study",
+      "plan"
+    ],
+    "pos_tags": [
+      "VERB",
+      "PRON",
+      "DET",
+      "NOUN",
+      "NOUN"
+    ],
+    "filtered_tokens": [
+      "give",
+      "i",
+      "study",
+      "plan"
+    ],
+    "processed_text": "give i study plan",
+    "removed_stopwords": [
+      "a"
+    ],
+    "id": "q180",
+    "intent": "study_advice",
     "language": "en",
     "source": "student_queries.json"
   }

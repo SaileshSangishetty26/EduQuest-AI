@@ -59,7 +59,7 @@ def stratified_split(
     """
     Split indices so every intent keeps the same proportion in train and test.
 
-    A plain random split on 150 samples can easily leave an intent with zero
+    A plain random split on a small set can easily leave an intent with zero
     test examples, which makes the per-class metrics meaningless.
     """
     rng = np.random.default_rng(seed)
@@ -146,6 +146,21 @@ def main() -> None:
     parser.add_argument("--epochs", type=int, default=400)
     parser.add_argument("--folds", type=int, default=5)
     parser.add_argument("--test-fraction", type=float, default=0.2)
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=RANDOM_SEED,
+        help="split seed. Change it to see how much the score depends on which "
+             "examples happen to land in the test set.",
+    )
+    parser.add_argument(
+        "--repeat",
+        type=int,
+        default=1,
+        help="run cross-validation with this many different seeds and report "
+             "the spread. With 15 examples per intent a single run is noisy; "
+             "3-5 repeats give a far more honest number.",
+    )
     args = parser.parse_args()
 
     vectors, labels, records = load_data()
@@ -165,28 +180,46 @@ def main() -> None:
     print(f"\n{'-' * 68}")
     print(f"CROSS-VALIDATION ({args.folds} folds)")
     print("-" * 68)
-    print("  Each fold trains on the rest and tests on itself. With 150 samples")
+    print(f"  Each fold trains on the rest and tests on itself. With {len(labels)} samples")
     print("  a single split is noisy, so the average across folds is the number")
     print("  to trust.\n")
 
-    folds = stratified_folds(labels, args.folds)
-    fold_scores: list[float] = []
+    all_scores: list[float] = []
+    run_means: list[float] = []
 
-    for fold_number, test_idx in enumerate(folds, start=1):
-        train_idx = np.array([i for i in range(len(labels)) if i not in set(test_idx.tolist())])
+    for repeat in range(args.repeat):
+        seed = args.seed + repeat
+        folds = stratified_folds(labels, args.folds, seed=seed)
+        fold_scores: list[float] = []
 
-        classifier = IntentClassifier(classes)
-        classifier.fit(vectors[train_idx], y[train_idx], epochs=args.epochs, verbose=False)
+        for fold_number, test_idx in enumerate(folds, start=1):
+            train_idx = np.array(
+                [i for i in range(len(labels)) if i not in set(test_idx.tolist())]
+            )
+            classifier = IntentClassifier(classes)
+            classifier.fit(
+                vectors[train_idx], y[train_idx], epochs=args.epochs, verbose=False
+            )
+            probs = classifier.predict_proba(vectors[test_idx])
+            predicted = probs.argmax(axis=1)
+            accuracy = float((predicted == y[test_idx]).mean())
+            fold_scores.append(accuracy)
 
-        probs = classifier.predict_proba(vectors[test_idx])
-        predicted = probs.argmax(axis=1)
-        accuracy = float((predicted == y[test_idx]).mean())
-        fold_scores.append(accuracy)
-        print(f"    fold {fold_number}  n={len(test_idx):>3}  accuracy {accuracy * 100:.1f}%")
+            if args.repeat == 1:
+                print(f"    fold {fold_number}  n={len(test_idx):>3}  "
+                      f"accuracy {accuracy * 100:.1f}%")
 
-    mean_cv = float(np.mean(fold_scores))
-    std_cv = float(np.std(fold_scores))
+        all_scores += fold_scores
+        run_means.append(float(np.mean(fold_scores)))
+        if args.repeat > 1:
+            print(f"    seed {seed}  mean {np.mean(fold_scores) * 100:.1f}%")
+
+    mean_cv = float(np.mean(all_scores))
+    std_cv = float(np.std(all_scores))
     print(f"\n    mean {mean_cv * 100:.1f}%   std {std_cv * 100:.1f}%")
+    if args.repeat > 1:
+        print(f"    across {args.repeat} seeds: "
+              f"{min(run_means) * 100:.1f}% to {max(run_means) * 100:.1f}%")
     print(f"    random baseline {100 / len(classes):.1f}%")
 
     # --- Held-out evaluation ------------------------------------------------
@@ -194,7 +227,7 @@ def main() -> None:
     print(f"HELD-OUT EVALUATION ({int(args.test_fraction * 100)}% test split)")
     print("-" * 68)
 
-    train_idx, test_idx = stratified_split(labels, args.test_fraction)
+    train_idx, test_idx = stratified_split(labels, args.test_fraction, seed=args.seed)
     print(f"\n  Train {len(train_idx)}   Test {len(test_idx)}\n")
 
     classifier = IntentClassifier(classes)
@@ -253,7 +286,7 @@ def main() -> None:
     print(f"\n{'-' * 68}")
     print("FINAL MODEL")
     print("-" * 68)
-    print("\n  Retraining on all 150 queries for deployment.")
+    print(f"\n  Retraining on all {len(labels)} queries for deployment.")
     print("  The scores above are the honest estimate of its performance;")
     print("  the shipped model simply gets to use every example.\n")
 

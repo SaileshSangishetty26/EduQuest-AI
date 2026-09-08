@@ -20,14 +20,27 @@ then decides what to do about it.
 from __future__ import annotations
 
 import random
+import re
 
 from ..nlp.classifier import CONFIDENCE_THRESHOLD
 
+# Used only when the query matches no content either. If a chapter matched,
+# the student gets that instead - see `respond`.
 FALLBACK_RESPONSES = [
-    "I am not sure I understood that. Could you ask it in a different way?",
-    "Sorry, I did not follow. Try rephrasing your question?",
-    "I did not quite get that. Can you say it another way?",
+    "I am not sure I understood that. I can explain a chapter, give you an "
+    "example, set you a quiz, list your chapters, or tell you how you are "
+    "doing. Which would help?",
+    "Sorry, I did not follow that one. Try naming the chapter or topic, or ask "
+    "me to list your chapters.",
+    "I did not quite get that. You could ask me to explain a topic, show an "
+    "example, start a quiz, or check your progress.",
 ]
+
+# When intent confidence is low but a chapter matched strongly, the reply leads
+# with the content and is honest that the question was not fully understood.
+UNSURE_BUT_RELEVANT = (
+    "I am not certain what you were asking, but this looks relevant:"
+)
 
 GREETINGS = [
     "Hello! I am your EduQuest study buddy. Ask me about any chapter, or say 'give me a quiz' to practise.",
@@ -52,6 +65,18 @@ def _lesson_link(lesson: dict | None) -> dict | None:
     }
 
 
+def _grade_note(lesson: dict) -> str:
+    """Say so when the answer comes from a different grade's chapter."""
+    if lesson.get("from_other_grade"):
+        return f" (from the Grade {lesson['grade']} chapter)"
+    return ""
+
+
+def _passage(lesson: dict) -> str:
+    """The matched section text, falling back to the chapter summary."""
+    return (lesson.get("text") or lesson.get("summary") or "").strip()
+
+
 def _no_lesson_found(topic_word: str = "that topic") -> str:
     return (
         f"I could not find a chapter about {topic_word} for your grade. "
@@ -73,6 +98,38 @@ class ChatResponder:
         return self._retriever.best_match(
             query_vector, grade=grade, query_text=query_text
         )
+
+    # Things students reasonably ask about that this system does not record.
+    # Saying "I do not track that" is more useful than "I did not understand" -
+    # one tells them to rephrase, the other tells them to stop trying.
+    UNTRACKED_PATTERNS = (
+        "how much time", "how long", "time spent", "time did i", "hours",
+        "minutes", "time in each", "time i spent", "duration",
+    )
+
+    def _progress_by_subject(self, user_id: str, subject: str) -> dict | None:
+        """Average and best score for one subject."""
+        if self._db is None:
+            return None
+
+        quizzes = {
+            q["id"]: q
+            for q in self._db["quizzes"].find({}, {"_id": 0, "id": 1, "subject": 1})
+        }
+        scores = [
+            a["score"]
+            for a in self._db["quiz_attempts"].find(
+                {"user_id": user_id}, {"_id": 0, "quiz_id": 1, "score": 1}
+            )
+            if quizzes.get(a["quiz_id"], {}).get("subject") == subject
+        ]
+        if not scores:
+            return None
+        return {
+            "attempts": len(scores),
+            "average": round(sum(scores) / len(scores)),
+            "best": max(scores),
+        }
 
     def _progress_for(self, user_id: str | None) -> dict | None:
         """Read the student's quiz history straight from MongoDB."""
@@ -99,6 +156,20 @@ class ChatResponder:
             "points": points,
         }
 
+    def _lessons_for(self, grade: int | None, subject: str | None = None) -> list[dict]:
+        if self._db is None:
+            return []
+        query: dict = {}
+        if grade is not None:
+            query["grade"] = grade
+        if subject:
+            query["subject"] = subject
+        return list(
+            self._db["lessons"].find(
+                query, {"_id": 0, "id": 1, "title": 1, "subject": 1, "grade": 1}
+            )
+        )
+
     def _quizzes_for(self, grade: int | None) -> list[dict]:
         if self._db is None:
             return []
@@ -107,23 +178,56 @@ class ChatResponder:
             self._db["quizzes"].find(query, {"_id": 0, "id": 1, "title": 1, "subject": 1}).limit(5)
         )
 
+    @staticmethod
+    def _grade_in(text: str | None) -> int | None:
+        """
+        Pick out a grade if the student named one.
+
+        "list chapters of grade 6" must list Grade 6 even when the student's
+        own account is Grade 7. An explicit request beats the profile default.
+        """
+        if not text:
+            return None
+        match = re.search(r"\b(?:grade|class|std)\s*(\d{1,2})\b", text.lower())
+        if match:
+            grade = int(match.group(1))
+            if 1 <= grade <= 12:
+                return grade
+        return None
+
+    @staticmethod
+    def _subject_in(text: str | None) -> str | None:
+        """Pick out a subject name if the student mentioned one."""
+        if not text:
+            return None
+        lowered = text.lower()
+        for subject, aliases in {
+            "Mathematics": ("math", "maths", "mathematics"),
+            "Science": ("science",),
+            "English": ("english",),
+            "Telugu": ("telugu",),
+        }.items():
+            if any(alias in lowered for alias in aliases):
+                return subject
+        return None
+
     # -- intent handlers ----------------------------------------------------
     def _definition(self, lesson):
         if not lesson:
             return _no_lesson_found("that term"), None
         return (
-            f"That comes up in \"{lesson['title']}\" ({lesson['subject']}). "
-            f"{lesson.get('summary', '')} "
-            "Open the chapter for the full explanation."
+            f"{_passage(lesson)}\n\n"
+            f"That is from \"{lesson['title']}\" in {lesson['subject']}"
+            f"{_grade_note(lesson)}."
         ), lesson
 
     def _concept_explanation(self, lesson):
         if not lesson:
             return _no_lesson_found(), None
         return (
-            f"Have a look at \"{lesson['title']}\" in {lesson['subject']}. "
-            f"{lesson.get('summary', '')} "
-            "The chapter walks through it step by step."
+            f"{_passage(lesson)}\n\n"
+            f"Read the rest in \"{lesson['title']}\" ({lesson['subject']}"
+            f"{_grade_note(lesson)}) for the full walkthrough."
         ), lesson
 
     def _example_request(self, lesson):
@@ -133,8 +237,9 @@ class ChatResponder:
                 "to the right chapter."
             ), None
         return (
-            f"\"{lesson['title']}\" has worked examples inside the chapter. "
-            "You can also try its quiz to practise on real questions."
+            f"{_passage(lesson)}\n\n"
+            f"There are more examples in \"{lesson['title']}\""
+            f"{_grade_note(lesson)}, and its quiz gives you real questions to try."
         ), lesson
 
     def _formula_help(self, lesson):
@@ -144,9 +249,10 @@ class ChatResponder:
                 "and I will find it."
             ), None
         return (
-            f"The formula you need is explained in \"{lesson['title']}\". "
-            "Open the chapter and look for the worked example - it shows each "
-            "step with the numbers filled in."
+            f"{_passage(lesson)}\n\n"
+            f"That is covered in \"{lesson['title']}\"{_grade_note(lesson)}. "
+            "Look for the worked example - it shows each step with the numbers "
+            "filled in."
         ), lesson
 
     def _homework_help(self, lesson):
@@ -158,8 +264,10 @@ class ChatResponder:
             return base + "Tell me which chapter it is from and I will point you to the right notes.", None
         return (
             base
-            + f"This looks like it is from \"{lesson['title']}\". Re-read that "
-            "chapter's example, then try your problem the same way."
+            + f"This looks like it is from \"{lesson['title']}\""
+            f"{_grade_note(lesson)}. Here is the part that should help:\n\n"
+            f"{_passage(lesson)}\n\n"
+            "Try your problem the same way."
         ), lesson
 
     def _clarification(self, lesson):
@@ -169,11 +277,89 @@ class ChatResponder:
                 "the idea itself, or how to use it in a question?"
             ), None
         return (
-            f"Let me point you back to \"{lesson['title']}\". "
-            f"{lesson.get('summary', '')} "
-            "Try reading just the first section again, then ask me about the "
-            "specific bit that is unclear."
+            "Let me put it another way.\n\n"
+            f"{_passage(lesson)}\n\n"
+            f"That is from \"{lesson['title']}\"{_grade_note(lesson)}. Ask me "
+            "about the specific part that is still unclear."
         ), lesson
+
+    def _browse_content(self, grade, query_text):
+        """
+        List what is available, rather than searching it.
+
+        Catalogue questions are answered from the content bank directly. There
+        is nothing to retrieve semantically - the student is asking what exists,
+        not about a topic.
+        """
+        subject = self._subject_in(query_text)
+        asked_grade = self._grade_in(query_text)
+        target_grade = asked_grade if asked_grade is not None else grade
+
+        lessons = self._lessons_for(target_grade, subject)
+
+        if not lessons:
+            where = (
+                f"Grade {target_grade}" if target_grade is not None else "your grade"
+            )
+            if subject:
+                return f"I could not find any {subject} chapters for {where}.", None
+            return f"I could not find any chapters for {where} yet.", None
+
+        by_subject: dict[str, list[str]] = {}
+        for lesson in lessons:
+            by_subject.setdefault(lesson["subject"], []).append(lesson["title"])
+
+        grade_label = (
+            f"Grade {target_grade}" if target_grade is not None else "your grade"
+        )
+        lines = [f"Here is what you can study in {grade_label}:"]
+        for subject_name in sorted(by_subject):
+            titles = ", ".join(by_subject[subject_name])
+            lines.append(f"\n{subject_name}: {titles}")
+
+        lines.append(
+            "\nAsk me about any of these, or say 'give me a quiz' to practise."
+        )
+        return "".join(lines), None
+
+    def _study_advice(self, user_id, grade):
+        """
+        Answer "what should I study" with the Week 8 recommendation engine.
+
+        There is no chapter to retrieve for this question - the answer depends
+        on the student's own history, not on the content of any one chapter.
+        Reusing the recommender means the chatbot and the dashboard give the
+        same advice for the same reasons, rather than two systems disagreeing.
+        """
+        if not user_id or self._db is None:
+            return "Log in and I can suggest what to study next.", None
+
+        from ..recommender.engine import RecommendationEngine
+
+        result = RecommendationEngine(self._db).recommend(user_id, grade=grade, limit=3)
+        picks = result["recommendations"]
+        basis = result["based_on"]
+
+        if not picks:
+            return (
+                "I do not have enough to go on yet. Finish a chapter and try "
+                "its quiz, then ask me again."
+            ), None
+
+        if basis["quiz_attempts"] == 0:
+            opening = "You have not taken a quiz yet, so here is a good place to start:"
+        else:
+            opening = (
+                f"Based on your {basis['quiz_attempts']} "
+                f"{'quiz' if basis['quiz_attempts'] == 1 else 'quizzes'} "
+                f"(average {basis['average_score']}%), here is what I suggest:"
+            )
+
+        lines = [opening]
+        for i, pick in enumerate(picks, start=1):
+            lines.append(f"\n{i}. {pick['title']} ({pick['subject']}) - {pick['reason']}")
+
+        return "".join(lines), None
 
     def _quiz_help(self, grade):
         available = self._quizzes_for(grade)
@@ -185,7 +371,29 @@ class ChatResponder:
             "Open the Lessons page and pick one to start."
         ), None
 
-    def _progress_help(self, user_id):
+    def _progress_help(self, user_id, query_text=None):
+        lowered = (query_text or "").lower()
+        if any(pattern in lowered for pattern in self.UNTRACKED_PATTERNS):
+            return (
+                "I do not track how long you spend studying - the app only "
+                "records quiz attempts and scores. I can tell you your scores, "
+                "your XP, or how many quizzes you have completed."
+            ), None
+
+        subject = self._subject_in(query_text)
+        if subject and user_id:
+            stats = self._progress_by_subject(user_id, subject)
+            if stats is None:
+                return (
+                    f"You have not attempted any {subject} quizzes yet. "
+                    f"Try one and I can track how you are doing."
+                ), None
+            return (
+                f"In {subject} you have completed {stats['attempts']} "
+                f"{'quiz' if stats['attempts'] == 1 else 'quizzes'}, "
+                f"averaging {stats['average']}%, with a best of {stats['best']}%."
+            ), None
+
         stats = self._progress_for(user_id)
         if stats is None:
             return "Log in and I can show you your progress.", None
@@ -211,8 +419,38 @@ class ChatResponder:
         user_id: str | None = None,
         query_text: str | None = None,
     ) -> dict:
-        """Build the reply. Returns reply text, the matched lesson, and flags."""
+        """
+        Build the reply.
+
+        Intent confidence and content relevance are treated as two independent
+        signals. Intent decides *how* to answer; retrieval decides *whether
+        there is anything to answer with*.
+
+        A fixed set of intents can never cover everything a student might type.
+        When the classifier is unsure, the question is not necessarily
+        off-topic - it may just be phrased in a way the training data did not
+        cover. So before giving up, we check whether the query matches a
+        chapter anyway. If it does, showing that content is far more useful
+        than refusing.
+        """
         if confidence < CONFIDENCE_THRESHOLD:
+            lesson = (
+                self._find_lesson(query_vector, grade, query_text)
+                if query_vector is not None
+                else None
+            )
+            if lesson:
+                return {
+                    "reply": (
+                        f"{UNSURE_BUT_RELEVANT}\n\n"
+                        f"{_passage(lesson)}\n\n"
+                        f"That is from \"{lesson['title']}\" "
+                        f"({lesson['subject']}{_grade_note(lesson)}). "
+                        "If that is not what you meant, try rephrasing."
+                    ),
+                    "understood": False,
+                    "lesson": _lesson_link(lesson),
+                }
             return {
                 "reply": random.choice(FALLBACK_RESPONSES),
                 "understood": False,
@@ -226,11 +464,19 @@ class ChatResponder:
             return {"reply": OUT_OF_SCOPE, "understood": True, "lesson": None}
 
         if intent == "progress_help":
-            reply, lesson = self._progress_help(user_id)
+            reply, lesson = self._progress_help(user_id, query_text)
             return {"reply": reply, "understood": True, "lesson": _lesson_link(lesson)}
 
         if intent == "quiz_help":
             reply, lesson = self._quiz_help(grade)
+            return {"reply": reply, "understood": True, "lesson": _lesson_link(lesson)}
+
+        if intent == "study_advice":
+            reply, lesson = self._study_advice(user_id, grade)
+            return {"reply": reply, "understood": True, "lesson": _lesson_link(lesson)}
+
+        if intent == "browse_content":
+            reply, lesson = self._browse_content(grade, query_text)
             return {"reply": reply, "understood": True, "lesson": _lesson_link(lesson)}
 
         # The remaining intents all benefit from finding a relevant chapter.

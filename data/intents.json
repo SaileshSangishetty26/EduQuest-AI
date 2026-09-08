@@ -1,5 +1,10 @@
 [
   {
+    "intent": "browse_content",
+    "description": "Student asks what chapters or subjects exist. Answered from the content bank, not by search.",
+    "training_examples": 15
+  },
+  {
     "intent": "clarification",
     "description": "Student did not understand and wants it restated.",
     "training_examples": 15
@@ -47,6 +52,11 @@
   {
     "intent": "quiz_help",
     "description": "Student wants to practise or take a quiz.",
+    "training_examples": 15
+  },
+  {
+    "intent": "study_advice",
+    "description": "Student asks what to study or where they are weak. Answered by the Week 8 recommendation engine.",
     "training_examples": 15
   }
 ]

@@ -1,5 +1,6 @@
 {
   "labels": [
+    "browse_content",
     "clarification",
     "concept_explanation",
     "definition",
@@ -9,7 +10,8 @@
     "homework_help",
     "out_of_scope",
     "progress_help",
-    "quiz_help"
+    "quiz_help",
+    "study_advice"
   ],
   "input_dim": 768
 }

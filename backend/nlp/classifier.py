@@ -38,11 +38,16 @@ from .config import EMBEDDING_DIM, PROCESSED_DIR
 MODEL_FILE = PROCESSED_DIR / "intent_classifier.pt"
 LABELS_FILE = PROCESSED_DIR / "intent_labels.json"
 
-# Raised from 0.45 to 0.65 after the first training run. The only held-out
-# error ("Show me funny videos" -> progress_help) sat at 0.63 confidence, and
-# every prediction above 0.70 was correct. Answering "I did not understand" to
-# a handful of borderline queries is cheaper than answering them wrongly.
-CONFIDENCE_THRESHOLD = 0.65
+# Chosen from the threshold table printed by train_intent.
+#
+# At 0.60 the classifier answers 29 of 33 held-out queries at 96.6% accuracy;
+# at 0.65 it answers only 27 at 96.3%. The higher bar refuses two extra
+# questions and buys nothing.
+#
+# This matters less than it used to. A low-confidence query no longer means an
+# outright refusal - the responder still runs lesson retrieval and answers from
+# content if anything matches. See backend/chatbot/responder.py.
+CONFIDENCE_THRESHOLD = 0.60
 RANDOM_SEED = 42
 
 

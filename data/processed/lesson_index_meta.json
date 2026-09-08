@@ -1,7 +1,8 @@
 {
   "model": "sentence-transformers/multi-qa-distilbert-cos-v1",
   "num_lessons": 16,
-  "generated_at": "2026-08-31T11:29:33.459970+00:00",
+  "num_sections": 95,
+  "generated_at": "2026-09-07T10:27:04.669125+00:00",
   "lessons": [
     {
       "id": "g6-eng-1",
@@ -10,7 +11,64 @@
       "grade": 6,
       "language": "en",
       "summary": "🪙 What if a few drops of dew could make you rich? Rama Natha is determined to find a magical shortcut—but his search leads to a surprising discovery about where real wealth comes from.",
-      "indexed_text": "English. A Bottle of Dew. 🪙 What if a few drops of dew could make you rich? Rama Natha is determined to find a magical shortcut—but his search leads to a surprising discovery about where real wealth comes from."
+      "heading": "Overview",
+      "text": "🪙 What if a few drops of dew could make you rich? Rama Natha is determined to find a magical shortcut—but his search leads to a surprising discovery about where real wealth comes from.",
+      "indexed_text": "English. A Bottle of Dew. Overview. 🪙 What if a few drops of dew could make you rich? Rama Natha is determined to find a magical shortcut—but his search leads to a surprising discovery about where real wealth comes from."
+    },
+    {
+      "id": "g6-eng-1",
+      "title": "A Bottle of Dew",
+      "subject": "English",
+      "grade": 6,
+      "language": "en",
+      "summary": "🪙 What if a few drops of dew could make you rich? Rama Natha is determined to find a magical shortcut—but his search leads to a surprising discovery about where real wealth comes from.",
+      "heading": "🌟 CHAPTER ADVENTURE",
+      "text": "Imagine being told that a magical potion can turn things into gold. Would you chase the secret? Rama Natha does exactly that. He becomes so fascinated by the idea of becoming rich that he spends his time searching for the magic potion instead of making good use of his land.",
+      "indexed_text": "English. A Bottle of Dew. 🌟 CHAPTER ADVENTURE. Imagine being told that a magical potion can turn things into gold. Would you chase the secret? Rama Natha does exactly that. He becomes so fascinated by the idea of becoming rich that he spends his time searching for the magic potion instead of making good use of his land."
+    },
+    {
+      "id": "g6-eng-1",
+      "title": "A Bottle of Dew",
+      "subject": "English",
+      "grade": 6,
+      "language": "en",
+      "summary": "🪙 What if a few drops of dew could make you rich? Rama Natha is determined to find a magical shortcut—but his search leads to a surprising discovery about where real wealth comes from.",
+      "heading": "🔎 THE CLEVER PLAN",
+      "text": "Sage Mahipati gives Rama Natha a task involving banana plants and morning dew. It sounds like the first step toward magic, but it actually requires patience, regular work and determination.",
+      "indexed_text": "English. A Bottle of Dew. 🔎 THE CLEVER PLAN. Sage Mahipati gives Rama Natha a task involving banana plants and morning dew. It sounds like the first step toward magic, but it actually requires patience, regular work and determination."
+    },
+    {
+      "id": "g6-eng-1",
+      "title": "A Bottle of Dew",
+      "subject": "English",
+      "grade": 6,
+      "language": "en",
+      "summary": "🪙 What if a few drops of dew could make you rich? Rama Natha is determined to find a magical shortcut—but his search leads to a surprising discovery about where real wealth comes from.",
+      "heading": "🌱 THE BIG CHANGE",
+      "text": "Rama Natha works on the plantation and collects dew while Madhumati helps by selling the bananas. Slowly, their hard work creates real wealth.",
+      "indexed_text": "English. A Bottle of Dew. 🌱 THE BIG CHANGE. Rama Natha works on the plantation and collects dew while Madhumati helps by selling the bananas. Slowly, their hard work creates real wealth."
+    },
+    {
+      "id": "g6-eng-1",
+      "title": "A Bottle of Dew",
+      "subject": "English",
+      "grade": 6,
+      "language": "en",
+      "summary": "🪙 What if a few drops of dew could make you rich? Rama Natha is determined to find a magical shortcut—but his search leads to a surprising discovery about where real wealth comes from.",
+      "heading": "💡 THE TWIST",
+      "text": "When Rama Natha finally expects the magical result, he discovers the truth: the real 'magic' was the hard work that built the successful plantation.",
+      "indexed_text": "English. A Bottle of Dew. 💡 THE TWIST. When Rama Natha finally expects the magical result, he discovers the truth: the real 'magic' was the hard work that built the successful plantation."
+    },
+    {
+      "id": "g6-eng-1",
+      "title": "A Bottle of Dew",
+      "subject": "English",
+      "grade": 6,
+      "language": "en",
+      "summary": "🪙 What if a few drops of dew could make you rich? Rama Natha is determined to find a magical shortcut—but his search leads to a surprising discovery about where real wealth comes from.",
+      "heading": "🎯 TAKEAWAY",
+      "text": "Big results often grow from small efforts repeated patiently.",
+      "indexed_text": "English. A Bottle of Dew. 🎯 TAKEAWAY. Big results often grow from small efforts repeated patiently."
     },
     {
       "id": "g6-eng-2",
@@ -19,7 +77,53 @@
       "grade": 6,
       "language": "en",
       "summary": "🐘 Can a lonely elephant and a tiny dog really become best friends? Meet Gajaraj and discover how an unexpected friendship shows that kindness can cross every difference.",
-      "indexed_text": "English. The Unlikely Best Friends. 🐘 Can a lonely elephant and a tiny dog really become best friends? Meet Gajaraj and discover how an unexpected friendship shows that kindness can cross every difference."
+      "heading": "Overview",
+      "text": "🐘 Can a lonely elephant and a tiny dog really become best friends? Meet Gajaraj and discover how an unexpected friendship shows that kindness can cross every difference.",
+      "indexed_text": "English. The Unlikely Best Friends. Overview. 🐘 Can a lonely elephant and a tiny dog really become best friends? Meet Gajaraj and discover how an unexpected friendship shows that kindness can cross every difference."
+    },
+    {
+      "id": "g6-eng-2",
+      "title": "The Unlikely Best Friends",
+      "subject": "English",
+      "grade": 6,
+      "language": "en",
+      "summary": "🐘 Can a lonely elephant and a tiny dog really become best friends? Meet Gajaraj and discover how an unexpected friendship shows that kindness can cross every difference.",
+      "heading": "🌟 MEET GAJARAJ",
+      "text": "Gajaraj has something many people would think an elephant could never lack—comfort. He lives in the royal stables and is carefully looked after. Yet he feels lonely because he has no real friend to play with.",
+      "indexed_text": "English. The Unlikely Best Friends. 🌟 MEET GAJARAJ. Gajaraj has something many people would think an elephant could never lack—comfort. He lives in the royal stables and is carefully looked after. Yet he feels lonely because he has no real friend to play with."
+    },
+    {
+      "id": "g6-eng-2",
+      "title": "The Unlikely Best Friends",
+      "subject": "English",
+      "grade": 6,
+      "language": "en",
+      "summary": "🐘 Can a lonely elephant and a tiny dog really become best friends? Meet Gajaraj and discover how an unexpected friendship shows that kindness can cross every difference.",
+      "heading": "🐾 AN UNEXPECTED VISITOR",
+      "text": "One evening, a stray dog wanders into the stable. Gajaraj notices that the little visitor is tired and hungry. Instead of treating the dog as a stranger, he responds with care.",
+      "indexed_text": "English. The Unlikely Best Friends. 🐾 AN UNEXPECTED VISITOR. One evening, a stray dog wanders into the stable. Gajaraj notices that the little visitor is tired and hungry. Instead of treating the dog as a stranger, he responds with care."
+    },
+    {
+      "id": "g6-eng-2",
+      "title": "The Unlikely Best Friends",
+      "subject": "English",
+      "grade": 6,
+      "language": "en",
+      "summary": "🐘 Can a lonely elephant and a tiny dog really become best friends? Meet Gajaraj and discover how an unexpected friendship shows that kindness can cross every difference.",
+      "heading": "🤝 A FRIENDSHIP GROWS",
+      "text": "The elephant and dog gradually become companions. Their friendship is surprising because they are very different in size and circumstances.",
+      "indexed_text": "English. The Unlikely Best Friends. 🤝 A FRIENDSHIP GROWS. The elephant and dog gradually become companions. Their friendship is surprising because they are very different in size and circumstances."
+    },
+    {
+      "id": "g6-eng-2",
+      "title": "The Unlikely Best Friends",
+      "subject": "English",
+      "grade": 6,
+      "language": "en",
+      "summary": "🐘 Can a lonely elephant and a tiny dog really become best friends? Meet Gajaraj and discover how an unexpected friendship shows that kindness can cross every difference.",
+      "heading": "💡 WHY IS IT 'UNLIKELY'?",
+      "text": "The chapter reminds us that friendship is not about looking alike, being the same size, or belonging to the same group. It grows through trust, kindness and companionship.",
+      "indexed_text": "English. The Unlikely Best Friends. 💡 WHY IS IT 'UNLIKELY'?. The chapter reminds us that friendship is not about looking alike, being the same size, or belonging to the same group. It grows through trust, kindness and companionship."
     },
     {
       "id": "g6-math-1",
@@ -28,7 +132,64 @@
       "grade": 6,
       "language": "en",
       "summary": "🔢 Ready to crack a number code? Explore sequences, shapes and visual patterns and discover how mathematicians use rules to predict what comes next.",
-      "indexed_text": "Mathematics. Patterns in Mathematics. 🔢 Ready to crack a number code? Explore sequences, shapes and visual patterns and discover how mathematicians use rules to predict what comes next."
+      "heading": "Overview",
+      "text": "🔢 Ready to crack a number code? Explore sequences, shapes and visual patterns and discover how mathematicians use rules to predict what comes next.",
+      "indexed_text": "Mathematics. Patterns in Mathematics. Overview. 🔢 Ready to crack a number code? Explore sequences, shapes and visual patterns and discover how mathematicians use rules to predict what comes next."
+    },
+    {
+      "id": "g6-math-1",
+      "title": "Patterns in Mathematics",
+      "subject": "Mathematics",
+      "grade": 6,
+      "language": "en",
+      "summary": "🔢 Ready to crack a number code? Explore sequences, shapes and visual patterns and discover how mathematicians use rules to predict what comes next.",
+      "heading": "🧩 BECOME A PATTERN DETECTIVE",
+      "text": "Look at 1, 3, 5, 7... What comes next? Now try 1, 4, 9, 16... Patterns are everywhere, and mathematics gives us tools to uncover their rules.",
+      "indexed_text": "Mathematics. Patterns in Mathematics. 🧩 BECOME A PATTERN DETECTIVE. Look at 1, 3, 5, 7... What comes next? Now try 1, 4, 9, 16... Patterns are everywhere, and mathematics gives us tools to uncover their rules."
+    },
+    {
+      "id": "g6-math-1",
+      "title": "Patterns in Mathematics",
+      "subject": "Mathematics",
+      "grade": 6,
+      "language": "en",
+      "summary": "🔢 Ready to crack a number code? Explore sequences, shapes and visual patterns and discover how mathematicians use rules to predict what comes next.",
+      "heading": "🔍 NUMBER PATTERNS",
+      "text": "The chapter explores familiar sequences such as counting numbers, odd and even numbers, triangular numbers, squares, cubes and powers. The challenge is not just finding the next number—it is explaining the rule.",
+      "indexed_text": "Mathematics. Patterns in Mathematics. 🔍 NUMBER PATTERNS. The chapter explores familiar sequences such as counting numbers, odd and even numbers, triangular numbers, squares, cubes and powers. The challenge is not just finding the next number—it is explaining the rule."
+    },
+    {
+      "id": "g6-math-1",
+      "title": "Patterns in Mathematics",
+      "subject": "Mathematics",
+      "grade": 6,
+      "language": "en",
+      "summary": "🔢 Ready to crack a number code? Explore sequences, shapes and visual patterns and discover how mathematicians use rules to predict what comes next.",
+      "heading": "👀 SEE THE PATTERN",
+      "text": "Numbers can also be represented visually. Pictures and diagrams can make a hidden mathematical relationship easier to notice.",
+      "indexed_text": "Mathematics. Patterns in Mathematics. 👀 SEE THE PATTERN. Numbers can also be represented visually. Pictures and diagrams can make a hidden mathematical relationship easier to notice."
+    },
+    {
+      "id": "g6-math-1",
+      "title": "Patterns in Mathematics",
+      "subject": "Mathematics",
+      "grade": 6,
+      "language": "en",
+      "summary": "🔢 Ready to crack a number code? Explore sequences, shapes and visual patterns and discover how mathematicians use rules to predict what comes next.",
+      "heading": "💡 THINK LIKE A MATHEMATICIAN",
+      "text": "A good pattern detective asks:",
+      "indexed_text": "Mathematics. Patterns in Mathematics. 💡 THINK LIKE A MATHEMATICIAN. A good pattern detective asks:"
+    },
+    {
+      "id": "g6-math-1",
+      "title": "Patterns in Mathematics",
+      "subject": "Mathematics",
+      "grade": 6,
+      "language": "en",
+      "summary": "🔢 Ready to crack a number code? Explore sequences, shapes and visual patterns and discover how mathematicians use rules to predict what comes next.",
+      "heading": "🎯 CHAPTER MISSION",
+      "text": "Don't just spot a pattern. Explain it, test it and use it to predict what comes next.",
+      "indexed_text": "Mathematics. Patterns in Mathematics. 🎯 CHAPTER MISSION. Don't just spot a pattern. Explain it, test it and use it to predict what comes next."
     },
     {
       "id": "g6-math-2",
@@ -37,7 +198,64 @@
       "grade": 6,
       "language": "en",
       "summary": "📐 Grab your imaginary ruler and protractor! Learn how lines, rays and angles behave, then use diagrams to name and understand them.",
-      "indexed_text": "Mathematics. Lines and Angles. 📐 Grab your imaginary ruler and protractor! Learn how lines, rays and angles behave, then use diagrams to name and understand them."
+      "heading": "Overview",
+      "text": "📐 Grab your imaginary ruler and protractor! Learn how lines, rays and angles behave, then use diagrams to name and understand them.",
+      "indexed_text": "Mathematics. Lines and Angles. Overview. 📐 Grab your imaginary ruler and protractor! Learn how lines, rays and angles behave, then use diagrams to name and understand them."
+    },
+    {
+      "id": "g6-math-2",
+      "title": "Lines and Angles",
+      "subject": "Mathematics",
+      "grade": 6,
+      "language": "en",
+      "summary": "📐 Grab your imaginary ruler and protractor! Learn how lines, rays and angles behave, then use diagrams to name and understand them.",
+      "heading": "📐 WELCOME TO THE GEOMETRY ZONE",
+      "text": "A simple drawing can hide a lot of mathematics. In this chapter, you'll explore points, lines, rays and angles—the building blocks of geometry.",
+      "indexed_text": "Mathematics. Lines and Angles. 📐 WELCOME TO THE GEOMETRY ZONE. A simple drawing can hide a lot of mathematics. In this chapter, you'll explore points, lines, rays and angles—the building blocks of geometry."
+    },
+    {
+      "id": "g6-math-2",
+      "title": "Lines and Angles",
+      "subject": "Mathematics",
+      "grade": 6,
+      "language": "en",
+      "summary": "📐 Grab your imaginary ruler and protractor! Learn how lines, rays and angles behave, then use diagrams to name and understand them.",
+      "heading": "➡️ FROM POINTS TO LINES",
+      "text": "Points help us describe positions. Lines and line segments connect points, while rays extend in one direction.",
+      "indexed_text": "Mathematics. Lines and Angles. ➡️ FROM POINTS TO LINES. Points help us describe positions. Lines and line segments connect points, while rays extend in one direction."
+    },
+    {
+      "id": "g6-math-2",
+      "title": "Lines and Angles",
+      "subject": "Mathematics",
+      "grade": 6,
+      "language": "en",
+      "summary": "📐 Grab your imaginary ruler and protractor! Learn how lines, rays and angles behave, then use diagrams to name and understand them.",
+      "heading": "🔺 MEET ANGLES",
+      "text": "An angle is formed when two rays meet at a common endpoint. The chapter helps you identify and name angles correctly using their points and vertex.",
+      "indexed_text": "Mathematics. Lines and Angles. 🔺 MEET ANGLES. An angle is formed when two rays meet at a common endpoint. The chapter helps you identify and name angles correctly using their points and vertex."
+    },
+    {
+      "id": "g6-math-2",
+      "title": "Lines and Angles",
+      "subject": "Mathematics",
+      "grade": 6,
+      "language": "en",
+      "summary": "📐 Grab your imaginary ruler and protractor! Learn how lines, rays and angles behave, then use diagrams to name and understand them.",
+      "heading": "🧠 LOOK CAREFULLY",
+      "text": "Geometry is all about precision. A small mistake in naming a point or angle can change the meaning completely.",
+      "indexed_text": "Mathematics. Lines and Angles. 🧠 LOOK CAREFULLY. Geometry is all about precision. A small mistake in naming a point or angle can change the meaning completely."
+    },
+    {
+      "id": "g6-math-2",
+      "title": "Lines and Angles",
+      "subject": "Mathematics",
+      "grade": 6,
+      "language": "en",
+      "summary": "📐 Grab your imaginary ruler and protractor! Learn how lines, rays and angles behave, then use diagrams to name and understand them.",
+      "heading": "🎯 CHAPTER MISSION",
+      "text": "Use diagrams like a geometry detective: identify the objects, name them correctly and explain how they are related.",
+      "indexed_text": "Mathematics. Lines and Angles. 🎯 CHAPTER MISSION. Use diagrams like a geometry detective: identify the objects, name them correctly and explain how they are related."
     },
     {
       "id": "g6-sci-1",
@@ -46,7 +264,75 @@
       "grade": 6,
       "language": "en",
       "summary": "🔬 What makes a bicycle tyre go flat? Why does dal spill from a cooker? Science begins with questions like these. Become a curious explorer and learn how scientists investigate the world.",
-      "indexed_text": "Science. The Wonderful World of Science. 🔬 What makes a bicycle tyre go flat? Why does dal spill from a cooker? Science begins with questions like these. Become a curious explorer and learn how scientists investigate the world."
+      "heading": "Overview",
+      "text": "🔬 What makes a bicycle tyre go flat? Why does dal spill from a cooker? Science begins with questions like these. Become a curious explorer and learn how scientists investigate the world.",
+      "indexed_text": "Science. The Wonderful World of Science. Overview. 🔬 What makes a bicycle tyre go flat? Why does dal spill from a cooker? Science begins with questions like these. Become a curious explorer and learn how scientists investigate the world."
+    },
+    {
+      "id": "g6-sci-1",
+      "title": "The Wonderful World of Science",
+      "subject": "Science",
+      "grade": 6,
+      "language": "en",
+      "summary": "🔬 What makes a bicycle tyre go flat? Why does dal spill from a cooker? Science begins with questions like these. Become a curious explorer and learn how scientists investigate the world.",
+      "heading": "🔬 START WITH A QUESTION",
+      "text": "Science is not just a collection of facts. It is a way of asking questions, observing carefully and looking for evidence.",
+      "indexed_text": "Science. The Wonderful World of Science. 🔬 START WITH A QUESTION. Science is not just a collection of facts. It is a way of asking questions, observing carefully and looking for evidence."
+    },
+    {
+      "id": "g6-sci-1",
+      "title": "The Wonderful World of Science",
+      "subject": "Science",
+      "grade": 6,
+      "language": "en",
+      "summary": "🔬 What makes a bicycle tyre go flat? Why does dal spill from a cooker? Science begins with questions like these. Become a curious explorer and learn how scientists investigate the world.",
+      "heading": "🧐 NOTICE → WONDER → TEST",
+      "text": "We may notice something unusual, wonder why it happened, suggest a possible explanation and test it through experiments or further observations.",
+      "indexed_text": "Science. The Wonderful World of Science. 🧐 NOTICE → WONDER → TEST. We may notice something unusual, wonder why it happened, suggest a possible explanation and test it through experiments or further observations."
+    },
+    {
+      "id": "g6-sci-1",
+      "title": "The Wonderful World of Science",
+      "subject": "Science",
+      "grade": 6,
+      "language": "en",
+      "summary": "🔬 What makes a bicycle tyre go flat? Why does dal spill from a cooker? Science begins with questions like these. Become a curious explorer and learn how scientists investigate the world.",
+      "heading": "🧪 THE SCIENTIFIC METHOD",
+      "text": "The chapter introduces the idea that scientists observe, ask questions, make guesses or hypotheses, test them and analyse the results.",
+      "indexed_text": "Science. The Wonderful World of Science. 🧪 THE SCIENTIFIC METHOD. The chapter introduces the idea that scientists observe, ask questions, make guesses or hypotheses, test them and analyse the results."
+    },
+    {
+      "id": "g6-sci-1",
+      "title": "The Wonderful World of Science",
+      "subject": "Science",
+      "grade": 6,
+      "language": "en",
+      "summary": "🔬 What makes a bicycle tyre go flat? Why does dal spill from a cooker? Science begins with questions like these. Become a curious explorer and learn how scientists investigate the world.",
+      "heading": "🌍 SCIENCE IS EVERYWHERE",
+      "text": "A person repairing a bicycle, checking a faulty bulb or even figuring out why food spills can use the same questioning spirit.",
+      "indexed_text": "Science. The Wonderful World of Science. 🌍 SCIENCE IS EVERYWHERE. A person repairing a bicycle, checking a faulty bulb or even figuring out why food spills can use the same questioning spirit."
+    },
+    {
+      "id": "g6-sci-1",
+      "title": "The Wonderful World of Science",
+      "subject": "Science",
+      "grade": 6,
+      "language": "en",
+      "summary": "🔬 What makes a bicycle tyre go flat? Why does dal spill from a cooker? Science begins with questions like these. Become a curious explorer and learn how scientists investigate the world.",
+      "heading": "💡 YOUR SUPERPOWER: CURIOSITY",
+      "text": "The chapter encourages students to ask 'How?' and 'Why?' and to work together when a problem is difficult.",
+      "indexed_text": "Science. The Wonderful World of Science. 💡 YOUR SUPERPOWER: CURIOSITY. The chapter encourages students to ask 'How?' and 'Why?' and to work together when a problem is difficult."
+    },
+    {
+      "id": "g6-sci-1",
+      "title": "The Wonderful World of Science",
+      "subject": "Science",
+      "grade": 6,
+      "language": "en",
+      "summary": "🔬 What makes a bicycle tyre go flat? Why does dal spill from a cooker? Science begins with questions like these. Become a curious explorer and learn how scientists investigate the world.",
+      "heading": "🎯 CHAPTER MISSION",
+      "text": "Look around you. Find one everyday mystery and think like a scientist: observe it, ask a question and plan how you could investigate it.",
+      "indexed_text": "Science. The Wonderful World of Science. 🎯 CHAPTER MISSION. Look around you. Find one everyday mystery and think like a scientist: observe it, ask a question and plan how you could investigate it."
     },
     {
       "id": "g6-sci-2",
@@ -55,7 +341,75 @@
       "grade": 6,
       "language": "en",
       "summary": "🌿 Why does a camel survive in a desert while a fish thrives in water? Explore the amazing variety of living things and the features that help them survive in different environments.",
-      "indexed_text": "Science. Diversity in the Living World. 🌿 Why does a camel survive in a desert while a fish thrives in water? Explore the amazing variety of living things and the features that help them survive in different environments."
+      "heading": "Overview",
+      "text": "🌿 Why does a camel survive in a desert while a fish thrives in water? Explore the amazing variety of living things and the features that help them survive in different environments.",
+      "indexed_text": "Science. Diversity in the Living World. Overview. 🌿 Why does a camel survive in a desert while a fish thrives in water? Explore the amazing variety of living things and the features that help them survive in different environments."
+    },
+    {
+      "id": "g6-sci-2",
+      "title": "Diversity in the Living World",
+      "subject": "Science",
+      "grade": 6,
+      "language": "en",
+      "summary": "🌿 Why does a camel survive in a desert while a fish thrives in water? Explore the amazing variety of living things and the features that help them survive in different environments.",
+      "heading": "🌍 LIFE IS DIVERSE",
+      "text": "Walk through a forest, desert, pond or ocean and you'll find living things with very different shapes, sizes and abilities. This variety is called diversity.",
+      "indexed_text": "Science. Diversity in the Living World. 🌍 LIFE IS DIVERSE. Walk through a forest, desert, pond or ocean and you'll find living things with very different shapes, sizes and abilities. This variety is called diversity."
+    },
+    {
+      "id": "g6-sci-2",
+      "title": "Diversity in the Living World",
+      "subject": "Science",
+      "grade": 6,
+      "language": "en",
+      "summary": "🌿 Why does a camel survive in a desert while a fish thrives in water? Explore the amazing variety of living things and the features that help them survive in different environments.",
+      "heading": "🐪 SURVIVAL HAS A STORY",
+      "text": "Living things have features that help them survive where they live. Desert camels, mountain plants and aquatic animals show how bodies and behaviours can be suited to their environments.",
+      "indexed_text": "Science. Diversity in the Living World. 🐪 SURVIVAL HAS A STORY. Living things have features that help them survive where they live. Desert camels, mountain plants and aquatic animals show how bodies and behaviours can be suited to their environments."
+    },
+    {
+      "id": "g6-sci-2",
+      "title": "Diversity in the Living World",
+      "subject": "Science",
+      "grade": 6,
+      "language": "en",
+      "summary": "🌿 Why does a camel survive in a desert while a fish thrives in water? Explore the amazing variety of living things and the features that help them survive in different environments.",
+      "heading": "🌱 PLANTS CAN DIFFER TOO",
+      "text": "Even the same kind of plant may show different features in different regions. Conditions such as wind, temperature and water availability can influence what helps a plant survive.",
+      "indexed_text": "Science. Diversity in the Living World. 🌱 PLANTS CAN DIFFER TOO. Even the same kind of plant may show different features in different regions. Conditions such as wind, temperature and water availability can influence what helps a plant survive."
+    },
+    {
+      "id": "g6-sci-2",
+      "title": "Diversity in the Living World",
+      "subject": "Science",
+      "grade": 6,
+      "language": "en",
+      "summary": "🌿 Why does a camel survive in a desert while a fish thrives in water? Explore the amazing variety of living things and the features that help them survive in different environments.",
+      "heading": "🐟 LOOK AT MOVEMENT",
+      "text": "Animals use different body parts for movement. Fish use fins, birds use wings and many land animals rely on legs.",
+      "indexed_text": "Science. Diversity in the Living World. 🐟 LOOK AT MOVEMENT. Animals use different body parts for movement. Fish use fins, birds use wings and many land animals rely on legs."
+    },
+    {
+      "id": "g6-sci-2",
+      "title": "Diversity in the Living World",
+      "subject": "Science",
+      "grade": 6,
+      "language": "en",
+      "summary": "🌿 Why does a camel survive in a desert while a fish thrives in water? Explore the amazing variety of living things and the features that help them survive in different environments.",
+      "heading": "💡 WHY CLASSIFY?",
+      "text": "Grouping living things by shared features helps us understand the enormous diversity of life.",
+      "indexed_text": "Science. Diversity in the Living World. 💡 WHY CLASSIFY?. Grouping living things by shared features helps us understand the enormous diversity of life."
+    },
+    {
+      "id": "g6-sci-2",
+      "title": "Diversity in the Living World",
+      "subject": "Science",
+      "grade": 6,
+      "language": "en",
+      "summary": "🌿 Why does a camel survive in a desert while a fish thrives in water? Explore the amazing variety of living things and the features that help them survive in different environments.",
+      "heading": "🎯 CHAPTER MISSION",
+      "text": "Become a nature detective. Observe a plant or animal near you and list two features that help it live in its surroundings.",
+      "indexed_text": "Science. Diversity in the Living World. 🎯 CHAPTER MISSION. Become a nature detective. Observe a plant or animal near you and list two features that help it live in its surroundings."
     },
     {
       "id": "g7-eng-1",
@@ -64,7 +418,64 @@
       "grade": 7,
       "language": "en",
       "summary": "🌊 What if a river could talk? Step into a story where nature becomes a voice, and discover what the river's message can teach us about people, choices and the world around us.",
-      "indexed_text": "English. The Day the River Spoke. 🌊 What if a river could talk? Step into a story where nature becomes a voice, and discover what the river's message can teach us about people, choices and the world around us."
+      "heading": "Overview",
+      "text": "🌊 What if a river could talk? Step into a story where nature becomes a voice, and discover what the river's message can teach us about people, choices and the world around us.",
+      "indexed_text": "English. The Day the River Spoke. Overview. 🌊 What if a river could talk? Step into a story where nature becomes a voice, and discover what the river's message can teach us about people, choices and the world around us."
+    },
+    {
+      "id": "g7-eng-1",
+      "title": "The Day the River Spoke",
+      "subject": "English",
+      "grade": 7,
+      "language": "en",
+      "summary": "🌊 What if a river could talk? Step into a story where nature becomes a voice, and discover what the river's message can teach us about people, choices and the world around us.",
+      "heading": "🌊 LISTEN TO THE RIVER",
+      "text": "Imagine standing beside a river and suddenly hearing it speak. This chapter invites you to look at nature not merely as scenery, but as something connected to human life.",
+      "indexed_text": "English. The Day the River Spoke. 🌊 LISTEN TO THE RIVER. Imagine standing beside a river and suddenly hearing it speak. This chapter invites you to look at nature not merely as scenery, but as something connected to human life."
+    },
+    {
+      "id": "g7-eng-1",
+      "title": "The Day the River Spoke",
+      "subject": "English",
+      "grade": 7,
+      "language": "en",
+      "summary": "🌊 What if a river could talk? Step into a story where nature becomes a voice, and discover what the river's message can teach us about people, choices and the world around us.",
+      "heading": "🔎 FOLLOW THE STORY",
+      "text": "As the river becomes a voice in the narrative, students are encouraged to think about what it has witnessed and what its message means.",
+      "indexed_text": "English. The Day the River Spoke. 🔎 FOLLOW THE STORY. As the river becomes a voice in the narrative, students are encouraged to think about what it has witnessed and what its message means."
+    },
+    {
+      "id": "g7-eng-1",
+      "title": "The Day the River Spoke",
+      "subject": "English",
+      "grade": 7,
+      "language": "en",
+      "summary": "🌊 What if a river could talk? Step into a story where nature becomes a voice, and discover what the river's message can teach us about people, choices and the world around us.",
+      "heading": "💭 THINK BEYOND THE STORY",
+      "text": "The chapter opens space for questions about how people interact with nature, how choices affect the environment and why we should listen to the world around us.",
+      "indexed_text": "English. The Day the River Spoke. 💭 THINK BEYOND THE STORY. The chapter opens space for questions about how people interact with nature, how choices affect the environment and why we should listen to the world around us."
+    },
+    {
+      "id": "g7-eng-1",
+      "title": "The Day the River Spoke",
+      "subject": "English",
+      "grade": 7,
+      "language": "en",
+      "summary": "🌊 What if a river could talk? Step into a story where nature becomes a voice, and discover what the river's message can teach us about people, choices and the world around us.",
+      "heading": "🌱 THE BIG IDEA",
+      "text": "Nature can teach us when we observe it carefully. A river can be more than water flowing from one place to another—it can become a reminder of change, responsibility and connection.",
+      "indexed_text": "English. The Day the River Spoke. 🌱 THE BIG IDEA. Nature can teach us when we observe it carefully. A river can be more than water flowing from one place to another—it can become a reminder of change, responsibility and connection."
+    },
+    {
+      "id": "g7-eng-1",
+      "title": "The Day the River Spoke",
+      "subject": "English",
+      "grade": 7,
+      "language": "en",
+      "summary": "🌊 What if a river could talk? Step into a story where nature becomes a voice, and discover what the river's message can teach us about people, choices and the world around us.",
+      "heading": "🎯 CHAPTER MISSION",
+      "text": "Imagine your local river, lake or stream could speak. What would it say to people today?",
+      "indexed_text": "English. The Day the River Spoke. 🎯 CHAPTER MISSION. Imagine your local river, lake or stream could speak. What would it say to people today?"
     },
     {
       "id": "g7-eng-2",
@@ -73,7 +484,53 @@
       "grade": 7,
       "language": "en",
       "summary": "🐦 Imagine being able to understand animals! Meet Dr. Dolittle and explore a world where communicating with animals becomes a doorway to curiosity, care and a different way of seeing the world.",
-      "indexed_text": "English. Animals, Birds, and Dr. Dolittle. 🐦 Imagine being able to understand animals! Meet Dr. Dolittle and explore a world where communicating with animals becomes a doorway to curiosity, care and a different way of seeing the world."
+      "heading": "Overview",
+      "text": "🐦 Imagine being able to understand animals! Meet Dr. Dolittle and explore a world where communicating with animals becomes a doorway to curiosity, care and a different way of seeing the world.",
+      "indexed_text": "English. Animals, Birds, and Dr. Dolittle. Overview. 🐦 Imagine being able to understand animals! Meet Dr. Dolittle and explore a world where communicating with animals becomes a doorway to curiosity, care and a different way of seeing the world."
+    },
+    {
+      "id": "g7-eng-2",
+      "title": "Animals, Birds, and Dr. Dolittle",
+      "subject": "English",
+      "grade": 7,
+      "language": "en",
+      "summary": "🐦 Imagine being able to understand animals! Meet Dr. Dolittle and explore a world where communicating with animals becomes a doorway to curiosity, care and a different way of seeing the world.",
+      "heading": "🐾 ENTER THE ANIMAL WORLD",
+      "text": "What would you ask a bird if it could answer back? What could an elephant tell you about its life? Dr. Dolittle's unusual ability makes students imagine exactly that.",
+      "indexed_text": "English. Animals, Birds, and Dr. Dolittle. 🐾 ENTER THE ANIMAL WORLD. What would you ask a bird if it could answer back? What could an elephant tell you about its life? Dr. Dolittle's unusual ability makes students imagine exactly that."
+    },
+    {
+      "id": "g7-eng-2",
+      "title": "Animals, Birds, and Dr. Dolittle",
+      "subject": "English",
+      "grade": 7,
+      "language": "en",
+      "summary": "🐦 Imagine being able to understand animals! Meet Dr. Dolittle and explore a world where communicating with animals becomes a doorway to curiosity, care and a different way of seeing the world.",
+      "heading": "🗣️ A DIFFERENT KIND OF COMMUNICATION",
+      "text": "The chapter explores the idea of understanding animals by listening to them and paying attention to their needs.",
+      "indexed_text": "English. Animals, Birds, and Dr. Dolittle. 🗣️ A DIFFERENT KIND OF COMMUNICATION. The chapter explores the idea of understanding animals by listening to them and paying attention to their needs."
+    },
+    {
+      "id": "g7-eng-2",
+      "title": "Animals, Birds, and Dr. Dolittle",
+      "subject": "English",
+      "grade": 7,
+      "language": "en",
+      "summary": "🐦 Imagine being able to understand animals! Meet Dr. Dolittle and explore a world where communicating with animals becomes a doorway to curiosity, care and a different way of seeing the world.",
+      "heading": "❤️ CURIOSITY WITH COMPASSION",
+      "text": "Knowing how animals communicate is not just a fun superpower. It can also encourage empathy—understanding that animals have their own needs, behaviours and ways of experiencing the world.",
+      "indexed_text": "English. Animals, Birds, and Dr. Dolittle. ❤️ CURIOSITY WITH COMPASSION. Knowing how animals communicate is not just a fun superpower. It can also encourage empathy—understanding that animals have their own needs, behaviours and ways of experiencing the world."
+    },
+    {
+      "id": "g7-eng-2",
+      "title": "Animals, Birds, and Dr. Dolittle",
+      "subject": "English",
+      "grade": 7,
+      "language": "en",
+      "summary": "🐦 Imagine being able to understand animals! Meet Dr. Dolittle and explore a world where communicating with animals becomes a doorway to curiosity, care and a different way of seeing the world.",
+      "heading": "🎯 CHAPTER MISSION",
+      "text": "Pick an animal you see around you. If you could ask it three questions, what would they be?",
+      "indexed_text": "English. Animals, Birds, and Dr. Dolittle. 🎯 CHAPTER MISSION. Pick an animal you see around you. If you could ask it three questions, what would they be?"
     },
     {
       "id": "g7-math-1",
@@ -82,7 +539,64 @@
       "grade": 7,
       "language": "en",
       "summary": "🌍 How big is a country's population? How much money moves through a city? Explore large numbers and learn to read, compare, estimate and work confidently with numbers far bigger than your classroom.",
-      "indexed_text": "Mathematics. Large Numbers Around Us. 🌍 How big is a country's population? How much money moves through a city? Explore large numbers and learn to read, compare, estimate and work confidently with numbers far bigger than your classroom."
+      "heading": "Overview",
+      "text": "🌍 How big is a country's population? How much money moves through a city? Explore large numbers and learn to read, compare, estimate and work confidently with numbers far bigger than your classroom.",
+      "indexed_text": "Mathematics. Large Numbers Around Us. Overview. 🌍 How big is a country's population? How much money moves through a city? Explore large numbers and learn to read, compare, estimate and work confidently with numbers far bigger than your classroom."
+    },
+    {
+      "id": "g7-math-1",
+      "title": "Large Numbers Around Us",
+      "subject": "Mathematics",
+      "grade": 7,
+      "language": "en",
+      "summary": "🌍 How big is a country's population? How much money moves through a city? Explore large numbers and learn to read, compare, estimate and work confidently with numbers far bigger than your classroom.",
+      "heading": "🔢 BIG NUMBERS, REAL LIFE",
+      "text": "Numbers grow quickly when we talk about populations, distances, money, data and large collections. This chapter helps you make sense of them.",
+      "indexed_text": "Mathematics. Large Numbers Around Us. 🔢 BIG NUMBERS, REAL LIFE. Numbers grow quickly when we talk about populations, distances, money, data and large collections. This chapter helps you make sense of them."
+    },
+    {
+      "id": "g7-math-1",
+      "title": "Large Numbers Around Us",
+      "subject": "Mathematics",
+      "grade": 7,
+      "language": "en",
+      "summary": "🌍 How big is a country's population? How much money moves through a city? Explore large numbers and learn to read, compare, estimate and work confidently with numbers far bigger than your classroom.",
+      "heading": "📊 READ THE SCALE",
+      "text": "You'll work with large numbers, place value and ways of representing them so that a huge number becomes easier to understand.",
+      "indexed_text": "Mathematics. Large Numbers Around Us. 📊 READ THE SCALE. You'll work with large numbers, place value and ways of representing them so that a huge number becomes easier to understand."
+    },
+    {
+      "id": "g7-math-1",
+      "title": "Large Numbers Around Us",
+      "subject": "Mathematics",
+      "grade": 7,
+      "language": "en",
+      "summary": "🌍 How big is a country's population? How much money moves through a city? Explore large numbers and learn to read, compare, estimate and work confidently with numbers far bigger than your classroom.",
+      "heading": "🧠 CALCULATE SMARTER",
+      "text": "The chapter also encourages efficient calculation strategies rather than blindly performing long calculations.",
+      "indexed_text": "Mathematics. Large Numbers Around Us. 🧠 CALCULATE SMARTER. The chapter also encourages efficient calculation strategies rather than blindly performing long calculations."
+    },
+    {
+      "id": "g7-math-1",
+      "title": "Large Numbers Around Us",
+      "subject": "Mathematics",
+      "grade": 7,
+      "language": "en",
+      "summary": "🌍 How big is a country's population? How much money moves through a city? Explore large numbers and learn to read, compare, estimate and work confidently with numbers far bigger than your classroom.",
+      "heading": "🌍 CONNECT NUMBERS TO LIFE",
+      "text": "Large numbers are not just symbols in a textbook. They describe real things around us.",
+      "indexed_text": "Mathematics. Large Numbers Around Us. 🌍 CONNECT NUMBERS TO LIFE. Large numbers are not just symbols in a textbook. They describe real things around us."
+    },
+    {
+      "id": "g7-math-1",
+      "title": "Large Numbers Around Us",
+      "subject": "Mathematics",
+      "grade": 7,
+      "language": "en",
+      "summary": "🌍 How big is a country's population? How much money moves through a city? Explore large numbers and learn to read, compare, estimate and work confidently with numbers far bigger than your classroom.",
+      "heading": "🎯 CHAPTER MISSION",
+      "text": "Find one large number from a newspaper, website or sign. Read it aloud, identify its place values and explain what it represents.",
+      "indexed_text": "Mathematics. Large Numbers Around Us. 🎯 CHAPTER MISSION. Find one large number from a newspaper, website or sign. Read it aloud, identify its place values and explain what it represents."
     },
     {
       "id": "g7-math-2",
@@ -91,7 +605,53 @@
       "grade": 7,
       "language": "en",
       "summary": "🧮 Ready to make numbers obey the rules? Build and simplify arithmetic expressions and learn why the order of operations matters when several operations appear together.",
-      "indexed_text": "Mathematics. Arithmetic Expressions. 🧮 Ready to make numbers obey the rules? Build and simplify arithmetic expressions and learn why the order of operations matters when several operations appear together."
+      "heading": "Overview",
+      "text": "🧮 Ready to make numbers obey the rules? Build and simplify arithmetic expressions and learn why the order of operations matters when several operations appear together.",
+      "indexed_text": "Mathematics. Arithmetic Expressions. Overview. 🧮 Ready to make numbers obey the rules? Build and simplify arithmetic expressions and learn why the order of operations matters when several operations appear together."
+    },
+    {
+      "id": "g7-math-2",
+      "title": "Arithmetic Expressions",
+      "subject": "Mathematics",
+      "grade": 7,
+      "language": "en",
+      "summary": "🧮 Ready to make numbers obey the rules? Build and simplify arithmetic expressions and learn why the order of operations matters when several operations appear together.",
+      "heading": "🧩 CRACK THE CALCULATION CODE",
+      "text": "What is 2 + 3 × 4? Should you add first or multiply first? Arithmetic expressions have rules that tell us how to evaluate them correctly.",
+      "indexed_text": "Mathematics. Arithmetic Expressions. 🧩 CRACK THE CALCULATION CODE. What is 2 + 3 × 4? Should you add first or multiply first? Arithmetic expressions have rules that tell us how to evaluate them correctly."
+    },
+    {
+      "id": "g7-math-2",
+      "title": "Arithmetic Expressions",
+      "subject": "Mathematics",
+      "grade": 7,
+      "language": "en",
+      "summary": "🧮 Ready to make numbers obey the rules? Build and simplify arithmetic expressions and learn why the order of operations matters when several operations appear together.",
+      "heading": "⚙️ OPERATIONS WORK TOGETHER",
+      "text": "Expressions may contain addition, subtraction, multiplication and division. The order in which operations are handled affects the answer.",
+      "indexed_text": "Mathematics. Arithmetic Expressions. ⚙️ OPERATIONS WORK TOGETHER. Expressions may contain addition, subtraction, multiplication and division. The order in which operations are handled affects the answer."
+    },
+    {
+      "id": "g7-math-2",
+      "title": "Arithmetic Expressions",
+      "subject": "Mathematics",
+      "grade": 7,
+      "language": "en",
+      "summary": "🧮 Ready to make numbers obey the rules? Build and simplify arithmetic expressions and learn why the order of operations matters when several operations appear together.",
+      "heading": "🧠 LOOK FOR STRUCTURE",
+      "text": "Instead of treating an expression as a random line of symbols, break it into parts and follow the correct order.",
+      "indexed_text": "Mathematics. Arithmetic Expressions. 🧠 LOOK FOR STRUCTURE. Instead of treating an expression as a random line of symbols, break it into parts and follow the correct order."
+    },
+    {
+      "id": "g7-math-2",
+      "title": "Arithmetic Expressions",
+      "subject": "Mathematics",
+      "grade": 7,
+      "language": "en",
+      "summary": "🧮 Ready to make numbers obey the rules? Build and simplify arithmetic expressions and learn why the order of operations matters when several operations appear together.",
+      "heading": "🎯 CHAPTER MISSION",
+      "text": "Try creating your own expression using at least three operations. Then solve it carefully and explain each step.",
+      "indexed_text": "Mathematics. Arithmetic Expressions. 🎯 CHAPTER MISSION. Try creating your own expression using at least three operations. Then solve it carefully and explain each step."
     },
     {
       "id": "g7-sci-1",
@@ -100,7 +660,75 @@
       "grade": 7,
       "language": "en",
       "summary": "🔭 Science never stands still. Step into the world of deeper questions, experiments and discovery, where curiosity leads to new ideas and today's questions can become tomorrow's breakthroughs.",
-      "indexed_text": "Science. The Ever-Evolving World of Science. 🔭 Science never stands still. Step into the world of deeper questions, experiments and discovery, where curiosity leads to new ideas and today's questions can become tomorrow's breakthroughs."
+      "heading": "Overview",
+      "text": "🔭 Science never stands still. Step into the world of deeper questions, experiments and discovery, where curiosity leads to new ideas and today's questions can become tomorrow's breakthroughs.",
+      "indexed_text": "Science. The Ever-Evolving World of Science. Overview. 🔭 Science never stands still. Step into the world of deeper questions, experiments and discovery, where curiosity leads to new ideas and today's questions can become tomorrow's breakthroughs."
+    },
+    {
+      "id": "g7-sci-1",
+      "title": "The Ever-Evolving World of Science",
+      "subject": "Science",
+      "grade": 7,
+      "language": "en",
+      "summary": "🔭 Science never stands still. Step into the world of deeper questions, experiments and discovery, where curiosity leads to new ideas and today's questions can become tomorrow's breakthroughs.",
+      "heading": "🔬 SCIENCE IS A JOURNEY",
+      "text": "Science is not simply a finished list of facts. It is an ongoing process of asking questions, testing ideas and learning from evidence.",
+      "indexed_text": "Science. The Ever-Evolving World of Science. 🔬 SCIENCE IS A JOURNEY. Science is not simply a finished list of facts. It is an ongoing process of asking questions, testing ideas and learning from evidence."
+    },
+    {
+      "id": "g7-sci-1",
+      "title": "The Ever-Evolving World of Science",
+      "subject": "Science",
+      "grade": 7,
+      "language": "en",
+      "summary": "🔭 Science never stands still. Step into the world of deeper questions, experiments and discovery, where curiosity leads to new ideas and today's questions can become tomorrow's breakthroughs.",
+      "heading": "❓ ASK DEEPER QUESTIONS",
+      "text": "At this level, the focus moves toward questions such as: How does something work? Why does an event happen? What patterns can we discover?",
+      "indexed_text": "Science. The Ever-Evolving World of Science. ❓ ASK DEEPER QUESTIONS. At this level, the focus moves toward questions such as: How does something work? Why does an event happen? What patterns can we discover?"
+    },
+    {
+      "id": "g7-sci-1",
+      "title": "The Ever-Evolving World of Science",
+      "subject": "Science",
+      "grade": 7,
+      "language": "en",
+      "summary": "🔭 Science never stands still. Step into the world of deeper questions, experiments and discovery, where curiosity leads to new ideas and today's questions can become tomorrow's breakthroughs.",
+      "heading": "🧪 LEARN BY EXPLORING",
+      "text": "Activities and experiments help turn abstract ideas into experiences. Observation and evidence remain central.",
+      "indexed_text": "Science. The Ever-Evolving World of Science. 🧪 LEARN BY EXPLORING. Activities and experiments help turn abstract ideas into experiences. Observation and evidence remain central."
+    },
+    {
+      "id": "g7-sci-1",
+      "title": "The Ever-Evolving World of Science",
+      "subject": "Science",
+      "grade": 7,
+      "language": "en",
+      "summary": "🔭 Science never stands still. Step into the world of deeper questions, experiments and discovery, where curiosity leads to new ideas and today's questions can become tomorrow's breakthroughs.",
+      "heading": "🌍 SCIENCE CONNECTS",
+      "text": "Physics, chemistry, biology and earth science may look like separate areas, but their ideas often connect and influence one another.",
+      "indexed_text": "Science. The Ever-Evolving World of Science. 🌍 SCIENCE CONNECTS. Physics, chemistry, biology and earth science may look like separate areas, but their ideas often connect and influence one another."
+    },
+    {
+      "id": "g7-sci-1",
+      "title": "The Ever-Evolving World of Science",
+      "subject": "Science",
+      "grade": 7,
+      "language": "en",
+      "summary": "🔭 Science never stands still. Step into the world of deeper questions, experiments and discovery, where curiosity leads to new ideas and today's questions can become tomorrow's breakthroughs.",
+      "heading": "💡 SCIENCE + RESPONSIBILITY",
+      "text": "The chapter also encourages students to think about how human actions connect with the natural world and how science can help address environmental challenges.",
+      "indexed_text": "Science. The Ever-Evolving World of Science. 💡 SCIENCE + RESPONSIBILITY. The chapter also encourages students to think about how human actions connect with the natural world and how science can help address environmental challenges."
+    },
+    {
+      "id": "g7-sci-1",
+      "title": "The Ever-Evolving World of Science",
+      "subject": "Science",
+      "grade": 7,
+      "language": "en",
+      "summary": "🔭 Science never stands still. Step into the world of deeper questions, experiments and discovery, where curiosity leads to new ideas and today's questions can become tomorrow's breakthroughs.",
+      "heading": "🎯 CHAPTER MISSION",
+      "text": "Choose one everyday mystery and write one deeper 'Why?' question about it.",
+      "indexed_text": "Science. The Ever-Evolving World of Science. 🎯 CHAPTER MISSION. Choose one everyday mystery and write one deeper 'Why?' question about it."
     },
     {
       "id": "g7-sci-2",
@@ -109,7 +737,64 @@
       "grade": 7,
       "language": "en",
       "summary": "🧪 A mysterious liquid makes hidden words appear! Follow a science-fair adventure and discover how substances can be tested and grouped as acidic, basic or neutral.",
-      "indexed_text": "Science. Exploring Substances: Acidic, Basic, and Neutral. 🧪 A mysterious liquid makes hidden words appear! Follow a science-fair adventure and discover how substances can be tested and grouped as acidic, basic or neutral."
+      "heading": "Overview",
+      "text": "🧪 A mysterious liquid makes hidden words appear! Follow a science-fair adventure and discover how substances can be tested and grouped as acidic, basic or neutral.",
+      "indexed_text": "Science. Exploring Substances: Acidic, Basic, and Neutral. Overview. 🧪 A mysterious liquid makes hidden words appear! Follow a science-fair adventure and discover how substances can be tested and grouped as acidic, basic or neutral."
+    },
+    {
+      "id": "g7-sci-2",
+      "title": "Exploring Substances: Acidic, Basic, and Neutral",
+      "subject": "Science",
+      "grade": 7,
+      "language": "en",
+      "summary": "🧪 A mysterious liquid makes hidden words appear! Follow a science-fair adventure and discover how substances can be tested and grouped as acidic, basic or neutral.",
+      "heading": "🧪 ENTER THE COLOURFUL WORLD OF SUBSTANCES",
+      "text": "At a science fair, a simple white sheet suddenly reveals the words 'Welcome to the Wonderful World of Science' after a liquid is sprayed on it. What happened?",
+      "indexed_text": "Science. Exploring Substances: Acidic, Basic, and Neutral. 🧪 ENTER THE COLOURFUL WORLD OF SUBSTANCES. At a science fair, a simple white sheet suddenly reveals the words 'Welcome to the Wonderful World of Science' after a liquid is sprayed on it. What happened?"
+    },
+    {
+      "id": "g7-sci-2",
+      "title": "Exploring Substances: Acidic, Basic, and Neutral",
+      "subject": "Science",
+      "grade": 7,
+      "language": "en",
+      "summary": "🧪 A mysterious liquid makes hidden words appear! Follow a science-fair adventure and discover how substances can be tested and grouped as acidic, basic or neutral.",
+      "heading": "🔎 TESTING SUBSTANCES",
+      "text": "The chapter explores substances by observing how they behave and how they respond when mixed or tested.",
+      "indexed_text": "Science. Exploring Substances: Acidic, Basic, and Neutral. 🔎 TESTING SUBSTANCES. The chapter explores substances by observing how they behave and how they respond when mixed or tested."
+    },
+    {
+      "id": "g7-sci-2",
+      "title": "Exploring Substances: Acidic, Basic, and Neutral",
+      "subject": "Science",
+      "grade": 7,
+      "language": "en",
+      "summary": "🧪 A mysterious liquid makes hidden words appear! Follow a science-fair adventure and discover how substances can be tested and grouped as acidic, basic or neutral.",
+      "heading": "🍋 ACIDIC, BASIC OR NEUTRAL?",
+      "text": "Some substances are acidic, some basic and some neutral. Indicators can help us identify these properties through observable changes.",
+      "indexed_text": "Science. Exploring Substances: Acidic, Basic, and Neutral. 🍋 ACIDIC, BASIC OR NEUTRAL?. Some substances are acidic, some basic and some neutral. Indicators can help us identify these properties through observable changes."
+    },
+    {
+      "id": "g7-sci-2",
+      "title": "Exploring Substances: Acidic, Basic, and Neutral",
+      "subject": "Science",
+      "grade": 7,
+      "language": "en",
+      "summary": "🧪 A mysterious liquid makes hidden words appear! Follow a science-fair adventure and discover how substances can be tested and grouped as acidic, basic or neutral.",
+      "heading": "🧠 DON'T JUST MEMORISE",
+      "text": "The fun is in asking why a colour changes, what the change tells us and how we can test another substance safely.",
+      "indexed_text": "Science. Exploring Substances: Acidic, Basic, and Neutral. 🧠 DON'T JUST MEMORISE. The fun is in asking why a colour changes, what the change tells us and how we can test another substance safely."
+    },
+    {
+      "id": "g7-sci-2",
+      "title": "Exploring Substances: Acidic, Basic, and Neutral",
+      "subject": "Science",
+      "grade": 7,
+      "language": "en",
+      "summary": "🧪 A mysterious liquid makes hidden words appear! Follow a science-fair adventure and discover how substances can be tested and grouped as acidic, basic or neutral.",
+      "heading": "🎯 CHAPTER MISSION",
+      "text": "Think of three familiar substances at home. Predict whether each might be acidic, basic or neutral, then discuss how you could test your predictions safely.",
+      "indexed_text": "Science. Exploring Substances: Acidic, Basic, and Neutral. 🎯 CHAPTER MISSION. Think of three familiar substances at home. Predict whether each might be acidic, basic or neutral, then discuss how you could test your predictions safely."
     },
     {
       "id": "g6-tel-1",
@@ -118,7 +803,53 @@
       "grade": 6,
       "language": "en",
       "summary": "🌾 రైతుల శ్రమకు ఒక అందమైన వందనం! ఈ పాఠంలో దేశానికి ఆహారం అందించే రైతులు, సైనికులు మరియు అభివృద్ధికి తోడ్పడే కష్టజీవుల గొప్పతనాన్ని తెలుసుకుందాం.",
-      "indexed_text": "Telugu. అభినందన. 🌾 రైతుల శ్రమకు ఒక అందమైన వందనం! ఈ పాఠంలో దేశానికి ఆహారం అందించే రైతులు, సైనికులు మరియు అభివృద్ధికి తోడ్పడే కష్టజీవుల గొప్పతనాన్ని తెలుసుకుందాం."
+      "heading": "Overview",
+      "text": "🌾 రైతుల శ్రమకు ఒక అందమైన వందనం! ఈ పాఠంలో దేశానికి ఆహారం అందించే రైతులు, సైనికులు మరియు అభివృద్ధికి తోడ్పడే కష్టజీవుల గొప్పతనాన్ని తెలుసుకుందాం.",
+      "indexed_text": "Telugu. అభినందన. Overview. 🌾 రైతుల శ్రమకు ఒక అందమైన వందనం! ఈ పాఠంలో దేశానికి ఆహారం అందించే రైతులు, సైనికులు మరియు అభివృద్ధికి తోడ్పడే కష్టజీవుల గొప్పతనాన్ని తెలుసుకుందాం."
+    },
+    {
+      "id": "g6-tel-1",
+      "title": "అభినందన",
+      "subject": "Telugu",
+      "grade": 6,
+      "language": "en",
+      "summary": "🌾 రైతుల శ్రమకు ఒక అందమైన వందనం! ఈ పాఠంలో దేశానికి ఆహారం అందించే రైతులు, సైనికులు మరియు అభివృద్ధికి తోడ్పడే కష్టజీవుల గొప్పతనాన్ని తెలుసుకుందాం.",
+      "heading": "🌟 పాఠం గురించి",
+      "text": "‘అభినందన’ పాఠం కష్టపడి పనిచేసే మనుషుల సేవను గుర్తు చేస్తుంది. రైతులు తమ శ్రమతో పంటలను పండిస్తారు; సైనికులు దేశాన్ని కాపాడుతారు. వారి కృషి వల్ల సమాజం సురక్షితంగా, సుసంపన్నంగా ముందుకు సాగుతుంది.",
+      "indexed_text": "Telugu. అభినందన. 🌟 పాఠం గురించి. ‘అభినందన’ పాఠం కష్టపడి పనిచేసే మనుషుల సేవను గుర్తు చేస్తుంది. రైతులు తమ శ్రమతో పంటలను పండిస్తారు; సైనికులు దేశాన్ని కాపాడుతారు. వారి కృషి వల్ల సమాజం సురక్షితంగా, సుసంపన్నంగా ముందుకు సాగుతుంది."
+    },
+    {
+      "id": "g6-tel-1",
+      "title": "అభినందన",
+      "subject": "Telugu",
+      "grade": 6,
+      "language": "en",
+      "summary": "🌾 రైతుల శ్రమకు ఒక అందమైన వందనం! ఈ పాఠంలో దేశానికి ఆహారం అందించే రైతులు, సైనికులు మరియు అభివృద్ధికి తోడ్పడే కష్టజీవుల గొప్పతనాన్ని తెలుసుకుందాం.",
+      "heading": "🌾 రైతుల పాత్ర",
+      "text": "రైతు పొలంలో శ్రమించి పంటను పండిస్తాడు. వర్షం, ఎండ, కష్టాలు వచ్చినా తన పనిని కొనసాగిస్తాడు. అందుకే రైతు శ్రమకు గౌరవం ఇవ్వాలి.",
+      "indexed_text": "Telugu. అభినందన. 🌾 రైతుల పాత్ర. రైతు పొలంలో శ్రమించి పంటను పండిస్తాడు. వర్షం, ఎండ, కష్టాలు వచ్చినా తన పనిని కొనసాగిస్తాడు. అందుకే రైతు శ్రమకు గౌరవం ఇవ్వాలి."
+    },
+    {
+      "id": "g6-tel-1",
+      "title": "అభినందన",
+      "subject": "Telugu",
+      "grade": 6,
+      "language": "en",
+      "summary": "🌾 రైతుల శ్రమకు ఒక అందమైన వందనం! ఈ పాఠంలో దేశానికి ఆహారం అందించే రైతులు, సైనికులు మరియు అభివృద్ధికి తోడ్పడే కష్టజీవుల గొప్పతనాన్ని తెలుసుకుందాం.",
+      "heading": "🪖 దేశసేవ",
+      "text": "దేశాన్ని రక్షించే సైనికుల త్యాగం కూడా ఈ పాఠంలో గౌరవించబడుతుంది. వారి ధైర్యం, క్రమశిక్షణ మనకు ప్రేరణ.",
+      "indexed_text": "Telugu. అభినందన. 🪖 దేశసేవ. దేశాన్ని రక్షించే సైనికుల త్యాగం కూడా ఈ పాఠంలో గౌరవించబడుతుంది. వారి ధైర్యం, క్రమశిక్షణ మనకు ప్రేరణ."
+    },
+    {
+      "id": "g6-tel-1",
+      "title": "అభినందన",
+      "subject": "Telugu",
+      "grade": 6,
+      "language": "en",
+      "summary": "🌾 రైతుల శ్రమకు ఒక అందమైన వందనం! ఈ పాఠంలో దేశానికి ఆహారం అందించే రైతులు, సైనికులు మరియు అభివృద్ధికి తోడ్పడే కష్టజీవుల గొప్పతనాన్ని తెలుసుకుందాం.",
+      "heading": "💡 ముఖ్య సందేశం",
+      "text": "సమాజం ముందుకు సాగడానికి అనేక మంది కష్టపడతారు. వారి శ్రమను గుర్తించి గౌరవించడం మన బాధ్యత.",
+      "indexed_text": "Telugu. అభినందన. 💡 ముఖ్య సందేశం. సమాజం ముందుకు సాగడానికి అనేక మంది కష్టపడతారు. వారి శ్రమను గుర్తించి గౌరవించడం మన బాధ్యత."
     },
     {
       "id": "g6-tel-2",
@@ -127,7 +858,64 @@
       "grade": 6,
       "language": "en",
       "summary": "🐦 ఒక కాకి, ఎలుక, తాబేలు, జింక—ఇంత భిన్నమైన జంతువులు మంచి స్నేహితులవుతాయా? ఈ కథలో స్నేహం, సహాయం మరియు కలిసి సమస్యలను పరిష్కరించే శక్తిని తెలుసుకుందాం.",
-      "indexed_text": "Telugu. స్నేహబంధం. 🐦 ఒక కాకి, ఎలుక, తాబేలు, జింక—ఇంత భిన్నమైన జంతువులు మంచి స్నేహితులవుతాయా? ఈ కథలో స్నేహం, సహాయం మరియు కలిసి సమస్యలను పరిష్కరించే శక్తిని తెలుసుకుందాం."
+      "heading": "Overview",
+      "text": "🐦 ఒక కాకి, ఎలుక, తాబేలు, జింక—ఇంత భిన్నమైన జంతువులు మంచి స్నేహితులవుతాయా? ఈ కథలో స్నేహం, సహాయం మరియు కలిసి సమస్యలను పరిష్కరించే శక్తిని తెలుసుకుందాం.",
+      "indexed_text": "Telugu. స్నేహబంధం. Overview. 🐦 ఒక కాకి, ఎలుక, తాబేలు, జింక—ఇంత భిన్నమైన జంతువులు మంచి స్నేహితులవుతాయా? ఈ కథలో స్నేహం, సహాయం మరియు కలిసి సమస్యలను పరిష్కరించే శక్తిని తెలుసుకుందాం."
+    },
+    {
+      "id": "g6-tel-2",
+      "title": "స్నేహబంధం",
+      "subject": "Telugu",
+      "grade": 6,
+      "language": "en",
+      "summary": "🐦 ఒక కాకి, ఎలుక, తాబేలు, జింక—ఇంత భిన్నమైన జంతువులు మంచి స్నేహితులవుతాయా? ఈ కథలో స్నేహం, సహాయం మరియు కలిసి సమస్యలను పరిష్కరించే శక్తిని తెలుసుకుందాం.",
+      "heading": "🐾 ఒక ఆసక్తికరమైన స్నేహం",
+      "text": "ఈ పాఠం స్నేహానికి రూపం, పరిమాణం లేదా జాతి అడ్డంకులు కావని చూపిస్తుంది. కాకి, ఎలుక, తాబేలు, జింక వంటి భిన్నమైన జంతువులు పరస్పరం సహాయం చేసుకుంటూ మంచి స్నేహితులుగా ఉంటాయి.",
+      "indexed_text": "Telugu. స్నేహబంధం. 🐾 ఒక ఆసక్తికరమైన స్నేహం. ఈ పాఠం స్నేహానికి రూపం, పరిమాణం లేదా జాతి అడ్డంకులు కావని చూపిస్తుంది. కాకి, ఎలుక, తాబేలు, జింక వంటి భిన్నమైన జంతువులు పరస్పరం సహాయం చేసుకుంటూ మంచి స్నేహితులుగా ఉంటాయి."
+    },
+    {
+      "id": "g6-tel-2",
+      "title": "స్నేహబంధం",
+      "subject": "Telugu",
+      "grade": 6,
+      "language": "en",
+      "summary": "🐦 ఒక కాకి, ఎలుక, తాబేలు, జింక—ఇంత భిన్నమైన జంతువులు మంచి స్నేహితులవుతాయా? ఈ కథలో స్నేహం, సహాయం మరియు కలిసి సమస్యలను పరిష్కరించే శక్తిని తెలుసుకుందాం.",
+      "heading": "🤝 కలిసి ఉంటే బలం",
+      "text": "ఒక స్నేహితుడికి సమస్య వచ్చినప్పుడు మిగతావారు అతనిని ఒంటరిగా వదిలిపెట్టరు. ప్రతి ఒక్కరి ప్రత్యేకమైన సామర్థ్యం సమూహానికి ఉపయోగపడుతుంది.",
+      "indexed_text": "Telugu. స్నేహబంధం. 🤝 కలిసి ఉంటే బలం. ఒక స్నేహితుడికి సమస్య వచ్చినప్పుడు మిగతావారు అతనిని ఒంటరిగా వదిలిపెట్టరు. ప్రతి ఒక్కరి ప్రత్యేకమైన సామర్థ్యం సమూహానికి ఉపయోగపడుతుంది."
+    },
+    {
+      "id": "g6-tel-2",
+      "title": "స్నేహబంధం",
+      "subject": "Telugu",
+      "grade": 6,
+      "language": "en",
+      "summary": "🐦 ఒక కాకి, ఎలుక, తాబేలు, జింక—ఇంత భిన్నమైన జంతువులు మంచి స్నేహితులవుతాయా? ఈ కథలో స్నేహం, సహాయం మరియు కలిసి సమస్యలను పరిష్కరించే శక్తిని తెలుసుకుందాం.",
+      "heading": "🧠 సమస్యకు పరిష్కారం",
+      "text": "కథలో స్నేహితులు భయపడకుండా ఆలోచిస్తారు. ఎవరి సహాయం ఎప్పుడు అవసరమో గుర్తించి కలిసి పనిచేస్తారు.",
+      "indexed_text": "Telugu. స్నేహబంధం. 🧠 సమస్యకు పరిష్కారం. కథలో స్నేహితులు భయపడకుండా ఆలోచిస్తారు. ఎవరి సహాయం ఎప్పుడు అవసరమో గుర్తించి కలిసి పనిచేస్తారు."
+    },
+    {
+      "id": "g6-tel-2",
+      "title": "స్నేహబంధం",
+      "subject": "Telugu",
+      "grade": 6,
+      "language": "en",
+      "summary": "🐦 ఒక కాకి, ఎలుక, తాబేలు, జింక—ఇంత భిన్నమైన జంతువులు మంచి స్నేహితులవుతాయా? ఈ కథలో స్నేహం, సహాయం మరియు కలిసి సమస్యలను పరిష్కరించే శక్తిని తెలుసుకుందాం.",
+      "heading": "💡 ముఖ్య సందేశం",
+      "text": "నిజమైన స్నేహం అంటే ఆనందాన్ని మాత్రమే పంచుకోవడం కాదు. కష్టసమయంలో తోడుగా నిలబడటం, నమ్మకం ఉంచడం మరియు సహాయం చేయడం.",
+      "indexed_text": "Telugu. స్నేహబంధం. 💡 ముఖ్య సందేశం. నిజమైన స్నేహం అంటే ఆనందాన్ని మాత్రమే పంచుకోవడం కాదు. కష్టసమయంలో తోడుగా నిలబడటం, నమ్మకం ఉంచడం మరియు సహాయం చేయడం."
+    },
+    {
+      "id": "g6-tel-2",
+      "title": "స్నేహబంధం",
+      "subject": "Telugu",
+      "grade": 6,
+      "language": "en",
+      "summary": "🐦 ఒక కాకి, ఎలుక, తాబేలు, జింక—ఇంత భిన్నమైన జంతువులు మంచి స్నేహితులవుతాయా? ఈ కథలో స్నేహం, సహాయం మరియు కలిసి సమస్యలను పరిష్కరించే శక్తిని తెలుసుకుందాం.",
+      "heading": "🎯 మీ ఛాలెంజ్",
+      "text": "మీకు సహాయం చేసిన ఒక స్నేహితుడి గురించి ఆలోచించండి. అతనికి/ఆమెకు మీరు ఎలా సహాయం చేయగలరో రాయండి.",
+      "indexed_text": "Telugu. స్నేహబంధం. 🎯 మీ ఛాలెంజ్. మీకు సహాయం చేసిన ఒక స్నేహితుడి గురించి ఆలోచించండి. అతనికి/ఆమెకు మీరు ఎలా సహాయం చేయగలరో రాయండి."
     },
     {
       "id": "g7-tel-1",
@@ -136,7 +924,64 @@
       "grade": 7,
       "language": "en",
       "summary": "📚 చదువు కేవలం పరీక్షల కోసం కాదు! ఈ పాఠం జ్ఞానం మనిషిలో వివేకం, మంచి ఆలోచన, బాధ్యత మరియు మంచి జీవన విలువలను ఎలా పెంచుతుందో ఆసక్తికరంగా చూపిస్తుంది.",
-      "indexed_text": "Telugu. చదువు. 📚 చదువు కేవలం పరీక్షల కోసం కాదు! ఈ పాఠం జ్ఞానం మనిషిలో వివేకం, మంచి ఆలోచన, బాధ్యత మరియు మంచి జీవన విలువలను ఎలా పెంచుతుందో ఆసక్తికరంగా చూపిస్తుంది."
+      "heading": "Overview",
+      "text": "📚 చదువు కేవలం పరీక్షల కోసం కాదు! ఈ పాఠం జ్ఞానం మనిషిలో వివేకం, మంచి ఆలోచన, బాధ్యత మరియు మంచి జీవన విలువలను ఎలా పెంచుతుందో ఆసక్తికరంగా చూపిస్తుంది.",
+      "indexed_text": "Telugu. చదువు. Overview. 📚 చదువు కేవలం పరీక్షల కోసం కాదు! ఈ పాఠం జ్ఞానం మనిషిలో వివేకం, మంచి ఆలోచన, బాధ్యత మరియు మంచి జీవన విలువలను ఎలా పెంచుతుందో ఆసక్తికరంగా చూపిస్తుంది."
+    },
+    {
+      "id": "g7-tel-1",
+      "title": "చదువు",
+      "subject": "Telugu",
+      "grade": 7,
+      "language": "en",
+      "summary": "📚 చదువు కేవలం పరీక్షల కోసం కాదు! ఈ పాఠం జ్ఞానం మనిషిలో వివేకం, మంచి ఆలోచన, బాధ్యత మరియు మంచి జీవన విలువలను ఎలా పెంచుతుందో ఆసక్తికరంగా చూపిస్తుంది.",
+      "heading": "📚 చదువు ఎందుకు ముఖ్యం?",
+      "text": "‘చదువు’ పాఠం విద్య యొక్క విలువను మనకు గుర్తు చేస్తుంది. చదువు మనిషిలో జ్ఞానాన్ని మాత్రమే కాదు, వివేకాన్ని, ఆలోచనా శక్తిని మరియు మంచి ప్రవర్తనను కూడా పెంచుతుంది.",
+      "indexed_text": "Telugu. చదువు. 📚 చదువు ఎందుకు ముఖ్యం?. ‘చదువు’ పాఠం విద్య యొక్క విలువను మనకు గుర్తు చేస్తుంది. చదువు మనిషిలో జ్ఞానాన్ని మాత్రమే కాదు, వివేకాన్ని, ఆలోచనా శక్తిని మరియు మంచి ప్రవర్తనను కూడా పెంచుతుంది."
+    },
+    {
+      "id": "g7-tel-1",
+      "title": "చదువు",
+      "subject": "Telugu",
+      "grade": 7,
+      "language": "en",
+      "summary": "📚 చదువు కేవలం పరీక్షల కోసం కాదు! ఈ పాఠం జ్ఞానం మనిషిలో వివేకం, మంచి ఆలోచన, బాధ్యత మరియు మంచి జీవన విలువలను ఎలా పెంచుతుందో ఆసక్తికరంగా చూపిస్తుంది.",
+      "heading": "🧠 జ్ఞానం అంటే ఏమిటి?",
+      "text": "చదివిన విషయాలను కేవలం గుర్తుపెట్టుకోవడం సరిపోదు. వాటిని అర్థం చేసుకుని జీవితంలో ఉపయోగించడం ముఖ్యం.",
+      "indexed_text": "Telugu. చదువు. 🧠 జ్ఞానం అంటే ఏమిటి?. చదివిన విషయాలను కేవలం గుర్తుపెట్టుకోవడం సరిపోదు. వాటిని అర్థం చేసుకుని జీవితంలో ఉపయోగించడం ముఖ్యం."
+    },
+    {
+      "id": "g7-tel-1",
+      "title": "చదువు",
+      "subject": "Telugu",
+      "grade": 7,
+      "language": "en",
+      "summary": "📚 చదువు కేవలం పరీక్షల కోసం కాదు! ఈ పాఠం జ్ఞానం మనిషిలో వివేకం, మంచి ఆలోచన, బాధ్యత మరియు మంచి జీవన విలువలను ఎలా పెంచుతుందో ఆసక్తికరంగా చూపిస్తుంది.",
+      "heading": "🌱 జీవితానికి ఉపయోగపడే చదువు",
+      "text": "విద్య మనలో మంచి అలవాట్లు, బాధ్యత, ఇతరుల పట్ల గౌరవం మరియు సరైన నిర్ణయాలు తీసుకునే సామర్థ్యాన్ని పెంచుతుంది.",
+      "indexed_text": "Telugu. చదువు. 🌱 జీవితానికి ఉపయోగపడే చదువు. విద్య మనలో మంచి అలవాట్లు, బాధ్యత, ఇతరుల పట్ల గౌరవం మరియు సరైన నిర్ణయాలు తీసుకునే సామర్థ్యాన్ని పెంచుతుంది."
+    },
+    {
+      "id": "g7-tel-1",
+      "title": "చదువు",
+      "subject": "Telugu",
+      "grade": 7,
+      "language": "en",
+      "summary": "📚 చదువు కేవలం పరీక్షల కోసం కాదు! ఈ పాఠం జ్ఞానం మనిషిలో వివేకం, మంచి ఆలోచన, బాధ్యత మరియు మంచి జీవన విలువలను ఎలా పెంచుతుందో ఆసక్తికరంగా చూపిస్తుంది.",
+      "heading": "💡 పాఠం సందేశం",
+      "text": "చదువు మనిషికి విలువైన సంపద. డబ్బు లేదా వస్తువులు పోవచ్చు, కానీ సంపాదించిన జ్ఞానం జీవితాంతం మనతో ఉంటుంది.",
+      "indexed_text": "Telugu. చదువు. 💡 పాఠం సందేశం. చదువు మనిషికి విలువైన సంపద. డబ్బు లేదా వస్తువులు పోవచ్చు, కానీ సంపాదించిన జ్ఞానం జీవితాంతం మనతో ఉంటుంది."
+    },
+    {
+      "id": "g7-tel-1",
+      "title": "చదువు",
+      "subject": "Telugu",
+      "grade": 7,
+      "language": "en",
+      "summary": "📚 చదువు కేవలం పరీక్షల కోసం కాదు! ఈ పాఠం జ్ఞానం మనిషిలో వివేకం, మంచి ఆలోచన, బాధ్యత మరియు మంచి జీవన విలువలను ఎలా పెంచుతుందో ఆసక్తికరంగా చూపిస్తుంది.",
+      "heading": "🎯 మీ ఛాలెంజ్",
+      "text": "మీరు ఇటీవల నేర్చుకున్న ఒక విషయం మీ జీవితంలో ఎప్పుడు ఉపయోగపడిందో ఆలోచించండి.",
+      "indexed_text": "Telugu. చదువు. 🎯 మీ ఛాలెంజ్. మీరు ఇటీవల నేర్చుకున్న ఒక విషయం మీ జీవితంలో ఎప్పుడు ఉపయోగపడిందో ఆలోచించండి."
     },
     {
       "id": "g7-tel-2",
@@ -145,7 +990,64 @@
       "grade": 7,
       "language": "en",
       "summary": "👵 ఒక ఇంట్లోని పెద్దవారి మాటల్లో కథలు, అనుభవాలు, ప్రేమ దాగి ఉంటాయి. ‘నాయనమ్మ’ పాఠంతో కుటుంబ బంధాలు, జ్ఞాపకాలు మరియు పెద్దల అనుభవాల విలువను తెలుసుకుందాం.",
-      "indexed_text": "Telugu. నాయనమ్మ. 👵 ఒక ఇంట్లోని పెద్దవారి మాటల్లో కథలు, అనుభవాలు, ప్రేమ దాగి ఉంటాయి. ‘నాయనమ్మ’ పాఠంతో కుటుంబ బంధాలు, జ్ఞాపకాలు మరియు పెద్దల అనుభవాల విలువను తెలుసుకుందాం."
+      "heading": "Overview",
+      "text": "👵 ఒక ఇంట్లోని పెద్దవారి మాటల్లో కథలు, అనుభవాలు, ప్రేమ దాగి ఉంటాయి. ‘నాయనమ్మ’ పాఠంతో కుటుంబ బంధాలు, జ్ఞాపకాలు మరియు పెద్దల అనుభవాల విలువను తెలుసుకుందాం.",
+      "indexed_text": "Telugu. నాయనమ్మ. Overview. 👵 ఒక ఇంట్లోని పెద్దవారి మాటల్లో కథలు, అనుభవాలు, ప్రేమ దాగి ఉంటాయి. ‘నాయనమ్మ’ పాఠంతో కుటుంబ బంధాలు, జ్ఞాపకాలు మరియు పెద్దల అనుభవాల విలువను తెలుసుకుందాం."
+    },
+    {
+      "id": "g7-tel-2",
+      "title": "నాయనమ్మ",
+      "subject": "Telugu",
+      "grade": 7,
+      "language": "en",
+      "summary": "👵 ఒక ఇంట్లోని పెద్దవారి మాటల్లో కథలు, అనుభవాలు, ప్రేమ దాగి ఉంటాయి. ‘నాయనమ్మ’ పాఠంతో కుటుంబ బంధాలు, జ్ఞాపకాలు మరియు పెద్దల అనుభవాల విలువను తెలుసుకుందాం.",
+      "heading": "👵 నాయనమ్మతో ఒక అనుబంధం",
+      "text": "‘నాయనమ్మ’ పాఠం కుటుంబంలోని పెద్దలతో మనకు ఉండే అనుబంధాన్ని ముందుకు తెస్తుంది. నాయనమ్మ పాత్ర ద్వారా ప్రేమ, అనుభవం, జ్ఞాపకాలు మరియు కుటుంబ విలువలు మనకు దగ్గరవుతాయి.",
+      "indexed_text": "Telugu. నాయనమ్మ. 👵 నాయనమ్మతో ఒక అనుబంధం. ‘నాయనమ్మ’ పాఠం కుటుంబంలోని పెద్దలతో మనకు ఉండే అనుబంధాన్ని ముందుకు తెస్తుంది. నాయనమ్మ పాత్ర ద్వారా ప్రేమ, అనుభవం, జ్ఞాపకాలు మరియు కుటుంబ విలువలు మనకు దగ్గరవుతాయి."
+    },
+    {
+      "id": "g7-tel-2",
+      "title": "నాయనమ్మ",
+      "subject": "Telugu",
+      "grade": 7,
+      "language": "en",
+      "summary": "👵 ఒక ఇంట్లోని పెద్దవారి మాటల్లో కథలు, అనుభవాలు, ప్రేమ దాగి ఉంటాయి. ‘నాయనమ్మ’ పాఠంతో కుటుంబ బంధాలు, జ్ఞాపకాలు మరియు పెద్దల అనుభవాల విలువను తెలుసుకుందాం.",
+      "heading": "❤️ అనుభవం ఒక సంపద",
+      "text": "పెద్దలు జీవితంలో ఎన్నో పరిస్థితులను చూసి ఉంటారు. వారి మాటల్లో కథలతో పాటు జీవితాన్ని అర్థం చేసుకునే అనుభవం ఉంటుంది.",
+      "indexed_text": "Telugu. నాయనమ్మ. ❤️ అనుభవం ఒక సంపద. పెద్దలు జీవితంలో ఎన్నో పరిస్థితులను చూసి ఉంటారు. వారి మాటల్లో కథలతో పాటు జీవితాన్ని అర్థం చేసుకునే అనుభవం ఉంటుంది."
+    },
+    {
+      "id": "g7-tel-2",
+      "title": "నాయనమ్మ",
+      "subject": "Telugu",
+      "grade": 7,
+      "language": "en",
+      "summary": "👵 ఒక ఇంట్లోని పెద్దవారి మాటల్లో కథలు, అనుభవాలు, ప్రేమ దాగి ఉంటాయి. ‘నాయనమ్మ’ పాఠంతో కుటుంబ బంధాలు, జ్ఞాపకాలు మరియు పెద్దల అనుభవాల విలువను తెలుసుకుందాం.",
+      "heading": "🏠 కుటుంబ బంధం",
+      "text": "నాయనమ్మతో ఉన్న అనుబంధం కుటుంబంలో ప్రేమ, ఆప్యాయత మరియు పరస్పర గౌరవాన్ని చూపిస్తుంది.",
+      "indexed_text": "Telugu. నాయనమ్మ. 🏠 కుటుంబ బంధం. నాయనమ్మతో ఉన్న అనుబంధం కుటుంబంలో ప్రేమ, ఆప్యాయత మరియు పరస్పర గౌరవాన్ని చూపిస్తుంది."
+    },
+    {
+      "id": "g7-tel-2",
+      "title": "నాయనమ్మ",
+      "subject": "Telugu",
+      "grade": 7,
+      "language": "en",
+      "summary": "👵 ఒక ఇంట్లోని పెద్దవారి మాటల్లో కథలు, అనుభవాలు, ప్రేమ దాగి ఉంటాయి. ‘నాయనమ్మ’ పాఠంతో కుటుంబ బంధాలు, జ్ఞాపకాలు మరియు పెద్దల అనుభవాల విలువను తెలుసుకుందాం.",
+      "heading": "💡 ముఖ్య సందేశం",
+      "text": "పెద్దలను గౌరవించడం మాత్రమే కాదు, వారి అనుభవాలను వినడం ద్వారా మనం ఎన్నో విషయాలు నేర్చుకోవచ్చు.",
+      "indexed_text": "Telugu. నాయనమ్మ. 💡 ముఖ్య సందేశం. పెద్దలను గౌరవించడం మాత్రమే కాదు, వారి అనుభవాలను వినడం ద్వారా మనం ఎన్నో విషయాలు నేర్చుకోవచ్చు."
+    },
+    {
+      "id": "g7-tel-2",
+      "title": "నాయనమ్మ",
+      "subject": "Telugu",
+      "grade": 7,
+      "language": "en",
+      "summary": "👵 ఒక ఇంట్లోని పెద్దవారి మాటల్లో కథలు, అనుభవాలు, ప్రేమ దాగి ఉంటాయి. ‘నాయనమ్మ’ పాఠంతో కుటుంబ బంధాలు, జ్ఞాపకాలు మరియు పెద్దల అనుభవాల విలువను తెలుసుకుందాం.",
+      "heading": "🎯 మీ ఛాలెంజ్",
+      "text": "మీ కుటుంబంలోని ఒక పెద్ద వ్యక్తిని అడిగి, వారి చిన్ననాటి గురించి ఒక ఆసక్తికరమైన విషయం తెలుసుకోండి.",
+      "indexed_text": "Telugu. నాయనమ్మ. 🎯 మీ ఛాలెంజ్. మీ కుటుంబంలోని ఒక పెద్ద వ్యక్తిని అడిగి, వారి చిన్ననాటి గురించి ఒక ఆసక్తికరమైన విషయం తెలుసుకోండి."
     }
   ]
 }

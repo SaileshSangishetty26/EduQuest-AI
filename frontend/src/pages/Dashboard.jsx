@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import XPBar from '../components/XPBar';
 import { avatarForUser, badgesFromProgress } from '../utils/gamify';
+import { api } from '../services/api';
 
 const SUBJECTS = [
   { name: 'English', icon: '📖', color: 'var(--gold)' },
@@ -10,14 +11,30 @@ const SUBJECTS = [
   { name: 'Telugu', icon: '📝', color: 'var(--violet)' }
 ];
 
-export default function Dashboard({ user, progress, level, streak, onLessons, onLogout }) {
+const KIND_ICONS = {
+  retry: '🔁',
+  weak_subject: '📉',
+  asked_about: '💬',
+  next_chapter: '✨',
+  revision: '🔎'
+};
+
+export default function Dashboard({ user, progress, level, streak, onLessons, onChat, onLogout, onOpenLesson }) {
+  const [recs, setRecs] = useState([]);
+
+  useEffect(() => {
+    api.recommendations(user.id, { grade: user.grade, limit: 4 })
+      .then(r => setRecs(r.recommendations || []))
+      .catch(() => setRecs([]));
+  }, [user.id, user.grade, progress]);
+
   const avatar = avatarForUser(user);
   const badges = badgesFromProgress(progress);
   const langLabel = user.language === 'te' ? 'Telugu' : user.language === 'hi' ? 'Hindi' : 'English';
 
   return (
     <>
-      <Header user={user} onHome={() => {}} onLessons={onLessons} onLogout={onLogout} level={level} streak={streak} />
+      <Header user={user} onHome={() => {}} onLessons={onLessons} onChat={onChat} onLogout={onLogout} level={level} streak={streak} />
 
       <main className="container">
         <section className="hero">
@@ -26,7 +43,10 @@ export default function Dashboard({ user, progress, level, streak, onLessons, on
             <h1>Welcome back, {user.username} {avatar}</h1>
             <p>Grade {user.grade} · Learning in {langLabel} · {streak > 0 ? `${streak}-day streak 🔥` : 'Start a streak today!'}</p>
             <div className="hero-xp"><XPBar {...level} /></div>
-            <button className="primary quest-cta" onClick={onLessons}>Continue Your Quest →</button>
+            <div className="hero-actions">
+              <button className="primary quest-cta" onClick={onLessons}>Continue Your Quest →</button>
+              <button className="secondary" onClick={onChat}>Ask the Study Buddy 🤖</button>
+            </div>
           </div>
           <div className="hero-badge">
             <div className="level-ring">
@@ -53,6 +73,29 @@ export default function Dashboard({ user, progress, level, streak, onLessons, on
             <span>Average score</span>
           </div>
         </section>
+
+        {recs.length > 0 && (
+          <section className="card recs-card">
+            <div className="section-heading">
+              <div>
+                <span className="eyebrow">RECOMMENDED FOR YOU</span>
+                <h2>What to study next</h2>
+              </div>
+            </div>
+            <div className="recs-list">
+              {recs.map(r => (
+                <button className="rec-item" key={r.lesson_id} onClick={() => onOpenLesson(r)}>
+                  <span className="rec-icon">{KIND_ICONS[r.kind] || '📘'}</span>
+                  <span className="rec-body">
+                    <b>{r.title}</b>
+                    <span className="rec-reason">{r.reason}</span>
+                  </span>
+                  <span className="rec-subject">{r.subject}</span>
+                </button>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className="quest-path card">
           <div className="section-heading">

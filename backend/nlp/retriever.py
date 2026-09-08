@@ -52,7 +52,70 @@ LESSONS_FILE = DATA_DIR / "lessons.json"
 #
 # Always re-tune after changing EMBEDDING_MODEL_NAME:
 #     python -m backend.nlp.test_retrieval
-RELEVANCE_THRESHOLD = 0.35
+RELEVANCE_THRESHOLD = 0.44
+
+
+def _is_heading(line: str) -> bool:
+    """
+    Heading lines open with an emoji and are short.
+
+    The chapter content uses lines like "🔎 TESTING SUBSTANCES" as headings.
+    Sometimes a blank line follows the heading, sometimes the body starts on
+    the next line, so splitting on blank lines alone does not work - the
+    heading has to be recognised directly.
+    """
+    line = line.strip()
+    if not line or len(line) > 70:
+        return False
+    return ord(line[0]) > 0x2000  # emoji / symbol range, not a normal letter
+
+
+def split_sections(lesson: dict) -> list[dict]:
+    """
+    Break a chapter into its sections.
+
+    Indexing whole chapters means the best the chatbot can say is "open this
+    chapter". Indexing sections means it can return the paragraph that actually
+    answers the question.
+
+    The summary is included as the first section so every chapter has at least
+    one entry even when `content` is missing.
+    """
+    sections: list[dict] = []
+
+    summary = (lesson.get("summary") or "").strip()
+    if summary:
+        sections.append({"heading": "Overview", "text": summary})
+
+    heading = "Overview"
+    body: list[str] = []
+
+    def flush() -> None:
+        text = " ".join(body).strip()
+        if text:
+            sections.append({"heading": heading, "text": text})
+
+    for raw_line in (lesson.get("content") or "").split("\n"):
+        line = raw_line.strip()
+        if not line:
+            continue
+        if _is_heading(line):
+            flush()
+            heading = line
+            body = []
+        else:
+            body.append(line)
+    flush()
+
+    return sections
+
+
+def section_index_text(lesson: dict, section: dict) -> str:
+    """What gets embedded for one section."""
+    return (
+        f"{lesson['subject']}. {lesson['title']}. "
+        f"{section['heading']}. {section['text']}"
+    ).strip()
 
 
 def lesson_index_text(lesson: dict) -> str:
@@ -181,14 +244,33 @@ class LessonRetriever:
         query_vector: np.ndarray,
         grade: int | None = None,
         query_text: str | None = None,
+        allow_other_grades: bool = True,
     ) -> dict | None:
-        """Single best lesson, or None if nothing clears the relevance bar."""
+        """
+        Single best section, or None if nothing clears the relevance bar.
+
+        If nothing in the student's own grade is relevant, this falls back to
+        searching every grade. Knowledge does not respect grade boundaries: a
+        Grade 7 student asking "what is an angle" should be pointed at the
+        Grade 6 chapter that covers it, not told the topic does not exist. The
+        result is marked so the reply can say which grade it came from.
+        """
         results = self.search(
             query_vector, grade=grade, top_k=1, query_text=query_text
         )
-        if not results:
+        if results and results[0]["score"] >= RELEVANCE_THRESHOLD:
+            results[0]["from_other_grade"] = False
+            return results[0]
+
+        if not allow_other_grades or grade is None:
             return None
-        return results[0] if results[0]["score"] >= RELEVANCE_THRESHOLD else None
+
+        wider = self.search(query_vector, grade=None, top_k=1, query_text=query_text)
+        if wider and wider[0]["score"] >= RELEVANCE_THRESHOLD:
+            wider[0]["from_other_grade"] = wider[0]["grade"] != grade
+            return wider[0]
+
+        return None
 
 
 @lru_cache(maxsize=1)

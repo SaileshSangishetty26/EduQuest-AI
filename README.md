@@ -1,6 +1,6 @@
-# EduQuest — Weeks 2–6
+# EduQuest — Weeks 2–8
 
-This is the actual implementation for the first six implementation weeks of the EduQuest project.
+This is the actual implementation for the first eight implementation weeks of the EduQuest project.
 
 The original `eduquest.html` was treated as a prototype/reference. The final application is rebuilt with:
 
@@ -12,6 +12,8 @@ The original `eduquest.html` was treated as a prototype/reference. The final app
 - Week 4 basic UI/backend/database setup
 - Week 5 learning content + quiz submission/storage
 - Week 6 NLP preprocessing pipeline (spaCy + NLTK) and DistilBERT embeddings
+- Week 7 intent detection (12 intents, 89.1% CV) and the chatbot endpoint
+- Week 8 React chat interface and rule-based recommendation engine
 
 ## Run
 
@@ -74,5 +76,27 @@ python -m backend.nlp.build_dataset --skip-embeddings
 
 The pipeline is also exposed for live demonstration at `/api/nlp/status`, `/api/nlp/preprocess` and `/api/nlp/embed`. See `docs/week6-nlp-preprocessing.md` for the full design notes and validation report.
 
+### 5. Week 7–8 chatbot and recommendations
+
+```bash
+python -m backend.nlp.build_queries        # 180 queries, 12 intents
+python -m backend.nlp.build_dataset        # query embeddings
+python -m backend.nlp.train_intent         # train + evaluate the classifier
+python -m backend.nlp.build_lesson_index   # semantic index over chapter sections
+python -m backend.nlp.test_retrieval       # retrieval diagnostic
+```
+
+Then start the app and use **Ask AI** in the header. The dashboard shows a
+"What to study next" panel driven by the recommendation engine.
+
+Optional — deepen the content the chatbot can quote from, using chapter PDFs:
+
+```bash
+pip install pypdf
+python -m backend.nlp.ingest_pdfs --list   # expected filenames
+python -m backend.nlp.ingest_pdfs
+python -m backend.nlp.build_lesson_index
+```
+
 ## Important
-The app is intentionally scoped to Week 6. Intent detection and the chatbot core are Week 7 and are not implemented yet.
+The app is intentionally scoped to Week 8. Gamification depth and the teacher dashboard are Week 9; integration testing and deployment are Week 10.

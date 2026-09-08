@@ -15,11 +15,17 @@ Label changes from the Week 2 dataset
    none of which exist in the content bank, so the chatbot's lesson retrieval
    had nothing correct to find.
 
-3. `out_of_scope` gained several "Show me ..." phrasings. Every "show" query
+3. A `browse_content` intent was added. "List the chapters" and "what subjects
+   can I study" are entirely on-topic, but no existing intent covered them, so
+   the classifier had nothing correct to choose and the confidence threshold
+   rejected them. These are catalogue questions, answered by listing content
+   rather than by searching it.
+
+4. `out_of_scope` gained several "Show me ..." phrasings. Every "show" query
    used to belong to progress_help, so the classifier had learned that the verb
    itself meant progress.
 
-4. `definition` and `concept_explanation` were not separable - both contained
+5. `definition` and `concept_explanation` were not separable - both contained
    "What is a X?" phrasings. The boundary is now explicit:
       definition           -> what a TERM means. Short factual answer.
                               "define evaporation", "what does condensation mean"
@@ -35,6 +41,8 @@ Run from the project root:
 from __future__ import annotations
 
 import json
+import re
+from collections import defaultdict
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -113,10 +121,10 @@ QUERIES: dict[str, list[str]] = {
     ],
     "formula_help": [
         "What is the rule for the order of operations?",
-        "Which rule should I use here?",
+        "Which rule applies to this kind of sum?",
         "How do I simplify this expression?",
-        "Tell me the rule for this problem",
-        "Help me remember the steps",
+        "What is the rule for simplifying expressions?",
+        "What are the steps in the correct order?",
         "What is the rule for naming angles?",
         "How do I estimate a large number?",
         "Which method applies to this sum?",
@@ -124,8 +132,8 @@ QUERIES: dict[str, list[str]] = {
         "How do I find the value of an expression?",
         "Give me the rule for place value",
         "What is the method to compare numbers?",
-        "How is an angle measured?",
-        "Tell me the steps to solve this",
+        "Which method is used to measure an angle?",
+        "What is the correct sequence of steps?",
         "What rule gives the correct answer here?",
     ],
     "homework_help": [
@@ -158,7 +166,7 @@ QUERIES: dict[str, list[str]] = {
         "Explain in simple words",
         "This is confusing",
         "Can you say it differently?",
-        "I did not understand your answer",
+        "I did not understand your explanation",
         "Make it easier to understand",
         "Explain once more slowly",
     ],
@@ -171,7 +179,7 @@ QUERIES: dict[str, list[str]] = {
         "I want to attempt a quiz",
         "Give me some practice problems",
         "Can we do a quiz now?",
-        "Test my knowledge",
+        "Test me with some questions",
         "I want to revise with questions",
         "Start the chapter quiz",
         "Give me more questions to practice",
@@ -190,11 +198,45 @@ QUERIES: dict[str, list[str]] = {
         "What is my streak?",
         "How am I performing?",
         "Show my quiz results",
-        "How much XP do I have?",
-        "What was my last quiz score?",
+        "What is my score in English?",
+        "How am I doing in Mathematics?",
+        "What is my Science average?",
         "Show my report",
-        "How many lessons have I finished?",
         "Am I improving?",
+    ],
+    "browse_content": [
+        "List the chapters",
+        "What chapters are there?",
+        "Show me all the chapters",
+        "What subjects can I study?",
+        "Which chapters are in Science?",
+        "What topics are covered?",
+        "Show me the Mathematics chapters",
+        "Which topics does this app cover?",
+        "What can I learn here?",
+        "List the available subjects",
+        "What lessons are available?",
+        "Show me the English chapters",
+        "What is in the syllabus?",
+        "Give me the chapter list",
+        "What lessons does this app have?",
+    ],
+    "study_advice": [
+        "What should I study next?",
+        "How can I improve?",
+        "Where am I weak?",
+        "What should I focus on?",
+        "Which subject do I need to work on?",
+        "Help me plan what to study",
+        "What do you suggest I learn?",
+        "Where should I start?",
+        "Which chapter should I do next?",
+        "Tell me what to revise",
+        "What needs more practice?",
+        "Suggest something for me to study",
+        "Where do I need more work?",
+        "What is the best thing to learn now?",
+        "Give me a study plan",
     ],
     "out_of_scope": [
         "What is today's weather?",
@@ -243,6 +285,8 @@ def build_intents(rows: list[dict]) -> list[dict]:
     """
     descriptions = {
         "greeting": "Student opens the conversation.",
+        "browse_content": "Student asks what chapters or subjects exist. Answered from the content bank, not by search.",
+        "study_advice": "Student asks what to study or where they are weak. Answered by the Week 8 recommendation engine.",
         "definition": "Student asks what a term means. Short factual answer.",
         "concept_explanation": "Student asks how a process works. Longer walkthrough.",
         "example_request": "Student asks to see a worked example.",
@@ -266,6 +310,51 @@ def build_intents(rows: list[dict]) -> list[dict]:
     return intents
 
 
+def _tokens(query: str) -> set[str]:
+    """Token set with subject names masked, for near-duplicate comparison."""
+    text = query.lower().strip("?").strip()
+    text = re.sub(r"\b(english|mathematics|maths|math|science|telugu)\b", "SUBJ", text)
+    return {word.strip(".,!") for word in text.split() if word.strip(".,!")}
+
+
+def check_collisions(rows: list[dict], max_difference: int = 2) -> list[str]:
+    """
+    Warn when two intents contain near-identical phrasings.
+
+    Comparing sentence *prefixes* is not enough: "How many chapters do I have?"
+    and "How many points do I have?" differ at the third word but are the same
+    template, and that pair alone dropped progress_help's recall to 0.33 once.
+    Comparing token sets catches single-word substitutions wherever they fall.
+
+    A symmetric difference of 2 means the two queries differ by exactly one
+    swapped word. The classifier has no way to separate those, so one side
+    needs rewording.
+    """
+    problems: list[str] = []
+    seen: set[tuple[str, str]] = set()
+
+    entries = [(row["intent"], row["query"], _tokens(row["query"])) for row in rows]
+
+    for i, (intent_a, query_a, tokens_a) in enumerate(entries):
+        if len(tokens_a) < 4:
+            continue
+        for intent_b, query_b, tokens_b in entries[i + 1 :]:
+            if intent_a == intent_b or len(tokens_b) < 4:
+                continue
+            if len(tokens_a ^ tokens_b) > max_difference:
+                continue
+            key = tuple(sorted((query_a, query_b)))
+            if key in seen:
+                continue
+            seen.add(key)
+            problems.append(
+                f'  "{query_a}" ({intent_a})\n'
+                f'  "{query_b}" ({intent_b})'
+            )
+
+    return problems
+
+
 def main() -> None:
     rows = build()
 
@@ -277,13 +366,26 @@ def main() -> None:
     if duplicates:
         raise SystemExit(f"Duplicate queries found: {duplicates}")
 
+    collisions = check_collisions(rows)
+    if collisions:
+        print("WARNING - these phrasings appear under more than one intent:")
+        for line in collisions:
+            print(line)
+        print("  The classifier cannot separate identical phrasings. Reword one side.\n")
+
     with open(OUTPUT_FILE, "w", encoding="utf-8") as fh:
         json.dump(rows, fh, indent=2, ensure_ascii=False)
 
     with open(INTENTS_FILE, "w", encoding="utf-8") as fh:
         json.dump(build_intents(rows), fh, indent=2, ensure_ascii=False)
 
+    counts = {intent: len(queries) for intent, queries in sorted(QUERIES.items())}
+    if len(set(counts.values())) > 1:
+        print(f"WARNING - uneven class sizes: {counts}\n")
+
     print(f"Wrote {len(rows)} queries across {len(QUERIES)} intents")
+    if not collisions:
+        print("  No phrasing collisions between intents.")
     print(f"  {OUTPUT_FILE.name}")
     print(f"  {INTENTS_FILE.name}")
     print("\nNext:")
