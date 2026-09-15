@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import { api } from '../services/api';
 
-export default function LessonView({ lesson, user, level, streak, onBack, onQuiz, onLogout }) {
+export default function LessonView({ lesson, user, level, streak, onBack, onQuiz, onLogout, onSettings }) {
   const [quiz, setQuiz] = useState(null);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function LessonView({ lesson, user, level, streak, onBack, onQuiz
 
   return (
     <>
-      <Header user={user} onHome={onBack} onLessons={onBack} onLogout={onLogout} level={level} streak={streak} />
+      <Header user={user} onHome={onBack} onLessons={onBack} onSettings={onSettings} onLogout={onLogout} level={level} streak={streak} />
 
       <main className="container">
         <button className="link" onClick={onBack}>← Lessons</button>

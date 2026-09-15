@@ -52,7 +52,7 @@ LESSONS_FILE = DATA_DIR / "lessons.json"
 #
 # Always re-tune after changing EMBEDDING_MODEL_NAME:
 #     python -m backend.nlp.test_retrieval
-RELEVANCE_THRESHOLD = 0.44
+RELEVANCE_THRESHOLD = 0.49
 
 
 def _is_heading(line: str) -> bool:

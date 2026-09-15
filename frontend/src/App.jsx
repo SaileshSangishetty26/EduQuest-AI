@@ -8,6 +8,7 @@ import Lessons from './pages/Lessons';
 import LessonView from './pages/LessonView';
 import Quiz from './pages/Quiz';
 import Chat from './pages/Chat';
+import ProfileSettings from './components/ProfileSettings';
 
 export default function App(){
   const [user,setUser] = useState(()=>JSON.parse(localStorage.getItem('eduquest_user')||'null'));
@@ -16,6 +17,7 @@ export default function App(){
   const [selectedQuiz,setSelectedQuiz] = useState(null);
   const [progress,setProgress] = useState(null);
   const [streak,setStreak] = useState(0);
+  const [showSettings,setShowSettings] = useState(false);
 
   useEffect(()=>{ if(user) localStorage.setItem('eduquest_user',JSON.stringify(user)); },[user]);
 
@@ -41,15 +43,37 @@ export default function App(){
   const level = levelFromXP(xp);
 
   const nav = (p)=>setPage(p);
-  const shared = { user, level, streak, onLogout: logout, onChat: () => nav('chat') };
+  const shared = {
+    user, level, streak,
+    onLogout: logout,
+    onChat: () => nav('chat'),
+    onSettings: () => setShowSettings(true)
+  };
 
   const openLessonById = (ref) => {
     api.lesson(ref.id).then(l => { setSelectedLesson(l); setPage('lesson'); }).catch(()=>{});
   };
 
-  if(page==='chat') return <Chat {...shared} onBack={()=>nav('dashboard')} onLessons={()=>nav('lessons')} onOpenLesson={openLessonById}/>;
-  if(page==='lessons') return <Lessons {...shared} onBack={()=>nav('dashboard')} onOpenLesson={(l)=>{setSelectedLesson(l);setPage('lesson')}} onOpenQuiz={(q)=>{setSelectedQuiz(q);setPage('quiz')}}/>;
-  if(page==='lesson') return <LessonView {...shared} lesson={selectedLesson} onBack={()=>nav('lessons')} onQuiz={(q)=>{setSelectedQuiz(q);setPage('quiz')}}/>;
-  if(page==='quiz') return <Quiz {...shared} quiz={selectedQuiz} onBack={()=>{nav('lessons'); refreshProgress();}} onSubmitted={refreshProgress}/>;
-  return <Dashboard {...shared} progress={progress} onLessons={()=>nav('lessons')} onOpenLesson={openLessonById}/>;
+  // The settings panel overlays whichever page is open, so it is rendered
+  // alongside the page rather than replacing it.
+  const settingsPanel = showSettings ? (
+    <ProfileSettings
+      user={user}
+      onUpdated={setUser}
+      onClose={()=>setShowSettings(false)}
+    />
+  ) : null;
+
+  const withSettings = (pageElement) => (
+    <>
+      {pageElement}
+      {settingsPanel}
+    </>
+  );
+
+  if(page==='chat') return withSettings( <Chat {...shared} onBack={()=>nav('dashboard')} onLessons={()=>nav('lessons')} onOpenLesson={openLessonById}/>);
+  if(page==='lessons') return withSettings(<Lessons {...shared} onBack={()=>nav('dashboard')} onOpenLesson={(l)=>{setSelectedLesson(l);setPage('lesson')}} onOpenQuiz={(q)=>{setSelectedQuiz(q);setPage('quiz')}}/>);
+  if(page==='lesson') return withSettings(<LessonView {...shared} lesson={selectedLesson} onBack={()=>nav('lessons')} onQuiz={(q)=>{setSelectedQuiz(q);setPage('quiz')}}/>);
+  if(page==='quiz') return withSettings(<Quiz {...shared} quiz={selectedQuiz} onBack={()=>{nav('lessons'); refreshProgress();}} onSubmitted={refreshProgress}/>);
+  return withSettings(<Dashboard {...shared} progress={progress} onLessons={()=>nav('lessons')} onOpenLesson={openLessonById}/>);
 }

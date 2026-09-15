@@ -2,7 +2,7 @@ import React from 'react';
 import XPBar from './XPBar';
 import { avatarForUser } from '../utils/gamify';
 
-export default function Header({ user, onHome, onLessons, onChat, onLogout, level, streak }) {
+export default function Header({ user, onHome, onLessons, onChat, onSettings, onLogout, level, streak }) {
   const avatar = avatarForUser(user);
   return (
     <header className="topbar">
@@ -27,6 +27,15 @@ export default function Header({ user, onHome, onLessons, onChat, onLogout, leve
           <div className="topbar-xp">
             <XPBar {...level} compact />
           </div>
+        )}
+        {onSettings && (
+          <button
+            className="settings-btn"
+            onClick={onSettings}
+            title="Change grade or language"
+          >
+            ⚙️
+          </button>
         )}
         <span className="avatar-chip">{avatar}</span>
         <button className="logout" onClick={onLogout}>Logout</button>

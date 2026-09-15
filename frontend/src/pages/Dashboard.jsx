@@ -19,7 +19,7 @@ const KIND_ICONS = {
   revision: '🔎'
 };
 
-export default function Dashboard({ user, progress, level, streak, onLessons, onChat, onLogout, onOpenLesson }) {
+export default function Dashboard({ user, progress, level, streak, onLessons, onChat, onLogout, onSettings, onOpenLesson }) {
   const [recs, setRecs] = useState([]);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function Dashboard({ user, progress, level, streak, onLessons, on
 
   return (
     <>
-      <Header user={user} onHome={() => {}} onLessons={onLessons} onChat={onChat} onLogout={onLogout} level={level} streak={streak} />
+      <Header user={user} onHome={() => {}} onLessons={onLessons} onChat={onChat} onSettings={onSettings} onLogout={onLogout} level={level} streak={streak} />
 
       <main className="container">
         <section className="hero">

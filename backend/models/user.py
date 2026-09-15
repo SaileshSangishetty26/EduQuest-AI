@@ -11,6 +11,16 @@ class LoginRequest(BaseModel):
     username: str
     password: str
 
+class UpdateProfileRequest(BaseModel):
+    """
+    Change grade and/or language after registration.
+
+    Both are optional so the client can send just the one being changed.
+    """
+    grade: Optional[int] = None
+    language: Optional[str] = None
+
+
 class PublicUser(BaseModel):
     id: str
     username: str

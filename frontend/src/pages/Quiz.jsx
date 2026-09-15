@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Confetti from '../components/Confetti';
 import { api } from '../services/api';
 
-export default function Quiz({ quiz, user, level, streak, onBack, onLogout, onSubmitted }) {
+export default function Quiz({ quiz, user, level, streak, onBack, onLogout, onSettings, onSubmitted }) {
   const [answers, setAnswers] = useState({});
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
@@ -45,7 +45,7 @@ export default function Quiz({ quiz, user, level, streak, onBack, onLogout, onSu
 
   return (
     <>
-      <Header user={user} onHome={onBack} onLessons={onBack} onLogout={onLogout} level={level} streak={streak} />
+      <Header user={user} onHome={onBack} onLessons={onBack} onSettings={onSettings} onLogout={onLogout} level={level} streak={streak} />
 
       <main className="container">
         {celebrate && <Confetti />}

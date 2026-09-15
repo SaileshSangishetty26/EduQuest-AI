@@ -1,7 +1,13 @@
 import hashlib, os, binascii
 from fastapi import APIRouter, HTTPException
+from bson import ObjectId
+from pymongo import ReturnDocument
+
 from ..database import users
-from ..models.user import RegisterRequest, LoginRequest
+from ..models.user import LoginRequest, RegisterRequest, UpdateProfileRequest
+
+GRADES = [6, 7]
+LANGUAGES = ["en", "te", "hi"]
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 
@@ -24,9 +30,9 @@ def public_user(doc):
 
 @router.post("/register")
 def register(req: RegisterRequest):
-    if req.grade not in [6,7]:
+    if req.grade not in GRADES:
         raise HTTPException(400, "Grade must be 6 or 7")
-    if req.language not in ["en","te","hi"]:
+    if req.language not in LANGUAGES:
         raise HTTPException(400, "Unsupported language")
     if users.find_one({"username": req.username}):
         raise HTTPException(409, "Username already exists")
@@ -42,3 +48,43 @@ def login(req: LoginRequest):
     if not doc or not verify_password(req.password, doc["password_hash"]):
         raise HTTPException(401, "Invalid username or password")
     return {"message":"Login successful", "user":public_user(doc)}
+
+
+@router.patch("/profile/{user_id}")
+def update_profile(user_id: str, req: UpdateProfileRequest):
+    """
+    Change a student's grade or preferred language after registration.
+
+    Both were fixed at sign-up originally, which left a student who picked the
+    wrong one with no way to correct it - and, because lessons are filtered by
+    language, an empty Lessons page they could not explain.
+    """
+    changes = {}
+
+    if req.grade is not None:
+        if req.grade not in GRADES:
+            raise HTTPException(400, "Grade must be 6 or 7")
+        changes["grade"] = req.grade
+
+    if req.language is not None:
+        if req.language not in LANGUAGES:
+            raise HTTPException(400, "Unsupported language")
+        changes["language"] = req.language
+
+    if not changes:
+        raise HTTPException(400, "Nothing to update")
+
+    try:
+        object_id = ObjectId(user_id)
+    except Exception:
+        raise HTTPException(400, "Invalid user id")
+
+    result = users.find_one_and_update(
+        {"_id": object_id},
+        {"$set": changes},
+        return_document=ReturnDocument.AFTER,
+    )
+    if result is None:
+        raise HTTPException(404, "User not found")
+
+    return {"message": "Profile updated", "user": public_user(result)}

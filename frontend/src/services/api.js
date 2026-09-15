@@ -71,6 +71,12 @@ export const api = {
   progress: (userId) =>
     request(`/progress/${userId}`),
 
+  updateProfile: (userId, payload) =>
+    request(`/auth/profile/${userId}`, {
+      method: 'PATCH',
+      body: JSON.stringify(payload)
+    }),
+
   chat: (payload) =>
     request('/chat', {
       method: 'POST',

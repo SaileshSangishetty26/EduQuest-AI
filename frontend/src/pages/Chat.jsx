@@ -23,7 +23,7 @@ const INTENT_LABELS = {
   out_of_scope: 'Off topic'
 };
 
-export default function Chat({ user, level, streak, onBack, onLessons, onLogout, onOpenLesson }) {
+export default function Chat({ user, level, streak, onBack, onLessons, onLogout, onSettings, onOpenLesson }) {
   const [messages, setMessages] = useState([
     {
       from: 'bot',
@@ -81,7 +81,7 @@ export default function Chat({ user, level, streak, onBack, onLessons, onLogout,
 
   return (
     <>
-      <Header user={user} onHome={onBack} onLessons={onLessons} onLogout={onLogout} level={level} streak={streak} />
+      <Header user={user} onHome={onBack} onLessons={onLessons} onSettings={onSettings} onLogout={onLogout} level={level} streak={streak} />
 
       <main className="container">
         <button className="link" onClick={onBack}>← Dashboard</button>
