@@ -122,7 +122,7 @@ From the project root, with the virtual environment active:
 
 ```bash
 pip install -r backend/requirements-dev.txt   # once: pytest, mongomock, httpx
-python -m pytest                              # 92 automated tests, ~10 seconds, no database needed
+python -m pytest                              # 94 automated tests, ~10 seconds, no database needed
 python -m backend.check_system                # the whole app end to end on your MongoDB and models
 ```
 

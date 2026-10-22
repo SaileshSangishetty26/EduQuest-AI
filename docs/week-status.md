@@ -55,7 +55,7 @@
 | 10 | Maths calculations with working (fractions, integers, primes, HCF/LCM, perimeter/area) | COMPLETE |
 | 10 | Telugu questions answered from the Telugu chapters | COMPLETE |
 | 10 | One chat pipeline for the app, demo and tests (`backend/chatbot/service.py`) | COMPLETE |
-| 10 | Automated tests: 92 backend tests on an in-memory database (`python -m pytest`) | COMPLETE |
+| 10 | Automated tests: 94 backend tests on an in-memory database (`python -m pytest`) | COMPLETE |
 | 10 | End-to-end system check on the real database and models (`python -m backend.check_system`) | COMPLETE |
 | 10 | Readable chatbot passages (no exercise items, figure labels or false true/false statements) | COMPLETE |
 | 10 | Maths working for multi-step sums; division by zero answered | COMPLETE |

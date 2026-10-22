@@ -6,7 +6,7 @@ reliably. Testing is done at four levels, from fastest to slowest:
 
 | Level | Command (from the project root) | What it covers | Needs |
 |---|---|---|---|
-| 1. Automated tests | `python -m pytest` | 92 tests of the backend rules and API | nothing running |
+| 1. Automated tests | `python -m pytest` | 94 tests of the backend rules and API | nothing running |
 | 2. System check | `python -m backend.check_system` | the whole app end to end, 32 checks | MongoDB, trained models |
 | 3. Model accuracy | `python -m backend.nlp.test_retrieval`, `python -m backend.nlp.test_answers` | chapter search and exact answers | MongoDB, models |
 | 4. Screens | `npm run build`, then the demo run-through below | every page at desktop and phone width | everything running |
@@ -26,7 +26,7 @@ whole suite takes about ten seconds and can be run after every change.
 | `test_quiz_and_gamification.py` | 15 | server-side scoring and review, blank answers, per-question results stored; every XP rule, no XP farming on retakes, badges (first chapter, perfect score, comeback, streaks), levels, streaks counted in Indian time (23:50 and 00:10 IST are two days), leaderboard ties and teacher exclusion, reward avatars locked by level |
 | `test_recommendations.py` | 6 | new student starts at chapter 1 of each subject, read-but-untested suggests the quiz, a failed quiz comes first, a passed retake clears it, repeated chatbot questions suggest that chapter, no duplicates |
 | `test_teacher.py` | 15 | only teachers can open the dashboard; scores use the latest attempt; flags (low average, inactive, not started); weak concepts name the struggling students and need 5+ answers; a fixed concept stops being weak; trend days in Indian time; week-on-week; old Grade 7 attempts ignored; unanswered chatbot questions grouped; the demo class adds up and removes cleanly; `create_teacher` |
-| `test_chatbot_rules.py` | 43 | maths solver (fractions, primes, HCF/LCM, area/perimeter, integers, order of operations, division by zero, never runs code); when to give a short answer or an explanation; answer support scoring; exercise blanks never answers; Telugu detection and answers; the chat route for calculations and Telugu; a clear message when models are missing; readable passages |
+| `test_chatbot_rules.py` | 45 | maths solver (fractions, primes, HCF/LCM, area/perimeter, integers, order of operations, division by zero, never runs code); when to give a short answer or an explanation; answer support scoring; exercise blanks never answers; Telugu detection and answers; the chat route for calculations and Telugu; a clear message when models are missing; readable passages |
 
 ## 2. System check (`backend/check_system.py`)
 
@@ -43,6 +43,10 @@ using FastAPI's test client (the server does not need to be running):
 7. **Clean-up** - both temporary accounts and everything they created are deleted.
 
 The results are written to `data/processed/system_check.md`.
+
+**Result on the project laptop (22 Oct 2026): 32 of 32 checks passed.** The first
+chatbot reply took 10 seconds because it loads the models; every later reply took
+under 0.3 seconds, and the class dashboard loaded in 0.1 seconds.
 
 ## 3. Model accuracy
 
@@ -68,6 +72,7 @@ scrolls sideways on a phone. `npm run build` must finish without errors.
 | tests | "what is 10 divided by 0" fell through to the textbook search and returned an unrelated passage | answered directly: division by zero has no answer, and why |
 | tests | "12 - 4 - 3" was given a tip about negative numbers | the tip is only shown when negative numbers are involved |
 | sample report | explanations sometimes quoted exercise items, figure labels or glossary notes - "prime number what mean" quoted a true-or-false exercise whose statements are false | replies now show the 2-3 sentences that best match the question, skip questions, instructions, numbered items and figure labels, prefer a prose section of the same chapter over an exercise block, and fall back to the chapter summary (`backend/nlp/excerpt.py`); the chapter matched never changes |
+| refreshed sample report | a bulleted summary list came through as one long "sentence" (the PDF bullets are control characters), and "powers of 2. Sometimes" was cut at "2." as if it were an exercise number | bullets break sentences; an item number only counts after the end of a sentence |
 | screenshots (Week 9) | the teacher page scrolled sideways on phones | screen-reader text is kept inside its scrolling table |
 
 ## Demo run-through (about 10 minutes)
