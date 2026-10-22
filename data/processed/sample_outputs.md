@@ -31,7 +31,7 @@ Answered by finding the passage in the chapter that addresses them.
 
 **Reply:**
 
-> Moreover, they grow long hair from head to neck, which help them survive the cold winters of Ladakh. What other features can help camels to survive in the desert? Other students also start sharing their observations. Kashi from Rajasthan says that camels excrete small amounts of urine, their dung is dry, and they do not sweat. As camels do not lose much water from their bodies, they can survive for many days without drinking water.
+> As camels do not lose much water from their bodies, they can survive for many days without drinking water.
 >
 > Read the rest in "Diversity in the Living World", Science, for the full walkthrough.
 
@@ -45,7 +45,7 @@ Answered by finding the passage in the chapter that addresses them.
 
 **Reply:**
 
-> Points help us describe positions. Lines and line segments connect points, while rays extend in one direction.
+> Lines and line segments connect points, while rays extend in one direction.
 >
 > Read the rest in "Lines and Angles", Mathematics, for the full walkthrough.
 
@@ -59,7 +59,7 @@ Answered by finding the passage in the chapter that addresses them.
 
 **Reply:**
 
-> A symmetry refers to a part or parts of a figure that are repeated in some definite pattern. Taj Mahal Gopuram What are the symmetries that you see in these beautiful structures? Clouds Symmetry 9.1 Line of Symmetry Figure (a) shows the picture of a blue triangle with a dotted line. What if you fold the triangle along the dotted line?
+> A symmetry refers to a part or parts of a figure that are repeated in some definite pattern.
 >
 > That is from "Symmetry" in Mathematics.
 
@@ -73,7 +73,7 @@ Answered by finding the passage in the chapter that addresses them.
 
 **Reply:**
 
-> Some important examples of number sequences include the counting numbers, odd numbers, even numbers, square numbers, triangular numbers, cube numbers, Virahānka numbers, and powers of 2. Sometimes number sequences can be related to each other in beautiful and remarkable ways. For example, adding up the sequence of odd numbers starting with 1 gives square numbers. Visualising number sequences using pictures can help to understand sequences and the relationships between them.
+> Some important examples of number sequences include the counting numbers, odd numbers, even numbers, square numbers, triangular numbers, cube numbers, Virahānka numbers, and powers of
 >
 > There are more examples in "Patterns in Mathematics", and its quiz gives you real questions to try.
 
@@ -91,7 +91,7 @@ No shared keyword with the chapter title, so these test understanding of meaning
 
 **Reply:**
 
->  The special features that enable plants and animals to survive in a particular region are called adaptations.  The place where plants and animals live is their habitat.  Based on their habitats, animals and plants can be grouped as terrestrial and aquatic.  Due to damage of their habitats, plants and animals lose their homes, food and other resources resulting in the loss of biodiversity.
+> 🌿 Why does a camel survive in a desert while a fish thrives in water? Explore the amazing variety of living things and the features that help them survive in different environments.
 >
 > Read the rest in "Diversity in the Living World", Science, for the full walkthrough.
 
@@ -105,7 +105,7 @@ No shared keyword with the chapter title, so these test understanding of meaning
 
 **Reply:**
 
-> sudha MurTy muttered: spoke in a low voice wisdom: deep understanding precious: valuable Let us discuss 1. Why was Rama Natha angry? 2. How did Rama Natha and Madhumati create wealth? Poorvi—Grade 6 Let us think and reflect I Read the following lines and answer the questions that follow. 1. He spent all his time to learn about the magic potion.
+> 🪙 What if a few drops of dew could make you rich? Rama Natha is determined to find a magical shortcut—but his search leads to a surprising discovery about where real wealth comes from.
 >
 > Read the rest in "A Bottle of Dew", English, for the full walkthrough.
 
@@ -121,7 +121,7 @@ No shared keyword with the chapter title, so these test understanding of meaning
 
 > I am not certain what you were asking, but this looks relevant:
 >
-> The story, ‘The Elephant and the Dog’ is found in the Jataka tales. These stories are ancient Buddhist stories of life values and wisdom. These stories have been told from one generation to the next for over two thousand years. Find and read another Jataka story. 2. Elephants have historically held significant roles in Indian culture, spanning history, warfare, religion, festivals and more.
+> The story, ‘The Elephant and the Dog’ is found in the Jataka tales. These stories are ancient Buddhist stories of life values and wisdom. These stories have been told from one generation to the next for over two thousand years.
 >
 > That is from "The Unlikely Best Friends" in English. If that is not what you meant, try rephrasing.
 
@@ -429,7 +429,7 @@ The classifier is unsure, but a relevant chapter is still found and shown with a
 
 > I am not certain what you were asking, but this looks relevant:
 >
-> 36 Q. Name the different angles in the figure and write their measures. Ans. ∠POQ = 35° ∠POR = 95° ∠POS = 125° ∠POT = 160° ∠QOR = 60° ∠QOS = 90° ∠QOT = 125° ∠QOU = 145° ∠ROS = 30° ∠ROT = 65° ∠ROU = 85° ∠SOT = 35° ∠SOU = 55° ∠TOU = 20° [8] Page No. 40 Think!
+> 📐 Grab your imaginary ruler and protractor! Learn how lines, rays and angles behave, then use diagrams to name and understand them.
 >
 > That is from "Lines and Angles" in Mathematics. If that is not what you meant, try rephrasing.
 
@@ -443,7 +443,7 @@ The classifier is unsure, but a relevant chapter is still found and shown with a
 
 **Reply:**
 
-> A product of primes can also be prime. c. Prime numbers do not have any factors. d. All even numbers are composite numbers. e. 2 is a prime and so is the next number, 3. For every other prime, the next number is composite. Ans. a. True, unit digit 4 means even number. We know that 2 is the only even prime number.
+> Prime numbers are numbers like 2, 3, 5, 7, 11, … that have only two factors, namely 1 and themselves. Composite numbers are numbers like 4, 6, 8, 9, … that have more than 2 factors, i.e., at least one factor other than 1 and themselves. For example, 8 has the factor 4 and 9 has the factor 3, so 8 and 9 are both composite.
 >
 > That is from "Prime Time" in Mathematics.
 
