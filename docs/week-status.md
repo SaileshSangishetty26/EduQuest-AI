@@ -182,5 +182,19 @@ Gajaraj", the laboratory thermometer's range) had no correct candidate in the
 model's top three - a limit of the DistilBERT answer model rather than of the
 ranking.
 
+Model comparison on the same 35 questions:
+
+| Answer model | Overall | Wrong answers shown (0.3) | Size |
+|---|---|---|---|
+| `distilbert-base-cased-distilled-squad` | **30/35** | 6 | 261 MB |
+| `deepset/roberta-base-squad2` | 27/35 | 3 | 496 MB |
+
+RoBERTa fixed two questions (the thermometer range; "who was Gajaraj" ->
+"elephant") but lost five, scoring lower in general because it reserves
+probability for "no answer", and it proposed exercise blanks ("__________") and
+section numbers ("3.6") as answers. DistilBERT stays: more right answers, half
+the size, and consistent with the DistilBERT stack in the action plan. Blank
+lines and answer-key labels are now never offered as answers.
+
 ## Still open
 Week 9 teacher dashboard; Week 10 integration, testing and deployment. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.

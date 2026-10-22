@@ -135,6 +135,16 @@ def _clean_span(text: str) -> str:
     return text.strip().strip(",;:").strip()
 
 
+def is_junk(text: str) -> bool:
+    """Spans that are never an answer: exercise blanks and answer-key labels."""
+    t = text.strip().strip(".:")
+    return (
+        not any(ch.isalnum() for ch in t)
+        or "___" in t
+        or t.lower() in {"ans", "answer", "q", "fig"}
+    )
+
+
 class AnswerExtractor:
     def __init__(self, model_name: str = QA_MODEL_NAME, tokenizer=None, model=None) -> None:
         self.model_name = model_name
@@ -221,7 +231,7 @@ class AnswerExtractor:
             if len(context.split()) < 5:
                 continue
             text, score, start, end = self._best_span(question, context)
-            if not text:
+            if not text or is_junk(text):
                 continue
             sentence = sentence_around(context, start, end)
             backing = support(question, sentence)
