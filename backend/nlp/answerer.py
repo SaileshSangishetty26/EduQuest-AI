@@ -53,6 +53,14 @@ from .config import QA_MODEL_NAME
 # `python -m backend.nlp.test_answers`.
 ANSWER_THRESHOLD = 0.30
 
+# How much the model's confidence counts against word-order support when
+# ranking candidates: rank = score * (RANK_BASE + (1 - RANK_BASE) * support).
+# At 0.4 (run 2), support dominated and a sentence that merely repeated the
+# question ("find the temperature range of a laboratory thermometer") beat the
+# real answer ("Its range is from -10 C to 110 C"). 0.6 keeps the look-alike
+# fixes (evaporation, prime, transparent) - see docs/week-status.md.
+RANK_BASE = 0.6
+
 MAX_ANSWER_TOKENS = 30   # longer spans are almost always wrong
 MAX_LENGTH = 384         # question + passage tokens per window
 STRIDE = 96              # overlap when a passage needs more than one window
@@ -223,7 +231,7 @@ class AnswerExtractor:
                 sentence=sentence,
                 passage=passage,
                 support=backing,
-                rank=round(score * (0.4 + 0.6 * backing), 4),
+                rank=round(score * (RANK_BASE + (1 - RANK_BASE) * backing), 4),
             ))
         found.sort(key=lambda a: a.rank, reverse=True)
         return found

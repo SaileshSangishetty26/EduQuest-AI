@@ -141,26 +141,37 @@ class ChatService:
             if found:
                 base["top_passage"] = {"title": found[0]["title"], "score": found[0]["score"]}
             passages = [p for p in found if p["score"] >= QA_MIN_RELEVANCE]
+            ranked = []
             if passages:
                 try:
-                    candidate = (self.extractor or get_answer_extractor()).best_answer(message, passages)
+                    ranked = (self.extractor or get_answer_extractor()).candidates(message, passages)
                 except Exception:
                     # The answer model is optional: if it is missing or fails
                     # to load, fall back to the passage reply below.
-                    candidate = None
-            answer = candidate
-            if answer is not None:
-                weak_passage = answer.passage["score"] < RELEVANCE_THRESHOLD
-                if answer.score < ANSWER_THRESHOLD:
-                    answer = None
-                elif (weak_passage or maybe_textbook) and answer.support < MIN_SUPPORT:
-                    answer = None
-            # Kept for test_answers.py: the best guess even when it was rejected.
+                    ranked = []
+
+            def acceptable(c) -> bool:
+                if c.score < ANSWER_THRESHOLD:
+                    return False
+                weak_passage = c.passage["score"] < RELEVANCE_THRESHOLD
+                return not ((weak_passage or maybe_textbook) and c.support < MIN_SUPPORT)
+
+            # The best-ranked candidate that passes the checks. Taking only the
+            # top one meant a rejected guess ("5683") hid a good one ("6174").
+            answer = next((c for c in ranked if acceptable(c)), None)
+            candidate = ranked[0] if ranked else None
+
+            # Kept for test_answers.py: what the model proposed, shown or not.
             base["candidate"] = (
                 {"text": candidate.text, "score": candidate.score,
                  "support": candidate.support, "rank": candidate.rank}
                 if candidate else None
             )
+            base["candidates"] = [
+                {"text": c.text, "score": c.score, "support": c.support, "rank": c.rank,
+                 "relevance": c.passage["score"], "accepted": acceptable(c)}
+                for c in ranked[:3]
+            ]
             if answer is not None:
                 if maybe_textbook:
                     # Labelled off-topic, but the textbook answered it: report

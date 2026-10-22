@@ -166,5 +166,12 @@ for transparent). Changes after that run:
   SQuAD 2.0 models (e.g. `deepset/roberta-base-squad2`) can also decline when
   a passage does not contain the answer.
 
+Second run: 27/35 (77%). The off-topic check and word-order support fixed five
+questions, but support was weighted too heavily (a sentence repeating the
+question beat the real answer), and a rejected top candidate hid an acceptable
+second one. Support now counts for 40% of the rank instead of 60%
+(`RANK_BASE`), the first *acceptable* candidate is used, and the test prints
+the top three candidates for every question.
+
 ## Still open
 Week 9 teacher dashboard; Week 10 integration, testing and deployment. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.

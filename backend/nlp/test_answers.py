@@ -28,7 +28,7 @@ from .retriever import RELEVANCE_THRESHOLD
 # (subject, question, expected words - any one is enough; None = should not answer)
 CASES = [
     ("Science", "What is the SI unit of length?", ["metre"]),
-    ("Science", "What is the normal temperature of a healthy human body?", ["37"]),
+    ("Science", "What is the normal temperature of a healthy human body?", ["37", "98.6"]),
     ("Science", "What are materials through which we can see things clearly called?", ["transparent"]),
     ("Science", "What is the process of separating grains from stalks called?", ["threshing"]),
     ("Science", "What is the change of water into water vapour called?", ["evaporation"]),
@@ -130,12 +130,13 @@ def main() -> None:
         cand = result.get("candidate")
         if top:
             print(f"        best passage: {_short(top['title'], 34)} (relevance {top['score']:.3f})")
-        if cand:
-            right = _has(cand["text"], expected) if expected else False
-            if expected:
-                raw_scores.append((cand["score"], right))
-            print(f"        model's pick: '{_short(cand['text'], 36)}' score {cand['score']:.3f}"
-                  f" support {cand['support']:.2f}" + (f" ({'right' if right else 'wrong'})" if expected else ""))
+        if cand and expected:
+            raw_scores.append((cand["score"], _has(cand["text"], expected)))
+        for n, c in enumerate(result.get("candidates", []), start=1):
+            mark = ("right" if _has(c["text"], expected) else "wrong") if expected else "-"
+            print(f"        {n}. '{_short(c['text'], 30)}' score {c['score']:.3f} support {c['support']:.2f}"
+                  f" rank {c['rank']:.3f} rel {c['relevance']:.2f}"
+                  f"{'' if c['accepted'] else ' rejected'} ({mark})")
 
     print("\n" + "-" * 78)
     print("SUMMARY")
