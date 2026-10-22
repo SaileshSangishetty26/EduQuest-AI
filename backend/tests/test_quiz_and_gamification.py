@@ -183,3 +183,34 @@ def test_pass_mark_is_60_percent(client, register, right, passed):
     stats = client.get(f"/api/gamification/{user['id']}").json()["stats"]
     assert (stats["quizzes_passed"] == 1) is passed
     assert profile["score"] == right * 20
+
+
+# --- data for the home and chapters pages (Week 10 redesign) ------------------------
+
+def test_week_strip_marks_active_days(db):
+    _read_at(db, "u1", "g6-eng-1", ist(2026, 10, 20, 18))
+    _read_at(db, "u1", "g6-eng-2", ist(2026, 10, 22, 7))
+    week = GamificationEngine(db, now=ist(2026, 10, 22, 9)).profile("u1")["week"]
+    assert [d["date"] for d in week] == [f"2026-10-{n}" for n in range(16, 23)]
+    assert [d["active"] for d in week] == [False, False, False, False, True, False, True]
+
+
+def test_subject_report_and_chapter_marks(client, register):
+    user = register("asha")
+    client.post("/api/lessons/g6-sci-1/complete", json={"user_id": user["id"]})
+    client.post("/api/lessons/g6-sci-2/complete", json={"user_id": user["id"]})
+    submit(client, user, QUIZ, answers(QUIZ, 5))
+    submit(client, user, QUIZ, answers(QUIZ, 2))                      # latest 40, best 100
+    submit(client, user, "q-g6-math-1", answers("q-g6-math-1", 3))
+    profile = client.get(f"/api/gamification/{user['id']}").json()
+
+    report = {r["subject"]: r for r in profile["subjects"]}
+    assert list(report) == ["English", "Mathematics", "Science", "Telugu"]
+    assert report["Science"] == {"subject": "Science", "chapters": 12, "read": 2, "quizzes_taken": 1,
+                                 "quizzes_passed": 1, "average": 40}
+    assert report["Mathematics"]["average"] == 60 and report["Mathematics"]["read"] == 0
+    assert report["English"]["average"] is None
+
+    marks = profile["quiz_marks"]
+    assert marks[LESSON] == {"latest": 40, "best": 100, "attempts": 2, "passed": True}
+    assert marks["g6-math-1"]["latest"] == 60

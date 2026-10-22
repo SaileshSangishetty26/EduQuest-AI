@@ -62,6 +62,7 @@ export default function App(){
   const nav = (p)=>{ setPage(p); window.scrollTo(0, 0); };
   const navigation = {
     page,
+    game,
     home: () => nav('dashboard'),
     lessons: () => nav('lessons'),
     leaderboard: () => nav('leaderboard'),
@@ -80,14 +81,18 @@ export default function App(){
   const openLessonById = (ref) => {
     api.lesson(ref.id || ref.lesson_id).then(l => { setSelectedLesson(l); nav('lesson'); }).catch(()=>{});
   };
+  // Every chapter's quiz has the id "q-<chapter id>".
+  const openQuizForLesson = (lessonId) => {
+    api.quiz(`q-${lessonId}`).then(q => { setSelectedQuiz(q); nav('quiz'); }).catch(()=>{});
+  };
 
   let content;
   if(page==='chat') content = <Chat {...shared} onBack={navigation.home} onLessons={navigation.lessons} onOpenLesson={openLessonById}/>;
-  else if(page==='lessons') content = <Lessons {...shared} onBack={navigation.home} onOpenLesson={(l)=>{setSelectedLesson(l);nav('lesson')}} onOpenQuiz={(q)=>{setSelectedQuiz(q);nav('quiz')}}/>;
+  else if(page==='lessons') content = <Lessons {...shared} onBack={navigation.home} onOpenLesson={(l)=>{setSelectedLesson(l);nav('lesson')}} onOpenQuiz={openQuizForLesson}/>;
   else if(page==='lesson') content = <LessonView {...shared} lesson={selectedLesson} onBack={navigation.lessons} onQuiz={(q)=>{setSelectedQuiz(q);nav('quiz')}} onCompleted={refreshGame}/>;
   else if(page==='quiz') content = <Quiz {...shared} quiz={selectedQuiz} onBack={()=>{navigation.lessons(); refreshGame();}} onSubmitted={refreshGame}/>;
   else if(page==='leaderboard') content = <Leaderboard {...shared}/>;
-  else content = <Dashboard {...shared} progress={game?.stats} onLessons={navigation.lessons} onLeaderboard={navigation.leaderboard} onOpenLesson={openLessonById}/>;
+  else content = <Dashboard {...shared} onLessons={navigation.lessons} onLeaderboard={navigation.leaderboard} onOpenLesson={openLessonById} onOpenQuiz={openQuizForLesson}/>;
 
   // The settings panel overlays whichever page is open.
   return (

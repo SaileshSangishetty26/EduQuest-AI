@@ -55,10 +55,11 @@
 | 10 | Maths calculations with working (fractions, integers, primes, HCF/LCM, perimeter/area) | COMPLETE |
 | 10 | Telugu questions answered from the Telugu chapters | COMPLETE |
 | 10 | One chat pipeline for the app, demo and tests (`backend/chatbot/service.py`) | COMPLETE |
-| 10 | Automated tests: 94 backend tests on an in-memory database (`python -m pytest`) | COMPLETE |
+| 10 | Automated tests: 96 backend tests on an in-memory database (`python -m pytest`) | COMPLETE |
 | 10 | End-to-end system check on the real database and models (`python -m backend.check_system`) | COMPLETE |
 | 10 | Readable chatbot passages (no exercise items, figure labels or false true/false statements) | COMPLETE |
 | 10 | Maths working for multi-step sums; division by zero answered | COMPLETE |
+| 10 | Interface redesign: school-notebook look, red-pen marks, readable fonts bundled for offline use | COMPLETE |
 | 10 | Hosting online | NOT PLANNED (team decision: demo runs on the project laptop) |
 
 See `docs/week6-nlp-preprocessing.md`, `docs/week7-intent-detection.md` and
@@ -265,6 +266,32 @@ a/an X", "what is X" with a one- or two-word X, "define X" and questions about
 a lesson or moral to the passage reply instead. Answers are also taken only
 from the chapter the search ranked first. The test gained three explanation
 questions that must get the passage, not a span.
+
+## Week 10: interface redesign
+The first interface used gradients, emoji on every heading and button, a
+rounded display font and game words ("Quest Map", "Welcome back,
+adventurer"), and looked generated. It now borrows from what Grade 6
+students already know - the school notebook:
+
+- Plain white pages on a grey desk; text in ink, actions in ball-pen blue.
+- The teacher's red pen is the one loud element: quiz marks are written and
+  circled by hand (Kalam, an Indian handwriting face), wrong answers get a
+  cross and right ones a tick, and badges are rubber stamps.
+- The week is an attendance register (P for each day with learning), and
+  progress per subject is a progress report.
+- Reading pages have the notebook's red margin line; long paragraphs from the
+  PDFs are broken up, and repeated summaries, PDF bullet characters and emoji
+  are removed from what is shown.
+- Plain words: Home, Chapters, Leaderboard, Ask a question, "Take the quiz",
+  "Check my answers".
+- Atkinson Hyperlegible (designed for readers with low vision; I, l and 1
+  all differ) for all text. Both fonts are installed from npm and bundled, so
+  nothing is downloaded at run time - the app works on a slow or offline
+  connection. Telugu uses the system's Telugu font.
+
+The gamification profile now also returns the last 7 days of activity, a
+per-subject report and the latest quiz mark per chapter, which these pages
+show.
 
 ## Week 10: integration and testing
 See `docs/week10-testing.md`: the four levels of testing, the problems they

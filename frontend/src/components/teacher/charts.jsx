@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 /*
  * Small hand-made charts for the teacher dashboard (no chart library, so
  * nothing new to install). Conventions, applied to every chart:
- *   - one series per chart, in the app's violet; text stays in the text colours
+ *   - one series per chart, in ball-pen blue; text stays in the text colours
  *   - thin marks, hairline solid gridlines, 4px rounded bar ends
  *   - values are labelled directly or listed in a table, so hover is a
  *     convenience, never the only way to read a number
@@ -107,11 +107,11 @@ export function ScoreTrend({ points, passScore = 60 }) {
             {[0, 25, 50, 75, 100].map((t) => (
               <g key={t}>
                 <line x1={left} x2={left + plotW} y1={y(t)} y2={y(t)} className="grid-line" />
-                <text x={left - 8} y={y(t) + 4} textAnchor="end" className="tick">{t}{t === 100 ? '%' : ''}</text>
+                <text x={left - 8} y={y(t) + 4} textAnchor="end" className="axis-tick">{t}{t === 100 ? '%' : ''}</text>
               </g>
             ))}
             <line x1={left} x2={left + plotW} y1={y(passScore)} y2={y(passScore)} className="pass-line" />
-            <text x={left + plotW + 6} y={y(passScore) + 4} className="tick">pass</text>
+            <text x={left + plotW + 6} y={y(passScore) + 4} className="axis-tick">pass</text>
 
             {active !== null && (
               <line x1={x(active)} x2={x(active)} y1={top} y2={bottom} className="crosshair" />
@@ -127,7 +127,7 @@ export function ScoreTrend({ points, passScore = 60 }) {
               </text>
             )}
             {points.map((p, i) => (n - 1 - i) % every === 0 && (
-              <text key={p.date} x={x(i)} y={bottom + 18} textAnchor="middle" className="tick">
+              <text key={p.date} x={x(i)} y={bottom + 18} textAnchor="middle" className="axis-tick">
                 {SHORT_DAY.format(asDate(p.date))}
               </text>
             ))}
@@ -209,8 +209,8 @@ export function SubjectBars({ subjects, passScore = 60, single = false }) {
               ? 'No quizzes yet'
               : single
                 ? `${s.quizzes_taken} ${s.quizzes_taken === 1 ? 'quiz' : 'quizzes'}, ${s.pass_rate}% passed`
-                : `${s.pass_rate}% of quizzes passed · ${s.students_tested} ${s.students_tested === 1 ? 'student' : 'students'}`}
-            {` · ${s.coverage}% of chapters read`}
+                : `${s.pass_rate}% of quizzes passed by ${s.students_tested} ${s.students_tested === 1 ? 'student' : 'students'}`}
+            {`. ${s.coverage}% of chapters read.`}
           </div>
         </li>
       ))}

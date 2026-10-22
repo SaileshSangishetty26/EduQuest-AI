@@ -138,36 +138,34 @@ export default function TeacherDashboard({ user, onLogout }) {
   return (
     <div className="teacher">
       <header className="topbar">
-        <div className="brand" onClick={() => window.scrollTo(0, 0)}>
-          <span className="brand-mark">🎓</span>
-          <span>EduQuest</span>
+        <div className="topbar-inner">
+          <button className="brand" onClick={() => window.scrollTo(0, 0)}>EduQuest</button>
           <span className="role-pill">Teacher</span>
-        </div>
-        <nav className="topbar-nav">
-          <a href="#overview">Overview</a>
-          <a href="#struggling">Where they struggle</a>
-          <a href="#chatbot">Chatbot</a>
-          <a href="#students">Students</a>
-        </nav>
-        <div className="topbar-right">
-          <span className="teacher-name">🧑‍🏫 {user.username}</span>
-          <button className="logout" onClick={onLogout}>Logout</button>
+          <nav className="topbar-nav" aria-label="Sections">
+            <a href="#overview">Overview</a>
+            <a href="#struggling">Weak spots</a>
+            <a href="#chatbot">Questions</a>
+            <a href="#students">Students</a>
+          </nav>
+          <div className="topbar-right">
+            <span className="teacher-name">{user.username}</span>
+            <button className="topbar-logout" onClick={onLogout}>Log out</button>
+          </div>
         </div>
       </header>
 
       <main className={`container ${loading && report ? 'refreshing' : ''}`}>
-        <div className="page-head teacher-head" id="overview">
+        <div className="page-title teacher-head" id="overview">
           <div>
-            <span className="eyebrow">GRADE {report?.grade ?? user.grade} · CLASS DASHBOARD</span>
-            <h1>How the class is doing</h1>
+            <h1>Grade {report?.grade ?? user.grade} class</h1>
             {report && (
               <p>
-                {o.students} {o.students === 1 ? 'student' : 'students'} · scores use each student's latest attempt at each quiz
-                · updated {clock(report.generated_at)}
+                {o.students} {o.students === 1 ? 'student' : 'students'}. Scores use each student's latest attempt at
+                each quiz. Updated at {clock(report.generated_at)}.
               </p>
             )}
           </div>
-          <button className="secondary" onClick={load} disabled={loading}>{loading ? 'Refreshing…' : '↻ Refresh'}</button>
+          <button className="btn-quiet" onClick={load} disabled={loading}>{loading ? 'Refreshing…' : 'Refresh'}</button>
         </div>
 
         {error && <div className="error">{error}</div>}
@@ -181,7 +179,7 @@ export default function TeacherDashboard({ user, onLogout }) {
         )}
 
         {report && o.students === 0 && (
-          <section className="card empty-state">
+          <section className="sheet">
             <h2>No students yet</h2>
             <p>Students appear here once they sign up for Grade {report.grade}. To try the dashboard with a sample class, run
               <code>python -m backend.seed_demo_class</code></p>
@@ -195,7 +193,7 @@ export default function TeacherDashboard({ user, onLogout }) {
                 <span className="tile-delta">{o.active_this_week} active in the last 7 days</span>
               </Tile>
               <Tile label="Need attention" value={o.needs_attention} onClick={o.needs_attention ? showAttention : undefined}>
-                <span className="tile-delta">{o.needs_attention ? 'inactive, not started or below 60% →' : 'everyone is on track'}</span>
+                <span className="tile-delta">{o.needs_attention ? 'inactive, not started or below 60%' : 'everyone is on track'}</span>
               </Tile>
               <Tile label="Quiz average, last 7 days" value={pct(t.this_week.average_score)}>
                 <Delta now={t.this_week.average_score} before={t.last_week.average_score} unit=" pts" />
@@ -215,28 +213,25 @@ export default function TeacherDashboard({ user, onLogout }) {
               <div className="card">
                 <div className="card-head">
                   <h2>Quiz scores, last {t.days} days</h2>
-                  <span className="card-sub">Average score of all quizzes taken each day · line at the {pass}% pass mark</span>
+                  <span className="card-sub">Average score of the quizzes taken each day. The grey line is the {pass}% pass mark.</span>
                 </div>
                 <ScoreTrend points={t.points} passScore={pass} />
               </div>
               <div className="card">
                 <div className="card-head">
                   <h2>By subject</h2>
-                  <span className="card-sub">Current average score · line at the {pass}% pass mark</span>
+                  <span className="card-sub">Current quiz average. The grey line is the {pass}% pass mark.</span>
                 </div>
                 <SubjectBars subjects={report.subjects} passScore={pass} />
               </div>
             </section>
 
-            <div className="section-heading" id="struggling">
-              <div>
-                <span className="eyebrow">WHERE THEY STRUGGLE</span>
-                <h2>Concepts and chapters to revisit</h2>
-              </div>
+            <div className="section-title" id="struggling">
+              <h2>What to go over again</h2>
             </div>
-            <div className="pill-filters teacher-filter" role="group" aria-label="Subject">
-              {['All', ...subjects].map((s) => (
-                <button key={s} className={`pill ${subject === s ? 'pill-active' : ''}`} onClick={() => setSubject(s)}>
+            <div className="tabs teacher-filter" role="tablist" aria-label="Subject">
+              {[...subjects, 'All'].map((s) => (
+                <button key={s} role="tab" aria-selected={subject === s} className={subject === s ? 'active' : ''} onClick={() => setSubject(s)}>
                   {s === 'All' ? 'All subjects' : s}
                 </button>
               ))}
@@ -246,7 +241,7 @@ export default function TeacherDashboard({ user, onLogout }) {
               <div className="card">
                 <div className="card-head">
                   <h2>Weak concepts</h2>
-                  <span className="card-sub">Fewer than 60% of answers right (latest attempts, 5+ answers)</span>
+                  <span className="card-sub">Concepts where fewer than 60% of answers were right, from at least 5 answers.</span>
                 </div>
                 {concepts.length === 0 ? (
                   <p className="muted">No weak concepts{subject !== 'All' ? ` in ${subject}` : ''} - the class answers every concept well.</p>
@@ -259,7 +254,7 @@ export default function TeacherDashboard({ user, onLogout }) {
                           <tr key={`${c.chapter?.id}-${c.concept}`}>
                             <td>
                               <b>{c.concept}</b>
-                              <span className="cell-sub">{SHORT_SUBJECT[c.chapter?.subject]} {c.chapter?.number} · {c.chapter?.title}</span>
+                              <span className="cell-sub">{c.chapter?.subject}, chapter {c.chapter?.number}: {c.chapter?.title}</span>
                             </td>
                             <td>
                               <Meter value={c.accuracy} />
@@ -280,7 +275,7 @@ export default function TeacherDashboard({ user, onLogout }) {
               <div className="card">
                 <div className="card-head">
                   <h2>Chapters</h2>
-                  <span className="card-sub">Lowest quiz average first · click a heading to sort</span>
+                  <span className="card-sub">Lowest quiz average first. Click a column heading to sort.</span>
                 </div>
                 <div className="table-scroll">
                   <table className="data-table">
@@ -297,7 +292,7 @@ export default function TeacherDashboard({ user, onLogout }) {
                         <tr key={c.id}>
                           <td>
                             <b>{c.title}</b>
-                            <span className="cell-sub">{c.subject} · chapter {c.number}{c.quiz_takers ? ` · ${c.quiz_takers} took the quiz` : ''}</span>
+                            <span className="cell-sub">{c.subject}, chapter {c.number}{c.quiz_takers ? `. ${c.quiz_takers} took the quiz` : ''}</span>
                           </td>
                           <td className="num">{c.readers}<span className="of"> / {o.students}</span></td>
                           <ScoreCell value={c.average_score} pass={pass} />
@@ -315,15 +310,12 @@ export default function TeacherDashboard({ user, onLogout }) {
               </div>
             </section>
 
-            <div className="section-heading" id="chatbot">
-              <div>
-                <span className="eyebrow">ASK AI</span>
-                <h2>What students ask the chatbot</h2>
-              </div>
-              <span className="lesson-count">
+            <div className="section-title" id="chatbot">
+              <h2>What students ask</h2>
+              <p>
                 {report.chat.questions} questions from {report.chat.students} students
-                {report.chat.questions > 0 && ` · ${report.chat.understood_pct}% matched to a chapter`}
-              </span>
+                {report.chat.questions > 0 && `, ${report.chat.understood_pct}% matched to a chapter`}
+              </p>
             </div>
             <section className="teacher-grid">
               <div className="card">
@@ -332,7 +324,7 @@ export default function TeacherDashboard({ user, onLogout }) {
                   <ol className="rank-list">
                     {report.chat.top_chapters.map((c) => (
                       <li key={c.id}>
-                        <span><b>{c.title}</b><span className="cell-sub">{c.subject} · {c.students} {c.students === 1 ? 'student' : 'students'}</span></span>
+                        <span><b>{c.title}</b><span className="cell-sub">{c.subject}, asked by {c.students} {c.students === 1 ? 'student' : 'students'}</span></span>
                         <span className="rank-count">{c.questions}</span>
                       </li>
                     ))}
@@ -345,13 +337,13 @@ export default function TeacherDashboard({ user, onLogout }) {
                   <span className="card-sub">Worth picking up in class</span>
                 </div>
                 {report.chat.unanswered.length === 0 ? <p className="muted">The chatbot matched every question to a chapter.</p> : (
-                  <ul className="plain-list">
+                  <ul className="t-list">
                     {report.chat.unanswered.map((q) => (
                       <li key={q.message}>
                         <b>“{q.message}”</b>
                         <span>
                           {q.times > 1 ? `${q.times} times, by ${q.students.join(', ')}` : q.students[0]}
-                          {' · last '}{when(q.last_asked)}
+                          {', last on '}{when(q.last_asked)}
                         </span>
                       </li>
                     ))}
@@ -360,19 +352,16 @@ export default function TeacherDashboard({ user, onLogout }) {
               </div>
             </section>
 
-            <div className="section-heading" id="students">
-              <div>
-                <span className="eyebrow">STUDENTS</span>
-                <h2>Every student</h2>
-              </div>
-              <div className="pill-filters" role="group" aria-label="Which students">
-                <button className={`pill ${studentFilter === 'all' ? 'pill-active' : ''}`} onClick={() => setStudentFilter('all')}>
-                  All ({report.students.length})
-                </button>
-                <button className={`pill ${studentFilter === 'attention' ? 'pill-active' : ''}`} onClick={() => setStudentFilter('attention')}>
-                  Need attention ({o.needs_attention})
-                </button>
-              </div>
+            <div className="section-title" id="students">
+              <h2>Students</h2>
+            </div>
+            <div className="tabs" role="tablist" aria-label="Which students">
+              <button role="tab" aria-selected={studentFilter === 'all'} className={studentFilter === 'all' ? 'active' : ''} onClick={() => setStudentFilter('all')}>
+                Everyone ({report.students.length})
+              </button>
+              <button role="tab" aria-selected={studentFilter === 'attention'} className={studentFilter === 'attention' ? 'active' : ''} onClick={() => setStudentFilter('attention')}>
+                Need attention ({o.needs_attention})
+              </button>
             </div>
             <section className="card">
               <div className="table-scroll">
@@ -399,11 +388,11 @@ export default function TeacherDashboard({ user, onLogout }) {
                           <span className="student-cell">
                             <span className="student-avatar">{r.avatar}</span>
                             <span><b>{r.username}</b>{r.demo && <span className="demo-tag">sample</span>}
-                              <span className="cell-sub">Level {r.level} · {r.title}</span></span>
+                              <span className="cell-sub">Level {r.level}</span></span>
                           </span>
                         </td>
                         <td className="num">{r.xp}</td>
-                        <td className="num">{r.streak > 0 ? `🔥 ${r.streak}` : '0'}</td>
+                        <td className="num">{r.streak}</td>
                         <td className="num">{r.chapters_read}</td>
                         <td className="num">{r.quizzes_taken}</td>
                         {subjects.map((s) => <ScoreCell key={s} value={r.subjects[s]?.average ?? null} pass={pass} />)}
@@ -412,7 +401,7 @@ export default function TeacherDashboard({ user, onLogout }) {
                         <td>
                           {r.flags.length === 0 ? <span className="muted">—</span> : (
                             <span className="flag-row">
-                              {r.flags.map((f) => <span key={f.code} className={`flag flag-${f.code}`}>⚑ {f.label}</span>)}
+                              {r.flags.map((f) => <span key={f.code} className={`flag flag-${f.code}`}>{f.label}</span>)}
                             </span>
                           )}
                         </td>

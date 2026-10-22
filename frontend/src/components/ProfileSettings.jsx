@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { api } from '../services/api';
 import { AVATARS, avatarForUser, setAvatarForUser } from '../utils/gamify';
 
@@ -18,8 +18,13 @@ export default function ProfileSettings({ user, game, onUpdated, onClose }) {
   // Base avatars plus reward avatars; locked rewards show the level needed.
   const unlocked = new Set(game?.avatars || AVATARS);
   const rewards = game?.rewards || [];
-
   const changed = language !== user.language || avatar !== currentAvatar;
+
+  useEffect(() => {
+    const onKey = e => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
 
   async function save() {
     if (!changed || saving) return;
@@ -34,7 +39,7 @@ export default function ProfileSettings({ user, game, onUpdated, onClose }) {
       onUpdated(res.user);
       onClose();
     } catch (err) {
-      setError(err.message && err.message !== 'Request failed'
+      setError(err.message && err.message !== 'Request failed' && err.message !== 'Failed to fetch'
         ? err.message
         : 'Could not save. Check that the server is running.');
     } finally {
@@ -43,82 +48,58 @@ export default function ProfileSettings({ user, game, onUpdated, onClose }) {
   }
 
   return (
-    <div className="settings-backdrop" onClick={onClose}>
-      <div className="card settings-panel" onClick={e => e.stopPropagation()}>
-        <div className="settings-head">
-          <div>
-            <span className="eyebrow">YOUR SETTINGS</span>
-            <h2>Avatar and language</h2>
-          </div>
+    <div className="overlay" onClick={onClose}>
+      <div className="dialog" role="dialog" aria-modal="true" aria-labelledby="settings-title" onClick={e => e.stopPropagation()}>
+        <div className="dialog-head">
+          <h2 id="settings-title">Your profile</h2>
           <button className="link" onClick={onClose}>Close</button>
         </div>
+        <p className="muted">{user.username}, Grade {user.grade}</p>
 
-        <p className="settings-note">
-          Signed in as <b>{user.username}</b>, Grade {user.grade}.
-        </p>
-
-        <div className="settings-group">
-          <span className="settings-label">Avatar</span>
+        <div className="group">
+          <b>Picture</b>
           <div className="avatar-picker">
             {AVATARS.map(a => (
-              <button
-                type="button"
-                key={a}
-                className={`avatar-option ${avatar === a ? 'avatar-option-selected' : ''}`}
-                onClick={() => setAvatar(a)}
-              >
+              <button type="button" key={a} aria-pressed={avatar === a}
+                      className={`avatar-option ${avatar === a ? 'selected' : ''}`} onClick={() => setAvatar(a)}>
                 {a}
               </button>
             ))}
             {rewards.map(r => {
               const open = unlocked.has(r.avatar);
               return (
-                <button
-                  type="button"
-                  key={r.avatar}
-                  className={`avatar-option ${avatar === r.avatar ? 'avatar-option-selected' : ''} ${open ? '' : 'avatar-option-locked'}`}
-                  onClick={() => open && setAvatar(r.avatar)}
-                  disabled={!open}
-                  title={open ? r.name : `Reach level ${r.level} to unlock`}
-                >
-                  {open ? r.avatar : '🔒'}
+                <button type="button" key={r.avatar} aria-pressed={avatar === r.avatar}
+                        className={`avatar-option ${avatar === r.avatar ? 'selected' : ''} ${open ? '' : 'locked'}`}
+                        onClick={() => open && setAvatar(r.avatar)} disabled={!open}
+                        title={open ? r.name : `Unlocks at level ${r.level}`}>
+                  {open ? r.avatar : `L${r.level}`}
                 </button>
               );
             })}
           </div>
-          {rewards.length > 0 && (
-            <p className="settings-hint">🔒 Reward avatars unlock as you level up.</p>
-          )}
+          {rewards.some(r => !unlocked.has(r.avatar)) && <p className="hint">The pictures marked L2, L3 and so on unlock at that level.</p>}
         </div>
 
-        <div className="settings-group">
-          <span className="settings-label">Preferred language</span>
-          <div className="pill-filters">
+        <div className="group">
+          <b>Language</b>
+          <div className="choice-row">
             {LANGUAGES.map(l => (
-              <button
-                key={l.code}
-                className={`pill ${language === l.code ? 'pill-active' : ''}`}
-                onClick={() => setLanguage(l.code)}
-              >
+              <button key={l.code} aria-pressed={language === l.code}
+                      className={language === l.code ? 'chosen' : ''} onClick={() => setLanguage(l.code)}>
                 {l.label}
               </button>
             ))}
           </div>
           {language !== 'en' && (
-            <p className="settings-hint">
-              🌐 Chapters are not available in this language yet, so you will
-              see the English versions with a note.
-            </p>
+            <p className="hint">Chapters are not in this language yet, so you will see the English chapters with a note.</p>
           )}
         </div>
 
-        {error && <p className="settings-error">{error}</p>}
+        {error && <div className="error">{error}</div>}
 
-        <div className="settings-actions">
-          <button className="primary" onClick={save} disabled={!changed || saving}>
-            {saving ? 'Saving...' : 'Save changes'}
-          </button>
-          {!changed && <span className="settings-hint">Nothing changed yet.</span>}
+        <div className="actions">
+          <button className="btn" onClick={save} disabled={!changed || saving}>{saving ? 'Saving…' : 'Save'}</button>
+          <button className="btn-quiet" onClick={onClose}>Cancel</button>
         </div>
       </div>
     </div>

@@ -2,30 +2,29 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import { api } from '../services/api';
 
-const MEDALS = { 1: '🥇', 2: '🥈', 3: '🥉' };
-
 function Row({ row }) {
   return (
-    <li className={`lb-row ${row.is_you ? 'lb-you' : ''}`}>
-      <span className="lb-rank">{MEDALS[row.rank] || row.rank}</span>
-      <span className="lb-avatar">{row.avatar}</span>
-      <span className="lb-name">
-        <b>{row.username}{row.is_you ? ' (you)' : ''}</b>
-        <span>Level {row.level} · {row.title}</span>
-      </span>
-      <span className="lb-meta" title="Current streak">{row.streak > 0 ? `🔥 ${row.streak}` : ''}</span>
-      <span className="lb-meta" title="Badges earned">🏅 {row.badges}</span>
-      <span className="lb-xp">{row.xp} XP</span>
-    </li>
+    <tr className={row.is_you ? 'you' : ''}>
+      <td className="rank">{row.rank}</td>
+      <td>
+        <span className="who">
+          <span className="avatar" aria-hidden="true">{row.avatar}</span>
+          <span>{row.username}{row.is_you ? ' (you)' : ''}<small>Level {row.level}, {row.title}</small></span>
+        </span>
+      </td>
+      <td className="num">{row.streak > 0 ? `${row.streak} ${row.streak === 1 ? 'day' : 'days'}` : '–'}</td>
+      <td className="num">{row.badges}</td>
+      <td className="num xp">{row.xp.toLocaleString('en-IN')}</td>
+    </tr>
   );
 }
 
-export default function Leaderboard({ user, level, streak }) {
+export default function Leaderboard({ user, streak }) {
   const [board, setBoard] = useState(null);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    api.leaderboard({ grade: user.grade, user_id: user.id, limit: 10 })
+    api.leaderboard({ grade: user.grade, user_id: user.id, limit: 15 })
       .then(setBoard)
       .catch(() => setError('Could not load the leaderboard. Check that the server is running.'));
   }, [user.id, user.grade]);
@@ -34,35 +33,47 @@ export default function Leaderboard({ user, level, streak }) {
 
   return (
     <>
-      <Header user={user} level={level} streak={streak} />
+      <Header user={user} streak={streak} />
+
       <main className="container">
-        <div className="page-head">
-          <span className="eyebrow">GRADE {user.grade} LEADERBOARD</span>
-          <h1>Top learners 🏆</h1>
-          <p>Ranked by XP. Earn XP by reading chapters, answering quiz questions correctly and learning every day.</p>
+        <div className="page-title">
+          <h1>Class leaderboard</h1>
+          <p>Grade {user.grade}, ranked by XP. You earn XP by reading chapters, answering quiz questions correctly and studying every day.</p>
         </div>
 
         {error && <div className="error">{error}</div>}
 
         {board && (
-          <section className="card leaderboard">
+          <section className="sheet">
             {board.top.length === 0 ? (
-              <p className="empty-state">No students yet - be the first on the board!</p>
+              <p className="empty">No one has earned XP yet. Read a chapter to be the first.</p>
             ) : (
-              <ol className="lb-list">
-                {board.top.map(row => <Row row={row} key={row.user_id} />)}
-              </ol>
+              <div style={{ overflowX: 'auto' }}>
+                <table className="board">
+                  <thead>
+                    <tr>
+                      <th scope="col">Rank</th>
+                      <th scope="col">Student</th>
+                      <th scope="col" className="num">Streak</th>
+                      <th scope="col" className="num">Badges</th>
+                      <th scope="col" className="num">XP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {board.top.map(row => <Row row={row} key={row.user_id} />)}
+                    {board.you && !youInTop && (
+                      <>
+                        <tr className="board-gap"><td colSpan={5}>…</td></tr>
+                        <Row row={board.you} />
+                      </>
+                    )}
+                  </tbody>
+                </table>
+              </div>
             )}
-
-            {board.you && !youInTop && (
-              <>
-                <div className="lb-gap">⋯</div>
-                <ol className="lb-list">
-                  <Row row={board.you} />
-                </ol>
-              </>
-            )}
-            <p className="lb-footnote">{board.students} {board.students === 1 ? 'student' : 'students'} in Grade {user.grade}. Students with the same XP share a rank.</p>
+            <p className="board-note">
+              {board.students} {board.students === 1 ? 'student' : 'students'} in Grade {user.grade}. Students with the same XP share a rank.
+            </p>
           </section>
         )}
       </main>

@@ -150,6 +150,10 @@ class _Walk:
     best_run: int = 0
     last_day: date | None = None
     earned_at: dict = field(default_factory=dict)
+    # Week 10, for the redesigned pages: per-subject reading and each
+    # chapter's latest and best quiz score.
+    read_by_subject: dict = field(default_factory=lambda: defaultdict(set))
+    quiz_marks: dict = field(default_factory=dict)
 
     def gain(self, amount: int, reason: str, when) -> None:
         if amount > 0:
@@ -191,20 +195,25 @@ class GamificationEngine:
     def _events(self, user_ids: list[str]) -> dict[str, list[dict]]:
         quizzes = {
             q["id"]: q
-            for q in self.db["quizzes"].find({}, {"_id": 0, "id": 1, "subject": 1, "title": 1})
+            for q in self.db["quizzes"].find({}, {"_id": 0, "id": 1, "subject": 1, "title": 1, "lesson_id": 1})
         }
         lessons = {
-            l["id"]: l["title"]
-            for l in self.db["lessons"].find({}, {"_id": 0, "id": 1, "title": 1})
+            l["id"]: l
+            for l in self.db["lessons"].find({}, {"_id": 0, "id": 1, "title": 1, "subject": 1})
         }
+        self._chapters_per_subject = defaultdict(int)
+        for lesson in lessons.values():
+            self._chapters_per_subject[lesson.get("subject")] += 1
         events: dict[str, list[dict]] = defaultdict(list)
 
         for row in self.db["lesson_completions"].find({"user_id": {"$in": user_ids}}):
+            lesson = lessons.get(row["lesson_id"], {})
             events[row["user_id"]].append({
                 "kind": "lesson",
                 "at": row["completed_at"],
                 "lesson_id": row["lesson_id"],
-                "title": lessons.get(row["lesson_id"], row["lesson_id"]),
+                "title": lesson.get("title", row["lesson_id"]),
+                "subject": lesson.get("subject"),
             })
 
         for row in self.db["quiz_attempts"].find({"user_id": {"$in": user_ids}}):
@@ -215,6 +224,7 @@ class GamificationEngine:
                 "kind": "quiz",
                 "at": row["submitted_at"],
                 "quiz_id": row["quiz_id"],
+                "lesson_id": quiz.get("lesson_id"),
                 "subject": quiz.get("subject"),
                 "title": quiz.get("title", row["quiz_id"]),
                 "correct": row.get("correct", 0),
@@ -245,11 +255,20 @@ class GamificationEngine:
             if event["kind"] == "lesson":
                 if event["lesson_id"] not in walk.lessons:
                     walk.lessons.add(event["lesson_id"])
+                    walk.read_by_subject[event.get("subject")].add(event["lesson_id"])
                     walk.gain(XP_PER_LESSON, f"Read \"{event['title']}\"", when)
             else:
                 quiz_id = event["quiz_id"]
                 walk.attempts += 1
                 walk.scores.append(event["score"])
+                mark = walk.quiz_marks.get(quiz_id, {"best": 0, "attempts": 0})
+                walk.quiz_marks[quiz_id] = {
+                    "lesson_id": event.get("lesson_id"),
+                    "subject": event.get("subject"),
+                    "latest": event["score"],
+                    "best": max(mark["best"], event["score"]),
+                    "attempts": mark["attempts"] + 1,
+                }
 
                 previous_best = walk.best_correct.get(quiz_id, 0)
                 improvement = max(0, event["correct"] - previous_best)
@@ -319,10 +338,39 @@ class GamificationEngine:
                 "average_score": round(sum(walk.scores) / len(walk.scores)) if walk.scores else 0,
             },
             "completed_lessons": sorted(walk.lessons),
+            # Last 7 days in India, oldest first - the week strip on the home page.
+            "week": [
+                {"date": day.isoformat(), "active": day in walk.days}
+                for day in (today - timedelta(days=n) for n in range(6, -1, -1))
+            ],
+            "subjects": self._subject_report(walk),
+            # Latest and best score for each chapter's quiz, keyed by chapter id.
+            "quiz_marks": {
+                m["lesson_id"]: {"latest": m["latest"], "best": m["best"],
+                                 "attempts": m["attempts"], "passed": m["best"] >= PASS_SCORE}
+                for m in walk.quiz_marks.values() if m.get("lesson_id")
+            },
             "recent_xp": [
                 {**entry, "at": _iso(entry["at"])} for entry in reversed(walk.ledger[-8:])
             ],
         }
+
+    def _subject_report(self, walk: _Walk) -> list[dict]:
+        """Chapters read and current quiz average per subject (the progress report)."""
+        report = []
+        totals = getattr(self, "_chapters_per_subject", {})
+        for subject in SUBJECTS:
+            marks = [m for m in walk.quiz_marks.values() if m.get("subject") == subject]
+            report.append({
+                "subject": subject,
+                "chapters": totals.get(subject, 0),
+                "read": len(walk.read_by_subject.get(subject, ())),
+                "quizzes_taken": len(marks),
+                "quizzes_passed": sum(1 for m in marks if m["best"] >= PASS_SCORE),
+                # Latest attempt at each quiz, as on the teacher dashboard.
+                "average": round(sum(m["latest"] for m in marks) / len(marks)) if marks else None,
+            })
+        return report
 
     # -- public ----------------------------------------------------------------
     def profile(self, user_id: str) -> dict:

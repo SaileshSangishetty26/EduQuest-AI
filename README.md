@@ -54,7 +54,7 @@ python -m backend.seed
 Open a second terminal in `frontend/`:
 
 ```bash
-npm install
+npm install      # run again after pulling: the fonts are npm packages
 npm run dev
 ```
 
@@ -122,7 +122,7 @@ From the project root, with the virtual environment active:
 
 ```bash
 pip install -r backend/requirements-dev.txt   # once: pytest, mongomock, httpx
-python -m pytest                              # 94 automated tests, ~10 seconds, no database needed
+python -m pytest                              # 96 automated tests, ~10 seconds, no database needed
 python -m backend.check_system                # the whole app end to end on your MongoDB and models
 ```
 

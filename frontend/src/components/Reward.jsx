@@ -1,4 +1,5 @@
 import React from 'react';
+import Stamp from './Stamp';
 
 // What an action earned: XP, a level-up, new badges and newly unlocked
 // avatars. `result` is the `gamification` object the server returns after a
@@ -9,27 +10,23 @@ export default function Reward({ result }) {
 
   return (
     <div className="reward-box">
-      <div className="xp-gain-chip">{gained > 0 ? `+${gained} XP earned` : 'No new XP this time'}</div>
-      {gained === 0 && (
-        <p className="reward-hint">You earn 10 XP for each question you get right that you had not got right before. Read the explanations below and try again!</p>
+      {gained > 0 ? (
+        <p className="xp-gained">+{gained} XP{levelUp ? `, and you reached level ${level}` : ''}</p>
+      ) : (
+        <p>No new XP this time. You get 10 XP for each question you answer correctly for the first time.</p>
       )}
-      {levelUp && <p className="reward-levelup">⬆️ Level up! You are now level {level}.</p>}
-      {streak > 1 && <p className="reward-streak">🔥 {streak}-day learning streak</p>}
+      {streak > 1 && <p>You have learned something {streak} days in a row.</p>}
       {badges.length > 0 && (
-        <div className="reward-badges">
-          <span className="reward-label">New badge{badges.length > 1 ? 's' : ''} unlocked</span>
-          <div className="badge-row">
-            {badges.map(b => (
-              <div className="badge-pill" key={b.id} title={b.description}>
-                <span>{b.icon}</span>{b.label}
-              </div>
-            ))}
+        <>
+          <p>New {badges.length > 1 ? 'badges' : 'badge'}:</p>
+          <div className="new-stamps">
+            {badges.map(b => <Stamp key={b.id} badge={b} showDetails={false} />)}
           </div>
-        </div>
+        </>
       )}
       {rewards.length > 0 && (
-        <p className="reward-unlock">
-          🎁 New avatar unlocked: {rewards.map(r => `${r.avatar} ${r.name}`).join(', ')}. Pick it with the ⚙️ button.
+        <p>
+          New avatar unlocked: {rewards.map(r => `${r.avatar} ${r.name}`).join(', ')}. You can switch to it in Settings.
         </p>
       )}
     </div>

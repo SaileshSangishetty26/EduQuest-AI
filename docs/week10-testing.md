@@ -6,7 +6,7 @@ reliably. Testing is done at four levels, from fastest to slowest:
 
 | Level | Command (from the project root) | What it covers | Needs |
 |---|---|---|---|
-| 1. Automated tests | `python -m pytest` | 94 tests of the backend rules and API | nothing running |
+| 1. Automated tests | `python -m pytest` | 96 tests of the backend rules and API | nothing running |
 | 2. System check | `python -m backend.check_system` | the whole app end to end, 32 checks | MongoDB, trained models |
 | 3. Model accuracy | `python -m backend.nlp.test_retrieval`, `python -m backend.nlp.test_answers` | chapter search and exact answers | MongoDB, models |
 | 4. Screens | `npm run build`, then the demo run-through below | every page at desktop and phone width | everything running |
@@ -23,7 +23,7 @@ whole suite takes about ten seconds and can be run after every change.
 | File | Tests | What is checked |
 |---|---|---|
 | `test_auth_and_content.py` | 13 | registration rules (Grade 6 only, duplicates, short passwords, sign-up cannot create a teacher), salted password hashes, login, language change; 40 chapters in textbook order, subject filter, every chapter has a quiz, quiz answers never sent to the browser, answers spread across A-D |
-| `test_quiz_and_gamification.py` | 15 | server-side scoring and review, blank answers, per-question results stored; every XP rule, no XP farming on retakes, badges (first chapter, perfect score, comeback, streaks), levels, streaks counted in Indian time (23:50 and 00:10 IST are two days), leaderboard ties and teacher exclusion, reward avatars locked by level |
+| `test_quiz_and_gamification.py` | 17 | server-side scoring and review, blank answers, per-question results stored; every XP rule, no XP farming on retakes, badges (first chapter, perfect score, comeback, streaks), levels, streaks counted in Indian time (23:50 and 00:10 IST are two days), leaderboard ties and teacher exclusion, reward avatars locked by level |
 | `test_recommendations.py` | 6 | new student starts at chapter 1 of each subject, read-but-untested suggests the quiz, a failed quiz comes first, a passed retake clears it, repeated chatbot questions suggest that chapter, no duplicates |
 | `test_teacher.py` | 15 | only teachers can open the dashboard; scores use the latest attempt; flags (low average, inactive, not started); weak concepts name the struggling students and need 5+ answers; a fixed concept stops being weak; trend days in Indian time; week-on-week; old Grade 7 attempts ignored; unanswered chatbot questions grouped; the demo class adds up and removes cleanly; `create_teacher` |
 | `test_chatbot_rules.py` | 45 | maths solver (fractions, primes, HCF/LCM, area/perimeter, integers, order of operations, division by zero, never runs code); when to give a short answer or an explanation; answer support scoring; exercise blanks never answers; Telugu detection and answers; the chat route for calculations and Telugu; a clear message when models are missing; readable passages |

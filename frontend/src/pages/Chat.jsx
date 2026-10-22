@@ -1,21 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Header from '../components/Header';
 import { api } from '../services/api';
+import { displayName } from '../utils/text';
 
+// Questions the chatbot answers well (see docs/week10-testing.md).
 const SUGGESTIONS = [
   'What is the SI unit of length?',
-  'Who gave the neem tree its name?',
   'What is 1/3 + 1/6?',
   'Is 91 a prime number?',
+  'How do camels survive in the desert?',
   'రైతు ఏమి చేస్తాడు?',
-  'Explain lines and angles',
-  'Give me a quiz',
-  'What is my score?'
+  'How many points do I have?'
 ];
 
 const ANSWER_LABELS = {
-  textbook: '✅ Answer',
-  math: '🧮 Answer'
+  textbook: 'Answer from your textbook',
+  math: 'Answer'
 };
 
 const INTENT_LABELS = {
@@ -33,7 +33,7 @@ const INTENT_LABELS = {
   study_advice: 'Study plan',
   calculation: 'Calculation',
   factual_question: 'Fact',
-  telugu_question: 'తెలుగు'
+  telugu_question: 'Telugu'
 };
 
 // When the bot found an exact answer, the reply starts with it; it is shown in
@@ -44,11 +44,11 @@ function splitAnswer(m) {
   return { box: m.answer, body: parts.slice(1).join('\n\n') };
 }
 
-export default function Chat({ user, level, streak, onBack, onLessons, onLogout, onSettings, onOpenLesson }) {
+export default function Chat({ user, streak, onOpenLesson }) {
   const [messages, setMessages] = useState([
     {
       from: 'bot',
-      text: `Hi ${user.username}! Ask me about any chapter, request a quiz, or check your progress.`
+      text: `Hello ${displayName(user.username)}. Ask me about anything in your chapters, a maths sum, or your progress. You can ask in English or Telugu.`
     }
   ]);
   const [input, setInput] = useState('');
@@ -103,59 +103,56 @@ export default function Chat({ user, level, streak, onBack, onLessons, onLogout,
 
   return (
     <>
-      <Header user={user} onHome={onBack} onLessons={onLessons} onSettings={onSettings} onLogout={onLogout} level={level} streak={streak} />
+      <Header user={user} streak={streak} />
 
       <main className="container">
-        <button className="link" onClick={onBack}>← Dashboard</button>
-
-        <div className="page-head">
-          <span className="eyebrow">STUDY BUDDY</span>
-          <h1>Ask me anything 🤖</h1>
-          <p>Ask a question about any chapter and I will find the answer in your textbook. I can also work out maths, answer in Telugu, set you a quiz, or tell you how you are doing.</p>
+        <div className="page-title">
+          <h1>Ask a question</h1>
+          <p>Questions are answered from your Grade {user.grade} textbooks. Maths sums are worked out step by step.</p>
         </div>
 
-        <section className="card chat-panel">
-          <div className="chat-log">
+        <section className="sheet chat">
+          <div className="chat-log" aria-live="polite">
             {messages.map((m, i) => {
               const { box, body } = splitAnswer(m);
               return (
-              <div key={i} className={`chat-row ${m.from}`}>
-                <div className={`chat-bubble ${m.from}${m.error ? ' chat-error' : ''}`}>
-                  {box && (
-                    <div className="chat-answer">
-                      <span>{ANSWER_LABELS[box.source]}</span>
-                      <b>{box.text}</b>
-                    </div>
-                  )}
-                  {body && <p>{body}</p>}
+                <div key={i} className={`chat-row ${m.from}`}>
+                  <div className={`chat-bubble ${m.from}${m.error ? ' chat-error' : ''}`}>
+                    {box && (
+                      <div className="chat-answer">
+                        <span>{ANSWER_LABELS[box.source]}</span>
+                        <b>{box.text}</b>
+                      </div>
+                    )}
+                    {body && <p>{body}</p>}
 
-                  {m.lesson && (
-                    <button className="chat-lesson" onClick={() => onOpenLesson(m.lesson)}>
-                      📘 Open “{m.lesson.title}”
-                    </button>
-                  )}
+                    {m.lesson && (
+                      <div className="chat-open">
+                        <button className="link" onClick={() => onOpenLesson(m.lesson)}>
+                          Open “{m.lesson.title}”
+                        </button>
+                      </div>
+                    )}
 
-                  {m.from === 'bot' && m.intent && (
-                    <div className="chat-meta">
-                      <span className={`chat-tag ${m.understood ? '' : 'chat-tag-unsure'}`}>
-                        {INTENT_LABELS[m.intent] || m.intent}
-                      </span>
-                      {box?.source === 'textbook' ? (
-                        <span className="chat-conf">answer {Math.round(box.score * 100)}% sure · from the textbook</span>
-                      ) : m.intent !== 'calculation' && (
-                        <span className="chat-conf">{Math.round(m.confidence * 100)}% sure</span>
-                      )}
-                    </div>
-                  )}
+                    {m.from === 'bot' && m.intent && (
+                      <div className="chat-meta">
+                        {m.understood
+                          ? <span>Understood as: {INTENT_LABELS[m.intent] || m.intent}</span>
+                          : <span className="unsure">Not sure what you meant</span>}
+                        {box?.source === 'textbook'
+                          ? <span>, answer {Math.round(box.score * 100)}% likely</span>
+                          : m.intent !== 'calculation' && <span>, {Math.round(m.confidence * 100)}% sure</span>}
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
               );
             })}
 
             {sending && (
               <div className="chat-row bot">
-                <div className="chat-bubble bot">
-                  <span className="chat-typing"><i /><i /><i /></span>
+                <div className="chat-bubble bot" aria-label="Writing an answer">
+                  <span className="typing"><i /><i /><i /></span>
                 </div>
               </div>
             )}
@@ -163,31 +160,22 @@ export default function Chat({ user, level, streak, onBack, onLessons, onLogout,
             <div ref={endRef} />
           </div>
 
-          <div className="chat-suggestions">
+          <div className="try">
+            <span>Try:</span>
             {SUGGESTIONS.map(s => (
-              <button key={s} className="pill" onClick={() => send(s)} disabled={sending}>
-                {s}
-              </button>
+              <button key={s} onClick={() => send(s)} disabled={sending}>{s}</button>
             ))}
           </div>
 
-          <div className="chat-input">
-            <input
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && send()}
-              placeholder="Type your question..."
-              disabled={sending}
-            />
-            <button className="primary" onClick={() => send()} disabled={sending || !input.trim()}>
-              Send
-            </button>
-          </div>
+          <form className="chat-input" onSubmit={e => { e.preventDefault(); send(); }}>
+            <label className="sr-only" htmlFor="question">Your question</label>
+            <input id="question" value={input} onChange={e => setInput(e.target.value)}
+                   placeholder="Type your question" disabled={sending} autoComplete="off" />
+            <button className="btn" disabled={sending || !input.trim()}>Ask</button>
+          </form>
         </section>
 
-        <p className="chat-note">
-          The first question may take a few seconds while the language models load.
-        </p>
+        <p className="chat-note">The first answer can take a few seconds while the language models start.</p>
       </main>
     </>
   );

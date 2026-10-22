@@ -1,210 +1,195 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
-import XPBar from '../components/XPBar';
-import { avatarForUser } from '../utils/gamify';
+import LevelBar from '../components/LevelBar';
+import Stamp from '../components/Stamp';
 import { api } from '../services/api';
+import { chapterNumber, displayName } from '../utils/text';
 
-const SUBJECTS = [
-  { name: 'English', icon: '📖', color: 'var(--gold)' },
-  { name: 'Mathematics', icon: '📐', color: 'var(--teal)' },
-  { name: 'Science', icon: '🧪', color: 'var(--coral)' },
-  { name: 'Telugu', icon: '📝', color: 'var(--violet)' }
-];
+const DAY = new Intl.DateTimeFormat('en-IN', { weekday: 'short', timeZone: 'UTC' });
 
-const KIND_ICONS = {
-  retry: '🔁',
-  weak_subject: '📉',
-  asked_about: '💬',
-  take_quiz: '📝',
-  next_chapter: '✨',
-  revision: '🔎'
-};
+function greeting() {
+  const hour = new Date().getHours();
+  if (hour < 12) return 'Good morning';
+  if (hour < 17) return 'Good afternoon';
+  return 'Good evening';
+}
 
-export default function Dashboard({ user, game, progress, level, streak, onLessons, onLeaderboard, onChat, onLogout, onSettings, onOpenLesson }) {
-  const [recs, setRecs] = useState([]);
+// The first recommendation, with the button that does what it suggests.
+function ContinueCard({ rec, onOpenLesson, onOpenQuiz, onLessons }) {
+  if (!rec) {
+    return (
+      <section className="sheet ruled continue">
+        <h2>Pick a chapter to start</h2>
+        <p className="why">Read a chapter, then take its quiz to earn XP.</p>
+        <button className="btn" onClick={onLessons}>See all chapters</button>
+      </section>
+    );
+  }
+  const quizFirst = rec.kind === 'take_quiz' || rec.kind === 'retry';
+  return (
+    <section className="sheet ruled continue">
+      <span className="where">{rec.subject}, chapter {chapterNumber(rec.lesson_id)}</span>
+      <h2>{rec.title}</h2>
+      <p className="why">{rec.reason}</p>
+      <div className="actions">
+        {quizFirst ? (
+          <>
+            <button className="btn" onClick={() => onOpenQuiz(rec.lesson_id)}>
+              {rec.kind === 'retry' ? 'Try the quiz again' : 'Take the quiz'}
+            </button>
+            <button className="btn-quiet" onClick={() => onOpenLesson(rec)}>Open the chapter</button>
+          </>
+        ) : (
+          <button className="btn" onClick={() => onOpenLesson(rec)}>Open the chapter</button>
+        )}
+      </div>
+    </section>
+  );
+}
+
+export default function Dashboard({ user, game, level, streak, onLessons, onLeaderboard, onOpenLesson, onOpenQuiz }) {
+  const [recs, setRecs] = useState(null);
 
   useEffect(() => {
-    api.recommendations(user.id, { grade: user.grade, limit: 4 })
+    api.recommendations(user.id, { grade: user.grade, limit: 5 })
       .then(r => setRecs(r.recommendations || []))
       .catch(() => setRecs([]));
-  }, [user.id, user.grade, progress]);
+  }, [user.id, user.grade, game?.xp]);
 
-  const avatar = avatarForUser(user);
   const badges = game?.badges || [];
-  const earned = badges.filter(b => b.earned);
+  const earned = badges.filter(b => b.earned).length;
   const rewards = game?.rewards || [];
   const nextReward = game?.next_reward;
   const recent = game?.recent_xp || [];
-  const langLabel = user.language === 'te' ? 'Telugu' : user.language === 'hi' ? 'Hindi' : 'English';
-  const activeToday = game?.streak?.active_today;
+  const week = game?.week || [];
+  const report = game?.subjects || [];
+  const read = game?.stats?.lessons_completed ?? 0;
+  const total = report.reduce((n, s) => n + s.chapters, 0) || 40;
+  const best = game?.streak?.best ?? 0;
 
   return (
     <>
-      <Header user={user} onHome={() => {}} onLessons={onLessons} onChat={onChat} onSettings={onSettings} onLogout={onLogout} level={level} streak={streak} />
+      <Header user={user} streak={streak} />
 
       <main className="container">
-        <section className="hero">
-          <div className="hero-copy">
-            <span className="eyebrow">Student Dashboard</span>
-            <h1>Welcome back, {user.username} {avatar}</h1>
-            <p>
-              Grade {user.grade} · Learning in {langLabel} ·{' '}
-              {streak > 0
-                ? `${streak}-day streak 🔥${activeToday ? '' : ' - learn something today to keep it!'}`
-                : 'Read a chapter or take a quiz to start a streak!'}
-            </p>
-            <div className="hero-xp"><XPBar {...level} /></div>
-            <p className="hero-xp-total">{game?.xp ?? 0} XP in total</p>
-            <div className="hero-actions">
-              <button className="primary quest-cta" onClick={onLessons}>Continue Your Quest →</button>
-              <button className="secondary" onClick={onChat}>Ask the Study Buddy 🤖</button>
-            </div>
+        <div className="home-head">
+          <div>
+            <h1>{greeting()}, {displayName(user.username)}.</h1>
+            <p>You have read {read} of {total} chapters in Grade {user.grade}.</p>
           </div>
-          <div className="hero-badge">
-            <div className="level-ring">
-              <span className="level-ring-num">{level.level}</span>
-              <span className="level-ring-label">Level</span>
-            </div>
+          <LevelBar {...level} />
+        </div>
+
+        <div className="home-grid">
+          <div>
+            <ContinueCard rec={recs?.[0]} onOpenLesson={onOpenLesson} onOpenQuiz={onOpenQuiz} onLessons={onLessons} />
+
+            {recs && recs.length > 1 && (
+              <>
+                <div className="section-title"><h2>Up next</h2></div>
+                <ul className="next-list">
+                  {recs.slice(1).map(r => (
+                    <li key={r.lesson_id}>
+                      <button onClick={() => onOpenLesson(r)}>
+                        <b>{r.title}</b>
+                        <span>{r.reason}</span>
+                        <em>{r.subject}</em>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
+
+          <div className="home-side">
+            <section className="sheet">
+              <h2>This week</h2>
+              <table className="register">
+                <thead>
+                  <tr>{week.map(d => <th key={d.date} scope="col">{DAY.format(new Date(`${d.date}T00:00:00Z`))}</th>)}</tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    {week.map((d, i) => (
+                      <td key={d.date} className={`${i === week.length - 1 ? 'today' : ''} ${d.active ? '' : 'absent'}`}>
+                        {d.active ? 'P' : ''}
+                        <span className="sr-only">{d.active ? 'studied' : 'no study'}</span>
+                      </td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
+              <p className="streak-line">
+                {streak > 0
+                  ? <><b>{streak} {streak === 1 ? 'day' : 'days'} in a row.</b> Your best is {best}.</>
+                  : 'Read a chapter or take a quiz today to start a streak.'}
+              </p>
+            </section>
+
+            <section className="sheet">
+              <h2>Progress report</h2>
+              <table className="report">
+                <thead>
+                  <tr><th scope="col">Subject</th><th scope="col" className="num">Read</th><th scope="col" className="num">Quiz average</th></tr>
+                </thead>
+                <tbody>
+                  {report.map(s => (
+                    <tr key={s.subject}>
+                      <td>{s.subject}</td>
+                      <td className="num">{s.read} of {s.chapters}</td>
+                      <td className="num">{s.average === null ? <span className="muted">no quiz yet</span> : <span className="mark">{s.average}%</span>}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+
+        <div className="section-title">
+          <h2>Badges</h2>
+          <p>{earned} of {badges.length} earned</p>
+        </div>
+        <section className="sheet">
+          <div className="stamps">
+            {badges.map(b => <Stamp key={b.id} badge={b} />)}
           </div>
         </section>
 
-        <section className="grid four stat-grid">
-          <div className="card stat">
-            <span className="stat-icon">📚</span>
-            <b>{progress?.lessons_completed ?? 0}</b>
-            <span>Chapters read</span>
-          </div>
-          <div className="card stat">
-            <span className="stat-icon">🎯</span>
-            <b>{progress?.quizzes_passed ?? 0}</b>
-            <span>Quizzes passed</span>
-          </div>
-          <div className="card stat">
-            <span className="stat-icon">⭐</span>
-            <b>{progress?.average_score ?? 0}%</b>
-            <span>Average score</span>
-          </div>
-          <div className="card stat">
-            <span className="stat-icon">🔥</span>
-            <b>{game?.streak?.best ?? 0}</b>
-            <span>Best streak (days)</span>
-          </div>
-        </section>
-
-        {recs.length > 0 && (
-          <section className="card recs-card">
-            <div className="section-heading">
-              <div>
-                <span className="eyebrow">RECOMMENDED FOR YOU</span>
-                <h2>What to study next</h2>
-              </div>
-            </div>
-            <div className="recs-list">
-              {recs.map(r => (
-                <button className="rec-item" key={r.lesson_id} onClick={() => onOpenLesson(r)}>
-                  <span className="rec-icon">{KIND_ICONS[r.kind] || '📘'}</span>
-                  <span className="rec-body">
-                    <b>{r.title}</b>
-                    <span className="rec-reason">{r.reason}</span>
-                  </span>
-                  <span className="rec-subject">{r.subject}</span>
-                </button>
-              ))}
-            </div>
-          </section>
-        )}
-
-        <section className="quest-path card">
-          <div className="section-heading">
-            <div>
-              <span className="eyebrow">QUEST MAP</span>
-              <h2>Pick your path</h2>
-            </div>
-          </div>
-          <div className="path-track">
-            {SUBJECTS.map((s, i) => (
-              <button key={s.name} className="path-node" style={{ '--node-color': s.color }} onClick={onLessons}>
-                <span className="path-node-icon">{s.icon}</span>
-                <span className="path-node-label">{s.name}</span>
-                {i < SUBJECTS.length - 1 && <span className="path-connector" />}
-              </button>
-            ))}
-          </div>
-        </section>
-
-        <section className="card info badges-card">
-          <div className="section-heading">
-            <div>
-              <span className="eyebrow">TROPHY CASE</span>
-              <h2>Your badges</h2>
-            </div>
-            <span className="lesson-count">{earned.length} of {badges.length} earned</span>
-          </div>
-          <div className="badge-grid">
-            {badges.map(b => (
-              <div className={`badge-tile ${b.earned ? 'badge-earned' : 'badge-locked'}`} key={b.id} title={b.description}>
-                <span className="badge-icon">{b.icon}</span>
-                <b>{b.label}</b>
-                <span className="badge-desc">{b.description}</span>
-                {!b.earned && (
-                  <span className="badge-progress">
-                    <span className="badge-progress-track">
-                      <span className="badge-progress-fill" style={{ width: `${Math.round((b.progress / b.target) * 100)}%` }} />
-                    </span>
-                    {b.progress}/{b.target}
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="grid two game-row">
-          <div className="card rewards-card">
-            <div className="section-heading">
-              <div>
-                <span className="eyebrow">REWARDS</span>
-                <h2>Avatars to unlock</h2>
-              </div>
-            </div>
-            <div className="reward-row">
+        <div className="two-col">
+          <section className="sheet">
+            <h2>Avatars you can unlock</h2>
+            <div className="unlock-row">
               {rewards.map(r => (
-                <div className={`reward ${r.unlocked ? 'reward-unlocked' : ''}`} key={r.avatar} title={r.name}>
-                  <span className="reward-avatar">{r.unlocked ? r.avatar : '🔒'}</span>
-                  <span className="reward-level">Lv {r.level}</span>
+                <div className={`unlock ${r.unlocked ? '' : 'closed'}`} key={r.avatar} title={r.name}>
+                  <span className="avatar">{r.unlocked ? r.avatar : `L${r.level}`}</span>
+                  <span>{r.unlocked ? r.name : `Level ${r.level}`}</span>
                 </div>
               ))}
             </div>
-            <p className="reward-note">
+            <p className="muted">
               {nextReward
-                ? `Reach level ${nextReward.level} to unlock the ${nextReward.name} ${nextReward.avatar}.`
-                : 'You have unlocked every avatar!'}
-              {' '}Change your avatar with the ⚙️ button.
+                ? `Reach level ${nextReward.level} to unlock the ${nextReward.name.toLowerCase()}.`
+                : 'You have unlocked every avatar.'}
+              {' '}Change yours by clicking your name at the top.
             </p>
-          </div>
+          </section>
 
-          <div className="card xp-log">
-            <div className="section-heading">
-              <div>
-                <span className="eyebrow">HOW YOU EARNED XP</span>
-                <h2>Recent XP</h2>
-              </div>
-              <button className="link" onClick={onLeaderboard}>Leaderboard →</button>
-            </div>
+          <section className="sheet">
+            <h2>Where your XP came from</h2>
             {recent.length === 0 ? (
-              <p className="reward-note">Read a chapter (+20 XP) or answer quiz questions (+10 XP each) to start earning.</p>
+              <p className="muted" style={{ marginTop: 8 }}>Reading a chapter gives 20 XP, and each correct quiz answer gives 10.</p>
             ) : (
-              <ul className="xp-log-list">
-                {recent.map((entry, i) => (
-                  <li key={i}>
-                    <span>{entry.reason}</span>
-                    <b>+{entry.xp}</b>
-                  </li>
+              <ul className="plain-list" style={{ marginTop: 6 }}>
+                {recent.slice(0, 5).map((entry, i) => (
+                  <li key={i}><span>{entry.reason.replace(/\s+[—-]\s+Chapter Quiz/g, '')}</span><span className="xp-plus">+{entry.xp}</span></li>
                 ))}
               </ul>
             )}
-          </div>
-        </section>
+            <p className="xp-more"><button className="link" onClick={onLeaderboard}>See the class leaderboard</button></p>
+          </section>
+        </div>
       </main>
     </>
   );
