@@ -10,6 +10,7 @@ import LessonView from './pages/LessonView';
 import Quiz from './pages/Quiz';
 import Chat from './pages/Chat';
 import Leaderboard from './pages/Leaderboard';
+import TeacherDashboard from './pages/TeacherDashboard';
 import ProfileSettings from './components/ProfileSettings';
 
 export default function App(){
@@ -32,8 +33,10 @@ export default function App(){
     try { localStorage.setItem('eduquest_user',JSON.stringify(user)); } catch { /* private mode */ }
   },[user]);
 
+  const isTeacher = user?.role === 'teacher';
+
   const refreshGame = useCallback(()=>{
-    if(!user) return;
+    if(!user || user.role === 'teacher') return;
     api.gamification(user.id).then(setGame).catch(()=>{});
   },[user]);
 
@@ -48,6 +51,9 @@ export default function App(){
     if(page==='register') return <Register onLogin={()=>setPage('login')} onRegistered={(u)=>{setUser(u);setPage('dashboard')}} />;
     return <Login onRegister={()=>setPage('register')} onLoggedIn={(u)=>{setUser(u);setPage('dashboard')}} />;
   }
+
+  // Teachers see the class dashboard instead of the student pages.
+  if(isTeacher) return <TeacherDashboard user={user} onLogout={logout} />;
 
   const level = levelFromGame(game);
   const streak = game?.streak?.current ?? 0;

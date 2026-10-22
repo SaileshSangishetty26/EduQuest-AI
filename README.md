@@ -1,6 +1,6 @@
-# EduQuest — Weeks 2–8
+# EduQuest — Weeks 2–9
 
-This is the actual implementation for the first eight implementation weeks of the EduQuest project.
+This is the actual implementation for the first nine implementation weeks of the EduQuest project (Grade 6).
 
 The original `eduquest.html` was treated as a prototype/reference. The final application is rebuilt with:
 
@@ -14,6 +14,7 @@ The original `eduquest.html` was treated as a prototype/reference. The final app
 - Week 6 NLP preprocessing pipeline (spaCy + NLTK) and DistilBERT embeddings
 - Week 7 intent detection (12 intents, 89.1% CV) and the chatbot endpoint
 - Week 8 React chat interface and rule-based recommendation engine
+- Week 9 concept-tagged quizzes, gamification (XP, levels, streaks, badges, leaderboard) and the teacher dashboard
 
 ## Run
 
@@ -98,5 +99,22 @@ python -m backend.nlp.ingest_pdfs
 python -m backend.nlp.build_lesson_index
 ```
 
+### 6. Week 9 teacher dashboard
+Teachers use the normal login page. Create a teacher account from the project root:
+
+```bash
+python -m backend.create_teacher <username>
+```
+
+To see the dashboard with a sample class (12 students, three weeks of activity,
+teacher login `teacher` / `teacher123`, student password `student123`):
+
+```bash
+python -m backend.seed_demo_class           # create (re-running re-creates it)
+python -m backend.seed_demo_class --remove  # delete it again
+```
+
+See `docs/week-status.md` for what each panel shows and how it is computed.
+
 ## Important
-The app is intentionally scoped to Week 8. Gamification depth and the teacher dashboard are Week 9; integration testing and deployment are Week 10.
+Weeks 2–9 are implemented. Integration testing and deployment are Week 10.

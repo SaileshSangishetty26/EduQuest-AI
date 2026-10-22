@@ -12,3 +12,6 @@ nltk_data/
 # Textbook PDFs - large, and redistributable from ncert.nic.in
 data/chapters/
 data/lessons_expanded.json 
+
+# Vite build output
+frontend/dist/

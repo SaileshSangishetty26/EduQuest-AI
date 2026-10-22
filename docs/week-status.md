@@ -1,4 +1,4 @@
-# Week 2–9 Implementation Status
+# Week 2–10 Implementation Status
 
 | Week | Requirement area | Status |
 |---|---|---|
@@ -48,7 +48,9 @@
 | 9 | Gamification engine: XP, levels, daily streaks, 11 badges, avatar rewards (server-side) | COMPLETE |
 | 9 | Mark chapter as read (lesson completion tracking) | COMPLETE |
 | 9 | Gamification UI: XP bar, badge showcase, rewards, XP log, leaderboard page | COMPLETE |
-| 9 | Teacher dashboard (MongoDB aggregation: progress, quiz trends, weak concepts) | IN PROGRESS |
+| 9 | Teacher dashboard (MongoDB aggregation: progress, quiz trends, weak concepts) | COMPLETE |
+| 9 | Teacher accounts (created from the command line, not the sign-up page) | COMPLETE |
+| 9 | Demo class for the dashboard (`python -m backend.seed_demo_class`, removable) | COMPLETE |
 | 10 | Chatbot answers specific questions: exact answers from the textbook (DistilBERT-SQuAD) | COMPLETE (threshold to tune) |
 | 10 | Maths calculations with working (fractions, integers, primes, HCF/LCM, perimeter/area) | COMPLETE |
 | 10 | Telugu questions answered from the Telugu chapters | COMPLETE |
@@ -120,6 +122,56 @@ but not tested.
 Endpoints: `GET /api/gamification/{user_id}`, `GET /api/leaderboard?grade=6`,
 `POST /api/lessons/{lesson_id}/complete`; `POST /api/quiz-attempts` now also
 returns XP gained, new badges and any level-up.
+
+## Week 9: teacher dashboard
+Teachers sign in on the normal login page and get a class dashboard instead of
+the student pages. Everything on it comes from what students already write -
+quiz attempts (with per-question results tagged by concept), chapters marked as
+read, and questions asked to the chatbot - and is counted by MongoDB
+aggregation pipelines in `backend/teacher/analytics.py`:
+
+| Panel | How it is computed |
+|---|---|
+| Overview tiles | students, active in the last 7 days, quiz average and quizzes taken this week against last week, chapters read, chatbot questions |
+| Quiz scores over 21 days | every attempt, grouped by day in Indian Standard Time |
+| By subject | `$lookup` each attempt's quiz for its subject, `$group` by subject; chapter coverage from `lesson_completions` joined to `lessons` |
+| Weak concepts | `$unwind` the per-question results, `$group` per student and concept, then per concept; listed when fewer than 60% of at least 5 answers were right, with the students below 50% named |
+| Chapters | readers, quiz takers, quiz average and chatbot questions per chapter, lowest average first |
+| Chatbot | `$facet`: totals, chapters asked about most, and questions it could not answer (repeats grouped) |
+| Students | one row per student: XP, level and streak (from the gamification engine), chapters read, quizzes, average per subject, last active, and flags |
+| Student detail | per-subject bars, concepts missed, recent attempts, chapters read, recent chatbot questions |
+
+Scores per student, subject, chapter and concept use each student's **latest
+attempt** at each quiz (`$sort` then `$group` with `$first`). A student who
+scored 40% and then 90% on a retake has learned the chapter; averaging the two
+would keep them on the "needs help" list. The trend is the exception: it shows
+every attempt on the day it happened. A student is flagged when they have not
+started, have been inactive for 7 days, or have a current average below the
+60% pass mark over at least two quizzes.
+
+Grouping by day is done in Python after the aggregation, because the
+in-memory MongoDB used for tests does not support `$dateToString` with a time
+zone. Attempts at quizzes that no longer exist (the removed Grade 7 quizzes)
+drop out at the `$lookup`, as they do in the gamification engine.
+
+Teacher accounts cannot be created from the sign-up page (any student could
+otherwise read the whole class's results):
+
+    python -m backend.create_teacher <username>          # asks for a password
+    python -m backend.seed_demo_class                    # demo class + teacher / teacher123
+    python -m backend.seed_demo_class --remove           # delete the demo class
+
+The demo class is 12 Grade 6 students with three weeks of simulated reading,
+quizzes, retakes and chatbot questions, each with a different pattern (strong
+all round, weak in one subject, stopped using the app, never started...). Every
+document it writes is marked `demo: true`, so `--remove` deletes only what it
+created. Checked by recomputing every figure from the raw documents in plain
+Python (overview, per-student, per-subject, weak concepts, trend) and by
+screenshots at desktop and phone widths.
+
+Endpoints: `GET /api/teacher/class?teacher_id=...`,
+`GET /api/teacher/students/{student_id}?teacher_id=...` (403 for anyone who is
+not a teacher).
 
 ## Chatbot: answering specific questions
 Before, a factual question got the right chapter and a 60-word passage, but not
@@ -210,4 +262,4 @@ from the chapter the search ranked first. The test gained three explanation
 questions that must get the passage, not a span.
 
 ## Still open
-Week 9 teacher dashboard; Week 10 integration, testing and deployment. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.
+Week 10 integration, testing and deployment. Requests identify the user by id rather than a signed login token, so the teacher check trusts the id the browser sends; a token (for example a JWT issued at login) is the fix before real deployment. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.

@@ -393,3 +393,5 @@ button:disabled{opacity:.65;cursor:not-allowed}
 .chat-answer b{font-size:17px;color:#1f4f2c;line-height:1.35}
 /* Replies contain line breaks (steps, quoted sentences); keep them. */
 .chat-bubble p{white-space:pre-line}
+
+.auth-note{margin:4px 0 0;font-size:13px;color:var(--muted);text-align:center}

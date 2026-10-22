@@ -98,6 +98,12 @@ export const api = {
   recommendations: (userId, params = {}) =>
     request(`/recommendations/${userId}?` + new URLSearchParams(params)),
 
+  teacherClass: (teacherId, params = {}) =>
+    request('/teacher/class?' + new URLSearchParams({ teacher_id: teacherId, ...params })),
+
+  teacherStudent: (teacherId, studentId) =>
+    request(`/teacher/students/${studentId}?` + new URLSearchParams({ teacher_id: teacherId })),
+
   health: () =>
     request('/health')
 };

@@ -39,6 +39,7 @@ export default function Login({ onRegister, onLoggedIn }) {
         {error && <div className="error">{error}</div>}
         <button className="primary" disabled={loading}>{loading ? 'Logging in…' : 'Log in →'}</button>
         <button type="button" className="link" onClick={onRegister}>New here? Create an account</button>
+        <p className="auth-note">Teachers sign in here too, with the account set up for them.</p>
       </form>
     </main>
   );
