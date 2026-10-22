@@ -74,9 +74,6 @@ export default function Lessons({ user, level, streak, completedLessons = [], on
         </div>
 
         <div className="filters pill-filters">
-          <button className={`pill ${subject === '' ? 'pill-active' : ''}`} onClick={() => setSubject('')}>
-            🗺️ All subjects
-          </button>
           {subjects.map(s => (
             <button
               key={s}
@@ -86,6 +83,9 @@ export default function Lessons({ user, level, streak, completedLessons = [], on
               {SUBJECT_ICONS[s]} {s}
             </button>
           ))}
+          <button className={`pill ${subject === '' ? 'pill-active' : ''}`} onClick={() => setSubject('')}>
+            🗺️ All subjects
+          </button>
         </div>
 
         {usingFallback && (
