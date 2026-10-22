@@ -195,7 +195,10 @@ def test_bulleted_summaries_split_into_sentences():
     text = next(s["text"] for s in SECTIONS if s["id"] == "g6-sci-2" and "\x8b The special features" in s["text"]
                 and "The place where plants and animals live" in s["text"])
     shown = focus(text, "how do plants and animals suit where they live")
-    assert shown.startswith("The special features") and "\x8b" not in shown
+    # The list items become separate sentences (before, the whole list was one
+    # 70-word "sentence" and the summary was shown instead).
+    assert shown.startswith("The place where plants and animals live is their habitat.")
+    assert "\x8b" not in shown and len(shown.split()) <= 70
 
 
 def test_a_number_ending_a_sentence_is_not_an_exercise_item():
