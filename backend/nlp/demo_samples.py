@@ -9,7 +9,6 @@ printed set of real inputs and outputs is more convincing than a description.
 Run from the project root:
 
     python -m backend.nlp.demo_samples
-    python -m backend.nlp.demo_samples --grade 7
     python -m backend.nlp.demo_samples --ask "what is a fraction"
 
 The report is written to data/processed/sample_outputs.md as well as printed.
@@ -33,7 +32,7 @@ SAMPLE_GROUPS = [
         "Questions about a topic",
         "Answered by finding the passage in the chapter that addresses them.",
         [
-            "what is an acid",
+            "what is a prime number",
             "how do camels survive in the desert",
             "explain lines and angles",
             "what is symmetry",
@@ -75,7 +74,7 @@ SAMPLE_GROUPS = [
         "shown with an honest caveat.",
         [
             "angle thing confusing help",
-            "acid what mean",
+            "prime number what mean",
             "asdfgh qwerty",
         ],
     ),

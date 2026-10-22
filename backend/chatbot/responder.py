@@ -22,6 +22,7 @@ from __future__ import annotations
 import random
 import re
 
+from ..content_order import sort_textbook
 from ..nlp.classifier import CONFIDENCE_THRESHOLD
 
 # Used only when the query matches no content either. If a chapter matched,
@@ -164,11 +165,18 @@ class ChatResponder:
             query["grade"] = grade
         if subject:
             query["subject"] = subject
-        return list(
-            self._db["lessons"].find(
-                query, {"_id": 0, "id": 1, "title": 1, "subject": 1, "grade": 1}
+        return sort_textbook(
+            list(
+                self._db["lessons"].find(
+                    query, {"_id": 0, "id": 1, "title": 1, "subject": 1, "grade": 1}
+                )
             )
         )
+
+    def _available_grades(self) -> list[int]:
+        if self._db is None:
+            return []
+        return sorted(self._db["lessons"].distinct("grade"))
 
     def _quizzes_for(self, grade: int | None) -> list[dict]:
         if self._db is None:
@@ -183,8 +191,9 @@ class ChatResponder:
         """
         Pick out a grade if the student named one.
 
-        "list chapters of grade 6" must list Grade 6 even when the student's
-        own account is Grade 7. An explicit request beats the profile default.
+        An explicit request beats the profile default. When the student names
+        a grade the content bank does not cover, _browse_content says so
+        instead of returning an empty list.
         """
         if not text:
             return None
@@ -295,6 +304,15 @@ class ChatResponder:
         asked_grade = self._grade_in(query_text)
         target_grade = asked_grade if asked_grade is not None else grade
 
+        # "show me grade 7 chapters" when only Grade 6 exists: say what is
+        # covered and list that, rather than "I could not find any chapters".
+        intro = ""
+        available = self._available_grades()
+        if asked_grade is not None and available and asked_grade not in available:
+            covered = ", ".join(f"Grade {g}" for g in available)
+            intro = f"EduQuest covers {covered} only, not Grade {asked_grade}. "
+            target_grade = grade if grade in available else available[0]
+
         lessons = self._lessons_for(target_grade, subject)
 
         if not lessons:
@@ -312,7 +330,7 @@ class ChatResponder:
         grade_label = (
             f"Grade {target_grade}" if target_grade is not None else "your grade"
         )
-        lines = [f"Here is what you can study in {grade_label}:"]
+        lines = [f"{intro}Here is what you can study in {grade_label}:"]
         for subject_name in sorted(by_subject):
             titles = ", ".join(by_subject[subject_name])
             lines.append(f"\n{subject_name}: {titles}")
@@ -371,14 +389,19 @@ class ChatResponder:
             "Open the Lessons page and pick one to start."
         ), None
 
-    def _progress_help(self, user_id, query_text=None):
+    UNTRACKED_REPLY = (
+        "I do not track how long you spend studying - the app only "
+        "records quiz attempts and scores. I can tell you your scores, "
+        "your XP, or how many quizzes you have completed."
+    )
+
+    def _asks_untracked(self, query_text: str | None) -> bool:
         lowered = (query_text or "").lower()
-        if any(pattern in lowered for pattern in self.UNTRACKED_PATTERNS):
-            return (
-                "I do not track how long you spend studying - the app only "
-                "records quiz attempts and scores. I can tell you your scores, "
-                "your XP, or how many quizzes you have completed."
-            ), None
+        return any(pattern in lowered for pattern in self.UNTRACKED_PATTERNS)
+
+    def _progress_help(self, user_id, query_text=None):
+        if self._asks_untracked(query_text):
+            return self.UNTRACKED_REPLY, None
 
         subject = self._subject_in(query_text)
         if subject and user_id:
@@ -434,6 +457,14 @@ class ChatResponder:
         than refusing.
         """
         if confidence < CONFIDENCE_THRESHOLD:
+            # An unsure classifier's best guess still carries information.
+            # "how much time did I spend studying" lands on progress_help with
+            # low confidence because no training query asks about time, yet
+            # the honest answer is known: the app does not record it. Requiring
+            # the progress_help guess keeps "how long is a line segment" out.
+            if intent == "progress_help" and self._asks_untracked(query_text):
+                return {"reply": self.UNTRACKED_REPLY, "understood": True, "lesson": None}
+
             lesson = (
                 self._find_lesson(query_vector, grade, query_text)
                 if query_vector is not None

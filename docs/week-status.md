@@ -37,17 +37,34 @@
 | 8 | Recommendations panel on the dashboard | COMPLETE |
 | 8 | Chat history logged for NLP-driven recommendations | COMPLETE |
 | 8 | Section-level retrieval (95 sections) | COMPLETE |
-| 8 | Chapter PDF ingestion pipeline | COMPLETE (not yet run on real textbooks) |
+| 8 | Chapter PDF ingestion pipeline | COMPLETE |
+| 8+ | Grade 6 NCERT textbooks ingested (English, Maths, Science: 38 chapters, 3,579 passages) | COMPLETE |
+| 8+ | Change preferred language after registration (settings panel) | COMPLETE |
+| 8+ | Scope narrowed to Grade 6 only | COMPLETE |
 
 See `docs/week6-nlp-preprocessing.md`, `docs/week7-intent-detection.md` and
 `docs/week8-chatbot-recommendations.md` for the design notes and measured
 results.
 
 Headline numbers after Week 8: intent classification 89.1% across 12 intents
-(5-fold CV averaged over 5 seeds, 8.3% baseline), lesson retrieval 10/10 top-1
-with on-topic and off-topic scores cleanly separated.
+(5-fold CV averaged over 5 seeds, 8.3% baseline). Retrieval is checked with
+`python -m backend.nlp.test_retrieval`: 10 on-topic and 3 off-topic probes,
+all against Grade 6 chapters.
+
+## Scope: Grade 6 only
+The team decided to cover a single grade. The content bank is the complete
+Grade 6 NCERT set — 16 English, 10 Mathematics and 12 Science chapters taken
+from the textbook PDFs, plus 2 Telugu chapters — 40 in all. The 8 Grade 7
+chapters and their quizzes were removed, the grade picker was taken out of
+registration and settings, and `python -m backend.seed` moves any existing
+account to Grade 6. The `grade` field stays on users, lessons and quizzes so
+another grade could be added later without a schema change.
+
+Chapters are listed in textbook order everywhere (`backend/content_order.py`).
+Lesson ids end in the chapter number, and sorting them as text had put
+chapter 10 before chapter 2, so the Lessons page showed wrong chapter numbers.
 
 ## Intentionally postponed
 Week 9 gamification and teacher dashboard; Week 10 integration, testing and deployment.
 
-Carried into Week 9: adaptive quizzing needs a larger, concept-tagged question pool — the 16 quizzes hold only 62 questions between them with no tags. The content bank is still 16 chapters; the PDF expansion tooling is written but the NCERT portal was unreachable. Still English-only, and the four Telugu chapters remain tagged `"language": "en"` in lessons.json, which looks like a data error. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.
+Carried into Week 9: only 8 of the 40 chapters have a quiz (34 questions in all, with no concept tags), so adaptive quizzing first needs quizzes for the other chapters and tagged questions. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.

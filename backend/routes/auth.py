@@ -6,7 +6,9 @@ from pymongo import ReturnDocument
 from ..database import users
 from ..models.user import LoginRequest, RegisterRequest, UpdateProfileRequest
 
-GRADES = [6, 7]
+# The project covers Grade 6 only. The grade field is kept on every user and
+# lesson so another grade can be added later without a schema change.
+GRADES = [6]
 LANGUAGES = ["en", "te", "hi"]
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
@@ -31,7 +33,7 @@ def public_user(doc):
 @router.post("/register")
 def register(req: RegisterRequest):
     if req.grade not in GRADES:
-        raise HTTPException(400, "Grade must be 6 or 7")
+        raise HTTPException(400, "Only Grade 6 is available")
     if req.language not in LANGUAGES:
         raise HTTPException(400, "Unsupported language")
     if users.find_one({"username": req.username}):
@@ -63,7 +65,7 @@ def update_profile(user_id: str, req: UpdateProfileRequest):
 
     if req.grade is not None:
         if req.grade not in GRADES:
-            raise HTTPException(400, "Grade must be 6 or 7")
+            raise HTTPException(400, "Only Grade 6 is available")
         changes["grade"] = req.grade
 
     if req.language is not None:

@@ -5,7 +5,7 @@ import { api } from '../services/api';
 const SUGGESTIONS = [
   'Explain lines and angles',
   'How do camels survive in the desert?',
-  'What is an acid?',
+  'What is a prime number?',
   'Give me a quiz',
   'What is my score?'
 ];

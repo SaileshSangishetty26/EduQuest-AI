@@ -4,7 +4,7 @@ from typing import Optional
 class RegisterRequest(BaseModel):
     username: str = Field(min_length=3, max_length=50)
     password: str = Field(min_length=6)
-    grade: int
+    grade: int = 6
     language: str = "en"
 
 class LoginRequest(BaseModel):

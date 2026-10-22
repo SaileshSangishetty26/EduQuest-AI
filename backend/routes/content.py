@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException
+from ..content_order import sort_textbook
 from ..database import lessons, quizzes
 
 router = APIRouter(tags=["Learning Content"])
@@ -9,7 +10,7 @@ def get_lessons(grade:int|None=None, subject:str|None=None, language:str|None=No
     if grade is not None: query["grade"]=grade
     if subject: query["subject"]=subject
     if language: query["language"]=language
-    return list(lessons.find(query, {"_id":0}))
+    return sort_textbook(list(lessons.find(query, {"_id":0})))
 
 @router.get("/lessons/{lesson_id}")
 def get_lesson(lesson_id:str):
@@ -22,7 +23,7 @@ def get_quizzes(grade:int|None=None, subject:str|None=None):
     query={}
     if grade is not None: query["grade"]=grade
     if subject: query["subject"]=subject
-    return list(quizzes.find(query, {"_id":0}))
+    return sort_textbook(list(quizzes.find(query, {"_id":0})))
 
 @router.get("/quizzes/{quiz_id}")
 def get_quiz(quiz_id:str):

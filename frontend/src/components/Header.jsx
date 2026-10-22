@@ -32,7 +32,7 @@ export default function Header({ user, onHome, onLessons, onChat, onSettings, on
           <button
             className="settings-btn"
             onClick={onSettings}
-            title="Change grade or language"
+            title="Change language"
           >
             ⚙️
           </button>

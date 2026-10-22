@@ -24,14 +24,14 @@ from .retriever import RELEVANCE_THRESHOLD, get_retriever
 PROBES = [
     ("how do camels survive in the desert", "g6-sci-2"),
     ("explain lines and angles", "g6-math-2"),
-    ("what is an acid", "g7-sci-2"),
+    ("how do magnets attract iron", "g6-sci-4"),
     ("tell me about number patterns", "g6-math-1"),
     ("what did Rama Natha learn", "g6-eng-1"),
     ("the elephant and the dog story", "g6-eng-2"),
-    ("order of operations with brackets", "g7-math-2"),
-    ("how do I read very large numbers", "g7-math-1"),
+    ("what is a prime number", "g6-math-5"),
+    ("what are negative numbers", "g6-math-10"),
     ("how do scientists ask questions", "g6-sci-1"),
-    ("the river that could talk", "g7-eng-1"),
+    ("the clever fox who tricked the raven", "g6-eng-3"),
     # Off-topic controls - these SHOULD fall below the threshold.
     ("book me a hotel room", None),
     ("who won the cricket match yesterday", None),

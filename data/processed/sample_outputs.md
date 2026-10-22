@@ -1,6 +1,6 @@
 # EduQuest AI &mdash; sample questions and answers
 
-Generated 07 October 2026 for a Grade 6 student, by running each question through the complete pipeline: preprocessing, intent classification, chapter retrieval and response generation.
+Generated 22 October 2026 for a Grade 6 student, by running each question through the complete pipeline: preprocessing, intent classification, chapter retrieval and response generation.
 
 Confidence threshold: 0.6. Below it the system reports that it is unsure rather than presenting a guess as fact.
 
@@ -8,19 +8,19 @@ Confidence threshold: 0.6. Below it the system reports that it is unsure rather 
 
 Answered by finding the passage in the chapter that addresses them.
 
-### “what is an acid”
+### “what is a prime number”
 
-**Detected as:** definition &mdash; 97.9% confident
-**Chapter found:** Exploring Substances: Acidic, Basic, and Neutral (Science, Grade 7)
+**Detected as:** definition &mdash; 90.5% confident
+**Chapter found:** Prime Time (Mathematics, Grade 6)
 
 **Reply:**
 
-> 🧪 A mysterious liquid makes hidden words appear! Follow a science-fair adventure and discover how substances can be tested and grouped as acidic, basic or neutral.
+> Prime numbers are numbers like 2, 3, 5, 7, 11, … that have only two factors, namely 1 and themselves. Composite numbers are numbers like 4, 6, 8, 9, … that have more than 2 factors, i.e., at least one factor other than 1 and themselves. For example, 8 has the factor 4 and 9 has the factor 3, so 8 and 9 are both composite.
 >
-> That is from "Exploring Substances: Acidic, Basic, and Neutral" in Science (from the Grade 7 chapter).
+> That is from "Prime Time" in Mathematics.
 
-*Cleaned to:* `what is an acid`  
-*Next closest categories:* concept_explanation 0%, clarification 0%
+*Cleaned to:* `what is a prime number`  
+*Next closest categories:* formula_help 6%, concept_explanation 1%
 
 ### “how do camels survive in the desert”
 
@@ -138,9 +138,9 @@ Answered from the content bank directly; there is nothing to search for, because
 **Reply:**
 
 > Here is what you can study in Grade 6:
-> English: A Bottle of Dew, Change of Heart, The Winner, Yoga—A Way of Life, Hamara Bharat—Incredible India!, The Kites, Ila Sachani: Embroidering Dreams with her Feet, National War Memorial, The Unlikely Best Friends, The Raven and the Fox, Rama to the Rescue, A Friend’s Prayer, The Chair, Neem Baba, What a Bird Thought, Spices that Heal Us
-> Mathematics: Patterns in Mathematics, The Other Side of Zero, Lines and Angles, Number Play, Data Handling and Presentation, Prime Time, Perimeter and Area, Fractions, Playing with Constructions, Symmetry
-> Science: The Wonderful World of Science, Living Creatures: Exploring their Characteristics, Nature’s Treasures, Beyond Earth, Diversity in the Living World, Mindful Eating: A Path to a Healthy Body, Exploring Magnets, Measurement of Length and Motion, Materials Around Us, Temperature and its Measurement, A Journey through States of Water, Methods of Separation in Everyday Life
+> English: A Bottle of Dew, The Unlikely Best Friends, The Raven and the Fox, Rama to the Rescue, A Friend’s Prayer, The Chair, Neem Baba, What a Bird Thought, Spices that Heal Us, Change of Heart, The Winner, Yoga—A Way of Life, Hamara Bharat—Incredible India!, The Kites, Ila Sachani: Embroidering Dreams with her Feet, National War Memorial
+> Mathematics: Patterns in Mathematics, Lines and Angles, Number Play, Data Handling and Presentation, Prime Time, Perimeter and Area, Fractions, Playing with Constructions, Symmetry, The Other Side of Zero
+> Science: The Wonderful World of Science, Diversity in the Living World, Mindful Eating: A Path to a Healthy Body, Exploring Magnets, Measurement of Length and Motion, Materials Around Us, Temperature and its Measurement, A Journey through States of Water, Methods of Separation in Everyday Life, Living Creatures: Exploring their Characteristics, Nature’s Treasures, Beyond Earth
 > Telugu: అభినందన, స్నేహబంధం
 > Ask me about any of these, or say 'give me a quiz' to practise.
 
@@ -155,7 +155,7 @@ Answered from the content bank directly; there is nothing to search for, because
 **Reply:**
 
 > Here is what you can study in Grade 6:
-> Science: The Wonderful World of Science, Living Creatures: Exploring their Characteristics, Nature’s Treasures, Beyond Earth, Diversity in the Living World, Mindful Eating: A Path to a Healthy Body, Exploring Magnets, Measurement of Length and Motion, Materials Around Us, Temperature and its Measurement, A Journey through States of Water, Methods of Separation in Everyday Life
+> Science: The Wonderful World of Science, Diversity in the Living World, Mindful Eating: A Path to a Healthy Body, Exploring Magnets, Measurement of Length and Motion, Materials Around Us, Temperature and its Measurement, A Journey through States of Water, Methods of Separation in Everyday Life, Living Creatures: Exploring their Characteristics, Nature’s Treasures, Beyond Earth
 > Ask me about any of these, or say 'give me a quiz' to practise.
 
 *Cleaned to:* `show me the science chapters`  
@@ -169,9 +169,9 @@ Answered from the content bank directly; there is nothing to search for, because
 **Reply:**
 
 > Here is what you can study in Grade 6:
-> English: A Bottle of Dew, Change of Heart, The Winner, Yoga—A Way of Life, Hamara Bharat—Incredible India!, The Kites, Ila Sachani: Embroidering Dreams with her Feet, National War Memorial, The Unlikely Best Friends, The Raven and the Fox, Rama to the Rescue, A Friend’s Prayer, The Chair, Neem Baba, What a Bird Thought, Spices that Heal Us
-> Mathematics: Patterns in Mathematics, The Other Side of Zero, Lines and Angles, Number Play, Data Handling and Presentation, Prime Time, Perimeter and Area, Fractions, Playing with Constructions, Symmetry
-> Science: The Wonderful World of Science, Living Creatures: Exploring their Characteristics, Nature’s Treasures, Beyond Earth, Diversity in the Living World, Mindful Eating: A Path to a Healthy Body, Exploring Magnets, Measurement of Length and Motion, Materials Around Us, Temperature and its Measurement, A Journey through States of Water, Methods of Separation in Everyday Life
+> English: A Bottle of Dew, The Unlikely Best Friends, The Raven and the Fox, Rama to the Rescue, A Friend’s Prayer, The Chair, Neem Baba, What a Bird Thought, Spices that Heal Us, Change of Heart, The Winner, Yoga—A Way of Life, Hamara Bharat—Incredible India!, The Kites, Ila Sachani: Embroidering Dreams with her Feet, National War Memorial
+> Mathematics: Patterns in Mathematics, Lines and Angles, Number Play, Data Handling and Presentation, Prime Time, Perimeter and Area, Fractions, Playing with Constructions, Symmetry, The Other Side of Zero
+> Science: The Wonderful World of Science, Diversity in the Living World, Mindful Eating: A Path to a Healthy Body, Exploring Magnets, Measurement of Length and Motion, Materials Around Us, Temperature and its Measurement, A Journey through States of Water, Methods of Separation in Everyday Life, Living Creatures: Exploring their Characteristics, Nature’s Treasures, Beyond Earth
 > Telugu: అభినందన, స్నేహబంధం
 > Ask me about any of these, or say 'give me a quiz' to practise.
 
@@ -213,7 +213,7 @@ Outside the curriculum, or about data the app does not record.
 
 **Reply:**
 
-> Sorry, I did not follow that one. Try naming the chapter or topic, or ask me to list your chapters.
+> I do not track how long you spend studying - the app only records quiz attempts and scores. I can tell you your scores, your XP, or how many quizzes you have completed.
 
 *Cleaned to:* `how much time did i spend studying`  
 *Next closest categories:* study_advice 26%, browse_content 14%
@@ -238,19 +238,19 @@ The classifier is unsure, but a relevant chapter is still found and shown with a
 *Cleaned to:* `angle thing confusing help`  
 *Next closest categories:* greeting 18%, browse_content 15%
 
-### “acid what mean”
+### “prime number what mean”
 
-**Detected as:** definition &mdash; 74.5% confident
-**Chapter found:** Exploring Substances: Acidic, Basic, and Neutral (Science, Grade 7)
+**Detected as:** definition &mdash; 66.3% confident
+**Chapter found:** Prime Time (Mathematics, Grade 6)
 
 **Reply:**
 
-> 🧪 A mysterious liquid makes hidden words appear! Follow a science-fair adventure and discover how substances can be tested and grouped as acidic, basic or neutral.
+> A product of primes can also be prime. c. Prime numbers do not have any factors. d. All even numbers are composite numbers. e. 2 is a prime and so is the next number, 3. For every other prime, the next number is composite. Ans. a. True, unit digit 4 means even number. We know that 2 is the only even prime number.
 >
-> That is from "Exploring Substances: Acidic, Basic, and Neutral" in Science (from the Grade 7 chapter).
+> That is from "Prime Time" in Mathematics.
 
-*Cleaned to:* `acid what mean`  
-*Next closest categories:* progress_help 6%, greeting 6%
+*Cleaned to:* `prime number what mean`  
+*Next closest categories:* formula_help 21%, progress_help 5%
 
 ### “asdfgh qwerty”
 
@@ -259,7 +259,7 @@ The classifier is unsure, but a relevant chapter is still found and shown with a
 
 **Reply:**
 
-> Sorry, I did not follow that one. Try naming the chapter or topic, or ask me to list your chapters.
+> I did not quite get that. You could ask me to explain a topic, show an example, start a quiz, or check your progress.
 
 *Cleaned to:* `asdfgh qwerty`  
 *Next closest categories:* out_of_scope 21%, greeting 17%

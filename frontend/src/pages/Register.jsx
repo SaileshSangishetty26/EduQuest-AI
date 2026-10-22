@@ -14,7 +14,7 @@ export default function Register({ onLogin, onRegistered }) {
     setError('');
     setLoading(true);
     try {
-      const r = await api.register({ ...form, grade: Number(form.grade) });
+      const r = await api.register(form);
       setAvatarForUser(r.user, avatar);
       onRegistered(r.user);
     } catch (err) {
@@ -30,7 +30,7 @@ export default function Register({ onLogin, onRegistered }) {
       <form className="card auth-card" onSubmit={submit}>
         <div className="logo">🎓 EduQuest</div>
         <h1>Start your quest</h1>
-        <p>Pick an avatar, choose your grade and preferred language.</p>
+        <p>Pick an avatar and your preferred language. EduQuest covers Grade 6.</p>
 
         <label>Pick your avatar</label>
         <div className="avatar-picker">
@@ -51,12 +51,6 @@ export default function Register({ onLogin, onRegistered }) {
         </label>
         <label>Password
           <input type="password" value={form.password} onChange={e => change('password', e.target.value)} minLength="6" required />
-        </label>
-        <label>Grade
-          <select value={form.grade} onChange={e => change('grade', e.target.value)}>
-            <option value="6">Grade 6</option>
-            <option value="7">Grade 7</option>
-          </select>
         </label>
         <label>Preferred language
           <select value={form.language} onChange={e => change('language', e.target.value)}>

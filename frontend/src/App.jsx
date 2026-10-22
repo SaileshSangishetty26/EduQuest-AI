@@ -11,7 +11,12 @@ import Chat from './pages/Chat';
 import ProfileSettings from './components/ProfileSettings';
 
 export default function App(){
-  const [user,setUser] = useState(()=>JSON.parse(localStorage.getItem('eduquest_user')||'null'));
+  const [user,setUser] = useState(()=>{
+    const stored = JSON.parse(localStorage.getItem('eduquest_user')||'null');
+    // EduQuest covers Grade 6 only. A browser still signed in from when
+    // Grade 7 existed would otherwise ask for Grade 7 chapters and see none.
+    return stored && stored.grade !== 6 ? { ...stored, grade: 6 } : stored;
+  });
   const [page,setPage] = useState(user?'dashboard':'login');
   const [selectedLesson,setSelectedLesson] = useState(null);
   const [selectedQuiz,setSelectedQuiz] = useState(null);

@@ -27,6 +27,8 @@ from __future__ import annotations
 from collections import Counter, defaultdict
 from dataclasses import dataclass, asdict
 
+from ..content_order import chapter_number, textbook_order
+
 # --- Tunable thresholds ----------------------------------------------------
 # A quiz below this counts as "needs another attempt".
 FAILING_SCORE = 60
@@ -222,7 +224,16 @@ class RecommendationEngine:
         return out
 
     def _rule_next_chapter(self, lessons, attempted_lessons) -> list[Recommendation]:
-        """Chapters in the student's grade they have not attempted yet."""
+        """
+        Chapters in the student's grade they have not attempted yet.
+
+        Ordered by chapter number, then subject, so a new student is pointed at
+        Chapter 1 of each subject rather than four English chapters in a row.
+        """
+        pending = sorted(
+            (l for l in lessons.values() if l["id"] not in attempted_lessons),
+            key=lambda l: (chapter_number(l["id"]), textbook_order(l)),
+        )
         return [
             Recommendation(
                 lesson_id=lesson["id"],
@@ -233,8 +244,7 @@ class RecommendationEngine:
                 kind="next_chapter",
                 priority=PRIORITY_NEXT_CHAPTER,
             )
-            for lesson in lessons.values()
-            if lesson["id"] not in attempted_lessons
+            for lesson in pending
         ]
 
     def _rule_revision(self, latest, quizzes, lessons) -> list[Recommendation]:

@@ -7,22 +7,19 @@ const LANGUAGES = [
   { code: 'hi', label: 'हिंदी' }
 ];
 
-const GRADES = [6, 7];
-
 export default function ProfileSettings({ user, onUpdated, onClose }) {
-  const [grade, setGrade] = useState(user.grade);
   const [language, setLanguage] = useState(user.language);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
 
-  const changed = grade !== user.grade || language !== user.language;
+  const changed = language !== user.language;
 
   async function save() {
     if (!changed || saving) return;
     setSaving(true);
     setError('');
     try {
-      const res = await api.updateProfile(user.id, { grade, language });
+      const res = await api.updateProfile(user.id, { language });
       onUpdated(res.user);
       onClose();
     } catch (err) {
@@ -38,30 +35,15 @@ export default function ProfileSettings({ user, onUpdated, onClose }) {
         <div className="settings-head">
           <div>
             <span className="eyebrow">YOUR SETTINGS</span>
-            <h2>Grade and language</h2>
+            <h2>Language</h2>
           </div>
           <button className="link" onClick={onClose}>Close</button>
         </div>
 
         <p className="settings-note">
-          Signed in as <b>{user.username}</b>. Changing these updates which
-          chapters and quizzes you see.
+          Signed in as <b>{user.username}</b>, Grade {user.grade}. Choose the
+          language you would like to learn in.
         </p>
-
-        <div className="settings-group">
-          <span className="settings-label">Grade</span>
-          <div className="pill-filters">
-            {GRADES.map(g => (
-              <button
-                key={g}
-                className={`pill ${grade === g ? 'pill-active' : ''}`}
-                onClick={() => setGrade(g)}
-              >
-                Grade {g}
-              </button>
-            ))}
-          </div>
-        </div>
 
         <div className="settings-group">
           <span className="settings-label">Preferred language</span>
