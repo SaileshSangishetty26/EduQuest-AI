@@ -86,6 +86,33 @@ def _no_lesson_found(topic_word: str = "that topic") -> str:
     )
 
 
+def answer_reply(answer) -> str:
+    """Reply for an exact answer extracted from the textbook (Week 10)."""
+    lesson = answer.passage
+    text = answer.text[:1].upper() + answer.text[1:]
+    reply = text if text.endswith((".", "!", "?")) else f"{text}."
+    sentence = answer.sentence.strip()
+    if sentence and sentence.lower().strip(" .") != answer.text.lower().strip(" ."):
+        reply += f"\n\n\u201c{sentence}\u201d"
+    reply += (
+        f"\n\nThat is from \"{lesson['title']}\" in {lesson['subject']}"
+        f"{_grade_note(lesson)}. Open the chapter to read more."
+    )
+    return reply
+
+
+def math_reply(solution, lesson: dict | None) -> str:
+    """Reply for a calculation solved by the maths solver (Week 10)."""
+    lines = [solution.answer]
+    if solution.working:
+        lines.append("")
+        lines.extend(solution.working)
+    if lesson:
+        lines.append("")
+        lines.append(f"This is from \"{lesson['title']}\" in Mathematics - open it to practise the method.")
+    return "\n".join(lines)
+
+
 class ChatResponder:
     """Builds a reply for a classified query."""
 

@@ -49,6 +49,10 @@
 | 9 | Mark chapter as read (lesson completion tracking) | COMPLETE |
 | 9 | Gamification UI: XP bar, badge showcase, rewards, XP log, leaderboard page | COMPLETE |
 | 9 | Teacher dashboard (MongoDB aggregation: progress, quiz trends, weak concepts) | IN PROGRESS |
+| 10 | Chatbot answers specific questions: exact answers from the textbook (DistilBERT-SQuAD) | COMPLETE (threshold to tune) |
+| 10 | Maths calculations with working (fractions, integers, primes, HCF/LCM, perimeter/area) | COMPLETE |
+| 10 | Telugu questions answered from the Telugu chapters | COMPLETE |
+| 10 | One chat pipeline for the app, demo and tests (`backend/chatbot/service.py`) | COMPLETE |
 
 See `docs/week6-nlp-preprocessing.md`, `docs/week7-intent-detection.md` and
 `docs/week8-chatbot-recommendations.md` for the design notes and measured
@@ -116,6 +120,34 @@ but not tested.
 Endpoints: `GET /api/gamification/{user_id}`, `GET /api/leaderboard?grade=6`,
 `POST /api/lessons/{lesson_id}/complete`; `POST /api/quiz-attempts` now also
 returns XP gained, new badges and any level-up.
+
+## Chatbot: answering specific questions
+Before, a factual question got the right chapter and a 60-word passage, but not
+the answer itself, and Telugu questions were not understood at all. Each
+message now goes through `backend/chatbot/service.py`:
+
+1. **Telugu script** → `backend/nlp/telugu.py`: character n-gram TF-IDF over the
+   Telugu chapter sentences, reply in Telugu. Character fragments rather than
+   words because Telugu is agglutinative (రైతు / రైతులు / రైతుల share most
+   characters).
+2. **A calculation** → `backend/nlp/math_solver.py`: exact Fraction arithmetic
+   for fractions and integers, prime checks, factors, prime factorisation,
+   HCF/LCM, co-primes, and rectangle/square perimeter and area, with the
+   working the chapter teaches.
+3. **Everything else** → Week 6 preprocessing and Week 7 intent classifier, then
+   semantic retrieval of the top 3 textbook passages.
+4. **A factual question** → `backend/nlp/answerer.py`:
+   `distilbert-base-cased-distilled-squad` reads those passages and points at
+   the words that answer it. It can only quote the NCERT text, never invent;
+   below `ANSWER_THRESHOLD` the passage is shown instead.
+5. Otherwise the Week 7/8 rule-based reply. Homework questions still get the
+   method, not the answer.
+
+The chat endpoint previously never searched the textbook when the intent
+classifier was unsure (only the demo script did); all three now share one
+pipeline. `python -m backend.nlp.test_answers` checks 35 questions with known
+answers across the four subjects plus off-topic questions, and prints how many
+right and wrong answers each threshold lets through.
 
 ## Still open
 Week 9 teacher dashboard; Week 10 integration, testing and deployment. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.

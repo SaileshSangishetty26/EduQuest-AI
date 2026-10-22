@@ -16,6 +16,15 @@ class LessonRef(BaseModel):
     grade: int
 
 
+class AnswerInfo(BaseModel):
+    """The exact answer, when the bot found one (Week 10)."""
+    text: str
+    source: str                     # "textbook", "math" or "telugu"
+    score: float
+    sentence: Optional[str] = None  # textbook sentence the answer came from
+    working: List[str] = []         # steps, for calculations
+
+
 class ChatResponse(BaseModel):
     reply: str
     intent: str
@@ -23,6 +32,7 @@ class ChatResponse(BaseModel):
     understood: bool
     lesson: Optional[LessonRef] = None
     top_intents: List[Tuple[str, float]] = []
+    answer: Optional[AnswerInfo] = None
 
 
 class ChatStatusResponse(BaseModel):

@@ -16,7 +16,7 @@ import argparse
 import subprocess
 import sys
 
-from .config import EMBEDDING_MODEL_NAME, RETRIEVAL_MODEL_NAME, SPACY_MODEL
+from .config import EMBEDDING_MODEL_NAME, QA_MODEL_NAME, RETRIEVAL_MODEL_NAME, SPACY_MODEL
 
 NLTK_PACKAGES = ["stopwords", "punkt", "punkt_tab", "wordnet", "omw-1.4"]
 
@@ -68,22 +68,23 @@ def setup_transformer(skip: bool = False) -> bool:
         return True
 
     try:
-        from transformers import AutoModel, AutoTokenizer
+        from transformers import AutoModel, AutoModelForQuestionAnswering, AutoTokenizer
     except ImportError:
         print("      transformers/torch not installed.")
         print("      Run: pip install -r requirements.txt")
         return False
 
     ok = True
-    for purpose, name in [
-        ("intent classification", EMBEDDING_MODEL_NAME),
-        ("lesson retrieval", RETRIEVAL_MODEL_NAME),
+    for purpose, name, loader in [
+        ("intent classification", EMBEDDING_MODEL_NAME, AutoModel),
+        ("lesson retrieval", RETRIEVAL_MODEL_NAME, AutoModel),
+        ("answer extraction", QA_MODEL_NAME, AutoModelForQuestionAnswering),
     ]:
         print(f"      {purpose}: {name}")
         print("        downloading (~265 MB, cached after the first run) ...")
         try:
             AutoTokenizer.from_pretrained(name)
-            AutoModel.from_pretrained(name)
+            loader.from_pretrained(name)
             print("        done")
         except Exception as exc:  # noqa: BLE001 - report any download failure
             print(f"        FAILED: {exc}")

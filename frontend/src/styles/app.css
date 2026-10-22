@@ -385,3 +385,11 @@ button:disabled{opacity:.65;cursor:not-allowed}
   .topbar-nav::-webkit-scrollbar{display:none}
   .topbar-nav button{white-space:nowrap;padding:8px 11px;font-size:14px}
 }
+
+/* ---- Week 10: exact answers in chat ------------------------------------ */
+.chat-answer{display:flex;flex-direction:column;gap:3px;margin:0 0 10px;padding:10px 13px;
+  border-radius:12px;background:#e9f7ed;border:1px solid #bfe5c9}
+.chat-answer span{font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:#2f8a47}
+.chat-answer b{font-size:17px;color:#1f4f2c;line-height:1.35}
+/* Replies contain line breaks (steps, quoted sentences); keep them. */
+.chat-bubble p{white-space:pre-line}

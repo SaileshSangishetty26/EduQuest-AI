@@ -54,6 +54,11 @@ EMBEDDING_MODEL_NAME = "distilbert-base-uncased"
 # Lesson retrieval (Week 7 semantic search over the content bank)
 RETRIEVAL_MODEL_NAME = "sentence-transformers/multi-qa-distilbert-cos-v1"
 
+# Answer extraction (Week 10): DistilBERT fine-tuned on SQuAD question
+# answering. Reads a retrieved passage and points at the words that answer the
+# question. See backend/nlp/answerer.py.
+QA_MODEL_NAME = "distilbert-base-cased-distilled-squad"
+
 EMBEDDING_DIM = 768          # DistilBERT hidden size
 MAX_SEQ_LENGTH = 64          # student queries are short; 64 tokens is plenty
 EMBEDDING_BATCH_SIZE = 16

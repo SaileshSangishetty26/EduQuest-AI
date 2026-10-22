@@ -3,12 +3,20 @@ import Header from '../components/Header';
 import { api } from '../services/api';
 
 const SUGGESTIONS = [
+  'What is the SI unit of length?',
+  'Who gave the neem tree its name?',
+  'What is 1/3 + 1/6?',
+  'Is 91 a prime number?',
+  'రైతు ఏమి చేస్తాడు?',
   'Explain lines and angles',
-  'How do camels survive in the desert?',
-  'What is a prime number?',
   'Give me a quiz',
   'What is my score?'
 ];
+
+const ANSWER_LABELS = {
+  textbook: '✅ Answer',
+  math: '🧮 Answer'
+};
 
 const INTENT_LABELS = {
   greeting: 'Greeting',
@@ -20,8 +28,20 @@ const INTENT_LABELS = {
   clarification: 'Clarification',
   quiz_help: 'Quiz',
   progress_help: 'Progress',
-  out_of_scope: 'Off topic'
+  out_of_scope: 'Off topic',
+  browse_content: 'Chapters',
+  study_advice: 'Study plan',
+  calculation: 'Calculation',
+  telugu_question: 'తెలుగు'
 };
+
+// When the bot found an exact answer, the reply starts with it; it is shown in
+// the highlighted box instead, so the bubble does not say it twice.
+function splitAnswer(m) {
+  if (!m.answer || !ANSWER_LABELS[m.answer.source]) return { box: null, body: m.text };
+  const parts = m.text.split('\n\n');
+  return { box: m.answer, body: parts.slice(1).join('\n\n') };
+}
 
 export default function Chat({ user, level, streak, onBack, onLessons, onLogout, onSettings, onOpenLesson }) {
   const [messages, setMessages] = useState([
@@ -62,7 +82,8 @@ export default function Chat({ user, level, streak, onBack, onLessons, onLogout,
           intent: res.intent,
           confidence: res.confidence,
           understood: res.understood,
-          lesson: res.lesson
+          lesson: res.lesson,
+          answer: res.answer
         }
       ]);
     } catch (err) {
@@ -89,15 +110,23 @@ export default function Chat({ user, level, streak, onBack, onLessons, onLogout,
         <div className="page-head">
           <span className="eyebrow">STUDY BUDDY</span>
           <h1>Ask me anything 🤖</h1>
-          <p>I can explain chapters, find examples, set you a quiz, or tell you how you are doing.</p>
+          <p>Ask a question about any chapter and I will find the answer in your textbook. I can also work out maths, answer in Telugu, set you a quiz, or tell you how you are doing.</p>
         </div>
 
         <section className="card chat-panel">
           <div className="chat-log">
-            {messages.map((m, i) => (
+            {messages.map((m, i) => {
+              const { box, body } = splitAnswer(m);
+              return (
               <div key={i} className={`chat-row ${m.from}`}>
                 <div className={`chat-bubble ${m.from}${m.error ? ' chat-error' : ''}`}>
-                  <p>{m.text}</p>
+                  {box && (
+                    <div className="chat-answer">
+                      <span>{ANSWER_LABELS[box.source]}</span>
+                      <b>{box.text}</b>
+                    </div>
+                  )}
+                  {body && <p>{body}</p>}
 
                   {m.lesson && (
                     <button className="chat-lesson" onClick={() => onOpenLesson(m.lesson)}>
@@ -110,12 +139,17 @@ export default function Chat({ user, level, streak, onBack, onLessons, onLogout,
                       <span className={`chat-tag ${m.understood ? '' : 'chat-tag-unsure'}`}>
                         {INTENT_LABELS[m.intent] || m.intent}
                       </span>
-                      <span className="chat-conf">{Math.round(m.confidence * 100)}% sure</span>
+                      {box?.source === 'textbook' ? (
+                        <span className="chat-conf">answer {Math.round(box.score * 100)}% sure · from the textbook</span>
+                      ) : m.intent !== 'calculation' && (
+                        <span className="chat-conf">{Math.round(m.confidence * 100)}% sure</span>
+                      )}
                     </div>
                   )}
                 </div>
               </div>
-            ))}
+              );
+            })}
 
             {sending && (
               <div className="chat-row bot">
