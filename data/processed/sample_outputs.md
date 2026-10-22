@@ -73,7 +73,7 @@ Answered by finding the passage in the chapter that addresses them.
 
 **Reply:**
 
-> Some important examples of number sequences include the counting numbers, odd numbers, even numbers, square numbers, triangular numbers, cube numbers, Virahānka numbers, and powers of
+> Some important examples of number sequences include the counting numbers, odd numbers, even numbers, square numbers, triangular numbers, cube numbers, Virahānka numbers, and powers of 2. Sometimes number sequences can be related to each other in beautiful and remarkable ways. For example, adding up the sequence of odd numbers starting with 1 gives square numbers.
 >
 > There are more examples in "Patterns in Mathematics", and its quiz gives you real questions to try.
 
@@ -91,7 +91,7 @@ No shared keyword with the chapter title, so these test understanding of meaning
 
 **Reply:**
 
-> 🌿 Why does a camel survive in a desert while a fish thrives in water? Explore the amazing variety of living things and the features that help them survive in different environments.
+> The place where plants and animals live is their habitat. Based on their habitats, animals and plants can be grouped as terrestrial and aquatic. Due to damage of their habitats, plants and animals lose their homes, food and other resources resulting in the loss of biodiversity.
 >
 > Read the rest in "Diversity in the Living World", Science, for the full walkthrough.
 
