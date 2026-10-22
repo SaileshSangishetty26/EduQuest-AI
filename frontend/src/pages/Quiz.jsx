@@ -26,10 +26,11 @@ export default function Quiz({ quiz, user, level, streak, onBack, onLogout, onSe
     setError('');
     setSubmitting(true);
     try {
+      // One answer per question, in order; -1 marks a question left blank.
       const r = await api.submitQuiz({
         user_id: user.id,
         quiz_id: quiz.id,
-        answers: Object.values(answers)
+        answers: quiz.questions.map((_, i) => (i in answers ? answers[i] : -1))
       });
       setResult(r);
       if (onSubmitted) onSubmitted();
@@ -38,6 +39,13 @@ export default function Quiz({ quiz, user, level, streak, onBack, onLogout, onSe
     } finally {
       setSubmitting(false);
     }
+  }
+
+  function retake() {
+    setAnswers({});
+    setResult(null);
+    setError('');
+    window.scrollTo(0, 0);
   }
 
   const celebrate = result && result.score >= 60;
@@ -58,14 +66,59 @@ export default function Quiz({ quiz, user, level, streak, onBack, onLogout, onSe
         </div>
 
         {result ? (
-          <section className="card result">
-            <div className="result-badge">{result.score >= 80 ? '🏆' : result.score >= 60 ? '🎉' : '💪'}</div>
-            <h2>Quiz complete!</h2>
-            <div className="score">{result.score}%</div>
-            <p>{result.correct} of {result.total} answers correct.</p>
-            <div className="xp-gain-chip">+{xpGained} XP earned</div>
-            <button className="primary" onClick={onBack}>Back to learning</button>
-          </section>
+          <>
+            <section className="card result">
+              <div className="result-badge">{result.score >= 80 ? '🏆' : result.score >= 60 ? '🎉' : '💪'}</div>
+              <h2>Quiz complete!</h2>
+              <div className="score">{result.score}%</div>
+              <p>{result.correct} of {result.total} answers correct.</p>
+              <div className="xp-gain-chip">+{xpGained} XP earned</div>
+              <div className="result-actions">
+                <button className="primary" onClick={onBack}>Back to learning</button>
+                {result.score < 100 && (
+                  <button className="secondary" onClick={retake}>Try again</button>
+                )}
+              </div>
+            </section>
+
+            {result.review && (
+              <section className="review">
+                <h2>Check your answers</h2>
+                {result.review.map((item, i) => (
+                  <article
+                    className={`card review-item ${item.is_correct ? 'review-right' : 'review-wrong'}`}
+                    key={i}
+                  >
+                    <div className="review-head">
+                      <span className="q-number">{i + 1}</span>
+                      <h3>{item.question}</h3>
+                      <span className="review-status">
+                        {item.is_correct ? '✓ Correct' : item.chosen < 0 ? 'Not answered' : '✗ Not quite'}
+                      </span>
+                    </div>
+                    <ul className="review-options">
+                      {item.options.map((option, j) => {
+                        const isAnswer = j === item.correct;
+                        const isWrongChoice = j === item.chosen && !item.is_correct;
+                        return (
+                          <li
+                            key={j}
+                            className={`review-option ${isAnswer ? 'is-answer' : ''} ${isWrongChoice ? 'is-wrong-choice' : ''}`}
+                          >
+                            <span>{option}</span>
+                            {isAnswer && <span className="review-tag">Correct answer</span>}
+                            {isWrongChoice && <span className="review-tag">Your answer</span>}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                    {item.explanation && <p className="review-explain">💡 {item.explanation}</p>}
+                    {item.concept && <span className="review-concept">Topic: {item.concept}</span>}
+                  </article>
+                ))}
+              </section>
+            )}
+          </>
         ) : (
           <>
             <div className="quiz-progress-track">

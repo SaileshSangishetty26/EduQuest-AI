@@ -1,4 +1,4 @@
-# Week 2–8 Implementation Status
+# Week 2–9 Implementation Status
 
 | Week | Requirement area | Status |
 |---|---|---|
@@ -41,6 +41,11 @@
 | 8+ | Grade 6 NCERT textbooks ingested (English, Maths, Science: 38 chapters, 3,579 passages) | COMPLETE |
 | 8+ | Change preferred language after registration (settings panel) | COMPLETE |
 | 8+ | Scope narrowed to Grade 6 only | COMPLETE |
+| 9 | Concept-tagged quizzes for all 40 chapters (198 questions) | COMPLETE |
+| 9 | Correct answers spread across A–D; answers hidden until submission | COMPLETE |
+| 9 | Answer review with explanations after each quiz | COMPLETE |
+| 9 | Per-question results stored with each attempt (for weak-concept analysis) | COMPLETE |
+| 9 | Gamification module, leaderboard, teacher dashboard | IN PROGRESS |
 
 See `docs/week6-nlp-preprocessing.md`, `docs/week7-intent-detection.md` and
 `docs/week8-chatbot-recommendations.md` for the design notes and measured
@@ -64,7 +69,21 @@ Chapters are listed in textbook order everywhere (`backend/content_order.py`).
 Lesson ids end in the chapter number, and sorting them as text had put
 chapter 10 before chapter 2, so the Lessons page showed wrong chapter numbers.
 
-## Intentionally postponed
-Week 9 gamification and teacher dashboard; Week 10 integration, testing and deployment.
+## Week 9 so far: quizzes
+Every chapter now has a quiz: 5 questions for each English, Maths and Science
+chapter and 4 for each Telugu chapter, 198 in all. Questions are written in
+`backend/quizzes/` (one file per subject) with the correct answer first and a
+concept tag and explanation on each; `python -m backend.quizzes.build` turns
+them into `data/quizzes.json`. Every answer was checked against the chapter
+text extracted from the NCERT PDFs.
 
-Carried into Week 9: only 8 of the 40 chapters have a quiz (34 questions in all, with no concept tags), so adaptive quizzing first needs quizzes for the other chapters and tagged questions. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.
+In the original 8 quizzes the correct answer was always option A and the quiz
+page did not shuffle, so always choosing A scored 100%. The build step now
+spreads correct answers across A–D (always choosing A scores 24%), the quiz
+endpoints no longer send answers to the browser, and `POST /quiz-attempts`
+returns a per-question review with explanations. Each attempt stores which
+concepts were answered correctly, so the teacher dashboard can report weak
+concepts without depending on the current option order.
+
+## Still open
+Week 9 gamification module and teacher dashboard; Week 10 integration, testing and deployment. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.

@@ -276,3 +276,28 @@ button:disabled{opacity:.65;cursor:not-allowed}
 /* ---- Language fallback notice ---- */
 .language-notice{margin-top:18px;padding:14px 18px;border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0}
 .language-notice p{margin:0;color:var(--muted);line-height:1.5}
+
+/* ---- Quiz answer review ------------------------------------------------- */
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.review{max-width:760px;margin:0 auto 48px}
+.review > h2{font-family:'Fredoka';margin:8px 0 16px}
+.review-item{margin-bottom:16px;border-left:5px solid var(--border)}
+.review-right{border-left-color:var(--green)}
+.review-wrong{border-left-color:var(--coral)}
+.review-head{display:flex;gap:10px;align-items:flex-start}
+.review-head h3{margin:4px 0 0;flex:1;font-size:17px;line-height:1.4}
+.review-status{font-weight:900;font-size:13px;white-space:nowrap;padding-top:7px}
+.review-right .review-status{color:#2f8a47}
+.review-wrong .review-status{color:#b5483a}
+.review-options{list-style:none;padding:0;margin:12px 0 0}
+.review-option{display:flex;justify-content:space-between;align-items:center;gap:10px;
+  padding:10px 14px;border:1px solid #e2deeb;border-radius:12px;margin:7px 0;background:#fff}
+.review-option.is-answer{background:#e9f7ed;border-color:#7cc890;color:#24663a;font-weight:800}
+.review-option.is-wrong-choice{background:#fdeeeb;border-color:#f0a596;color:#9a3324;font-weight:800}
+.review-tag{font-size:11px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.review-explain{margin:12px 0 0;padding:11px 14px;background:#faf8ff;border-radius:12px;line-height:1.55}
+.review-concept{display:inline-block;margin-top:10px;font-size:12px;color:var(--muted);font-weight:700}
+@media (max-width:560px){
+  .review-head{flex-wrap:wrap}
+  .review-status{padding-top:0;width:100%;order:3}
+}
