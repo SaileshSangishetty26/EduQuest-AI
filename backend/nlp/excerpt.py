@@ -32,8 +32,13 @@ EXERCISE_MARKERS = re.compile(
     r"circle the|identify whether|figure it out|try this|activity \d)\b",
     re.IGNORECASE,
 )
-# "a. There is...", "(ii) The...", "3. Find..." - numbered exercise items.
-ENUMERATED = re.compile(r"(?:^|\s)(?:\(?[a-h]\)|[a-h]\.|\([ivx]+\)|\d{1,2}[.)])\s+(?=[A-Z0-9∠(“\"])")
+# "a. There is...", "(ii) The...", "3. Find..." - numbered exercise items. An
+# item number follows the end of a sentence; "powers of 2. Sometimes" is not one.
+ENUMERATED = re.compile(
+    r"(?:^|(?<=[.!?:;”\"’)\]])\s+)(?:\(?[a-h]\)|[a-h]\.|\([ivx]+\)|\d{1,2}[.)])\s+(?=[A-Z0-9∠(“\"])"
+)
+# Bullet characters from the PDFs (some come through as control characters).
+BULLETS = re.compile("[\u0080-\u009f\u2022\u25aa\u25cf\u25e6\u27a2\uf0a7\uf0b7\uf076\uf0d8]")
 SENTENCE_END = re.compile(r"(?<=[.!?])[\"”’]?\s+(?=[A-Z0-9“\"‘(])")
 # Exercise instructions start with a command: "Name the angles...", "Find the...".
 INSTRUCTION = re.compile(
@@ -89,10 +94,12 @@ def split_sentences(text: str) -> list[str]:
     ("c. Prime numbers do not have any factors.") is kept but marked, so it is
     never shown as a fact.
     """
-    text = LABEL_RUN.sub("", " ".join(text.split()))
+    text = BULLETS.sub("\n", " ".join(text.split()))
+    text = LABEL_RUN.sub("", text)
     text = ENUMERATED.sub(lambda m: "\n" + ITEM, text)
     out = []
     for chunk in text.split("\n"):
+        chunk = chunk.strip()
         item = chunk.startswith(ITEM)
         for n, sentence in enumerate(SENTENCE_END.split(chunk.lstrip(ITEM).strip())):
             sentence = sentence.strip()

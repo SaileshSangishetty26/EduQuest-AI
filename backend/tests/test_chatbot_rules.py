@@ -189,3 +189,15 @@ def test_a_prose_section_of_the_same_chapter_is_preferred():
     assert _prefer_prose([exercise, elsewhere, prose]) is prose
     far = {**prose, "score": 0.50}
     assert _prefer_prose([exercise, far]) is exercise        # too far below: keep the best match
+
+
+def test_bulleted_summaries_split_into_sentences():
+    text = next(s["text"] for s in SECTIONS if s["id"] == "g6-sci-2" and "\x8b The special features" in s["text"]
+                and "The place where plants and animals live" in s["text"])
+    shown = focus(text, "how do plants and animals suit where they live")
+    assert shown.startswith("The special features") and "\x8b" not in shown
+
+
+def test_a_number_ending_a_sentence_is_not_an_exercise_item():
+    text = section("g6-math-1", "Virahānka numbers, and powers of 2")["text"]
+    assert "powers of 2." in focus(text, "give me an example of a number pattern")
