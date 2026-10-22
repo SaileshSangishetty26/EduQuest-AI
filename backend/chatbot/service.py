@@ -21,7 +21,7 @@ Order of the steps:
 
 from __future__ import annotations
 
-from ..nlp.answerer import ANSWER_THRESHOLD, get_answer_extractor, is_question
+from ..nlp.answerer import ANSWER_THRESHOLD, get_answer_extractor, is_question, wants_short_answer
 from ..nlp.classifier import CONFIDENCE_THRESHOLD, get_classifier
 from ..nlp.math_solver import solve as solve_math
 from ..nlp.pipeline import get_pipeline
@@ -132,7 +132,11 @@ class ChatService:
         }
 
         # 4. Exact answer from the textbook
-        wants_answer = asks_question and (not confident or intent in ANSWER_INTENTS or maybe_textbook)
+        wants_answer = (
+            asks_question
+            and wants_short_answer(message)
+            and (not confident or intent in ANSWER_INTENTS or maybe_textbook)
+        )
         candidate = None
         if retrieval_vector is not None and wants_answer:
             found = retriever.search(
@@ -140,7 +144,13 @@ class ChatService:
             )
             if found:
                 base["top_passage"] = {"title": found[0]["title"], "score": found[0]["score"]}
-            passages = [p for p in found if p["score"] >= QA_MIN_RELEVANCE]
+            # Only the chapter the search ranked first: the answer should come
+            # from the chapter the bot names ("Rah ul" came from Spices that
+            # Heal Us for a question about the neem tree's name).
+            passages = [
+                p for p in found
+                if p["score"] >= QA_MIN_RELEVANCE and p["id"] == found[0]["id"]
+            ]
             ranked = []
             if passages:
                 try:

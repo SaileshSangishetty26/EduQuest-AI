@@ -59,6 +59,10 @@ CASES = [
     ("Telugu", "నిజమైన స్నేహం అంటే ఏమిటి?", ["తోడుగా"]),
     ("Telugu", "కథలో ఏ జంతువులు ఉన్నాయి?", ["కాకి"]),
     ("Telugu", "సైనికులు ఏమి చేస్తారు?", ["కాపాడు", "రక్ష"]),
+    # Explanation questions: should get the chapter passage, not a short span.
+    ("Explanation", "What is a prime number?", ["factor"]),
+    ("Explanation", "How do camels survive in the desert?", ["camel"]),
+    ("Explanation", "What did Rama Natha learn about wealth?", ["Rama Natha"]),
     ("Off-topic", "Who won the cricket match yesterday?", None),
     ("Off-topic", "What is the capital of France?", None),
     ("Off-topic", "What is the weather today?", None),
@@ -112,6 +116,8 @@ def main() -> None:
 
         if expected is None:
             verdict = "PASS" if answer is None else "FAIL"
+        elif subject == "Explanation":
+            verdict = "PASS" if answer is None and _has(result["reply"], expected) else "FAIL"
         elif answer and _has(answer["text"], expected):
             verdict = "PASS"
         elif _has(result["reply"], expected):
@@ -130,7 +136,7 @@ def main() -> None:
         cand = result.get("candidate")
         if top:
             print(f"        best passage: {_short(top['title'], 34)} (relevance {top['score']:.3f})")
-        if cand and expected:
+        if cand and expected and subject != "Explanation":
             raw_scores.append((cand["score"], _has(cand["text"], expected)))
         for n, c in enumerate(result.get("candidates", []), start=1):
             mark = ("right" if _has(c["text"], expected) else "wrong") if expected else "-"

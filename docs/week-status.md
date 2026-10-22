@@ -196,5 +196,18 @@ section numbers ("3.6") as answers. DistilBERT stays: more right answers, half
 the size, and consistent with the DistilBERT stack in the action plan. Blank
 lines and answer-key labels are now never offered as answers.
 
+Final run with DistilBERT: 30/35 (85%) - Mathematics 10/10, Telugu 4/4,
+off-topic 3/3, Science 8/10, English 5/8.
+
+The refreshed sample report then showed the span model being used where it
+should not be: "what is a prime number" was answered "2", and "how do camels
+survive in the desert" with "while a fish thrives in water". A short span suits
+specific questions, not requests for an explanation, so `wants_short_answer`
+now sends "why"/"how" questions (except "how many/much/long..."), "what is
+a/an X", "what is X" with a one- or two-word X, "define X" and questions about
+a lesson or moral to the passage reply instead. Answers are also taken only
+from the chapter the search ranked first. The test gained three explanation
+questions that must get the passage, not a span.
+
 ## Still open
 Week 9 teacher dashboard; Week 10 integration, testing and deployment. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.

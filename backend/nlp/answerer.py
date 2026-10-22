@@ -79,6 +79,40 @@ def is_question(text: str) -> bool:
     return bool(text) and (text.strip().endswith("?") or bool(QUESTION_START.match(text)))
 
 
+# Questions whose answer is an explanation, not a few words. In the first
+# sample report the span model answered "what is a prime number" with "2" and
+# "how do camels survive in the desert" with "while a fish thrives in water";
+# these now get the chapter passage, as before.
+EXPLAIN = re.compile(r"^\s*(why|how)\b(?!\s+(many|much|long|far|old|big|tall|high|often)\b)")
+OPEN_ENDED = re.compile(r"\b(learn|learnt|learned|lesson|moral|message|theme|main idea|about)\b")
+DEFINITION = re.compile(
+    r"^\s*(what is|what are|what's|whats|define|meaning of|what do you mean by)\s+"
+    r"(a |an |the )?(.+?)\s*\??\s*$"
+)
+
+
+def wants_short_answer(text: str) -> bool:
+    """
+    True for specific questions ("what is the SI unit of length?"), False for
+    ones that need an explanation ("what is a prime number", "why...", "how...").
+    """
+    q = (text or "").lower().strip()
+    if EXPLAIN.match(q) or OPEN_ENDED.search(q):
+        return False
+    m = DEFINITION.match(q)
+    if m:
+        words = m.group(3).split()
+        if "called" in words or "known" in words:
+            return True                     # "what is moving air called?"
+        if m.group(1) in ("define", "meaning of", "what do you mean by"):
+            return False
+        if (m.group(2) or "").strip() in ("a", "an"):
+            return False                    # "what is a prime number"
+        if not m.group(2) and len(words) <= 2:
+            return False                    # "what is symmetry"
+    return True
+
+
 @dataclass
 class Answer:
     text: str
