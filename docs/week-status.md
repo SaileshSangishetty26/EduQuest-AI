@@ -149,5 +149,22 @@ pipeline. `python -m backend.nlp.test_answers` checks 35 questions with known
 answers across the four subjects plus off-topic questions, and prints how many
 right and wrong answers each threshold lets through.
 
+First measured run: 25/35 (71%). Maths calculations, Telugu and off-topic
+were all correct. Of the 10 misses, 4 were questions the intent classifier
+labelled off-topic before the answer model could see them (its own guess was
+right for 3), and 6 were confidently wrong spans between look-alike
+definitions (condensation for evaporation, composite for prime, translucent
+for transparent). Changes after that run:
+
+- Questions labelled off-topic are checked against the textbook first; an
+  answer is given only if the textbook clearly supports it.
+- Six passages are read instead of three, and each passage's best span is
+  re-ranked by *support*: how many of the question's content words appear, in
+  order, in the answer's sentence. Word order separates "water into vapour"
+  (evaporation) from "water vapour into" (condensation).
+- `test_answers --model ...` compares answer models on the same 35 questions;
+  SQuAD 2.0 models (e.g. `deepset/roberta-base-squad2`) can also decline when
+  a passage does not contain the answer.
+
 ## Still open
 Week 9 teacher dashboard; Week 10 integration, testing and deployment. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.

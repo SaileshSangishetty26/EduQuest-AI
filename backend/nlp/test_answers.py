@@ -17,11 +17,12 @@ chosen from measurements rather than guessed.
 
 Run from the project root:
     python -m backend.nlp.test_answers
+    python -m backend.nlp.test_answers --model deepset/roberta-base-squad2
 """
 
 from __future__ import annotations
 
-from .answerer import ANSWER_THRESHOLD, get_answer_extractor, is_question
+from .answerer import ANSWER_THRESHOLD
 from .retriever import RELEVANCE_THRESHOLD
 
 # (subject, question, expected words - any one is enough; None = should not answer)
@@ -75,9 +76,16 @@ def _short(text: str, width: int = 46) -> str:
 
 
 def main() -> None:
+    import argparse
+
     from ..chatbot.service import ChatService
-    from .pipeline import get_pipeline
-    from .retriever import get_retriever
+    from .answerer import AnswerExtractor
+    from .config import QA_MODEL_NAME
+
+    parser = argparse.ArgumentParser(description="Check the chatbot's answers")
+    parser.add_argument("--model", default=QA_MODEL_NAME,
+                        help="answer model to test, e.g. deepset/roberta-base-squad2")
+    args = parser.parse_args()
 
     try:
         from ..database import db
@@ -87,14 +95,12 @@ def main() -> None:
     except Exception:
         database = None
 
-    service = ChatService(database=database)
-    pipeline = get_pipeline()
-    retriever = get_retriever()
-    extractor = get_answer_extractor()
+    service = ChatService(database=database, extractor=AnswerExtractor(args.model))
 
     print("=" * 78)
     print("CHATBOT ANSWER TEST")
     print("=" * 78)
+    print(f"  Answer model {args.model}")
     print(f"  Answer threshold {ANSWER_THRESHOLD}   relevance threshold {RELEVANCE_THRESHOLD}\n")
 
     tally: dict[str, list[str]] = {}
@@ -119,21 +125,17 @@ def main() -> None:
         print(f"  {verdict:<4}  {subject:<11} {question}")
         print(f"        -> [{source}] {_short(shown, 60)}")
 
-        # Raw model output for textbook questions, to tune the threshold.
-        if expected and subject in ("Science", "Mathematics", "English") and is_question(question) \
-                and result["intent"] not in ("calculation",):
-            source = pipeline.preprocess(question).normalized_text or question
-            vector = pipeline.retrieval_embedder.encode_one(source)
-            passages = [p for p in retriever.search(vector, grade=6, top_k=3, query_text=question)
-                        if p["score"] >= RELEVANCE_THRESHOLD]
-            best = extractor.best_answer(question, passages) if passages else None
-            if best:
-                right = _has(best.text, expected)
-                raw_scores.append((best.score, right))
-                print(f"        model's best guess: '{_short(best.text, 40)}' score {best.score:.3f}"
-                      f" ({'right' if right else 'wrong'})")
-            else:
-                print("        model's best guess: no relevant passage found")
+        # What the answer model proposed, whether or not it was shown.
+        top = result.get("top_passage")
+        cand = result.get("candidate")
+        if top:
+            print(f"        best passage: {_short(top['title'], 34)} (relevance {top['score']:.3f})")
+        if cand:
+            right = _has(cand["text"], expected) if expected else False
+            if expected:
+                raw_scores.append((cand["score"], right))
+            print(f"        model's pick: '{_short(cand['text'], 36)}' score {cand['score']:.3f}"
+                  f" support {cand['support']:.2f}" + (f" ({'right' if right else 'wrong'})" if expected else ""))
 
     print("\n" + "-" * 78)
     print("SUMMARY")

@@ -21,6 +21,22 @@ cannot invent an answer - every answer is a quotation from the NCERT text.
 The model always proposes some span, so each answer carries a confidence (the
 probability of its start token times that of its end token). Below
 ANSWER_THRESHOLD the chatbot shows the passage instead of a guess.
+
+Choosing between passages
+-------------------------
+The first measured run (25/35) showed the model's confidence cannot tell
+look-alike definitions apart: asked "what is the change of water into water
+vapour called?" it answered "condensation" with 0.99 confidence, because the
+passage it was given defined condensation ("conversion of water vapour into
+its liquid state") and the evaporation passage was not among the three read.
+
+So more passages are read, and each candidate is re-ranked by *support*: how
+many of the question's content words appear, in the same order, in the
+sentence the answer came from (longest common subsequence). Word order is what
+separates the pairs - "water into ... vapour" (evaporation) against "water
+vapour into" (condensation), "only two factors" (prime) against "more than two
+factors" (composite) - and a "not" in the sentence that the question lacks
+("can be seen, but not clearly" - translucent) counts against it.
 """
 
 from __future__ import annotations
@@ -58,9 +74,43 @@ def is_question(text: str) -> bool:
 @dataclass
 class Answer:
     text: str
-    score: float
+    score: float           # the model's confidence in the span
     sentence: str
     passage: dict          # the retrieved section the answer came from
+    support: float = 0.0   # question words found, in order, in the sentence
+    rank: float = 0.0      # score combined with support; picks the winner
+
+
+STOPWORDS = set("""a an the of is are was were be been to in on at by for with from and or that
+this these those what which who whom whose when where why how do does did can could would should
+will shall may might called known its it their there here as we you i me my your our his her them
+they""".split())
+NEGATIONS = {"not", "no", "never", "cannot", "nor"}
+
+
+def _content_words(text: str) -> list[str]:
+    return [w for w in re.findall(r"[a-z0-9]+", text.lower()) if w not in STOPWORDS]
+
+
+def _same_word(a: str, b: str) -> bool:
+    # "see" matches "seen", "factor" matches "factors"
+    return a == b or (min(len(a), len(b)) >= 3 and (a.startswith(b) or b.startswith(a)))
+
+
+def support(question: str, sentence: str) -> float:
+    """Share of the question's content words found in order in the sentence (0-1)."""
+    q, s = _content_words(question), _content_words(sentence)
+    if not q:
+        return 0.0
+    table = [[0] * (len(s) + 1) for _ in range(len(q) + 1)]
+    for i in range(1, len(q) + 1):
+        for j in range(1, len(s) + 1):
+            table[i][j] = (table[i - 1][j - 1] + 1 if _same_word(q[i - 1], s[j - 1])
+                           else max(table[i - 1][j], table[i][j - 1]))
+    value = table[-1][-1] / len(q)
+    if (NEGATIONS & set(s)) and not (NEGATIONS & set(q)):
+        value *= 0.7
+    return round(value, 4)
 
 
 def sentence_around(context: str, start: int, end: int) -> str:
@@ -82,6 +132,10 @@ class AnswerExtractor:
         self.model_name = model_name
         self._tokenizer = tokenizer
         self._model = model
+        # SQuAD 2.0 models were also trained on questions the passage cannot
+        # answer, and signal "no answer" by pointing at the first token. SQuAD
+        # 1.1 models (like the DistilBERT default) always point at a span.
+        self.can_abstain = "squad2" in model_name.lower()
 
     def _load(self):
         if self._model is None:
@@ -124,28 +178,36 @@ class AnswerExtractor:
             if not in_context.any():
                 continue
 
-            # Softmax over passage tokens only, as the Hugging Face pipeline does.
-            start_logits = np.where(in_context, starts[window], -1e9)
-            end_logits = np.where(in_context, ends[window], -1e9)
+            # Softmax over passage tokens only, as the Hugging Face pipeline
+            # does - plus the first token for models that can say "no answer".
+            allowed = in_context.copy()
+            if self.can_abstain:
+                allowed[0] = True
+            start_logits = np.where(allowed, starts[window], -1e9)
+            end_logits = np.where(allowed, ends[window], -1e9)
             start_p = np.exp(start_logits - start_logits.max())
             start_p /= start_p.sum()
             end_p = np.exp(end_logits - end_logits.max())
             end_p /= end_p.sum()
 
-            # Every (start, end) pair with start <= end < start + MAX_ANSWER_TOKENS.
-            pair = np.triu(np.outer(start_p, end_p))
+            # Every (start, end) pair inside the passage with
+            # start <= end < start + MAX_ANSWER_TOKENS.
+            in_passage = in_context.astype(float)
+            pair = np.triu(np.outer(start_p * in_passage, end_p * in_passage))
             pair = np.tril(pair, MAX_ANSWER_TOKENS - 1)
             s, e = np.unravel_index(int(np.argmax(pair)), pair.shape)
             score = float(pair[s, e])
+            if self.can_abstain and start_p[0] * end_p[0] >= score:
+                continue  # the model says this window does not answer it
             if score > best[1]:
                 char_start = offsets[window][s][0]
                 char_end = offsets[window][e][1]
                 best = (_clean_span(context[char_start:char_end]), score, char_start, char_end)
         return best
 
-    def best_answer(self, question: str, passages: list[dict]) -> Answer | None:
-        """Highest-scoring span across the passages, however low its score."""
-        best: Answer | None = None
+    def candidates(self, question: str, passages: list[dict]) -> list[Answer]:
+        """The model's best span in each passage, best-ranked first."""
+        found = []
         for passage in passages:
             context = (passage.get("text") or "").strip()
             if len(context.split()) < 5:
@@ -153,14 +215,23 @@ class AnswerExtractor:
             text, score, start, end = self._best_span(question, context)
             if not text:
                 continue
-            if best is None or score > best.score:
-                best = Answer(
-                    text=text,
-                    score=round(score, 4),
-                    sentence=sentence_around(context, start, end),
-                    passage=passage,
-                )
-        return best
+            sentence = sentence_around(context, start, end)
+            backing = support(question, sentence)
+            found.append(Answer(
+                text=text,
+                score=round(score, 4),
+                sentence=sentence,
+                passage=passage,
+                support=backing,
+                rank=round(score * (0.4 + 0.6 * backing), 4),
+            ))
+        found.sort(key=lambda a: a.rank, reverse=True)
+        return found
+
+    def best_answer(self, question: str, passages: list[dict]) -> Answer | None:
+        """Top-ranked candidate, however low its score."""
+        found = self.candidates(question, passages)
+        return found[0] if found else None
 
     def answer(self, question: str, passages: list[dict], threshold: float = ANSWER_THRESHOLD) -> Answer | None:
         """Best answer across the retrieved passages, or None if none is good enough."""

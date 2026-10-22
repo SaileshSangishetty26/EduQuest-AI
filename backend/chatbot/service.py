@@ -21,7 +21,7 @@ Order of the steps:
 
 from __future__ import annotations
 
-from ..nlp.answerer import get_answer_extractor, is_question
+from ..nlp.answerer import ANSWER_THRESHOLD, get_answer_extractor, is_question
 from ..nlp.classifier import CONFIDENCE_THRESHOLD, get_classifier
 from ..nlp.math_solver import solve as solve_math
 from ..nlp.pipeline import get_pipeline
@@ -43,12 +43,27 @@ CONTENT_INTENTS = {
 # on purpose: for homework the bot points to the method, not the answer.
 ANSWER_INTENTS = CONTENT_INTENTS - {"homework_help"}
 
-PASSAGES_TO_READ = 3
+# Passages the answer model reads. Three was too few: the passage with the
+# right definition was often fourth or fifth (see answerer.py).
+PASSAGES_TO_READ = 6
+
+# Passages down to this retrieval score are read, below the usual relevance bar,
+# because an answer from one must also be backed by the question's own words
+# (see MIN_SUPPORT) - two independent signals have to agree.
+QA_MIN_RELEVANCE = 0.40
+MIN_SUPPORT = 0.5
+
+# The intent classifier learned "off topic" from questions like "what is the
+# weather", so textbook facts asked plainly ("which star appears stationary in
+# the north?") were refused. Off-topic questions still go to the textbook, but
+# an answer is only given when the textbook clearly supports it.
 
 
 class ChatService:
-    def __init__(self, database=None) -> None:
+    def __init__(self, database=None, extractor=None) -> None:
         self.db = database
+        # Injected by test_answers.py to compare answer models.
+        self.extractor = extractor
 
     def _lesson(self, lesson_id: str) -> dict | None:
         if self.db is None:
@@ -99,7 +114,9 @@ class ChatService:
         # Search the textbook for content intents, and also whenever the
         # classifier is unsure - an oddly phrased question may still be about
         # a chapter.
-        needs_retrieval = (confident and intent in CONTENT_INTENTS) or not confident
+        asks_question = is_question(message)
+        maybe_textbook = intent == "out_of_scope" and asks_question
+        needs_retrieval = (confident and intent in CONTENT_INTENTS) or not confident or maybe_textbook
         retrieval_vector = (
             pipeline.retrieval_embedder.encode_one(source)
             if retriever is not None and needs_retrieval
@@ -115,23 +132,41 @@ class ChatService:
         }
 
         # 4. Exact answer from the textbook
-        wants_answer = (not confident or intent in ANSWER_INTENTS) and is_question(message)
+        wants_answer = asks_question and (not confident or intent in ANSWER_INTENTS or maybe_textbook)
+        candidate = None
         if retrieval_vector is not None and wants_answer:
-            passages = [
-                p for p in retriever.search(
-                    retrieval_vector, grade=grade, top_k=PASSAGES_TO_READ, query_text=message
-                )
-                if p["score"] >= RELEVANCE_THRESHOLD
-            ]
-            answer = None
+            found = retriever.search(
+                retrieval_vector, grade=grade, top_k=PASSAGES_TO_READ, query_text=message
+            )
+            if found:
+                base["top_passage"] = {"title": found[0]["title"], "score": found[0]["score"]}
+            passages = [p for p in found if p["score"] >= QA_MIN_RELEVANCE]
             if passages:
                 try:
-                    answer = get_answer_extractor().answer(message, passages)
+                    candidate = (self.extractor or get_answer_extractor()).best_answer(message, passages)
                 except Exception:
                     # The answer model is optional: if it is missing or fails
                     # to load, fall back to the passage reply below.
-                    answer = None
+                    candidate = None
+            answer = candidate
             if answer is not None:
+                weak_passage = answer.passage["score"] < RELEVANCE_THRESHOLD
+                if answer.score < ANSWER_THRESHOLD:
+                    answer = None
+                elif (weak_passage or maybe_textbook) and answer.support < MIN_SUPPORT:
+                    answer = None
+            # Kept for test_answers.py: the best guess even when it was rejected.
+            base["candidate"] = (
+                {"text": candidate.text, "score": candidate.score,
+                 "support": candidate.support, "rank": candidate.rank}
+                if candidate else None
+            )
+            if answer is not None:
+                if maybe_textbook:
+                    # Labelled off-topic, but the textbook answered it: report
+                    # it as a factual question so the chat does not tag a
+                    # correct answer "Off topic".
+                    base["intent"] = "factual_question"
                 return {
                     **base,
                     "reply": answer_reply(answer),

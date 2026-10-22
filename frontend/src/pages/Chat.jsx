@@ -32,6 +32,7 @@ const INTENT_LABELS = {
   browse_content: 'Chapters',
   study_advice: 'Study plan',
   calculation: 'Calculation',
+  factual_question: 'Fact',
   telugu_question: 'తెలుగు'
 };
 
