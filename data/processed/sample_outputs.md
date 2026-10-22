@@ -1,8 +1,10 @@
 # EduQuest AI &mdash; sample questions and answers
 
-Generated 22 October 2026 for a Grade 6 student, by running each question through the complete pipeline: preprocessing, intent classification, chapter retrieval and response generation.
+Generated 22 October 2026 for a Grade 6 student, by running each question through the same pipeline the app uses: Telugu detection, the maths solver, preprocessing, intent classification, chapter retrieval, answer extraction and response generation.
 
 Confidence threshold: 0.6. Below it the system reports that it is unsure rather than presenting a guess as fact.
+
+These are demonstrations. Measured accuracy on the 38-question answer test (`python -m backend.nlp.test_answers`) is 33/38 (86%): Mathematics 10/10, Telugu 4/4, explanation questions 3/3, off-topic 3/3, Science 8/10, English 5/8. The misses are questions that need the model to follow a pronoun or description across sentences ("who taught Ila Sachani", "who gave the neem tree its name", "who was Gajaraj").
 
 ## Questions about a topic
 
@@ -125,6 +127,202 @@ No shared keyword with the chapter title, so these test understanding of meaning
 
 *Cleaned to:* `the story about the elephant and the dog`  
 *Next closest categories:* out_of_scope 38%, browse_content 1%
+
+## Specific questions with exact answers
+
+DistilBERT fine-tuned for question answering reads the matching textbook passages and points at the words that answer the question.
+
+### “What is the SI unit of length?”
+
+**Detected as:** formula_help (below threshold) &mdash; 51.1% confident
+**Chapter found:** Measurement of Length and Motion (Science, Grade 6)
+**Exact answer:** metre *(from textbook, score 0.96)*
+
+**Reply:**
+
+> Metre.
+>
+> “The SI unit of length is metre.”
+>
+> That is from "Measurement of Length and Motion" in Science. Open the chapter to read more.
+
+*Cleaned to:* `what is the si unit of length`  
+*Next closest categories:* definition 37%, concept_explanation 6%
+
+### “What is the process of separating grains from stalks called?”
+
+**Detected as:** concept_explanation &mdash; 69.3% confident
+**Chapter found:** Methods of Separation in Everyday Life (Science, Grade 6)
+**Exact answer:** threshing *(from textbook, score 0.98)*
+
+**Reply:**
+
+> Threshing.
+>
+> “This process of separating grains from the stalks is known as threshing.”
+>
+> That is from "Methods of Separation in Everyday Life" in Science. Open the chapter to read more.
+
+*Cleaned to:* `what is the process of separating grains from stalks called`  
+*Next closest categories:* formula_help 18%, definition 5%
+
+### “What is the name of the fox in the poem?”
+
+**Detected as:** concept_explanation (below threshold) &mdash; 44.2% confident
+**Chapter found:** The Raven and the Fox (English, Grade 6)
+**Exact answer:** Reynard *(from textbook, score 0.89)*
+
+**Reply:**
+
+> Reynard.
+>
+> “Y ou may begin like this: This is a story about a clever fox named Reynard and Mr Raven.”
+>
+> That is from "The Raven and the Fox" in English. Open the chapter to read more.
+
+*Cleaned to:* `what is the name of the fox in the poem`  
+*Next closest categories:* out_of_scope 34%, formula_help 6%
+
+### “When was the National War Memorial established?”
+
+**Detected as:** factual_question &mdash; 81.2% confident
+**Chapter found:** National War Memorial (English, Grade 6)
+**Exact answer:** F ebruary 2019 *(from textbook, score 0.87)*
+
+**Reply:**
+
+> F ebruary 2019.
+>
+> “National War Memorial, New Delhi ¼jk"Vªh; lej Lekjd] ubZ fnYyh½ was established in F ebruary 2019.”
+>
+> That is from "National War Memorial" in English. Open the chapter to read more.
+
+*Cleaned to:* `when was the national war memorial established`  
+*Next closest categories:* study_advice 9%, concept_explanation 4%
+
+### “What are numbers with only two factors called?”
+
+**Detected as:** formula_help (below threshold) &mdash; 48.2% confident
+**Chapter found:** Prime Time (Mathematics, Grade 6)
+**Exact answer:** Prime numbers *(from textbook, score 0.85)*
+
+**Reply:**
+
+> Prime numbers.
+>
+> “Prime numbers are numbers like 2, 3, 5, 7, 11, … that have only two factors, namely 1 and themselves.”
+>
+> That is from "Prime Time" in Mathematics. Open the chapter to read more.
+
+*Cleaned to:* `what are numbers with only two factors called`  
+*Next closest categories:* concept_explanation 28%, definition 21%
+
+## Maths calculations
+
+No passage contains the answer to a calculation, so these are solved exactly, with the working the chapter teaches.
+
+### “what is 1/3 + 1/6”
+
+**Detected as:** calculation &mdash; 100.0% confident
+**Chapter found:** Fractions (Mathematics, Grade 6)
+**Exact answer:** 1/3 + 1/6 = 1/2 *(from math, score 1.00)*
+
+**Reply:**
+
+> 1/3 + 1/6 = 1/2
+>
+> Use a common denominator: the LCM of 3 and 6 is 6.
+> 1/3 = 2/6 and 1/6 = 1/6
+> 2/6 + 1/6 = 3/6
+> Simplify: 3/6 = 1/2
+>
+> This is from "Fractions" in Mathematics - open it to practise the method.
+
+*Cleaned to:* `what is 1/3 + 1/6`  
+
+### “is 91 a prime number”
+
+**Detected as:** calculation &mdash; 100.0% confident
+**Chapter found:** Prime Time (Mathematics, Grade 6)
+**Exact answer:** No, 91 is not prime - it is composite. *(from math, score 1.00)*
+
+**Reply:**
+
+> No, 91 is not prime - it is composite.
+>
+> Factors of 91: 1, 7, 13, 91.
+> For example, 91 = 7 × 13.
+>
+> This is from "Prime Time" in Mathematics - open it to practise the method.
+
+*Cleaned to:* `is 91 a prime number`  
+
+### “HCF of 12 and 18”
+
+**Detected as:** calculation &mdash; 100.0% confident
+**Chapter found:** Prime Time (Mathematics, Grade 6)
+**Exact answer:** The highest common factor of 12 and 18 is 6. *(from math, score 1.00)*
+
+**Reply:**
+
+> The highest common factor of 12 and 18 is 6.
+>
+> Factors of 12: 1, 2, 3, 4, 6, 12
+> Factors of 18: 1, 2, 3, 6, 9, 18
+> Common factors: 1, 2, 3, 6
+>
+> This is from "Prime Time" in Mathematics - open it to practise the method.
+
+*Cleaned to:* `HCF of 12 and 18`  
+
+### “area of a rectangle 5 m by 4 m”
+
+**Detected as:** calculation &mdash; 100.0% confident
+**Chapter found:** Perimeter and Area (Mathematics, Grade 6)
+**Exact answer:** Area = 20 sq m *(from math, score 1.00)*
+
+**Reply:**
+
+> Area = 20 sq m
+>
+> Area of a rectangle = length x breadth
+> = 5 × 4 = 20 sq m
+>
+> This is from "Perimeter and Area" in Mathematics - open it to practise the method.
+
+*Cleaned to:* `area of a rectangle 5 m by 4 m`  
+
+## Questions in Telugu
+
+Matched against the Telugu chapters with character n-grams, and answered in Telugu.
+
+### “రైతు ఏమి చేస్తాడు?”
+
+**Detected as:** telugu_question &mdash; 27.6% confident
+**Chapter found:** అభినందన (Telugu, Grade 6)
+**Exact answer:** రైతు పొలంలో శ్రమించి పంటను పండిస్తాడు. *(from telugu, score 0.28)*
+
+**Reply:**
+
+> రైతు పొలంలో శ్రమించి పంటను పండిస్తాడు.
+>
+> — ‘అభినందన’ పాఠం నుండి.
+
+*Cleaned to:* `రైతు ఏమి చేస్తాడు?`  
+
+### “నిజమైన స్నేహం అంటే ఏమిటి?”
+
+**Detected as:** telugu_question &mdash; 45.2% confident
+**Chapter found:** స్నేహబంధం (Telugu, Grade 6)
+**Exact answer:** నిజమైన స్నేహం అంటే కష్టసమయంలో తోడుగా నిలబడటం, నమ్మకం ఉంచడం. *(from telugu, score 0.45)*
+
+**Reply:**
+
+> నిజమైన స్నేహం అంటే కష్టసమయంలో తోడుగా నిలబడటం, నమ్మకం ఉంచడం.
+>
+> — ‘స్నేహబంధం’ పాఠం నుండి.
+
+*Cleaned to:* `నిజమైన స్నేహం అంటే ఏమిటి?`  
 
 ## Questions about the catalogue
 
@@ -259,7 +457,7 @@ The classifier is unsure, but a relevant chapter is still found and shown with a
 
 **Reply:**
 
-> I did not quite get that. You could ask me to explain a topic, show an example, start a quiz, or check your progress.
+> Sorry, I did not follow that one. Try naming the chapter or topic, or ask me to list your chapters.
 
 *Cleaned to:* `asdfgh qwerty`  
 *Next closest categories:* out_of_scope 21%, greeting 17%
