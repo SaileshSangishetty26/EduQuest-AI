@@ -3,7 +3,8 @@ from fastapi import APIRouter, HTTPException
 from bson import ObjectId
 from pymongo import ReturnDocument
 
-from ..database import users
+from ..database import db, users
+from ..gamification.engine import BASE_AVATARS, GamificationEngine
 from ..models.user import LoginRequest, RegisterRequest, UpdateProfileRequest
 
 # The project covers Grade 6 only. The grade field is kept on every user and
@@ -28,7 +29,9 @@ def verify_password(password: str, stored: str) -> bool:
         return False
 
 def public_user(doc):
-    return {"id": str(doc["_id"]), "username": doc["username"], "grade": doc["grade"], "language": doc["language"]}
+    return {"id": str(doc["_id"]), "username": doc["username"], "grade": doc["grade"],
+            "language": doc["language"], "avatar": doc.get("avatar"),
+            "role": doc.get("role", "student")}
 
 @router.post("/register")
 def register(req: RegisterRequest):
@@ -39,7 +42,9 @@ def register(req: RegisterRequest):
     if users.find_one({"username": req.username}):
         raise HTTPException(409, "Username already exists")
     doc = {"username": req.username, "password_hash": hash_password(req.password),
-           "grade": req.grade, "language": req.language, "points": 0}
+           "grade": req.grade, "language": req.language, "points": 0,
+           "role": "student",
+           "avatar": req.avatar if req.avatar in BASE_AVATARS else None}
     result = users.insert_one(doc)
     doc["_id"] = result.inserted_id
     return {"message":"Registration successful", "user":public_user(doc)}
@@ -73,13 +78,20 @@ def update_profile(user_id: str, req: UpdateProfileRequest):
             raise HTTPException(400, "Unsupported language")
         changes["language"] = req.language
 
-    if not changes:
-        raise HTTPException(400, "Nothing to update")
-
     try:
         object_id = ObjectId(user_id)
     except Exception:
         raise HTTPException(400, "Invalid user id")
+
+    if req.avatar is not None:
+        # Reward avatars unlock with levels, so check the student has earned it.
+        allowed = GamificationEngine(db).profile(user_id)["avatars"]
+        if req.avatar not in allowed:
+            raise HTTPException(403, "That avatar has not been unlocked yet")
+        changes["avatar"] = req.avatar
+
+    if not changes:
+        raise HTTPException(400, "Nothing to update")
 
     result = users.find_one_and_update(
         {"_id": object_id},

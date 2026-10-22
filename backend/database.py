@@ -11,6 +11,7 @@ lessons = db["lessons"]
 quizzes = db["quizzes"]
 quiz_attempts = db["quiz_attempts"]
 progress = db["progress"]
+lesson_completions = db["lesson_completions"]
 
 def ensure_indexes():
     users.create_index("username", unique=True)
@@ -18,3 +19,4 @@ def ensure_indexes():
     quizzes.create_index([("grade", 1), ("subject", 1)])
     quiz_attempts.create_index([("user_id", 1), ("quiz_id", 1)])
     progress.create_index("user_id", unique=True)
+    lesson_completions.create_index([("user_id", 1), ("lesson_id", 1)], unique=True)

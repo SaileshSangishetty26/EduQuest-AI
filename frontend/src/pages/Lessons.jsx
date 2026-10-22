@@ -15,7 +15,7 @@ const LANGUAGE_NAMES = {
   hi: 'Hindi'
 };
 
-export default function Lessons({ user, level, streak, onBack, onOpenLesson, onOpenQuiz, onLogout, onSettings }) {
+export default function Lessons({ user, level, streak, completedLessons = [], onBack, onOpenLesson, onOpenQuiz, onLogout, onSettings }) {
   const [lessons, setLessons] = useState([]);
   const [quizzes, setQuizzes] = useState([]);
   const [subject, setSubject] = useState('');
@@ -56,8 +56,8 @@ export default function Lessons({ user, level, streak, onBack, onOpenLesson, onO
       <Header user={user} onHome={onBack} onLessons={() => {}} onSettings={onSettings} onLogout={onLogout} level={level} streak={streak} />
 
       <main className="container">
+        <button className="link back-link" onClick={onBack}>← Dashboard</button>
         <div className="page-head">
-          <button className="link" onClick={onBack}>← Dashboard</button>
           <span className="eyebrow">QUEST MAP</span>
           <h1>Explore Your Lessons 📚</h1>
           <p>Choose a subject, explore a chapter and test what you have learned with its chapter quiz.</p>
@@ -112,9 +112,12 @@ export default function Lessons({ user, level, streak, onBack, onOpenLesson, onO
                 </div>
                 <h3>{lesson.title}</h3>
                 <p>{lesson.summary}</p>
-                <button className="primary" onClick={() => onOpenLesson(lesson)}>
-                  Explore Chapter →
-                </button>
+                <div className="lesson-actions">
+                  <button className="primary" onClick={() => onOpenLesson(lesson)}>
+                    Explore Chapter →
+                  </button>
+                  {completedLessons.includes(lesson.id) && <span className="read-chip">✓ Read</span>}
+                </div>
               </article>
             ))}
           </div>

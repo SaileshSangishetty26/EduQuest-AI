@@ -301,3 +301,87 @@ button:disabled{opacity:.65;cursor:not-allowed}
   .review-head{flex-wrap:wrap}
   .review-status{padding-top:0;width:100%;order:3}
 }
+
+/* ---- Week 9: gamification ---------------------------------------------- */
+.four{grid-template-columns:repeat(4,1fr);margin-bottom:22px}
+.two{grid-template-columns:repeat(2,1fr)}
+.topbar-nav .nav-active{color:var(--violet);background:#f3efff;border-radius:10px}
+.hero-xp-total{margin:-8px 0 14px;font-size:13px;font-weight:800;color:var(--muted)}
+
+.badge-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.badge-tile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;
+  padding:14px 10px;border-radius:14px;border:1px solid var(--border)}
+.badge-earned{background:#fff8df;border-color:#f4dda1;color:#5f4a10}
+.badge-locked{background:#f8f7fb;color:var(--muted)}
+.badge-locked .badge-icon{filter:grayscale(1);opacity:.45}
+.badge-icon{font-size:30px}
+.badge-tile b{font-size:14px}
+.badge-desc{font-size:12px;line-height:1.35}
+.badge-progress{display:flex;align-items:center;gap:7px;width:100%;margin-top:4px;font-size:11px;font-weight:800}
+.badge-progress-track{flex:1;height:6px;background:#e7e3f1;border-radius:999px;overflow:hidden}
+.badge-progress-fill{display:block;height:100%;background:var(--violet);border-radius:999px}
+
+.game-row{margin-top:22px}
+.reward-row{display:flex;flex-wrap:wrap;gap:10px}
+.reward{display:flex;flex-direction:column;align-items:center;gap:4px;width:58px;padding:8px 0;
+  border-radius:12px;background:#f8f7fb;border:1px solid var(--border)}
+.reward-unlocked{background:#eee9ff;border-color:#cfc1fa}
+.reward-avatar{font-size:26px}
+.reward-level{font-size:11px;font-weight:800;color:var(--muted)}
+.reward-note{color:var(--muted);font-size:14px;line-height:1.5;margin-bottom:0}
+.xp-log-list{list-style:none;padding:0;margin:0}
+.xp-log-list li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed var(--border);font-size:14px}
+.xp-log-list li:last-child{border-bottom:0}
+.xp-log-list b{color:#2f8a47;white-space:nowrap}
+
+.read-section{margin-top:30px}
+.read-section .error{margin-bottom:0}
+.read-chip{display:inline-block;padding:4px 10px;border-radius:999px;background:#e9f7ed;color:#2f8a47;font-size:12px;font-weight:800}
+.lesson-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.back-link{display:inline-block;margin-bottom:4px}
+.avatar-option-locked{opacity:.55;cursor:not-allowed;filter:grayscale(1)}
+
+.reward-box{margin:4px 0 14px}
+.reward-box .xp-gain-chip{margin-bottom:10px}
+.reward-hint{font-size:13px;color:var(--muted);margin:0 0 8px}
+.reward-levelup{font-weight:900;color:var(--violet);margin:6px 0}
+.reward-streak{font-weight:800;color:#b56a16;margin:6px 0}
+.reward-badges{margin:10px 0}
+.reward-badges .badge-row{justify-content:center;margin-top:8px}
+.reward-label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:var(--muted)}
+.reward-unlock{font-weight:800;color:#4d3a9d}
+
+.leaderboard{max-width:760px}
+.lb-list{list-style:none;padding:0;margin:0}
+.lb-row{display:grid;grid-template-columns:44px 44px 1fr auto auto 90px;align-items:center;gap:10px;
+  padding:12px 10px;border-bottom:1px solid var(--border)}
+.lb-row:last-child{border-bottom:0}
+.lb-you{background:#f3efff;border-radius:12px}
+.lb-rank{font-family:'Fredoka';font-size:22px;text-align:center;color:var(--muted)}
+.lb-avatar{font-size:26px;text-align:center}
+.lb-name{display:flex;flex-direction:column;min-width:0}
+.lb-name b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb-name span{font-size:12px;color:var(--muted)}
+.lb-meta{font-size:13px;font-weight:800;color:var(--muted);white-space:nowrap}
+.lb-xp{font-family:'Fredoka';font-size:18px;color:var(--violet);text-align:right}
+.lb-gap{text-align:center;color:var(--muted);letter-spacing:.3em}
+.lb-footnote{font-size:12px;color:var(--muted);margin:14px 0 0}
+
+@media (max-width:800px){
+  .four{grid-template-columns:repeat(2,1fr)}
+  .two{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .lb-row{grid-template-columns:34px 34px 1fr 70px}
+  .lb-meta{display:none}
+}
+
+/* Phones: the menu was hidden entirely below 800px, leaving no way to reach
+   the leaderboard or Quest Map from inside a chapter. Show it as a second,
+   scrollable row instead. */
+@media (max-width:800px){
+  .topbar{height:auto;min-height:64px;flex-wrap:wrap;padding:8px 4% 0}
+  .topbar-nav{display:flex;order:3;width:100%;overflow-x:auto;gap:2px;padding-bottom:6px;scrollbar-width:none}
+  .topbar-nav::-webkit-scrollbar{display:none}
+  .topbar-nav button{white-space:nowrap;padding:8px 11px;font-size:14px}
+}

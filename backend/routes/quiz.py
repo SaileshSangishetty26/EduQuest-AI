@@ -4,7 +4,8 @@ from bson import ObjectId
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-from ..database import quizzes, quiz_attempts, progress, users
+from ..database import db, lesson_completions, quizzes, quiz_attempts, users
+from ..gamification.engine import GamificationEngine, diff
 
 router = APIRouter(tags=["Quiz"])
 
@@ -22,6 +23,9 @@ def submit_quiz(req: QuizAttemptRequest):
     quiz = quizzes.find_one({"id": req.quiz_id})
     if not quiz:
         raise HTTPException(404, "Quiz not found")
+
+    engine = GamificationEngine(db)
+    before = engine.profile(req.user_id)
 
     review = []
     results = []
@@ -57,19 +61,29 @@ def submit_quiz(req: QuizAttemptRequest):
         "score": score,
         "submitted_at": datetime.now(timezone.utc),
     })
+    # XP, badges and level are recomputed from the full history, so the
+    # result screen shows exactly what this attempt changed.
+    after = engine.profile(req.user_id)
+    gamification = diff(before, after)
+    store_points(req.user_id, after["xp"])
+
+    return {"score": score, "correct": correct, "total": total,
+            "review": review, "gamification": gamification}
+
+
+def store_points(user_id: str, xp: int) -> None:
+    """Keep users.points equal to XP; the chatbot reads it for 'how many points do I have'."""
     try:
-        users.update_one({"_id": ObjectId(req.user_id)}, {"$inc": {"points": score}})
+        users.update_one({"_id": ObjectId(user_id)}, {"$set": {"points": xp}})
     except Exception:
         pass
-
-    return {"score": score, "correct": correct, "total": total, "review": review}
 
 
 @router.get("/progress/{user_id}")
 def get_progress(user_id: str):
     attempts = list(quiz_attempts.find({"user_id": user_id}, {"_id": 0, "score": 1}))
     return {
-        "lessons_completed": 0,
+        "lessons_completed": lesson_completions.count_documents({"user_id": user_id}),
         "quiz_attempts": len(attempts),
         "average_score": round(sum(x["score"] for x in attempts) / len(attempts)) if attempts else 0,
     }

@@ -7,6 +7,8 @@ Suggests what a student should study next, using two signals:
                          weak in, which chapters they have not attempted
   2. NLP analysis      - what they have been asking the chatbot about, taken
                          from the logged intents and matched lessons
+  3. Reading (Week 9)  - chapters marked as read whose quiz has not been
+                         taken yet, so reading leads straight into practice
 
 Why rule-based
 --------------
@@ -47,6 +49,7 @@ CHAT_INTEREST_MIN = 2
 PRIORITY_RETRY = 100
 PRIORITY_WEAK_SUBJECT = 80
 PRIORITY_ASKED_ABOUT = 60
+PRIORITY_TAKE_QUIZ = 50
 PRIORITY_NEXT_CHAPTER = 40
 PRIORITY_REVISION = 20
 
@@ -223,15 +226,41 @@ class RecommendationEngine:
             )
         return out
 
-    def _rule_next_chapter(self, lessons, attempted_lessons) -> list[Recommendation]:
+    def _read_lessons(self, user_id: str) -> set[str]:
+        return {
+            row["lesson_id"]
+            for row in self.db["lesson_completions"].find({"user_id": user_id}, {"lesson_id": 1})
+        }
+
+    def _rule_take_quiz(self, lessons, read_lessons, attempted_lessons) -> list[Recommendation]:
+        """Chapters the student has read but not been quizzed on."""
+        pending = sorted(
+            (l for l in lessons.values() if l["id"] in read_lessons and l["id"] not in attempted_lessons),
+            key=textbook_order,
+        )
+        return [
+            Recommendation(
+                lesson_id=lesson["id"],
+                title=lesson["title"],
+                subject=lesson["subject"],
+                grade=lesson["grade"],
+                reason="You read this chapter. Take its quiz to check what you remember.",
+                kind="take_quiz",
+                priority=PRIORITY_TAKE_QUIZ,
+            )
+            for lesson in pending
+        ]
+
+    def _rule_next_chapter(self, lessons, attempted_lessons, read_lessons=frozenset()) -> list[Recommendation]:
         """
-        Chapters in the student's grade they have not attempted yet.
+        Chapters in the student's grade they have not started yet.
 
         Ordered by chapter number, then subject, so a new student is pointed at
         Chapter 1 of each subject rather than four English chapters in a row.
         """
+        started = set(attempted_lessons) | set(read_lessons)
         pending = sorted(
-            (l for l in lessons.values() if l["id"] not in attempted_lessons),
+            (l for l in lessons.values() if l["id"] not in started),
             key=lambda l: (chapter_number(l["id"]), textbook_order(l)),
         )
         return [
@@ -240,7 +269,7 @@ class RecommendationEngine:
                 title=lesson["title"],
                 subject=lesson["subject"],
                 grade=lesson["grade"],
-                reason="You have not tried this chapter yet.",
+                reason="You have not started this chapter yet.",
                 kind="next_chapter",
                 priority=PRIORITY_NEXT_CHAPTER,
             )
@@ -293,12 +322,14 @@ class RecommendationEngine:
         }
 
         latest = self._latest_per_quiz(attempts)
+        read_lessons = self._read_lessons(user_id)
 
         candidates: list[Recommendation] = []
         candidates += self._rule_retry_failed(latest, quizzes, lessons)
         candidates += self._rule_weak_subjects(latest, quizzes, lessons)
         candidates += self._rule_asked_about(user_id, lessons, attempted_lessons)
-        candidates += self._rule_next_chapter(lessons, attempted_lessons)
+        candidates += self._rule_take_quiz(lessons, read_lessons, attempted_lessons)
+        candidates += self._rule_next_chapter(lessons, attempted_lessons, read_lessons)
         candidates += self._rule_revision(latest, quizzes, lessons)
 
         # Highest priority wins per lesson. Sorting first means the first time
@@ -323,5 +354,6 @@ class RecommendationEngine:
                 "average_score": round(sum(scores) / len(scores)) if scores else 0,
                 "chat_questions": sum(self._chat_topics(user_id).values()),
                 "chapters_attempted": len(attempted_lessons),
+                "chapters_read": len(read_lessons),
             },
         }

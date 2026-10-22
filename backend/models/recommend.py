@@ -19,6 +19,7 @@ class RecommendationBasis(BaseModel):
     average_score: int
     chat_questions: int
     chapters_attempted: int
+    chapters_read: int = 0
 
 
 class RecommendationResponse(BaseModel):

@@ -14,7 +14,7 @@ export default function Register({ onLogin, onRegistered }) {
     setError('');
     setLoading(true);
     try {
-      const r = await api.register(form);
+      const r = await api.register({ ...form, avatar });
       setAvatarForUser(r.user, avatar);
       onRegistered(r.user);
     } catch (err) {

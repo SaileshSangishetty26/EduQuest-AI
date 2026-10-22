@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Confetti from '../components/Confetti';
+import Reward from '../components/Reward';
 import { api } from '../services/api';
 
 export default function Quiz({ quiz, user, level, streak, onBack, onLogout, onSettings, onSubmitted }) {
@@ -33,6 +34,7 @@ export default function Quiz({ quiz, user, level, streak, onBack, onLogout, onSe
         answers: quiz.questions.map((_, i) => (i in answers ? answers[i] : -1))
       });
       setResult(r);
+      window.scrollTo(0, 0);  // show the score and XP first, then the review
       if (onSubmitted) onSubmitted();
     } catch (err) {
       setError(err.message);
@@ -48,8 +50,8 @@ export default function Quiz({ quiz, user, level, streak, onBack, onLogout, onSe
     window.scrollTo(0, 0);
   }
 
-  const celebrate = result && result.score >= 60;
-  const xpGained = result ? Math.round(result.correct * 25 + result.score * 0.5) : 0;
+  const game = result?.gamification;
+  const celebrate = result && (result.score >= 60 || game?.level_up || game?.new_badges?.length > 0);
 
   return (
     <>
@@ -72,7 +74,7 @@ export default function Quiz({ quiz, user, level, streak, onBack, onLogout, onSe
               <h2>Quiz complete!</h2>
               <div className="score">{result.score}%</div>
               <p>{result.correct} of {result.total} answers correct.</p>
-              <div className="xp-gain-chip">+{xpGained} XP earned</div>
+              <Reward result={game} />
               <div className="result-actions">
                 <button className="primary" onClick={onBack}>Back to learning</button>
                 {result.score < 100 && (

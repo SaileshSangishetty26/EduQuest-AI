@@ -45,7 +45,10 @@
 | 9 | Correct answers spread across A–D; answers hidden until submission | COMPLETE |
 | 9 | Answer review with explanations after each quiz | COMPLETE |
 | 9 | Per-question results stored with each attempt (for weak-concept analysis) | COMPLETE |
-| 9 | Gamification module, leaderboard, teacher dashboard | IN PROGRESS |
+| 9 | Gamification engine: XP, levels, daily streaks, 11 badges, avatar rewards (server-side) | COMPLETE |
+| 9 | Mark chapter as read (lesson completion tracking) | COMPLETE |
+| 9 | Gamification UI: XP bar, badge showcase, rewards, XP log, leaderboard page | COMPLETE |
+| 9 | Teacher dashboard (MongoDB aggregation: progress, quiz trends, weak concepts) | IN PROGRESS |
 
 See `docs/week6-nlp-preprocessing.md`, `docs/week7-intent-detection.md` and
 `docs/week8-chatbot-recommendations.md` for the design notes and measured
@@ -85,5 +88,34 @@ returns a per-question review with explanations. Each attempt stores which
 concepts were answered correctly, so the teacher dashboard can report weak
 concepts without depending on the current option order.
 
+## Week 9 so far: gamification
+XP, levels, streaks and badges used to be computed in the browser from three
+progress numbers (with "chapters completed" always 0 and the streak kept in
+localStorage). They are now computed on the server by
+`backend/gamification/engine.py`, which replays each student's history
+(chapters marked as read and quiz attempts) in time order:
+
+| Action | XP |
+|---|---|
+| Mark a chapter as read (first time) | +20 |
+| Each correct answer, above your best earlier attempt at that quiz | +10 |
+| First time a quiz is passed (60%+) | +25 |
+| First 100% on a quiz | +25 |
+| Each day with any learning activity | +10 |
+
+Retaking a quiz you already aced earns nothing, so XP cannot be farmed, but
+improving a weak score is rewarded. Levels are every 150 XP. The streak counts
+consecutive days in Indian Standard Time. There are 11 badges (each shows its
+progress while locked) and 7 reward avatars unlocked at levels 2-10; the server
+refuses a reward avatar the student has not reached. The leaderboard ranks
+students in a grade by XP (ties share a rank; teacher accounts are excluded).
+The chatbot's progress answer and the recommendation engine read the same
+data; recommendations now suggest the quiz for a chapter that has been read
+but not tested.
+
+Endpoints: `GET /api/gamification/{user_id}`, `GET /api/leaderboard?grade=6`,
+`POST /api/lessons/{lesson_id}/complete`; `POST /api/quiz-attempts` now also
+returns XP gained, new badges and any level-up.
+
 ## Still open
-Week 9 gamification module and teacher dashboard; Week 10 integration, testing and deployment. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.
+Week 9 teacher dashboard; Week 10 integration, testing and deployment. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.

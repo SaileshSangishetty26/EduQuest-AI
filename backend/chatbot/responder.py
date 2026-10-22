@@ -23,6 +23,7 @@ import random
 import re
 
 from ..content_order import sort_textbook
+from ..gamification.engine import GamificationEngine
 from ..nlp.classifier import CONFIDENCE_THRESHOLD
 
 # Used only when the query matches no content either. If a chapter matched,
@@ -140,21 +141,22 @@ class ChatResponder:
         attempts = list(
             self._db["quiz_attempts"].find({"user_id": user_id}, {"_id": 0, "score": 1})
         )
-        points = 0
+        # XP, level and streak come from the same engine as the dashboard, so
+        # the chatbot never quotes a different number from the one on screen.
         try:
-            from bson import ObjectId
-
-            user = self._db["users"].find_one({"_id": ObjectId(user_id)}, {"points": 1})
-            points = (user or {}).get("points", 0)
+            game = GamificationEngine(self._db).profile(user_id)
         except Exception:
-            points = 0
+            game = None
 
         scores = [a["score"] for a in attempts]
         return {
             "attempts": len(scores),
             "average": round(sum(scores) / len(scores)) if scores else 0,
             "best": max(scores) if scores else 0,
-            "points": points,
+            "points": game["xp"] if game else 0,
+            "level": game["level"] if game else 1,
+            "streak": game["streak"]["current"] if game else 0,
+            "badges": game["badges_earned"] if game else 0,
         }
 
     def _lessons_for(self, grade: int | None, subject: str | None = None) -> list[dict]:
@@ -429,7 +431,9 @@ class ChatResponder:
             f"You have completed {stats['attempts']} "
             f"{'quiz' if stats['attempts'] == 1 else 'quizzes'}, "
             f"averaging {stats['average']}%, with a best score of {stats['best']}%. "
-            f"You have {stats['points']} XP."
+            f"You have {stats['points']} XP (level {stats['level']}) and "
+            f"{stats['badges']} {'badge' if stats['badges'] == 1 else 'badges'}"
+            + (f", with a {stats['streak']}-day streak." if stats['streak'] > 1 else ".")
         ), None
 
     # -- entry point --------------------------------------------------------

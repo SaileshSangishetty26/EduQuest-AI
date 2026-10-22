@@ -71,6 +71,18 @@ export const api = {
   progress: (userId) =>
     request(`/progress/${userId}`),
 
+  gamification: (userId) =>
+    request(`/gamification/${userId}`),
+
+  leaderboard: (params = {}) =>
+    request('/leaderboard?' + new URLSearchParams(params)),
+
+  completeLesson: (lessonId, userId) =>
+    request(`/lessons/${lessonId}/complete`, {
+      method: 'POST',
+      body: JSON.stringify({ user_id: userId })
+    }),
+
   updateProfile: (userId, payload) =>
     request(`/auth/profile/${userId}`, {
       method: 'PATCH',

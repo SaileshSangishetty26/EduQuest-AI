@@ -6,6 +6,7 @@ class RegisterRequest(BaseModel):
     password: str = Field(min_length=6)
     grade: int = 6
     language: str = "en"
+    avatar: Optional[str] = None
 
 class LoginRequest(BaseModel):
     username: str
@@ -19,6 +20,7 @@ class UpdateProfileRequest(BaseModel):
     """
     grade: Optional[int] = None
     language: Optional[str] = None
+    avatar: Optional[str] = None
 
 
 class PublicUser(BaseModel):
