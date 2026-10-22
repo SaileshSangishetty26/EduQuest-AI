@@ -226,8 +226,8 @@ class ChatResponder:
             return _no_lesson_found(), None
         return (
             f"{_passage(lesson)}\n\n"
-            f"Read the rest in \"{lesson['title']}\" ({lesson['subject']}"
-            f"{_grade_note(lesson)}) for the full walkthrough."
+            f"Read the rest in \"{lesson['title']}\", {lesson['subject']}"
+            f"{_grade_note(lesson)}, for the full walkthrough."
         ), lesson
 
     def _example_request(self, lesson):
@@ -444,8 +444,8 @@ class ChatResponder:
                     "reply": (
                         f"{UNSURE_BUT_RELEVANT}\n\n"
                         f"{_passage(lesson)}\n\n"
-                        f"That is from \"{lesson['title']}\" "
-                        f"({lesson['subject']}{_grade_note(lesson)}). "
+                        f"That is from \"{lesson['title']}\" in "
+                        f"{lesson['subject']}{_grade_note(lesson)}. "
                         "If that is not what you meant, try rephrasing."
                     ),
                     "understood": False,
