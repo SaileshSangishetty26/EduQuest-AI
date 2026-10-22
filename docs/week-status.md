@@ -173,5 +173,14 @@ second one. Support now counts for 40% of the rank instead of 60%
 (`RANK_BASE`), the first *acceptable* candidate is used, and the test prints
 the top three candidates for every question.
 
+Third run: 30/35 (85%) - Mathematics 10/10, Telugu 4/4, off-topic 3/3,
+Science 8/10, English 5/8. The vitamin C question found the right chapter at
+relevance 0.382, just under the 0.40 bar for reading a passage; the bar is now
+0.36 (an answer from a weak passage must still contain the question's words).
+The other misses ("who taught Ila", "who named the neem tree", "who was
+Gajaraj", the laboratory thermometer's range) had no correct candidate in the
+model's top three - a limit of the DistilBERT answer model rather than of the
+ranking.
+
 ## Still open
 Week 9 teacher dashboard; Week 10 integration, testing and deployment. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.

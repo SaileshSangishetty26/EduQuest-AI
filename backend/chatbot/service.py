@@ -50,7 +50,7 @@ PASSAGES_TO_READ = 6
 # Passages down to this retrieval score are read, below the usual relevance bar,
 # because an answer from one must also be backed by the question's own words
 # (see MIN_SUPPORT) - two independent signals have to agree.
-QA_MIN_RELEVANCE = 0.40
+QA_MIN_RELEVANCE = 0.36   # run 3: the scurvy passage scored 0.382
 MIN_SUPPORT = 0.5
 
 # The intent classifier learned "off topic" from questions like "what is the
