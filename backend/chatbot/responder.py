@@ -25,6 +25,7 @@ import re
 from ..content_order import sort_textbook
 from ..gamification.engine import GamificationEngine
 from ..nlp.classifier import CONFIDENCE_THRESHOLD
+from ..nlp.excerpt import focus
 
 # Used only when the query matches no content either. If a chapter matched,
 # the student gets that instead - see `respond`.
@@ -77,6 +78,19 @@ def _grade_note(lesson: dict) -> str:
 def _passage(lesson: dict) -> str:
     """The matched section text, falling back to the chapter summary."""
     return (lesson.get("text") or lesson.get("summary") or "").strip()
+
+
+def _focused(lesson: dict | None, query_text: str | None) -> dict | None:
+    """
+    Trim the matched section to the sentences that answer the question (Week 10).
+
+    Sections from the PDFs mix explanation with exercises and figure labels;
+    see backend/nlp/excerpt.py.
+    """
+    if not lesson:
+        return lesson
+    text = focus(lesson.get("text") or "", query_text, fallback=lesson.get("summary"))
+    return {**lesson, "text": text}
 
 
 def _no_lesson_found(topic_word: str = "that topic") -> str:
@@ -496,10 +510,11 @@ class ChatResponder:
             if intent == "progress_help" and self._asks_untracked(query_text):
                 return {"reply": self.UNTRACKED_REPLY, "understood": True, "lesson": None}
 
-            lesson = (
+            lesson = _focused(
                 self._find_lesson(query_vector, grade, query_text)
                 if query_vector is not None
-                else None
+                else None,
+                query_text,
             )
             if lesson:
                 return {
@@ -542,10 +557,11 @@ class ChatResponder:
             return {"reply": reply, "understood": True, "lesson": _lesson_link(lesson)}
 
         # The remaining intents all benefit from finding a relevant chapter.
-        lesson = (
+        lesson = _focused(
             self._find_lesson(query_vector, grade, query_text)
             if query_vector is not None
-            else None
+            else None,
+            query_text,
         )
 
         handlers = {

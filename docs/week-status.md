@@ -55,6 +55,11 @@
 | 10 | Maths calculations with working (fractions, integers, primes, HCF/LCM, perimeter/area) | COMPLETE |
 | 10 | Telugu questions answered from the Telugu chapters | COMPLETE |
 | 10 | One chat pipeline for the app, demo and tests (`backend/chatbot/service.py`) | COMPLETE |
+| 10 | Automated tests: 92 backend tests on an in-memory database (`python -m pytest`) | COMPLETE |
+| 10 | End-to-end system check on the real database and models (`python -m backend.check_system`) | COMPLETE |
+| 10 | Readable chatbot passages (no exercise items, figure labels or false true/false statements) | COMPLETE |
+| 10 | Maths working for multi-step sums; division by zero answered | COMPLETE |
+| 10 | Hosting online | NOT PLANNED (team decision: demo runs on the project laptop) |
 
 See `docs/week6-nlp-preprocessing.md`, `docs/week7-intent-detection.md` and
 `docs/week8-chatbot-recommendations.md` for the design notes and measured
@@ -261,5 +266,10 @@ a lesson or moral to the passage reply instead. Answers are also taken only
 from the chapter the search ranked first. The test gained three explanation
 questions that must get the passage, not a span.
 
+## Week 10: integration and testing
+See `docs/week10-testing.md`: the four levels of testing, the problems they
+found and how each was fixed, and a step-by-step demo run-through for the
+presentation.
+
 ## Still open
-Week 10 integration, testing and deployment. Requests identify the user by id rather than a signed login token, so the teacher check trusts the id the browser sends; a token (for example a JWT issued at login) is the fix before real deployment. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.
+Hosting is not planned for now. Requests identify the user by id rather than a signed login token, so the teacher check trusts the id the browser sends; a token (for example a JWT issued at login) is the fix before real deployment. Still English-only, and the two Telugu chapters are tagged `"language": "en"` in lessons.json. The chat endpoint is stateless, so `clarification` cannot refer back to the previous turn. Study time is not recorded anywhere.

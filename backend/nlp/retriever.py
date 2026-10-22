@@ -24,6 +24,7 @@ from functools import lru_cache
 import numpy as np
 
 from .config import DATA_DIR, PROCESSED_DIR
+from .excerpt import is_exercise
 
 # Words stripped before lexical matching. The Week 6 preprocessing keeps
 # question words on purpose - they carry intent - but here they are pure noise:
@@ -256,21 +257,41 @@ class LessonRetriever:
         result is marked so the reply can say which grade it came from.
         """
         results = self.search(
-            query_vector, grade=grade, top_k=1, query_text=query_text
+            query_vector, grade=grade, top_k=SECTIONS_TO_CONSIDER, query_text=query_text
         )
         if results and results[0]["score"] >= RELEVANCE_THRESHOLD:
-            results[0]["from_other_grade"] = False
-            return results[0]
+            best = _prefer_prose(results)
+            best["from_other_grade"] = False
+            return best
 
         if not allow_other_grades or grade is None:
             return None
 
-        wider = self.search(query_vector, grade=None, top_k=1, query_text=query_text)
+        wider = self.search(query_vector, grade=None, top_k=SECTIONS_TO_CONSIDER, query_text=query_text)
         if wider and wider[0]["score"] >= RELEVANCE_THRESHOLD:
-            wider[0]["from_other_grade"] = wider[0]["grade"] != grade
-            return wider[0]
+            best = _prefer_prose(wider)
+            best["from_other_grade"] = best["grade"] != grade
+            return best
 
         return None
+
+
+# Week 10: when the best section is an exercise block, a section of the same
+# chapter scoring almost as well is shown instead. The chapter never changes.
+SECTIONS_TO_CONSIDER = 8
+PROSE_MARGIN = 0.05
+
+
+def _prefer_prose(results: list[dict]) -> dict:
+    top = results[0]
+    if not is_exercise(top.get("text", "")):
+        return top
+    for other in results[1:]:
+        if (other["id"] == top["id"]
+                and other["score"] >= max(top["score"] - PROSE_MARGIN, RELEVANCE_THRESHOLD)
+                and not is_exercise(other.get("text", ""))):
+            return other
+    return top
 
 
 @lru_cache(maxsize=1)

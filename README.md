@@ -1,6 +1,6 @@
-# EduQuest — Weeks 2–9
+# EduQuest — Weeks 2–10
 
-This is the actual implementation for the first nine implementation weeks of the EduQuest project (Grade 6).
+This is the implementation of all ten weeks of the EduQuest project (Grade 6).
 
 The original `eduquest.html` was treated as a prototype/reference. The final application is rebuilt with:
 
@@ -15,6 +15,7 @@ The original `eduquest.html` was treated as a prototype/reference. The final app
 - Week 7 intent detection (12 intents, 89.1% CV) and the chatbot endpoint
 - Week 8 React chat interface and rule-based recommendation engine
 - Week 9 concept-tagged quizzes, gamification (XP, levels, streaks, badges, leaderboard) and the teacher dashboard
+- Week 10 integration and testing: automated tests, an end-to-end system check and a demo run-through
 
 ## Run
 
@@ -116,5 +117,18 @@ python -m backend.seed_demo_class --remove  # delete it again
 
 See `docs/week-status.md` for what each panel shows and how it is computed.
 
+### 7. Week 10 testing
+From the project root, with the virtual environment active:
+
+```bash
+pip install -r backend/requirements-dev.txt   # once: pytest, mongomock, httpx
+python -m pytest                              # 92 automated tests, ~10 seconds, no database needed
+python -m backend.check_system                # the whole app end to end on your MongoDB and models
+```
+
+`docs/week10-testing.md` lists what each test covers, the problems testing
+found, and a step-by-step demo run-through for the presentation.
+
 ## Important
-Weeks 2–9 are implemented. Integration testing and deployment are Week 10.
+All ten weeks are implemented. The app is not hosted online (team decision);
+it runs locally as described above.

@@ -334,14 +334,75 @@ def solve_arithmetic(q: str) -> MathAnswer | None:
         return None  # a single number is not a calculation
     try:
         value = evaluate(candidate)
-    except (SyntaxError, ValueError, ZeroDivisionError):
+    except ZeroDivisionError:
+        # Answer it rather than fall through to the textbook search.
+        return MathAnswer(f"{candidate} has no answer: we cannot divide by zero.",
+                          ["Division asks which number times the divisor gives the dividend.",
+                           "No number multiplied by 0 gives anything except 0, so there is no answer."],
+                          "numbers")
+    except (SyntaxError, ValueError):
         return None
 
     has_fraction = "/" in candidate
     has_negative = bool(re.search(r"(^|[(*/+\-]\s*)-\s*\d", candidate)) or value < 0
     topic = "fractions" if has_fraction else "integers" if has_negative else "numbers"
-    working = _fraction_working(candidate) if has_fraction else _integer_working(candidate, value)
+    if has_fraction:
+        working = _fraction_working(candidate)
+    else:
+        working = _integer_working(candidate, value) if has_negative else []
+    steps = _operation_steps(candidate)
+    if len(steps) > 1 and not (has_fraction and working):
+        working = [_order_rule(candidate), *steps, *working]
     return MathAnswer(f"{candidate} = {fmt_mixed(value)}", working, topic)
+
+
+OPERATORS = {ast.Add: "+", ast.Sub: "-", ast.Mult: "×", ast.Div: "÷"}
+
+
+def _order_rule(expr: str) -> str:
+    if "(" in expr:
+        return "Work out the brackets first, then × and ÷, then + and -."
+    ops = [n for n in ast.walk(ast.parse(expr, mode="eval")) if isinstance(n, ast.BinOp)]
+    fraction = lambda n: (isinstance(n.op, ast.Div) and isinstance(n.left, ast.Constant)
+                          and isinstance(n.right, ast.Constant))
+    times_or_divide = any(isinstance(n.op, (ast.Mult, ast.Div)) and not fraction(n) for n in ops)
+    plus_or_minus = any(isinstance(n.op, (ast.Add, ast.Sub)) for n in ops)
+    if times_or_divide and plus_or_minus:
+        return "Multiply and divide before you add and subtract."
+    return "Work from left to right."
+
+
+def _operation_steps(expr: str) -> list[str]:
+    """One line per operation, in the order it is worked out: 2 + 3 × 4 -> 3 × 4 = 12, 2 + 12 = 14."""
+    steps: list[str] = []
+
+    def show(v: Fraction) -> str:
+        return f"({fmt(v)})" if v < 0 else fmt(v)
+
+    def walk(node) -> Fraction:
+        if isinstance(node, ast.Expression):
+            return walk(node.body)
+        if isinstance(node, ast.Constant):
+            return Fraction(node.value)
+        if isinstance(node, ast.UnaryOp):
+            v = walk(node.operand)
+            return -v if isinstance(node.op, ast.USub) else v
+        if (isinstance(node.op, ast.Div) and isinstance(node.left, ast.Constant)
+                and isinstance(node.right, ast.Constant) and node.right.value):
+            return Fraction(node.left.value, node.right.value)   # a fraction like 1/3, not a step
+        left, right = walk(node.left), walk(node.right)
+        value = {ast.Add: left + right, ast.Sub: left - right, ast.Mult: left * right}.get(
+            type(node.op), left / right if right else None)
+        if value is None:
+            raise ZeroDivisionError
+        steps.append(f"{fmt(left)} {OPERATORS[type(node.op)]} {show(right)} = {fmt(value)}")
+        return value
+
+    try:
+        walk(ast.parse(expr, mode="eval"))
+    except (SyntaxError, ZeroDivisionError):
+        return []
+    return steps
 
 
 def _fraction_working(expr: str) -> list[str]:
