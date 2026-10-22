@@ -23,31 +23,41 @@ export default function Lessons({ user, level, streak, completedLessons = [], on
 
   const subjects = ['English', 'Mathematics', 'Science', 'Telugu'];
 
-  const load = () => {
+  useEffect(() => {
+    // Only the latest request may update the page. Without this, clicking
+    // Science while the slower "All subjects" list is still loading let that
+    // list arrive last and overwrite the Science chapters.
+    let current = true;
+    const params = { grade: user.grade, subject };
+
     // If nothing exists in the student's language, fall back to English rather
     // than showing an empty page. The content bank is English-only, so without
     // this a Telugu or Hindi student sees no chapters at all.
-    api.lessons({ grade: user.grade, language: user.language, subject })
+    api.lessons({ ...params, language: user.language })
       .then(data => {
         if (data.length === 0 && user.language !== 'en') {
-          return api.lessons({ grade: user.grade, language: 'en', subject })
-            .then(englishData => {
-              setUsingFallback(englishData.length > 0);
-              setLessons(englishData);
-            });
+          return api.lessons({ ...params, language: 'en' })
+            .then(englishData => ({ list: englishData, fallback: englishData.length > 0 }));
         }
-        setUsingFallback(false);
-        setLessons(data);
+        return { list: data, fallback: false };
+      })
+      .then(({ list, fallback }) => {
+        if (!current) return;
+        setUsingFallback(fallback);
+        setLessons(list);
       })
       .catch(() => {
+        if (!current) return;
         setUsingFallback(false);
         setLessons([]);
       });
-    api.quizzes({ grade: user.grade, subject })
-      .then(setQuizzes).catch(() => setQuizzes([]));
-  };
 
-  useEffect(() => { load(); }, [user.grade, user.language, subject]);
+    api.quizzes(params)
+      .then(data => { if (current) setQuizzes(data); })
+      .catch(() => { if (current) setQuizzes([]); });
+
+    return () => { current = false; };
+  }, [user.grade, user.language, subject]);
 
   const languageName = LANGUAGE_NAMES[user.language] || user.language;
 
