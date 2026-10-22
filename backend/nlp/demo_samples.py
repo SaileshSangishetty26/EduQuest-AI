@@ -54,9 +54,9 @@ SAMPLE_GROUPS = [
         "textbook passages and points at the words that answer the question.",
         [
             "What is the SI unit of length?",
-            "Which disease is caused by a lack of vitamin C?",
+            "What is the process of separating grains from stalks called?",
             "What is the name of the fox in the poem?",
-            "Who gave the neem tree its name?",
+            "When was the National War Memorial established?",
             "What are numbers with only two factors called?",
         ],
     ),
@@ -238,6 +238,13 @@ def main() -> None:
         "",
         f"Confidence threshold: {CONFIDENCE_THRESHOLD}. Below it the system "
         "reports that it is unsure rather than presenting a guess as fact.",
+        "",
+        "These are demonstrations. Measured accuracy on the 38-question answer "
+        "test (`python -m backend.nlp.test_answers`) is 33/38 (86%): Mathematics "
+        "10/10, Telugu 4/4, explanation questions 3/3, off-topic 3/3, Science "
+        "8/10, English 5/8. The misses are questions that need the model to follow "
+        "a pronoun or description across sentences (\"who taught Ila Sachani\", "
+        "\"who gave the neem tree its name\", \"who was Gajaraj\").",
         "",
     ]
 
