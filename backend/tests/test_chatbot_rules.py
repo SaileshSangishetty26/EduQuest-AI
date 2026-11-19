@@ -56,6 +56,25 @@ def test_mixed_operations_show_the_order():
     assert solve("what is (2 + 3) * 4").working[1:] == ["2 + 3 = 5", "5 × 4 = 20"]
 
 
+@pytest.mark.parametrize("question,expected", [
+    ("1.25+2.35+6", "= 9.6"),
+    ("what is 0.1 + 0.2", "= 0.3"),           # exact, not 0.30000000000000004
+    ("2.5 x 4", "= 10"),
+    ("10 - 3.75", "= 6.25"),
+    ("what is 2.5 + 3 * 1.2", "= 6.1"),
+    ("1.0/3", "≈ 0.3333"),
+])
+def test_decimals_are_worked_out(question, expected):
+    result = solve(question)
+    assert result is not None, question
+    assert result.answer.endswith(expected)
+    assert result.working
+
+
+def test_decimal_steps_show_each_operation():
+    assert solve("1.25+2.35+6").working[1:] == ["1.25 + 2.35 = 3.6", "3.6 + 6 = 9.6"]
+
+
 def test_division_by_zero_is_explained():
     result = solve("what is 10 divided by 0")
     assert result is not None and "cannot divide by zero" in result.answer
