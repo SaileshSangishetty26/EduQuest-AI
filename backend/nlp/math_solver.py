@@ -5,7 +5,7 @@ The textbook passages can explain what a fraction is, but no passage contains
 the answer to "what is 1/3 + 1/6". Calculation questions are recognised by
 pattern and solved exactly here, showing the steps the chapter teaches:
 
-    arithmetic        "what is 1/3 + 1/6", "-4 + -3", "(+6) - (-9)", "3/4 of 20"
+    arithmetic        "what is 1/3 + 1/6", "-4 + -3", "(+6) - (-9)", "3/4 of 20", "1.25 + 2.35 + 6"
     simplest form     "simplify 12/16"
     comparing         "which is greater, 3/5 or 3/7"
     primes            "is 29 prime", "factors of 24", "prime factorisation of 56"
@@ -55,6 +55,30 @@ def fmt(value: Fraction) -> str:
     if value.denominator == 1:
         return str(value.numerator)
     return f"{value.numerator}/{value.denominator}"
+
+
+def is_exact_decimal(value: Fraction) -> bool:
+    """True when the value ends as a decimal (its denominator has only 2s and 5s)."""
+    d = Fraction(value).denominator
+    for p in (2, 5):
+        while d % p == 0:
+            d //= p
+    return d == 1
+
+
+def fmt_dec(value: Fraction) -> str:
+    """9.6, 0.25, -1.5; a value that never ends is rounded to 4 places (1/3 -> 0.3333)."""
+    value = Fraction(value)
+    if value.denominator == 1:
+        return str(value.numerator)
+    if is_exact_decimal(value):
+        sign, value = ("-" if value < 0 else ""), abs(value)
+        places = 0
+        while (value * 10 ** places).denominator != 1:
+            places += 1
+        digits = str((value * 10 ** places).numerator).rjust(places + 1, "0")
+        return f"{sign}{digits[:-places]}.{digits[-places:]}"
+    return f"{float(value):.4f}"
 
 
 def fmt_mixed(value: Fraction) -> str:
@@ -285,19 +309,25 @@ ALLOWED = (ast.Expression, ast.BinOp, ast.UnaryOp, ast.Constant, ast.Add, ast.Su
            ast.Mult, ast.Div, ast.USub, ast.UAdd)
 
 
+def number(value) -> Fraction:
+    """A literal as an exact Fraction: 2.35 -> 47/20, not the nearest binary float."""
+    return Fraction(repr(value)) if isinstance(value, float) else Fraction(value)
+
+
 def evaluate(expr: str) -> Fraction:
     tree = ast.parse(expr, mode="eval")
     for node in ast.walk(tree):
         if not isinstance(node, ALLOWED):
             raise ValueError("not plain arithmetic")
-        if isinstance(node, ast.Constant) and not isinstance(node.value, int):
-            raise ValueError("only whole numbers and fractions")
+        if isinstance(node, ast.Constant) and (isinstance(node.value, bool)
+                                               or not isinstance(node.value, (int, float))):
+            raise ValueError("only whole numbers, decimals and fractions")
 
     def ev(node):
         if isinstance(node, ast.Expression):
             return ev(node.body)
         if isinstance(node, ast.Constant):
-            return Fraction(node.value)
+            return number(node.value)
         if isinstance(node, ast.UnaryOp):
             v = ev(node.operand)
             return -v if isinstance(node.op, ast.USub) else v
@@ -330,7 +360,7 @@ def solve_arithmetic(q: str) -> MathAnswer | None:
     candidate = candidate.rstrip("?.! =").strip()
     if not re.fullmatch(r"[\d\s+\-*/().]+", candidate):
         return None
-    if not re.search(r"\d\s*\)?\s*[+\-*/]\s*\(?\s*[+-]?\d", candidate):
+    if not re.search(r"\d\s*\)?\s*[+\-*/]\s*\(?\s*[+-]?\.?\d", candidate):
         return None  # a single number is not a calculation
     try:
         value = evaluate(candidate)
@@ -343,6 +373,9 @@ def solve_arithmetic(q: str) -> MathAnswer | None:
     except (SyntaxError, ValueError):
         return None
 
+    if "." in candidate:
+        return _decimal_answer(candidate, value)
+
     has_fraction = "/" in candidate
     has_negative = bool(re.search(r"(^|[(*/+\-]\s*)-\s*\d", candidate)) or value < 0
     topic = "fractions" if has_fraction else "integers" if has_negative else "numbers"
@@ -354,6 +387,22 @@ def solve_arithmetic(q: str) -> MathAnswer | None:
     if len(steps) > 1 and not (has_fraction and working):
         working = [_order_rule(candidate), *steps, *working]
     return MathAnswer(f"{candidate} = {fmt_mixed(value)}", working, topic)
+
+
+def _decimal_answer(candidate: str, value: Fraction) -> MathAnswer:
+    """Sums with decimals, e.g. 1.25 + 2.35 + 6 = 9.6, worked one operation at a time."""
+    ops = {type(n.op) for n in ast.walk(ast.parse(candidate, mode="eval")) if isinstance(n, ast.BinOp)}
+    if ops <= {ast.Add, ast.Sub}:
+        tip = "Line up the decimal points, then add or subtract place by place."
+    elif ops <= {ast.Mult}:
+        tip = "Multiply as if there were no decimal points, then count the decimal places."
+    else:
+        tip = _order_rule(candidate)
+    steps = _operation_steps(candidate, decimal=True)
+    sign = "=" if is_exact_decimal(value) else "≈"
+    negative = bool(re.search(r"(^|[(*/+\-]\s*)-\s*[\d.]", candidate)) or value < 0
+    return MathAnswer(f"{candidate} {sign} {fmt_dec(value)}", [tip, *steps],
+                      "integers" if negative else "numbers")
 
 
 OPERATORS = {ast.Add: "+", ast.Sub: "-", ast.Mult: "×", ast.Div: "÷"}
@@ -372,30 +421,33 @@ def _order_rule(expr: str) -> str:
     return "Work from left to right."
 
 
-def _operation_steps(expr: str) -> list[str]:
+def _operation_steps(expr: str, decimal: bool = False) -> list[str]:
     """One line per operation, in the order it is worked out: 2 + 3 × 4 -> 3 × 4 = 12, 2 + 12 = 14."""
     steps: list[str] = []
+    f = fmt_dec if decimal else fmt
 
     def show(v: Fraction) -> str:
-        return f"({fmt(v)})" if v < 0 else fmt(v)
+        return f"({f(v)})" if v < 0 else f(v)
 
     def walk(node) -> Fraction:
         if isinstance(node, ast.Expression):
             return walk(node.body)
         if isinstance(node, ast.Constant):
-            return Fraction(node.value)
+            return number(node.value)
         if isinstance(node, ast.UnaryOp):
             v = walk(node.operand)
             return -v if isinstance(node.op, ast.USub) else v
         if (isinstance(node.op, ast.Div) and isinstance(node.left, ast.Constant)
-                and isinstance(node.right, ast.Constant) and node.right.value):
+                and isinstance(node.right, ast.Constant) and type(node.left.value) is int
+                and type(node.right.value) is int and node.right.value):
             return Fraction(node.left.value, node.right.value)   # a fraction like 1/3, not a step
         left, right = walk(node.left), walk(node.right)
         value = {ast.Add: left + right, ast.Sub: left - right, ast.Mult: left * right}.get(
             type(node.op), left / right if right else None)
         if value is None:
             raise ZeroDivisionError
-        steps.append(f"{fmt(left)} {OPERATORS[type(node.op)]} {show(right)} = {fmt(value)}")
+        sign = "=" if not decimal or is_exact_decimal(value) else "≈"
+        steps.append(f"{f(left)} {OPERATORS[type(node.op)]} {show(right)} {sign} {f(value)}")
         return value
 
     try:
